@@ -5,8 +5,7 @@ from .email import EmailObject
 
 class TriageInput(BaseModel):
     """
-    What the Triage Agent receives.
-    Just the parsed email — nothing else needed at this stage.
+    What the Triage Agent receives. 
     """
 
     email: EmailObject
