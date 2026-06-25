@@ -1,2 +1,36 @@
-__pycache__
+# Environment & secrets
 .env
+.env.*
+credentials.json
+token.json
+*.pem
+*.key
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Logs & data artifacts
+logs/
+*.jsonl
+*.log
+
+# ChromaDB local persistence
+chroma_db/
+*.sqlite3
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# Pytest/cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
