@@ -24,7 +24,8 @@ RULES = [
     ]),
     ("support", [
         r"\bnot working\b", r"\berror\b", r"\bissue\b", r"\bbroken\b",
-        r"\bcan't (log in|login|access)\b", r"\breset (my )?password\b",
+        r"\bcan't (log in|login|access)\b",
+        r"\b(reset (my )?password|password reset)\b",
     ]),
 ]
 

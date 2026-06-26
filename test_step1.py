@@ -28,3 +28,27 @@ result = graph.invoke({
     "tokens_used": None, "latency_ms": None,
 })
 print(result["response"], "| tokens:", result["tokens_used"], "| latency_ms:", result["latency_ms"])
+
+
+support_email = {
+    "email_id": "sup-1", "sender": "test@example.com",
+    "subject": "", "body": "This is broken and I'm so frustrated, nothing works!",
+    "category": None, "handler_used": None, "response": None,
+    "tokens_used": None, "latency_ms": None,
+}
+
+# wait — this routes to "emotional" not "support" after our reorder!
+
+
+print("\n--- Cache test ---")
+
+support_email_text = "My password reset isn't working"
+
+for attempt in range(2):
+    result = graph.invoke({
+        "email_id": f"sup-{attempt}", "sender": "test@example.com",
+        "subject": "", "body": support_email_text,
+        "category": None, "handler_used": None, "response": None,
+        "tokens_used": None, "latency_ms": None,
+    })
+    print(f"Attempt {attempt+1}: {result['category']} -> {result['handler_used']} -> {result['response']}")
