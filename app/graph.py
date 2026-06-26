@@ -1,4 +1,5 @@
 from langgraph.graph import StateGraph, END
+import time
 from app.state import EmailState
 from app.classifier import classify_email
 from app.handlers.template import template_handler
@@ -17,8 +18,11 @@ def route_decision(state: EmailState) -> str:
     return state["category"]
 
 def spam_node(state: EmailState) -> EmailState:
+    start = time.perf_counter()
     state["handler_used"] = "blocked"
     state["response"] = "[blocked — flagged as spam/phishing]"
+    state["tokens_used"] = 0
+    state["latency_ms"] = (time.perf_counter() - start) * 1000
     return state
 
 

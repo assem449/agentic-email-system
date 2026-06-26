@@ -7,6 +7,11 @@ RULES = [
         r"\bwire transfer\b.*\burgent\b", r"\bverify your account\b",
     ]),
     ("ack", [
+        # NOTE: strict exact-match patterns by design. Catches canonical acks
+        # ("Thanks!", "Got it") but misses natural variation ("Thanks so much!",
+        # "Got it, appreciate it") — these fall through to "ambiguous" -> LLM.
+        # Observed in eval_run.py: 2/14 misclassifications, both "ack" -> "ambiguous".
+        # Motivates DistilBERT upgrade (Step 2 future work).
         r"^\s*thanks?!?\s*$", r"^\s*thank you!?\s*$", r"^\s*ok!?\s*$",
         r"^\s*got it!?\s*$", r"^\s*sounds good!?\s*$",
     ]),

@@ -1,0 +1,16 @@
+[
+  {"id": "1", "subject": "Quick note", "body": "Thanks so much!", "true_category": "ack"},
+  {"id": "2", "subject": "Re: update", "body": "Got it, appreciate the update.", "true_category": "ack"},
+  {"id": "3", "subject": "Meeting", "body": "Can we schedule a call for next Tuesday afternoon?", "true_category": "meeting"},
+  {"id": "4", "subject": "Availability", "body": "What's your availability this week for a sync?", "true_category": "meeting"},
+  {"id": "5", "subject": "Question", "body": "How do I reset my API key?", "true_category": "faq"},
+  {"id": "6", "subject": "Pricing", "body": "What are your pricing plans?", "true_category": "faq"},
+  {"id": "7", "subject": "Issue", "body": "My password reset isn't working.", "true_category": "support"},
+  {"id": "8", "subject": "Bug", "body": "I'm getting an error when I try to log in.", "true_category": "support"},
+  {"id": "9", "subject": "Frustrated", "body": "This is so frustrating, nothing has worked for days!", "true_category": "emotional"},
+  {"id": "10", "subject": "Disappointed", "body": "I'm really disappointed with the service I received.", "true_category": "emotional"},
+  {"id": "11", "subject": "Random", "body": "I was thinking about our last conversation and wanted to follow up on some thoughts.", "true_category": "ambiguous"},
+  {"id": "12", "subject": "General", "body": "Just wanted to check in on a few things related to the project.", "true_category": "ambiguous"},
+  {"id": "13", "subject": "Account", "body": "Urgent: verify your account now or it will be suspended, click here", "true_category": "spam"},
+  {"id": "14", "subject": "Offer", "body": "Congratulations, you've won a crypto giveaway! Wire transfer urgent", "true_category": "spam"}
+]
