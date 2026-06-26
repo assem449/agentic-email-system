@@ -5,6 +5,8 @@ from app.handlers.template import template_handler
 from app.handlers.cache import cache_handler
 from app.handlers.retrieval import retrieval_handler
 from app.handlers.calendar import calendar_handler
+from app.handlers.llm import llm_handler
+from app.logging_utils import log_routing_decision
 
 def classify_node(state: EmailState) -> EmailState:
     state["category"] = classify_email(state["subject"], state["body"])
@@ -19,10 +21,6 @@ def spam_node(state: EmailState) -> EmailState:
     state["response"] = "[blocked — flagged as spam/phishing]"
     return state
 
-def llm_node(state: EmailState) -> EmailState:
-    state["handler_used"] = "llm"
-    state["response"] = "[llm response placeholder]"
-    return state
 
 def build_graph():
     g = StateGraph(EmailState)
@@ -32,7 +30,7 @@ def build_graph():
     g.add_node("cache", cache_handler)
     g.add_node("retrieval", retrieval_handler)
     g.add_node("calendar", calendar_handler)
-    g.add_node("llm", llm_node)
+    g.add_node("llm", llm_handler)
     g.add_node("spam", spam_node)
 
     g.set_entry_point("classify")
@@ -51,7 +49,10 @@ def build_graph():
         },
     )
 
+    g.add_node("log", log_routing_decision)
     for node in ["template", "cache", "retrieval", "calendar", "llm", "spam"]:
-        g.add_edge(node, END)
+        g.add_edge(node, "log")
+
+    g.add_edge("log", END)
 
     return g.compile()

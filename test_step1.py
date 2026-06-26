@@ -81,12 +81,14 @@ from app.handlers.retrieval import _collection
 r = _collection.query(query_texts=["Can you tell me how to get a new API key?"], n_results=1)
 print("distance:", r["distances"][0][0])
 
-
-print("\n--- Calendar test ---")
+print("\n--- LLM test ---")
 result = graph.invoke({
-    "email_id": "cal-1", "sender": "test@example.com",
-    "subject": "", "body": "Can we schedule a meeting for next Tuesday?",
+    "email_id": "llm-1", "sender": "test@example.com",
+    "subject": "Order issue",
+    "body": "This is broken and I'm so frustrated, nothing works!",
     "category": None, "handler_used": None, "response": None,
     "tokens_used": None, "latency_ms": None,
 })
-print(f"{result['category']} -> {result['handler_used']} -> {result['response']}")
+print(f"{result['category']} -> {result['handler_used']}")
+print(f"tokens: {result['tokens_used']} | latency_ms: {result['latency_ms']:.1f}")
+print(f"response: {result['response']}")
