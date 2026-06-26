@@ -34,7 +34,7 @@ def classify_email(subject: str, body: str) -> str:
 
     for category, patterns in RULES:
         for pattern in patterns:
-            if re.search(pattern, text):
+            if re.search(pattern, text, re.MULTILINE):
                 return category
 
-    return "ambiguous"  # fallback when nothing matches
+    return "ambiguous"
