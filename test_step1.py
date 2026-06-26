@@ -80,3 +80,13 @@ print(f"{result['category']} -> {result['handler_used']} -> {result['response']}
 from app.handlers.retrieval import _collection
 r = _collection.query(query_texts=["Can you tell me how to get a new API key?"], n_results=1)
 print("distance:", r["distances"][0][0])
+
+
+print("\n--- Calendar test ---")
+result = graph.invoke({
+    "email_id": "cal-1", "sender": "test@example.com",
+    "subject": "", "body": "Can we schedule a meeting for next Tuesday?",
+    "category": None, "handler_used": None, "response": None,
+    "tokens_used": None, "latency_ms": None,
+})
+print(f"{result['category']} -> {result['handler_used']} -> {result['response']}")
