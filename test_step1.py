@@ -1,4 +1,5 @@
 from app.graph import build_graph
+from app.handlers.retrieval import _collection
 
 graph = build_graph()
 
@@ -52,3 +53,30 @@ for attempt in range(2):
         "tokens_used": None, "latency_ms": None,
     })
     print(f"Attempt {attempt+1}: {result['category']} -> {result['handler_used']} -> {result['response']}")
+
+
+print("\n--- Retrieval test ---")
+result = graph.invoke({
+    "email_id": "faq-1", "sender": "test@example.com",
+    "subject": "", "body": "How do I reset my API key?",
+    "category": None, "handler_used": None, "response": None,
+    "tokens_used": None, "latency_ms": None,
+})
+print(f"{result['category']} -> {result['handler_used']} -> {result['response']}")
+
+
+r = _collection.query(query_texts=["How do I reset my API key?"], n_results=1)
+print("distance:", r["distances"][0][0])
+
+print("\n--- Retrieval test 2 (paraphrased) ---")
+result = graph.invoke({
+    "email_id": "faq-2", "sender": "test@example.com",
+    "subject": "", "body": "Can you tell me how to get a new API key?",
+    "category": None, "handler_used": None, "response": None,
+    "tokens_used": None, "latency_ms": None,
+})
+print(f"{result['category']} -> {result['handler_used']} -> {result['response']}")
+
+from app.handlers.retrieval import _collection
+r = _collection.query(query_texts=["Can you tell me how to get a new API key?"], n_results=1)
+print("distance:", r["distances"][0][0])
