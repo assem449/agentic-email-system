@@ -1,6 +1,7 @@
 from langgraph.graph import StateGraph, END
 from app.state import EmailState
 from app.classifier import classify_email
+from app.handlers.template import template_handler
 
 def classify_node(state: EmailState) -> EmailState:
     state["category"] = classify_email(state["subject"], state["body"])
@@ -13,11 +14,6 @@ def route_decision(state: EmailState) -> str:
 def spam_node(state: EmailState) -> EmailState:
     state["handler_used"] = "blocked"
     state["response"] = "[blocked — flagged as spam/phishing]"
-    return state
-
-def template_node(state: EmailState) -> EmailState:
-    state["handler_used"] = "template"
-    state["response"] = "[template response placeholder]"
     return state
 
 def cache_node(state: EmailState) -> EmailState:
@@ -44,7 +40,7 @@ def build_graph():
     g = StateGraph(EmailState)
 
     g.add_node("classify", classify_node)
-    g.add_node("template", template_node)
+    g.add_node("template", template_handler)
     g.add_node("cache", cache_node)
     g.add_node("retrieval", retrieval_node)
     g.add_node("calendar", calendar_node)

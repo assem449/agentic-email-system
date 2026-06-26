@@ -19,3 +19,12 @@ for i, e in enumerate(test_emails):
         "tokens_used": None, "latency_ms": None,
     })
     print(f"{e['body'][:40]:40} -> {result['category']:10} -> {result['handler_used']}")
+
+
+result = graph.invoke({
+    "email_id": "ack-1", "sender": "test@example.com",
+    "subject": "", "body": "Thanks!",
+    "category": None, "handler_used": None, "response": None,
+    "tokens_used": None, "latency_ms": None,
+})
+print(result["response"], "| tokens:", result["tokens_used"], "| latency_ms:", result["latency_ms"])
