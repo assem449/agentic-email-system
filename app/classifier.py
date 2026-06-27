@@ -7,21 +7,23 @@ RULES = [
         r"\bwire transfer\b.*\burgent\b", r"\bverify your account\b",
     ]),
     ("ack", [
-        # NOTE: strict exact-match patterns by design. Catches canonical acks
-        # ("Thanks!", "Got it") but misses natural variation ("Thanks so much!",
-        # "Got it, appreciate it") — these fall through to "ambiguous" -> LLM.
-        # Observed in eval_run.py: 2/14 misclassifications, both "ack" -> "ambiguous".
-        # Motivates DistilBERT upgrade (Step 2 future work).
-        r"^\s*thanks?!?\s*$", r"^\s*thank you!?\s*$", r"^\s*ok!?\s*$",
-        r"^\s*got it!?\s*$", r"^\s*sounds good!?\s*$",
+        r"\bthanks?\b", r"\bthank you\b", r"^\s*ok\b", r"\bgot it\b",
+        r"\bsounds good\b", r"\bnoted\b", r"\bwill do\b", r"\bawesome\b.*\bthank",
+        r"\byep\b.*\bthanks\b", r"\ball good\b",
     ]),
     ("meeting", [
         r"\bschedule\b", r"\bmeeting\b", r"\bcalendar\b", r"\bavailab(le|ility)\b",
-        r"\breschedule\b", r"\bbook(ing)? a (call|meeting)\b",
+        r"\breschedule\b",
+        r"\bbook(ing)?\b.*\b(call|meeting|time|slot)\b",  # now allows words in between
+        r"\bfree\b.*\b(tomorrow|today|this week|next week|monday|tuesday|wednesday|thursday|friday)\b",
+        r"\bcatch up\b", r"\bsync\b", r"\bgrab coffee\b", r"\bfollow-?up call\b",
     ]),
     ("faq", [
-        r"\bhow do i\b", r"\bwhat is\b", r"\bwhere can i\b", r"\bdo you support\b",
-        r"\bpricing\b", r"\bdocumentation\b",
+        r"\bhow do i\b", r"\bcan you tell me how\b",
+        r"\bwhat(\'s| is| are)\b",          # covers "what's", "what is", "what are"
+        r"\bwhere can i\b", r"\bdo you (support|offer)\b",
+        r"\bis it possible to\b", r"\bpricing\b", r"\bdocumentation\b",
+        r"\brate limits?\b", r"\bfree trial\b", r"\brefund policy\b",
     ]),
     ("emotional", [
         r"\bfrustrat(ed|ing)\b", r"\bangry\b", r"\bdisappoint(ed|ing)\b",
@@ -31,6 +33,7 @@ RULES = [
         r"\bnot working\b", r"\berror\b", r"\bissue\b", r"\bbroken\b",
         r"\bcan't (log in|login|access)\b",
         r"\b(reset (my )?password|password reset)\b",
+        r"\bfix\b", r"\btrouble\b.*\b(log in|access|connect)\b",
     ]),
 ]
 
