@@ -2,6 +2,16 @@ import json
 from pathlib import Path
 from app.graph import build_graph
 from app.handlers.llm import llm_handler
+import app.graph as graph_module
+
+def fake_calendar_handler(state):
+    state["handler_used"] = "calendar"
+    state["response"] = "[eval mode — calendar stubbed]"
+    state["tokens_used"] = 0
+    state["latency_ms"] = 0.1
+    return state
+
+graph_module.calendar_handler = fake_calendar_handler
 
 graph = build_graph()
 

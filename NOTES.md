@@ -103,3 +103,27 @@ After patching per the findings above (loosened `meeting` book/sync/catch-up pat
 **Headline result for paper:** 95.92% accuracy / 90.81% token reduction / 89.01% latency reduction across a 49-email, 7-category eval set with intentional edge cases included. Strong enough to report as the v1 (rules-only) baseline, with the two remaining failures as concrete, well-understood limitations motivating the v2 (trained-classifier) ablation.
 
 **Open question for v2:** would a trained classifier (DistilBERT) resolve both collisions, or just relocate the ambiguity elsewhere? Keep these two exact examples in the test set for an apples-to-apples v1/v2 comparison.
+
+
+---
+
+## 8. Clean eval run (n=49): both fixes applied — 2026-07-30
+
+**Fixes confirmed:**
+- Calendar stub applied correctly in `eval_run.py` (must come before `build_graph()`) — all meeting emails show `[eval mode — calendar stubbed]`, no real calendar events created during eval
+- Retrieval fully restored after `faq.json` expanded to 11 entries (original 5 + 6 new) — all 14 faq examples now returning `retrieval_hit`
+
+**Result:** 95.92% accuracy (47/49), 85.40% token reduction, 84.80% latency reduction vs. always-LLM baseline.
+
+Same 2 misclassifications as before — both known collision cases, no new failures:
+1. ack-trap-1 → predicted `ack`, true `ambiguous`
+2. faq-trap-1 → predicted `faq`, true `support`
+
+**Status:** cleanest run so far. Ready to expand eval set to 20 examples per category (140 total) for final pre-DistilBERT numbers.
+
+**Next steps:**
+- Generate support/emotional/ambiguous/spam sets (20 each)
+- Run final eval, lock in headline numbers
+- Implement 3-baseline comparison (always-LLM, random routing, rules vs DistilBERT)
+- Implement DistilBERT v2 classifier
+- LLM-as-judge quality eval to answer RQ2
