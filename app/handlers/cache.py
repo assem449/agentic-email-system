@@ -1,6 +1,7 @@
 import time
 import hashlib
 from app.state import EmailState
+import app.handlers.llm as llm_handler
 
 # In-memory cache: {normalized_question_hash: response}
 _CACHE: dict[str, str] = {}
@@ -20,14 +21,9 @@ def cache_handler(state: EmailState) -> EmailState:
         state["response"] = _CACHE[key]
         state["tokens_used"] = 0
     else:
-        # Cache miss — for now, store a placeholder.
-        # Step 7 will wire this to actually call the LLM handler and cache its output.
-        response = f"[cache miss — would call LLM for]: {state['body'][:50]}"
-        _CACHE[key] = response
-
-        state["handler_used"] = "cache_miss"
-        state["response"] = response
-        state["tokens_used"] = None  # will be set once wired to real LLM
+        state = llm_handler(state)  
+        _CACHE[key] = state["response"] 
+        state["handler_used"] = "cache_miss_llm"
 
     state["latency_ms"] = (time.perf_counter() - start) * 1000
     return state
