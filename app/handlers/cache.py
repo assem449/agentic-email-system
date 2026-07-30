@@ -1,7 +1,7 @@
 import time
 import hashlib
 from app.state import EmailState
-import app.handlers.llm as llm_handler
+from app.handlers.llm import llm_handler
 
 # In-memory cache: {normalized_question_hash: response}
 _CACHE: dict[str, str] = {}
