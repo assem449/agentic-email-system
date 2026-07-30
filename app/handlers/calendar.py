@@ -1,5 +1,5 @@
 import time
-import re
+from dateutil import parser as dateparser
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -31,10 +31,12 @@ def _get_service():
     return build("calendar", "v3", credentials=creds)
 
 def _extract_proposed_time(body: str) -> datetime:
-    # Step 6 placeholder: no real NLP date parsing yet.
-    # Just defaults to "tomorrow at 10am" so we can confirm the API call works.
-    tomorrow = datetime.now() + timedelta(days=1)
-    return tomorrow.replace(hour=10, minute=0, second=0, microsecond=0)
+    # try to find a date/time expression in the body
+    try:
+        return dateparser.parse(body, fuzzy=True, default=datetime.now())
+    except Exception:
+        # fallback if nothing parseable found
+        return datetime.now() + timedelta(days=1)
 
 def calendar_handler(state: EmailState) -> EmailState:
     start = time.perf_counter()
