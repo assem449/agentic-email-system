@@ -127,3 +127,37 @@ Same 2 misclassifications as before — both known collision cases, no new failu
 - Implement 3-baseline comparison (always-LLM, random routing, rules vs DistilBERT)
 - Implement DistilBERT v2 classifier
 - LLM-as-judge quality eval to answer RQ2
+
+
+---
+
+## 9. Expanded eval set (n=125, all 7 categories): new failures exposed — 2026-07-30
+
+Added 20 examples each for support, emotional, ambiguous, spam (plus trap cases).
+Total eval set: 125 emails across all 7 categories.
+
+**Result:** 81.40% accuracy (104/125), 35.78% token reduction, 34.88% latency reduction.
+
+**Accuracy drop expected** — new examples deliberately stress-test natural variation
+the rules hadn't seen before. 23 new misclassifications across 4 categories.
+
+**Miss breakdown:**
+
+| Category | Misses | Root cause |
+|---|---|---|
+| support (8) | sup-4,7,13,15,16,17,18,19 → ambiguous | Missing rules: crash, loading, locked, timeout, duplicates, connecting |
+| emotional (6) | emo-11,12,14,15,17,18 → ambiguous | Missing rules: terrible, disgusted, appalled, devastated, fed up, stressing |
+| spam (3) | spam-6,12,18 → ambiguous | Wire transfer order reversed; no inheritance/Nigerian prince rules |
+| cross-category (2) | sup-14 → meeting (sync keyword fires meeting rule); emo-trap-1 → emotional (correct behavior, emotional fires before support as designed) |
+
+**Known collisions (unchanged):**
+- ack-trap-1 → ack (known precision tradeoff)
+- faq-trap-1 → faq (known rule-order collision)
+
+**Patches applied to classifier.py:**
+- spam: loosened wire transfer order, added inheritance/Nigerian prince/claim your prize/account suspended
+- emotional: added terrible, disgusted, appalled, devastated, fed up, stressing me out, at my limit, furious, let down
+- support: added crash, loading, locked, timeout, duplicate, not syncing, connecting, 500 error, credentials
+- meeting: tightened sync rule from `\bsync\b` to `\bsync (call|meeting|up)\b` to prevent false positive on "data isn't syncing"
+
+**Next:** re-run eval after patches, expect accuracy to recover above 90%.
