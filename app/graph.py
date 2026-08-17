@@ -1,7 +1,8 @@
 from langgraph.graph import StateGraph, END
 import time
 from app.state import EmailState
-from app.classifier import classify_email
+# from app.classifier import classify_email
+from app.distilbert_classifier import classify_email_distilbert
 from app.handlers.template import template_handler
 from app.handlers.cache import cache_handler
 from app.handlers.retrieval import retrieval_handler
@@ -9,8 +10,12 @@ from app.handlers.calendar import calendar_handler
 from app.handlers.llm import llm_handler
 from app.logging_utils import log_routing_decision
 
+# def classify_node(state: EmailState) -> EmailState:
+#     state["category"] = classify_email(state["subject"], state["body"])
+#     return state
+
 def classify_node(state: EmailState) -> EmailState:
-    state["category"] = classify_email(state["subject"], state["body"])
+    state["category"] = classify_email_distilbert(state["subject"], state["body"])
     return state
 
 def route_decision(state: EmailState) -> str:
