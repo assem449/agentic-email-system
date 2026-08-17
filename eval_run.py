@@ -101,12 +101,12 @@ def run_baseline_random():
 
 # Run all 3
 rules_results = run_eval(classify_email, "Rules-based Classifier (v1)")
-# distilbert_results = run_eval(classify_email_distilbert, "DistilBERT Classifier (v2)")
-# random_results = run_baseline_random()
+distilbert_results = run_eval(classify_email_distilbert, "DistilBERT Classifier (v2)")
+random_results = run_baseline_random()
 
-# print("\n=== Always-LLM Baseline ===")
-# print("Running LLM on all non-spam emails...")
-# llm_results = run_baseline_llm()
+print("\n=== Always-LLM Baseline ===")
+print("Running LLM on all non-spam emails...")
+llm_results = run_baseline_llm()
 llm_tokens = sum(r["tokens_used"] for r in llm_results)
 llm_latency = sum(r["latency_ms"] for r in llm_results)
 print(f"Total tokens: {llm_tokens} | Total latency: {llm_latency:.1f}ms")
