@@ -35,3 +35,6 @@ chroma_db/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/gmail_token.json
+
+# DistilBERT trained model
+data/distilbert_model/
