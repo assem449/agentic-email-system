@@ -10,3 +10,6 @@ class EmailState(TypedDict):
     response: Optional[str]
     tokens_used: Optional[int]
     latency_ms: Optional[float]
+    input_tokens: int
+    output_tokens: int
+    retrieval_distance: float
