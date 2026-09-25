@@ -1,0 +1,632 @@
+[
+{
+"id": "ho-ack-1",
+"subject": "Re: Signed agreement",
+"body": "Received, thank you. Everything is in order on our end.",
+"true_category": "ack"
+},
+{
+"id": "ho-ack-2",
+"subject": "Thank you",
+"body": "Thanks for sending this over. Much appreciated.",
+"true_category": "ack"
+},
+{
+"id": "ho-ack-3",
+"subject": "Re: Updated figures",
+"body": "Confirmed receipt of the updated figures. Thank you for turning those around so quickly.",
+"true_category": "ack"
+},
+{
+"id": "ho-ack-4",
+"subject": "Re: Approval",
+"body": "All set on my side. Thanks!",
+"true_category": "ack"
+},
+{
+"id": "ho-ack-5",
+"subject": "Re: Documentation",
+"body": "Thank you for providing the documentation. I’ve received everything and have filed it accordingly.",
+"true_category": "ack"
+},
+{
+"id": "ho-ack-6",
+"subject": "Re: Invoice",
+"body": "Received the invoice, thank you. We appreciate your help getting this finalized.",
+"true_category": "ack"
+},
+{
+"id": "ho-ack-7",
+"subject": "Re: Confirmation",
+"body": "Confirmed. Thank you for the update.",
+"true_category": "ack"
+},
+{
+"id": "ho-ack-8",
+"subject": "Re: Materials",
+"body": "Everything came through successfully. Thanks again for sending the materials over.",
+"true_category": "ack"
+},
+{
+"id": "ho-ack-9",
+"subject": "Re: Final version",
+"body": "The final version has been received and noted. Many thanks for your assistance throughout this process.",
+"true_category": "ack"
+},
+{
+"id": "ho-ack-10",
+"subject": "Re: Request completed",
+"body": "Thanks, this has been taken care of.",
+"true_category": "ack"
+},
+{
+"id": "ho-ack-11",
+"subject": "Re: Account update",
+"body": "Thank you for confirming the account update. I’ve received the confirmation and everything looks good from our end.",
+"true_category": "ack"
+},
+{
+"id": "ho-ack-12",
+"subject": "Re: Approval received",
+"body": "Received and acknowledged. Thank you for your prompt attention to this.",
+"true_category": "ack"
+},
+{
+  "id": "ho-ack-13",
+  "subject": "Re: Report",
+  "body": "Thanks for sending the report. Could you clarify whether the figures in section three include the revised adjustments?",
+  "true_category": "faq"
+},
+{
+"id": "ho-ack-14",
+"subject": "Re: Next steps",
+"body": "Thanks for getting this sorted. I really appreciate it. Could we meet Thursday afternoon to walk through everything together?",
+"true_category": "meeting"
+},
+{
+"id": "ho-ack-15",
+"subject": "Re: Access issue",
+"body": "Thanks for fixing the access issue. I appreciate the quick turnaround, although I’m still unable to access the system from my account.",
+"true_category": "support"
+},
+{
+"id": "ho-meeting-1",
+"subject": "Project sync",
+"body": "Could we move our project sync to September 2 at 2:00 PM ET? Please let me know if that works.",
+"true_category": "meeting"
+},
+{
+"id": "ho-meeting-2",
+"subject": "Weekly check-in",
+"body": "Can we move our weekly check-in to early next week? I have a conflict later this week.",
+"true_category": "meeting"
+},
+{
+"id": "ho-meeting-3",
+"subject": "Team discussion",
+"body": "Would Tuesday between 10:00 AM and noon or Wednesday after 3:00 PM work for our discussion?",
+"true_category": "meeting"
+},
+{
+"id": "ho-meeting-4",
+"subject": "Catch-up",
+"body": "Could we schedule a quick catch-up for September 8 at 11:30 AM Pacific Time?",
+"true_category": "meeting"
+},
+{
+"id": "ho-meeting-5",
+"subject": "Planning meeting",
+"body": "I'd like to move our planning meeting to Friday, September 4 at 9:30 AM. Please confirm whether that works.",
+"true_category": "meeting"
+},
+{
+"id": "ho-meeting-6",
+"subject": "Demo",
+"body": "Would you be available sometime next week for the product demo? Happy to work around your schedule.",
+"true_category": "meeting"
+},
+{
+"id": "ho-meeting-7",
+"subject": "One-on-one",
+"body": "Can we find a time for our one-on-one next week? My calendar is fairly flexible.",
+"true_category": "meeting"
+},
+{
+"id": "ho-meeting-8",
+"subject": "Rescheduling",
+"body": "I need to reschedule tomorrow's meeting. Would Thursday at 1:00 PM or Friday at 10:00 AM work instead?",
+"true_category": "meeting"
+},
+{
+"id": "ho-meeting-9",
+"subject": "Client call",
+"body": "Could we move the client call to September 10 at 4:00 PM GMT? That time works well on my end.",
+"true_category": "meeting"
+},
+{
+"id": "ho-meeting-10",
+"subject": "Review session",
+"body": "Let's move our review session to later this week. I can do Thursday or Friday afternoon.",
+"true_category": "meeting"
+},
+{
+"id": "ho-meeting-11",
+"subject": "Meeting request",
+"body": "When would be a convenient time to meet and go over the updated proposal?",
+"true_category": "meeting"
+},
+{
+"id": "ho-meeting-12",
+"subject": "Follow-up",
+"body": "Could you send me a few times that work for a follow-up discussion?",
+"true_category": "meeting"
+},
+{
+"id": "ho-meeting-13",
+"subject": "September 15 deadline",
+"body": "Just confirming that the revised materials are due September 15. Thanks for helping us get everything finalized.",
+"true_category": "ack"
+},
+{
+"id": "ho-meeting-14",
+"subject": "Cancel tomorrow's meeting",
+"body": "I need to cancel tomorrow's meeting due to an unexpected conflict. Sorry for the short notice.",
+"true_category": "meeting"
+},
+{
+"id": "ho-meeting-15",
+"subject": "Ongoing access issue",
+"body": "I'm still having trouble accessing the dashboard. We can discuss it at our meeting, but the issue is preventing me from completing the support steps.",
+"true_category": "support"
+},
+{
+"id": "ho-faq-1",
+"subject": "Pricing tiers",
+"body": "Could you confirm which features are included in the Professional pricing tier?",
+"true_category": "faq"
+},
+{
+"id": "ho-faq-2",
+"subject": "Data retention",
+"body": "I need to know how long customer data is retained after an account is closed.",
+"true_category": "faq"
+},
+{
+"id": "ho-faq-3",
+"subject": "Integrations",
+"body": "We're evaluating the platform for our team and wanted to confirm which CRM integrations are officially supported.",
+"true_category": "faq"
+},
+{
+"id": "ho-faq-4",
+"subject": "Data export",
+"body": "Could you let me know how administrators can export their organization's data?",
+"true_category": "faq"
+},
+{
+"id": "ho-faq-5",
+"subject": "SSO availability",
+"body": "I need to confirm whether SSO is available on the Enterprise plan and, if so, which identity providers are supported.",
+"true_category": "faq"
+},
+{
+"id": "ho-faq-6",
+"subject": "Invoicing terms",
+"body": "Could you clarify your standard invoicing terms, including the payment period and accepted payment methods?",
+"true_category": "faq"
+},
+{
+"id": "ho-faq-7",
+"subject": "Plan comparison",
+"body": "Before we finalize our purchase, I wanted to confirm three things: which plan includes API access, whether SSO is supported, and what the standard data-retention period is.",
+"true_category": "faq"
+},
+{
+"id": "ho-faq-8",
+"subject": "Integration support",
+"body": "We're currently planning our implementation. I need to know whether the platform supports Slack integration and whether that integration is available on the Standard plan.",
+"true_category": "faq"
+},
+{
+"id": "ho-faq-9",
+"subject": "Export format",
+"body": "Could you confirm which file formats are available when exporting reports from the platform?",
+"true_category": "faq"
+},
+{
+"id": "ho-faq-10",
+"subject": "Retention policy",
+"body": "Our compliance team is reviewing the platform, so I wanted to check the documented data-retention period for deleted records.",
+"true_category": "faq"
+},
+{
+"id": "ho-faq-11",
+"subject": "SSO setup",
+"body": "Is SSO supported for customer accounts, and are there any plan-level requirements for enabling it?",
+"true_category": "faq"
+},
+{
+"id": "ho-faq-12",
+"subject": "Billing schedule",
+"body": "We are reviewing our procurement process. Could you confirm whether invoices are issued monthly or annually and what your standard payment terms are?",
+"true_category": "faq"
+},
+{
+"id": "ho-faq-13",
+"subject": "Pricing and account",
+"body": "Could you confirm the current price of the Business tier and also let me know whether our existing account is eligible to switch to that tier without a contract change?",
+"true_category": "faq"
+},
+{
+"id": "ho-faq-14",
+"subject": "Export issue",
+"body": "I understand that reports can be exported from the platform, but the export button is currently doing nothing in our account. Is there a different documented way to export the reports?",
+"true_category": "support"
+},
+{
+"id": "ho-faq-15",
+"subject": "Recommended retention",
+"body": "We are designing our data-retention approach and know the platform's standard retention period, but what retention period would you recommend for a company handling sensitive customer records?",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-sup-1",
+"subject": "Login failure",
+"body": "I'm unable to log in to the portal. It returns 'Invalid credentials' even though the same credentials work elsewhere.",
+"true_category": "support"
+},
+{
+"id": "ho-sup-2",
+"subject": "Export not working",
+"body": "The export function has stopped working. Clicking Export does nothing, and no file is generated.",
+"true_category": "support"
+},
+{
+"id": "ho-sup-3",
+"subject": "Incorrect data",
+"body": "The customer records in the dashboard appear to be showing outdated values. The source system was updated this morning, but the dashboard still shows yesterday's data.",
+"true_category": "support"
+},
+{
+"id": "ho-sup-4",
+"subject": "API error",
+"body": "Our API requests started failing at approximately 14:35 UTC today with a 503 Service Unavailable response. This is affecting our production integration.",
+"true_category": "support"
+},
+{
+"id": "ho-sup-5",
+"subject": "Dashboard loading issue",
+"body": "The dashboard is extremely slow to load and often remains blank for several minutes before displaying any data.",
+"true_category": "support"
+},
+{
+"id": "ho-sup-6",
+"subject": "Error after update",
+"body": "Since the latest update, I'm getting 'Unexpected token < in JSON at position 0' when opening the reports page.",
+"true_category": "support"
+},
+{
+"id": "ho-sup-7",
+"subject": "Feature not responding",
+"body": "The search feature is not responding again. I've refreshed the page and tried a different browser, but the issue persists.",
+"true_category": "support"
+},
+{
+"id": "ho-sup-8",
+"subject": "Production issue",
+"body": "We are currently unable to submit new orders through the production portal. The submission fails after clicking Confirm. Please investigate as soon as possible.",
+"true_category": "support"
+},
+{
+"id": "ho-sup-9",
+"subject": "Incorrect permissions",
+"body": "A user who should have access to the reporting workspace is receiving a permissions error when opening it. This started today at 09:10 ET.",
+"true_category": "support"
+},
+{
+"id": "ho-sup-10",
+"subject": "Application error",
+"body": "The application is showing an error when I try to save changes: 'Request failed with status code 500.'' I've reproduced it three times.",
+"true_category": "support"
+},
+{
+"id": "ho-sup-11",
+"subject": "Login issue",
+"body": "I'm having trouble signing in. Could you send me the steps for resetting a locked account?",
+"true_category": "faq"
+},
+{
+"id": "ho-sup-12",
+"subject": "Dashboard problem",
+"body": "The dashboard has stopped loading for our team. Could we schedule a call to walk through the issue and troubleshoot it together?",
+"true_category": "meeting"
+},
+{
+"id": "ho-sup-13",
+"subject": "Something is broken",
+"body": "It's broken again. Nothing is working properly.",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-sup-14",
+"subject": "Data sync failure",
+"body": "The overnight data sync failed at 02:17 UTC with 'Connection timed out after 30 seconds.'' The previous night's sync completed successfully, and the issue is currently blocking this morning's reporting.",
+"true_category": "support"
+},
+{
+"id": "ho-sup-15",
+"subject": "Slow report generation",
+"body": "Report generation is taking significantly longer than usual. A report that normally completes in under two minutes has been running for more than fifteen minutes since 11:00 AM.",
+"true_category": "support"
+},
+{
+"id": "ho-emo-1",
+"subject": "I really need someone to look into this",
+"body": "I’m honestly getting frustrated because I’ve contacted support three times about the same issue and haven’t received a meaningful response. Each time I’ve had to explain everything again, and it’s starting to feel like nobody is actually reading what I send. I understand things get busy, but being left without an answer after this many attempts is really disappointing. Please have someone take ownership of this and let me know what is actually happening.",
+"true_category": "emotional"
+},
+{
+"id": "ho-emo-2",
+"subject": "I’m extremely frustrated",
+"body": "I’m extremely angry about how this has been handled. I’ve been charged twice, reported it, followed up, and still haven’t received a resolution. At this point I’m tired of repeating myself and not knowing whether anyone is actually looking into it. I need to know what is happening and when I can expect this to be resolved.",
+"true_category": "emotional"
+},
+{
+"id": "ho-emo-3",
+"subject": "I’m sorry about my earlier email",
+"body": "I want to apologize for the tone of my last email. I was frustrated and took that frustration out on your team, which wasn’t fair. I appreciate that you’re trying to help, and I know you didn’t cause the problem. I’m still hoping we can get this resolved, but I wanted to acknowledge that I could have handled my earlier message much better.",
+"true_category": "emotional"
+},
+{
+"id": "ho-emo-4",
+"subject": "A quick explanation for the delay",
+"body": "I’m sorry I haven’t been able to get the requested documents to you yet. There has been a difficult situation in my family over the past couple of weeks, and it has taken up most of my attention. I know this has delayed the work on your end, and I feel bad about that. I’m finally getting back on top of things and expect to send everything by Friday.",
+"true_category": "emotional"
+},
+{
+"id": "ho-emo-5",
+"subject": "I’m worried about losing everything",
+"body": "I’m really anxious about this because the account contains several years of important information, and I’m now unable to access any of it. I’ve tried the usual troubleshooting steps, but nothing has worked. I know this may just be a technical issue, but from my side it’s quite frightening not knowing whether the data is still there. Could someone please reassure me that the information is safe while this is being investigated?",
+"true_category": "emotional"
+},
+{
+"id": "ho-emo-6",
+"subject": "I finally got it sorted",
+"body": "I just wanted to let you know how relieved I am that the issue has finally been resolved. I was beginning to worry that I’d have to start the whole process over again, so seeing everything working again was a huge relief. Thank you for sticking with it and keeping me updated while it was being worked on.",
+"true_category": "emotional"
+},
+{
+"id": "ho-emo-7",
+"subject": "This has been really disappointing",
+"body": "I’m disappointed because I chose your service specifically because I expected the process to be straightforward. Instead, I’ve spent several days trying to get a basic issue resolved and have had to follow up repeatedly. I’m not looking for special treatment; I just want the level of support I expected when I signed up.",
+"true_category": "emotional"
+},
+{
+"id": "ho-emo-8",
+"subject": "I’m embarrassed to even ask",
+"body": "I’m a little embarrassed to be writing this because I think I may have caused the problem myself. I misunderstood one of the instructions and submitted the wrong information, and now I’m worried I’ve made things much harder to fix. I know it was my mistake, but I’d really appreciate some guidance on what I should do next rather than making the situation worse.",
+"true_category": "emotional"
+},
+{
+"id": "ho-emo-9",
+"subject": "I’m just exhausted by this process",
+"body": "I’m honestly exhausted. I’ve spent most of the week trying to resolve this, and every time I think I’m getting somewhere, I’m asked for another piece of information or sent to another department. I understand that there are procedures you have to follow, but the constant back-and-forth has become really difficult. I need someone to look at the whole situation rather than making me start from the beginning again.",
+"true_category": "emotional"
+},
+{
+"id": "ho-emo-10",
+"subject": "I don’t know what else to do",
+"body": "I’m feeling pretty helpless at this point. I’ve followed the instructions, restarted everything, cleared the cache, and tried from two different devices, but the problem is still there. I’ve also submitted two support requests and haven’t heard back. I don’t expect an instant solution, but I do need some indication that someone is actually looking into this.",
+"true_category": "emotional"
+},
+{
+"id": "ho-emo-11",
+"subject": "Please tell me how to reset my password",
+"body": "I am absolutely losing my mind over this stupid login screen, and I’m so frustrated that I could scream. I have tried everything I can think of and just need to get back into my account. Please tell me exactly how to reset my password if I no longer have access to my old phone number.",
+"true_category": "faq"
+},
+{
+"id": "ho-emo-12",
+"subject": "A concern about how this was handled",
+"body": "I want to explain a serious problem with how my case was handled. I was given incorrect information by your representative, relied on that information, and subsequently missed a deadline that cannot now be reversed. I’m not upset with the individual representative, and I’m not looking for an argument. I would simply like the matter reviewed and a clear explanation of what can be done to address the consequences.",
+"true_category": "emotional"
+},
+{
+"id": "ho-emo-13",
+"subject": "Thank you for your help",
+"body": "Thank you so much for your help with this. I really appreciate how quickly you responded and how clearly you explained everything. Your assistance made the process much easier, and I’m very grateful for your time.",
+"true_category": "ack"
+},
+{
+"id": "ho-emo-14",
+"subject": "I’m disappointed that it came to this",
+"body": "I really didn’t want to keep following up, but I’m running out of patience. I’ve been patient, provided everything requested, and waited through multiple promised response dates. What has been most disappointing is not simply the delay, but the lack of communication about it. I would appreciate a direct response about what happened and what the next steps are.",
+"true_category": "emotional"
+},
+{
+"id": "ho-emo-15",
+"subject": "I was afraid I had missed my chance",
+"body": "I can’t tell you how relieved I was to see your message this morning. I had been worrying all weekend that I had missed the deadline and that there was nothing I could do about it. I’m sorry for sending so many follow-ups; I was genuinely anxious because I didn’t know what was happening. Thank you for getting back to me and giving me some clarity.",
+"true_category": "emotional"
+},
+{
+"id": "ho-amb-1",
+"subject": "Following up",
+"body": "Hi, just checking in about the thing we discussed last week. I wasn’t sure if you wanted me to go ahead with it or wait for your confirmation. Also, I noticed the amount on my latest statement looks different from what we talked about. Let me know what you think.",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-2",
+"subject": "A couple of things",
+"body": "Hi, I wanted to follow up on the request from earlier. I think I sent everything you needed, but please let me know if anything is missing. Separately, the access issue I mentioned seems to be happening again. I’m not sure whether these are related.",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-3",
+"subject": "Re: Request",
+"body": "Hi, forwarding this thread below. I think this is the one we were talking about. Thanks.",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-4",
+"subject": "Checking on this",
+"body": "I’m following up because I’m not sure where things stand. The last update made it sound like there was something I needed to do, but I may have misunderstood. Could you let me know what happens next?",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-5",
+"subject": "One more question",
+"body": "Hi, I had a question about the change we discussed. I went ahead and made the update, although now I’m wondering whether I was supposed to wait. Also, could you confirm whether the other request is still being processed?",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-6",
+"subject": "Re: Previous messages",
+"body": "Hi, just adding this here in case it helps. I think you’ll know what I mean from the previous conversation. I’m not sure if I should do anything else on my end.",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-7",
+"subject": "About yesterday",
+"body": "I wanted to clarify something from yesterday because I’m not sure I understood what you meant. I also received another notification this morning about a completely different issue. Should I deal with that separately, or is it part of the same thing?",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-8",
+"subject": "Not sure if this is relevant",
+"body": "Hi, I’m sending this over because I thought it might be connected to what we were looking at. The first part seems fine now, but I’m still seeing something unusual with the other one. I don’t know if you need anything from me.",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-9",
+"subject": "Re: Account question",
+"body": "Hi, see below. I’m assuming this is what you were asking for, although I’m not completely sure. Let me know if I misunderstood.",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-10",
+"subject": "Quick follow-up",
+"body": "Hi, just wanted to check whether you had a chance to look at this. I made the change we discussed, and I also noticed that one of the older items is still showing up. I wasn’t sure if that was expected or if I should mention it.",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-11",
+"subject": "Re: Details",
+"body": "Forwarding this because I think it answers part of the question. The other part is still unclear to me, though. If you could take a look when you have a chance, that would be great.",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-12",
+"subject": "Could you confirm?",
+"body": "I’m not sure whether the previous email meant that I should proceed or that someone else would handle it. I went ahead with the first step just in case. There’s also the issue with the file I mentioned before, which still hasn’t changed.",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-13",
+"subject": "Re: Follow-up",
+"body": "Hi, adding this to the thread for context. I think we’re okay on the original item now, but I’m still waiting to hear about the other part. If you need me to resend anything, just let me know.",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-14",
+"subject": "About the request",
+"body": "Hi, I wanted to ask where this is at. I remember there was something I needed to send, but I can’t remember whether I already did. At the same time, I noticed the information on my account has changed, so I’m not sure if that was part of the update or something separate.",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-amb-15",
+"subject": "Re: This",
+"body": "Hi, thanks for sending this through. I think this clears up what we were discussing, although I’m still not sure what you’d like me to do next. I also wanted to mention the other thing from earlier, since I haven’t heard anything about it.",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-spam-1",
+"subject": "Increase your organic traffic by 300%",
+"body": "Hi there,\n\nI came across your website and noticed several opportunities to improve your Google rankings. Our team can build high-quality backlinks and optimize your technical SEO to increase qualified traffic within 60–90 days.\n\nWould you be open to a 15-minute call next week? I can also send over a free audit first.\n\nBest,\nDaniel\nGrowth Partnerships",
+"true_category": "spam"
+},
+{
+"id": "ho-spam-2",
+"subject": "FINAL NOTICE: Your account will be deleted",
+"body": "Dear customer,\n\nYour account has been flagged for unusual activity. To prevent permanent suspension, you must verify your information immediately by clicking the secure verification link below.\n\nFailure to complete verification within 24 hours will result in account termination.\n\nSecurity Team",
+"true_category": "spam"
+},
+{
+"id": "ho-spam-3",
+"subject": "Invitation: Global AI Leadership Summit",
+"body": "Hello,\n\nWe would like to invite you to the Global AI Leadership Summit, bringing together executives, researchers, and technology leaders for discussions on enterprise AI, automation, and emerging technologies.\n\nWe have a limited number of complimentary passes available for selected professionals. If you are interested, reply to this email and I can provide the agenda and registration details.\n\nRegards,\nMarcus Lee\nConference Partnerships",
+"true_category": "spam"
+},
+{
+"id": "ho-spam-4",
+"subject": "URGENT!!! YOU HAVE WON CRYPTO",
+"body": "CONGRATULATIONS!!! Your email was randomly selected and you have WON 2.4 BITCOIN!!!\n\nYou must claim your reward TODAY or it will be given to another winner. Send your wallet address and identification to receive your funds immediately.\n\nCLAIM NOW BEFORE ITS TOO LATE!!!",
+"true_category": "spam"
+},
+{
+"id": "ho-spam-5",
+"subject": "Quick question about your engineering hiring",
+"body": "Hi,\n\nI work with a small recruiting firm that specializes in placing software engineers with growing technology teams. I noticed your organization has been hiring across engineering and wanted to see whether additional sourcing support would be useful this quarter.\n\nWe work on a contingency basis, so there is no upfront commitment. If hiring isn't a priority right now, no worries at all.\n\nBest,\nRachel",
+"true_category": "spam"
+},
+{
+"id": "ho-spam-6",
+"subject": "Google Search Console: Critical issue detected",
+"body": "Hello,\n\nGoogle Search Console has detected a critical indexing issue affecting your website. Several pages may be removed from search results if the issue is not resolved.\n\nReview the reported issue and confirm your account here:\n[Review Search Console Alert]\n\nThis notification requires immediate attention.\n\nGoogle Search Team",
+"true_category": "spam"
+},
+{
+"id": "ho-spam-7",
+"subject": "Low-cost Wikipedia and PR placement",
+"body": "Dear Sir/Madam,\n\nWe provide guaranteed Wikipedia pages, Forbes publication, high authority backlinks and news placements at very cheap prices. Our services are 100% safe and can make your company look more trusted online.\n\nSpecial offer this week only. Reply YES and we send price list.\n\nThanks,\nOnline Promotion Team",
+"true_category": "spam"
+},
+{
+"id": "ho-spam-8",
+"subject": "Invitation to speak at our 2026 technology forum",
+"body": "Hi,\n\nI'm reaching out from the programming committee for the North American Technology Forum. We're currently finalizing speakers for a session focused on practical AI adoption in software organizations.\n\nYour background came up while we were researching potential contributors. Would you be interested in a brief conversation about the event and the proposed session?\n\nThere is no speaking fee or sponsorship requirement.\n\nBest,\nEmily Carter\nProgramming Committee",
+"true_category": "spam"
+},
+{
+"id": "ho-spam-9",
+"subject": "Your Microsoft account needs attention",
+"body": "We detected a sign-in attempt from a new device. If this was not you, secure your account immediately by reviewing your recent activity.\n\nRecent activity: New Windows device\nLocation: Unknown\nTime: Today\n\nReview activity to keep your account secure.\n\nMicrosoft Account Security",
+"true_category": "ack"
+},
+{
+"id": "ho-spam-10",
+"subject": "Invoice #INV-78421 is due",
+"body": "Hello,\n\nThis is a reminder that your Adobe subscription invoice #INV-78421 is due. Please review your account for the current billing details and payment status.\n\nIf your payment has already been processed, no action is required.\n\nThank you,\nAdobe Billing",
+"true_category": "faq"
+},
+{
+"id": "ho-spam-11",
+"subject": "Can we talk about your data platform?",
+"body": "Hi,\n\nI'm Alex, a solutions engineer at a company that works with teams managing large-scale data infrastructure. I came across your team's work and was curious how you're currently handling data pipelines and observability.\n\nI'm not reaching out with a formal proposal at this stage. I'd genuinely be interested in comparing notes if that's relevant to your work. If not, no worries.\n\nBest,\nAlex Morgan",
+"true_category": "ambiguous"
+},
+{
+"id": "ho-spam-12",
+"subject": "Earn passive income with our AI trading system",
+"body": "Hello investor,\n\nOur revolutionary AI trading algorithm generated 47.8% returns last month and is now available to a limited number of private investors. You can start with only $250 and withdraw your profits anytime.\n\nSpots are almost full. Reply TODAY to receive your private investment link before enrollment closes.\n\nFinancial Opportunities Team",
+"true_category": "spam"
+},
+{
+"id": "ho-spam-13",
+"subject": "A simple way to reduce your cloud bill",
+"body": "Hi,\n\nI work with engineering teams to identify unused cloud resources and reduce infrastructure spend without changing application architecture. In similar environments, we've typically found 15–25% in avoidable monthly costs.\n\nIf reducing cloud spend is on your roadmap, I can send a short example of what the assessment looks like. No need to schedule a call unless it looks useful.\n\nRegards,\nTom Nguyen\nCloud Efficiency",
+"true_category": "spam"
+},
+{
+"id": "ho-spam-14",
+"subject": "PAYMENT FAILED — ACTION REQUIRED",
+"body": "Dear User,\n\nYour recent payment could not be processed. Your service will be suspended within 6 hours unless you update your billing information.\n\nClick below to avoid interruption:\n[UPDATE PAYMENT METHOD]\n\nThank you for your cooperation.\nCustomer Billing Department",
+"true_category": "spam"
+},
+{
+"id": "ho-spam-15",
+"subject": "Your competitors are ranking above you",
+"body": "Hi,\n\nI ran a quick review of your search presence and noticed several terms where competitors are outranking you. There are a few straightforward technical and content changes that could improve your visibility.\n\nI put together a short list of opportunities based on what I found. Happy to send it over if you'd like to take a look. No pitch required.\n\nBest,\nMichael\nSEO Strategy",
+"true_category": "spam"
+}
+]

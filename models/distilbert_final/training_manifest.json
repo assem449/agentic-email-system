@@ -1,0 +1,19 @@
+{
+  "trained_on": "data/eval_set.json",
+  "n_emails": 363,
+  "category_distribution": {
+    "ack": 52,
+    "ambiguous": 52,
+    "meeting": 47,
+    "faq": 50,
+    "support": 67,
+    "emotional": 50,
+    "spam": 45
+  },
+  "epochs": 10,
+  "batch_size": 8,
+  "max_length": 128,
+  "seed": 20260824,
+  "base_model": "distilbert-base-uncased",
+  "note": "Trained on 100% of eval_set.json. Valid ONLY for scoring a separately generated held-out set. Scoring this model on eval_set.json reproduces the original leakage."
+}
