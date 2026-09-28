@@ -4,8 +4,12 @@
 credentials.json
 gmail_token.json
 token.json
+oauth_client_secret.json
 *.pem
 *.key
+
+# Study datastore — encrypted OAuth tokens + pending calendar proposals
+study.db
 
 # Python
 venv/

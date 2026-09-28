@@ -9,6 +9,7 @@ LOG_PATH.parent.mkdir(exist_ok=True)
 def log_routing_decision(state: EmailState) -> EmailState:
     record = {
         "timestamp": time.time(),
+        "participant_id": state.get("participant_id"),
         "email_id": state.get("email_id"),
         "category": state.get("category"),
         "handler_used": state.get("handler_used"),

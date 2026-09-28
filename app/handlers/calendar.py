@@ -1,55 +1,86 @@
 import time
 from dateutil import parser as dateparser
 from datetime import datetime, timedelta
-from pathlib import Path
-
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
 
 from app.state import EmailState
-from app.config import GOOGLE_CALENDAR_ID, GOOGLE_CREDENTIALS_PATH, GOOGLE_TOKEN_PATH
+from app.config import GOOGLE_CALENDAR_ID
+from app import db
+from app.google_auth import get_calendar_service_for
 
-SCOPES = ["https://www.googleapis.com/auth/calendar"]
+# A meeting-classified email never books a real event by itself anymore.
+# It proposes one (a `pending_events` row) and a human approves or
+# rejects it via the /admin review endpoints, which call
+# create_approved_event() below. This module makes no calendar.insert()
+# call on the classify path — only on approval.
 
-def _get_service():
-    creds = None
-    token_path = Path(GOOGLE_TOKEN_PATH)
-
-    if token_path.exists():
-        creds = Credentials.from_authorized_user_file(GOOGLE_TOKEN_PATH, SCOPES)
-
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(GOOGLE_CREDENTIALS_PATH, SCOPES)
-            creds = flow.run_local_server(port=0)
-        token_path.write_text(creds.to_json())
-
-    return build("calendar", "v3", credentials=creds)
 
 def _extract_proposed_time(body: str) -> datetime:
-    # try to find a date/time expression in the body
     try:
         return dateparser.parse(body, fuzzy=True, default=datetime.now())
     except Exception:
-        # fallback if nothing parseable found
         return datetime.now() + timedelta(days=1)
 
+
 def calendar_handler(state: EmailState) -> EmailState:
+    """Classify-time node: never touches the Calendar API. Stores a
+    proposal for a human to approve, or — if there's no participant
+    (the account-free /route-email demo path) — just describes what
+    would be proposed."""
     start = time.perf_counter()
 
-    service = _get_service()
     proposed_start = _extract_proposed_time(state["body"])
     proposed_end = proposed_start + timedelta(minutes=30)
+    when = proposed_start.strftime("%A, %b %d at %I:%M %p")
+
+    participant_id = state.get("participant_id")
+
+    if participant_id:
+        # Keep only a short preview, not the full email body, in what
+        # gets persisted for review — same reasoning as the routing log.
+        preview = (state["body"] or "")[:300]
+        db.create_pending_event(
+            participant_id=participant_id,
+            gmail_id=state.get("gmail_id") or "",
+            sender=state["sender"],
+            subject=state["subject"],
+            reply_preview=preview,
+            proposed_start=proposed_start.isoformat(),
+            proposed_end=proposed_end.isoformat(),
+        )
+        state["response"] = (
+            f"Thanks for reaching out — proposing {when}. "
+            f"I'll send a calendar invite once it's confirmed on my end."
+        )
+        state["handler_used"] = "calendar_pending_review"
+    else:
+        state["response"] = (
+            f"[demo mode — no account connected] Would propose {when} "
+            f"for human review; no event created."
+        )
+        state["handler_used"] = "calendar_pending_review_demo"
+
+    state["tokens_used"] = 0
+    state["input_tokens"] = 0
+    state["output_tokens"] = 0
+    state["latency_ms"] = (time.perf_counter() - start) * 1000
+    return state
+
+
+def create_approved_event(participant_id: str, pending_row) -> str:
+    """Called only from the human-approval path (app.main's /admin/pending/
+    {id}/approve). Actually books the event on that participant's real
+    calendar. Returns the event's htmlLink."""
+    service = get_calendar_service_for(participant_id)
 
     event_body = {
-        "summary": f"Meeting re: {state['subject'] or 'email request'}",
-        "description": f"Auto-scheduled from email.\n\nOriginal message:\n{state['body']}",
-        "start": {"dateTime": proposed_start.isoformat(), "timeZone": "America/Toronto"},
-        "end": {"dateTime": proposed_end.isoformat(), "timeZone": "America/Toronto"},
+        "summary": f"Meeting re: {pending_row['subject'] or 'email request'}",
+        "description": (
+            f"Auto-proposed from an email, approved by a study reviewer.\n\n"
+            f"From: {pending_row['sender']}\n"
+            f"Preview: {pending_row['reply_preview']}"
+        ),
+        "start": {"dateTime": pending_row["proposed_start"], "timeZone": "America/Toronto"},
+        "end": {"dateTime": pending_row["proposed_end"], "timeZone": "America/Toronto"},
     }
 
     created_event = service.events().insert(
@@ -57,11 +88,4 @@ def calendar_handler(state: EmailState) -> EmailState:
         body=event_body,
     ).execute()
 
-    state["response"] = (
-        f"Meeting scheduled for {proposed_start.strftime('%A, %b %d at %I:%M %p')}. "
-        f"Calendar link: {created_event.get('htmlLink')}"
-    )
-    state["handler_used"] = "calendar"
-    state["tokens_used"] = 0
-    state["latency_ms"] = (time.perf_counter() - start) * 1000
-    return state
+    return created_event.get("htmlLink", "")
