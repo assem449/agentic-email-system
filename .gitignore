@@ -42,3 +42,7 @@ chroma_db/
 
 # DistilBERT trained model
 data/distilbert_model/
+
+
+*.csv
+*.xlsx
