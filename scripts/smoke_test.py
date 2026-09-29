@@ -1,3 +1,17 @@
+"""Manual end-to-end smoke test for the routing graph: classification,
+caching, retrieval and the LLM fallback, against a handful of one-off
+examples. Not an automated test suite (no assertions) — read the printed
+output. For the real accuracy/token/latency numbers, see
+research/eval_run.py instead.
+
+Run from the repo root: python scripts/smoke_test.py
+"""
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from app.graph import build_graph
 from app.handlers.retrieval import _collection
 
@@ -31,16 +45,6 @@ result = graph.invoke({
 print(result["response"], "| tokens:", result["tokens_used"], "| latency_ms:", result["latency_ms"])
 
 
-support_email = {
-    "email_id": "sup-1", "sender": "test@example.com",
-    "subject": "", "body": "This is broken and I'm so frustrated, nothing works!",
-    "category": None, "handler_used": None, "response": None,
-    "tokens_used": None, "latency_ms": None,
-}
-
-# wait — this routes to "emotional" not "support" after our reorder!
-
-
 print("\n--- Cache test ---")
 
 support_email_text = "My password reset isn't working"
@@ -64,7 +68,6 @@ result = graph.invoke({
 })
 print(f"{result['category']} -> {result['handler_used']} -> {result['response']}")
 
-
 r = _collection.query(query_texts=["How do I reset my API key?"], n_results=1)
 print("distance:", r["distances"][0][0])
 
@@ -77,7 +80,6 @@ result = graph.invoke({
 })
 print(f"{result['category']} -> {result['handler_used']} -> {result['response']}")
 
-from app.handlers.retrieval import _collection
 r = _collection.query(query_texts=["Can you tell me how to get a new API key?"], n_results=1)
 print("distance:", r["distances"][0][0])
 

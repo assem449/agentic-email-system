@@ -2,7 +2,7 @@
 
 This is the one persistent store this deployment has, and it's
 deliberately narrow: credentials (encrypted) and small metadata about
-proposed meetings, never the emails themselves. See NOTES.md.
+proposed meetings, never the emails themselves. See docs/NOTES.md.
 """
 
 import json

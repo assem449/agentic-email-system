@@ -7,9 +7,9 @@ email's prediction from logs/oof_predictions.json — produced by
 distilbert_cv.py, where every prediction came from a fold model that
 never saw that email during training.
 
-Integration into eval_run.py:
+Integration into eval_run.py (already applied — this note is historical):
 
-    from oof_classifier import classify_email_distilbert_oof
+    from research.oof_classifier import classify_email_distilbert_oof
 
     # replace this line:
     #   distilbert_results = run_eval(classify_email_distilbert, "DistilBERT Classifier (v2)")

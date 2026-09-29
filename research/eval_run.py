@@ -12,10 +12,17 @@ Changes from the previous version:
 
 import json
 import random
+import sys
 from pathlib import Path
 
+# Run from anywhere (e.g. `python research/eval_run.py`) — repo root still
+# needs to be on sys.path for the `app.*` imports below, and relative
+# paths like "data/eval_set.json" further down still assume the process's
+# cwd is the repo root either way.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from app.classifier import classify_email
-from app.oof_classifier import classify_email_distilbert_oof
+from research.oof_classifier import classify_email_distilbert_oof
 from app.handlers.llm import llm_handler
 from app.handlers.cache import clear_cache
 import app.graph as graph_module

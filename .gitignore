@@ -1,6 +1,7 @@
 # Environment & secrets
 .env
 .env.*
+!.env.example
 credentials.json
 gmail_token.json
 token.json
@@ -38,7 +39,7 @@ chroma_db/
 # Pytest/cache
 .pytest_cache/
 .mypy_cache/
-.ruff_cache/gmail_token.json
+.ruff_cache/
 
 # DistilBERT trained model
 data/distilbert_model/

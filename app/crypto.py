@@ -3,7 +3,7 @@
 Tokens are the only thing this study deployment persists that grants
 access to a real account, so they're the one thing worth a real crypto
 primitive rather than "it's in a gitignored file." Everything else
-(email content) is never written to disk at all — see NOTES.md.
+(email content) is never written to disk at all — see docs/NOTES.md.
 """
 
 from cryptography.fernet import Fernet
