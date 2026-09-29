@@ -12,17 +12,25 @@ What this deployment does, concretely:
   It creates a *pending proposal* instead. A reviewer looks at it on the
   `/admin` page and explicitly approves or rejects it — only approval
   calls the Calendar API and actually creates the event.
-- No database of email content exists. The one thing persisted is a
+- No database of raw email content exists. The one thing persisted is a
   small SQLite file (`study.db`) holding each participant's OAuth token
-  (encrypted at rest) and pending-proposal metadata (subject + a short
-  preview, not the full email). See `NOTES.md` for the fuller data-flow
+  (encrypted at rest), pending-proposal metadata, a per-email log
+  (category/handler/short preview, backing the check-in page below), and
+  participants' daily feedback. See `NOTES.md` for the fuller data-flow
   writeup.
+- Each participant gets one private link — shown once on the "Connected"
+  page right after they sign in — to a **daily check-in page**
+  (`/checkin/{token}`). It shows "Day N of the study," what the pipeline
+  did with each of today's emails, and collects their feedback: per-email
+  correct/wrong, an overall 1–10 draft-quality rating, and free-text
+  notes. One submission per participant per day; visiting again the same
+  day shows a "thanks, come back tomorrow" state instead of the form.
 
-The `/admin` page and the "Connected" page after sign-in are **intentionally
-bare** — you said the real study UI isn't decided yet. Every action either
-would trigger is a plain JSON/HTTP endpoint, so whatever UI you build later
-(a researcher dashboard, a participant-facing page, anything) just calls
-these directly — nothing about the backend needs to change:
+The `/admin` page, the "Connected" page, and the check-in page are all
+**plain server-rendered HTML, deliberately built to look reasonably clean
+rather than as throwaway placeholders** — but still simple single-file
+pages with no framework, easy to swap out later if you redesign the study
+UI. Every action any of them trigger is a plain JSON/HTTP endpoint:
 
 | Action | Endpoint |
 |---|---|
@@ -33,6 +41,8 @@ these directly — nothing about the backend needs to change:
 | Approve a proposal → really books the event | `POST /admin/pending/{id}/approve` |
 | Reject a proposal | `POST /admin/pending/{id}/reject` |
 | Classify one email with no account (the "simulated form" option) | `POST /route-email` |
+| A participant's daily check-in page | `GET /checkin/{checkin_token}` |
+| Submit a day's feedback | `POST /checkin/{checkin_token}/submit` |
 
 ## 1. Google Cloud Console (once)
 

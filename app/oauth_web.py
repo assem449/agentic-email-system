@@ -10,7 +10,7 @@ their token.
 import uuid
 from typing import Optional
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from google_auth_oauthlib.flow import Flow
 
@@ -55,7 +55,7 @@ def auth_start(participant_id: Optional[str] = None):
 
 
 @router.get("/auth/callback")
-def auth_callback(code: str, state: str):
+def auth_callback(request: Request, code: str, state: str):
     participant_id = state
 
     flow = _flow()
@@ -75,14 +75,19 @@ def auth_callback(code: str, state: str):
     except Exception:
         pass
 
-    db.upsert_participant(participant_id, email, creds.to_json())
+    checkin_token = db.upsert_participant(participant_id, email, creds.to_json())
+    checkin_url = str(request.base_url).rstrip("/") + f"/checkin/{checkin_token}"
 
     return HTMLResponse(
         f"""
-        <html><body style="font-family: sans-serif; padding: 48px; max-width: 480px;">
-        <h2>Connected</h2>
+        <html><body style="font-family: -apple-system, system-ui, sans-serif; max-width: 480px; margin: 64px auto; padding: 0 20px; color: #141413; background: #FAF9F5;">
+        <h2 style="font-family: Georgia, serif; font-weight: 400;">You're connected</h2>
         <p>{email} is now enrolled in the study.</p>
-        <p>You can close this tab.</p>
+        <p style="font-size: 14px; color: #3d3c39;">Bookmark this link — it's your personal daily check-in page for the rest of the study:</p>
+        <p style="background: #fff; border: 1px solid #E8E6DD; border-radius: 8px; padding: 12px 16px; word-break: break-all; font-size: 13.5px;">
+          <a href="{checkin_url}" style="color: #D97757;">{checkin_url}</a>
+        </p>
+        <p style="font-size: 13px; color: #8a887f;">You can close this tab.</p>
         </body></html>
         """
     )

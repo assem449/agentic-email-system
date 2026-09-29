@@ -7,6 +7,7 @@ from pydantic import BaseModel
 from typing import Optional
 
 from app import db
+from app.checkin import router as checkin_router
 from app.config import ADMIN_TOKEN, POLL_INTERVAL_SECONDS
 from app.graph import build_graph
 from app.handlers.calendar import create_approved_event
@@ -15,6 +16,7 @@ from app.poller import run_poller
 
 app = FastAPI(title="Adaptive Email Router")
 app.include_router(oauth_router)
+app.include_router(checkin_router)
 graph = build_graph()
 
 
