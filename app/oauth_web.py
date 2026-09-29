@@ -22,10 +22,18 @@ router = APIRouter()
 
 
 def _flow() -> Flow:
+    # PKCE off: /auth/start and /auth/callback are separate HTTP requests,
+    # each building its own Flow object, so a PKCE code_verifier generated
+    # during /auth/start can't survive to /auth/callback's token exchange
+    # ("Missing code verifier" from Google otherwise). Safe to skip here —
+    # this is a confidential "Web application" client (has a client
+    # secret), which is what actually authenticates the token exchange;
+    # PKCE exists for public clients that can't hold a secret.
     return Flow.from_client_secrets_file(
         GOOGLE_OAUTH_CLIENT_SECRETS_PATH,
         scopes=SCOPES,
         redirect_uri=OAUTH_REDIRECT_URI,
+        autogenerate_code_verifier=False,
     )
 
 
