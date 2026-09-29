@@ -8,6 +8,7 @@ their token.
 """
 
 import uuid
+from typing import Optional
 
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
@@ -29,7 +30,7 @@ def _flow() -> Flow:
 
 
 @router.get("/auth/start")
-def auth_start(participant_id: str | None = None):
+def auth_start(participant_id: Optional[str] = None):
     """Landing link participants click. A fresh participant_id is minted
     if none is supplied, so `/auth/start` alone is a usable enrollment
     link for the study."""

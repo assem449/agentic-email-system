@@ -11,6 +11,7 @@ import time
 import uuid
 from contextlib import contextmanager
 from pathlib import Path
+from typing import Optional
 
 from app.config import DB_PATH
 from app.crypto import decrypt, encrypt
@@ -77,7 +78,7 @@ def upsert_participant(participant_id: str, email: str, token_json: str) -> None
         )
 
 
-def get_participant_token(participant_id: str) -> dict | None:
+def get_participant_token(participant_id: str) -> Optional[dict]:
     with _conn() as conn:
         row = conn.execute(
             "SELECT token_enc FROM participants WHERE id = ? AND active = 1",
@@ -155,14 +156,14 @@ def list_pending_events(status: str = "pending") -> list[sqlite3.Row]:
         ).fetchall()
 
 
-def get_pending_event(event_id: str) -> sqlite3.Row | None:
+def get_pending_event(event_id: str) -> Optional[sqlite3.Row]:
     with _conn() as conn:
         return conn.execute(
             "SELECT * FROM pending_events WHERE id = ?", (event_id,)
         ).fetchone()
 
 
-def decide_pending_event(event_id: str, status: str, calendar_event_link: str | None = None) -> None:
+def decide_pending_event(event_id: str, status: str, calendar_event_link: Optional[str] = None) -> None:
     with _conn() as conn:
         conn.execute(
             """
