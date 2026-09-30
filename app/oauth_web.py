@@ -78,19 +78,56 @@ def auth_callback(request: Request, code: str, state: str):
     checkin_token = db.upsert_participant(participant_id, email, creds.to_json())
     checkin_url = str(request.base_url).rstrip("/") + f"/checkin/{checkin_token}"
 
-    return HTMLResponse(
-        f"""
-        <html><body style="font-family: -apple-system, system-ui, sans-serif; max-width: 480px; margin: 64px auto; padding: 0 20px; color: #141413; background: #FAF9F5;">
-        <h2 style="font-family: Georgia, serif; font-weight: 400;">You're connected</h2>
-        <p>{email} is now enrolled in the study.</p>
-        <p style="font-size: 14px; color: #3d3c39;">Bookmark this link — it's your personal daily check-in page for the rest of the study:</p>
-        <p style="background: #fff; border: 1px solid #E8E6DD; border-radius: 8px; padding: 12px 16px; word-break: break-all; font-size: 13.5px;">
-          <a href="{checkin_url}" style="color: #D97757;">{checkin_url}</a>
-        </p>
-        <p style="font-size: 13px; color: #8a887f;">You can close this tab.</p>
-        </body></html>
-        """
-    )
+    return HTMLResponse(f"""
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Connected</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{{box-sizing:border-box;}}
+  body{{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    font-family:'Inter',-apple-system,system-ui,sans-serif;
+    background:#EDEBE3; color:#1A1A18; padding:24px;
+  }}
+  .card{{
+    background:#fff; width:100%; max-width:420px; border-radius:20px;
+    box-shadow:0 24px 60px rgba(20,20,19,0.16), 0 2px 8px rgba(20,20,19,0.06);
+    padding:36px 32px 32px; position:relative;
+    animation:popIn .28s cubic-bezier(.2,.8,.2,1);
+  }}
+  @keyframes popIn{{from{{opacity:0; transform:scale(.95) translateY(6px);}} to{{opacity:1; transform:scale(1) translateY(0);}}}}
+  .close{{
+    position:absolute; top:16px; right:16px; width:28px; height:28px; border-radius:50%;
+    background:#F4F2EC; border:none; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; color:#8a887f; text-decoration:none; font-size:15px; transition:background .15s;
+  }}
+  .close:hover{{background:#EAE7DD;}}
+  .check{{width:44px; height:44px; border-radius:50%; background:#E9F5EC; display:flex; align-items:center; justify-content:center; margin-bottom:16px;}}
+  h2{{margin:0 0 6px; font-size:21px; font-weight:600;}}
+  p{{margin:0 0 4px; font-size:14px; color:#57544C; line-height:1.55;}}
+  .linkbox{{
+    background:#FAF9F6; border:1px solid #EDEAE1; border-radius:12px; padding:14px 16px;
+    word-break:break-all; font-size:13px; margin:16px 0 4px;
+  }}
+  .linkbox a{{color:#D97757; text-decoration:none; font-weight:500;}}
+  .foot{{font-size:12.5px; color:#a6a39a; margin-top:16px;}}
+</style>
+</head>
+<body>
+  <div class="card">
+    <a class="close" href="https://mail.google.com/mail/u/0/#inbox" title="Back to inbox">&times;</a>
+    <div class="check">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#2E7D46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h2>You're connected</h2>
+    <p>{email} is now enrolled in the study.</p>
+    <p>Bookmark this link. It's your personal daily check-in page for the rest of the study.</p>
+    <div class="linkbox"><a href="{checkin_url}">{checkin_url}</a></div>
+    <div class="foot">You can close this tab now.</div>
+  </div>
+</body></html>
+""")
 
 
 def build_gmail_from_creds(creds):
