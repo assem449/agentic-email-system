@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS participants (
     id TEXT PRIMARY KEY,
     email TEXT,
     token_enc BLOB NOT NULL,
-    checkin_token TEXT UNIQUE,
+    checkin_token TEXT,
     connected_at TEXT NOT NULL,
     active INTEGER NOT NULL DEFAULT 1
 );
@@ -76,6 +76,24 @@ CREATE TABLE IF NOT EXISTS checkin_submissions (
 """
 
 
+def _migrate(conn: sqlite3.Connection) -> None:
+    """Additive, idempotent fixes for a study.db created before a given
+    column/table existed. CREATE TABLE IF NOT EXISTS (in _SCHEMA) handles
+    brand-new tables fine; it does nothing for a column added to a table
+    that already exists, which is what this covers. Runs after _SCHEMA's
+    CREATE TABLEs and before the unique index below, since the index
+    needs the column to actually exist first — on a fresh db _SCHEMA
+    already created it, on an old db this ALTER just added it."""
+    cols = {row["name"] for row in conn.execute("PRAGMA table_info(participants)")}
+    if "checkin_token" not in cols:
+        conn.execute("ALTER TABLE participants ADD COLUMN checkin_token TEXT")
+
+    conn.execute(
+        "CREATE UNIQUE INDEX IF NOT EXISTS idx_participants_checkin_token "
+        "ON participants(checkin_token)"
+    )
+
+
 @contextmanager
 def _conn():
     Path(DB_PATH).parent.mkdir(parents=True, exist_ok=True)
@@ -83,6 +101,7 @@ def _conn():
     conn.row_factory = sqlite3.Row
     try:
         conn.executescript(_SCHEMA)
+        _migrate(conn)
         yield conn
         conn.commit()
     finally:
@@ -108,6 +127,7 @@ def upsert_participant(participant_id: str, email: str, token_json: str) -> str:
             ON CONFLICT(id) DO UPDATE SET
                 email = excluded.email,
                 token_enc = excluded.token_enc,
+                checkin_token = COALESCE(participants.checkin_token, excluded.checkin_token),
                 active = 1
             """,
             (participant_id, email, encrypt(token_json), token, _now()),
