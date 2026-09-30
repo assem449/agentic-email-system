@@ -70,12 +70,37 @@ PAGE_STYLE = """
 body{
   margin:0; min-height:100vh; display:flex; align-items:flex-start; justify-content:center;
   font-family:'Inter',-apple-system,system-ui,sans-serif;
-  background:#EDEBE3; color:#1A1A18; padding:40px 20px;
+  background:#F1F3F4; color:#1A1A18; padding:56px 20px 40px;
 }
+.wrap{width:100%; max-width:480px;}
+
+/* --- simulated inbox backdrop: a Gmail-inspired look, real data, not a
+   real Gmail embed (Google blocks iframing gmail.com anyway) --- */
+.gmail-panel{
+  background:#fff; border-radius:12px 12px 0 0; overflow:hidden;
+  box-shadow:0 1px 2px rgba(0,0,0,0.08);
+}
+.gmail-topbar{
+  display:flex; align-items:center; gap:10px; padding:14px 20px;
+  border-bottom:1px solid #EDEDED; font-size:14px; font-weight:600; color:#3c4043;
+}
+.gmail-dot{width:10px; height:10px; border-radius:50%; background:#EA4335; flex-shrink:0;}
+.gmail-row{
+  display:flex; align-items:center; gap:10px; padding:11px 20px;
+  border-bottom:1px solid #F1F1F1; text-decoration:none; color:inherit; transition:background .12s;
+}
+.gmail-row:last-child{border-bottom:none;}
+.gmail-row:hover{background:#F8F9FA;}
+.gmail-chip{font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:999px; width:70px; text-align:center; flex-shrink:0;}
+.gmail-subject{flex-grow:1; font-size:13px; color:#202124; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.gmail-status{font-size:11.5px; color:#80868b; flex-shrink:0;}
+.gmail-empty{padding:24px 20px; font-size:13px; color:#80868b; text-align:center;}
+
+/* --- the popup card, layered over the inbox panel --- */
 .card{
-  background:#fff; width:100%; max-width:480px; border-radius:20px;
-  box-shadow:0 24px 60px rgba(20,20,19,0.16), 0 2px 8px rgba(20,20,19,0.06);
-  padding:32px 28px; position:relative;
+  background:#fff; border-radius:20px; position:relative; z-index:2;
+  margin:-22px 14px 0; padding:30px 26px 28px;
+  box-shadow:0 24px 60px rgba(20,20,19,0.18), 0 2px 8px rgba(20,20,19,0.08);
   animation:popIn .28s cubic-bezier(.2,.8,.2,1);
 }
 @keyframes popIn{from{opacity:0; transform:scale(.96) translateY(8px);} to{opacity:1; transform:scale(1) translateY(0);}}
@@ -88,10 +113,9 @@ body{
 .eyebrow{font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:#a6a39a; font-weight:600; margin-bottom:6px;}
 h1{margin:0 0 4px; font-size:22px; font-weight:700; line-height:1.25;}
 .sub{font-size:13px; color:#8a887f; margin-bottom:14px;}
-.lead{font-size:14px; color:#57544C; line-height:1.55; margin-bottom:18px;}
+.lead{font-size:14px; color:#57544C; line-height:1.55; margin-bottom:6px;}
 .row{display:flex; align-items:center; gap:10px; padding:11px 0; border-bottom:1px solid #F0EEE7;}
 .row:last-child{border-bottom:none;}
-.badge{font-size:11px; font-weight:700; padding:3px 10px; border-radius:999px; width:74px; text-align:center; flex-shrink:0;}
 .pill{cursor:pointer; border:1px solid #E5E2D9; background:#fff; font-size:12px; font-weight:600;
       padding:5px 12px; border-radius:999px; transition:all .15s;}
 .pill:hover{border-color:#D6D2C4;}
@@ -126,10 +150,6 @@ def checkin_page(token: str):
     events = db.list_events_for_today(participant["id"])
     already = db.get_checkin_submission(participant["id"], day)
 
-    rows_html = "".join(_email_row_html(e) for e in events) or (
-        '<p style="color:#a6a39a; font-size:13.5px; padding:8px 0;">No emails yet today. Check back later.</p>'
-    )
-
     if already:
         body_html = f"""
         <div class="done">
@@ -150,30 +170,50 @@ def checkin_page(token: str):
 <style>{PAGE_STYLE}</style>
 </head>
 <body>
-  <div class="card">
-    <a class="close" href="https://mail.google.com/mail/u/0/#inbox" title="Back to inbox">&times;</a>
-    <div class="eyebrow">Email assistant study</div>
-    <h1>Day {day}</h1>
-    <div class="sub">{participant['email']}</div>
-    <div class="lead">You received <strong>{n}</strong> email{'s' if n != 1 else ''} today. Check your Drafts folder and Calendar, then let us know how it went.</div>
-    {rows_html}
-    {body_html}
+  <div class="wrap">
+    {_gmail_panel_html(events)}
+    <div class="card">
+      <a class="close" href="https://mail.google.com/mail/u/0/#inbox" title="Back to inbox">&times;</a>
+      <div class="eyebrow">Email assistant study</div>
+      <h1>Day {day}</h1>
+      <div class="sub">{participant['email']}</div>
+      <div class="lead">You received <strong>{n}</strong> email{'s' if n != 1 else ''} today. Here's a peek above, check your real Drafts and Calendar too, then let us know how it went.</div>
+      {body_html}
+    </div>
   </div>
 </body></html>
 """)
 
 
-def _email_row_html(e) -> str:
+def _gmail_panel_html(events) -> str:
+    """Backdrop behind the popup card: a Gmail-inspired inbox list built
+    from the participant's real processed emails (app.db.email_events).
+    Not a live embed of Gmail itself — Google blocks third-party sites
+    from iframing mail.google.com — just a look-alike using real data,
+    with each row still deep-linking to the actual message."""
+    if not events:
+        rows = '<div class="gmail-empty">No emails yet today. Check back later.</div>'
+    else:
+        rows = "".join(_gmail_row_html(e) for e in events)
+
+    return f"""
+    <div class="gmail-panel">
+      <div class="gmail-topbar"><span class="gmail-dot"></span> Inbox</div>
+      {rows}
+    </div>
+    """
+
+
+def _gmail_row_html(e) -> str:
     color, bg = CATEGORY_STYLE.get(e["category"], DEFAULT_STYLE)
     status = STATUS_LABEL.get(e["handler_used"], e["handler_used"] or "Processed")
     subject = e["subject"] or "(no subject)"
     return f"""
-    <div class="row">
-      <div class="badge" style="color:{color}; background:{bg};">{e['category'] or '...'}</div>
-      <div style="flex-grow:1; font-size:13.5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{subject}</div>
-      <div style="font-size:12px; color:#8a887f; flex-shrink:0;">{status}</div>
-      <a href="{_gmail_link(e['gmail_id'])}" target="_blank" style="font-size:12px; font-weight:600; flex-shrink:0;">Open ↗</a>
-    </div>
+    <a class="gmail-row" href="{_gmail_link(e['gmail_id'])}" target="_blank">
+      <div class="gmail-chip" style="color:{color}; background:{bg};">{e['category'] or '...'}</div>
+      <div class="gmail-subject">{subject}</div>
+      <div class="gmail-status">{status}</div>
+    </a>
     """
 
 
