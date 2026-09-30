@@ -11,7 +11,7 @@ import sqlite3
 import time
 import uuid
 from contextlib import contextmanager
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Optional
 
@@ -279,6 +279,14 @@ def record_email_event(
         )
 
 
+def _today_utc() -> date:
+    # connected_at / created_at are stored in UTC (_now(), below), so
+    # "today" has to be computed in UTC too — date.today() uses the
+    # server's local time, which can disagree with UTC by a day near
+    # midnight and silently shift the reported study day by one.
+    return datetime.now(timezone.utc).date()
+
+
 def day_number_for(participant_id: str) -> Optional[int]:
     """1-indexed study day, based on calendar days since this
     participant connected. None if they're not an active participant."""
@@ -286,11 +294,11 @@ def day_number_for(participant_id: str) -> Optional[int]:
     if p is None:
         return None
     connected_date = date.fromisoformat(p["connected_at"][:10])
-    return (date.today() - connected_date).days + 1
+    return (_today_utc() - connected_date).days + 1
 
 
 def list_events_for_today(participant_id: str) -> list[sqlite3.Row]:
-    today = date.today().isoformat()
+    today = _today_utc().isoformat()
     with _conn() as conn:
         return conn.execute(
             """
