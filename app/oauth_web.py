@@ -9,6 +9,7 @@ their token.
 
 import uuid
 from typing import Optional
+from urllib.parse import quote
 
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
@@ -17,6 +18,19 @@ from google_auth_oauthlib.flow import Flow
 from app import db
 from app.config import GOOGLE_OAUTH_CLIENT_SECRETS_PATH, OAUTH_REDIRECT_URI
 from app.google_auth import SCOPES
+
+
+def _google_link(email: str, continue_fragment: str) -> str:
+    """Link to a specific Google account's Gmail rather than whatever
+    account is session index 0 in the browser — a participant signed
+    into their real account too would otherwise get bounced there
+    instead of their study account. Kept in sync with the identical
+    helper in app/checkin.py."""
+    continue_url = f"https://mail.google.com/mail/u/0/{continue_fragment}"
+    return (
+        "https://accounts.google.com/AccountChooser"
+        f"?Email={quote(email)}&continue={quote(continue_url, safe='')}"
+    )
 
 router = APIRouter()
 
@@ -116,7 +130,7 @@ def auth_callback(request: Request, code: str, state: str):
 </head>
 <body>
   <div class="card">
-    <a class="close" href="https://mail.google.com/mail/u/0/#inbox" title="Back to inbox">&times;</a>
+    <a class="close" href="{_google_link(email, '#inbox')}" title="Back to inbox">&times;</a>
     <div class="check">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="#2E7D46" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>

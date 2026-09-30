@@ -15,6 +15,7 @@ to swap out once a real study UI is decided.
 
 import json
 from typing import List, Optional
+from urllib.parse import quote
 
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import HTMLResponse
@@ -48,10 +49,24 @@ STATUS_LABEL = {
 }
 
 
-def _gmail_link(gmail_id: str) -> str:
+def _google_link(email: str, continue_fragment: str) -> str:
+    """A link to a specific Google account's Gmail, not just whatever
+    account happens to be session index 0 in the browser (a participant
+    signed into their real account too will otherwise get bounced there
+    instead of their study account). AccountChooser switches to `email`
+    first if it's signed in, or prompts sign-in if it isn't, then
+    continues to the given Gmail URL."""
+    continue_url = f"https://mail.google.com/mail/u/0/{continue_fragment}"
+    return (
+        "https://accounts.google.com/AccountChooser"
+        f"?Email={quote(email)}&continue={quote(continue_url, safe='')}"
+    )
+
+
+def _gmail_link(email: str, gmail_id: str) -> str:
     if not gmail_id:
         return "#"
-    return f"https://mail.google.com/mail/u/0/#all/{gmail_id}"
+    return _google_link(email, f"#all/{gmail_id}")
 
 
 class PerEmailFeedback(BaseModel):
@@ -171,9 +186,9 @@ def checkin_page(token: str):
 </head>
 <body>
   <div class="wrap">
-    {_gmail_panel_html(events)}
+    {_gmail_panel_html(events, participant['email'])}
     <div class="card">
-      <a class="close" href="https://mail.google.com/mail/u/0/#inbox" title="Back to inbox">&times;</a>
+      <a class="close" href="{_google_link(participant['email'], '#inbox')}" title="Back to inbox">&times;</a>
       <div class="eyebrow">Email assistant study</div>
       <h1>Day {day}</h1>
       <div class="sub">{participant['email']}</div>
@@ -185,7 +200,7 @@ def checkin_page(token: str):
 """)
 
 
-def _gmail_panel_html(events) -> str:
+def _gmail_panel_html(events, email: str) -> str:
     """Backdrop behind the popup card: a Gmail-inspired inbox list built
     from the participant's real processed emails (app.db.email_events).
     Not a live embed of Gmail itself — Google blocks third-party sites
@@ -194,7 +209,7 @@ def _gmail_panel_html(events) -> str:
     if not events:
         rows = '<div class="gmail-empty">No emails yet today. Check back later.</div>'
     else:
-        rows = "".join(_gmail_row_html(e) for e in events)
+        rows = "".join(_gmail_row_html(e, email) for e in events)
 
     return f"""
     <div class="gmail-panel">
@@ -204,12 +219,12 @@ def _gmail_panel_html(events) -> str:
     """
 
 
-def _gmail_row_html(e) -> str:
+def _gmail_row_html(e, email: str) -> str:
     color, bg = CATEGORY_STYLE.get(e["category"], DEFAULT_STYLE)
     status = STATUS_LABEL.get(e["handler_used"], e["handler_used"] or "Processed")
     subject = e["subject"] or "(no subject)"
     return f"""
-    <a class="gmail-row" href="{_gmail_link(e['gmail_id'])}" target="_blank">
+    <a class="gmail-row" href="{_gmail_link(email, e['gmail_id'])}" target="_blank">
       <div class="gmail-chip" style="color:{color}; background:{bg};">{e['category'] or '...'}</div>
       <div class="gmail-subject">{subject}</div>
       <div class="gmail-status">{status}</div>
