@@ -25,6 +25,18 @@ What this deployment does, concretely:
   correct/wrong, an overall 1–10 draft-quality rating, and free-text
   notes. One submission per participant per day; visiting again the same
   day shows a "thanks, come back tomorrow" state instead of the form.
+- If your study sends participants a **fixed, researcher-authored
+  scenario set** rather than relying on organic incoming mail, seed it
+  with `scripts/seed_participant.py` instead of actually emailing it.
+  It writes each scenario straight into the participant's mailbox via
+  the Gmail API's `messages.insert` — no delivery happens at all, so
+  there's nothing for a spam filter to act on (unlike sending real test
+  emails between fresh accounts, which got caught repeatedly during
+  development). See that script's docstring for usage and the
+  `scenarios.json` shape it expects.
+  **Requires the `gmail.insert` scope** (added to `app/google_auth.py`'s
+  `SCOPES`) — any participant who connected before this was added needs
+  to reconnect once via `/auth/start` before seeding works for them.
 
 The `/admin` page, the "Connected" page, and the check-in page are all
 **plain server-rendered HTML, deliberately built to look reasonably clean

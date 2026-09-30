@@ -17,10 +17,18 @@ from app import db
 
 # One combined scope set — a single OAuth consent covers both Gmail and
 # Calendar, so each participant has exactly one stored token, not two.
+#
+# gmail.insert is for app/seeding.py: writing scenario emails straight
+# into a mailbox (messages.insert) rather than actually sending them,
+# so they never pass through delivery/spam filtering at all. A
+# participant who connected before this scope was added needs to
+# reconnect once (re-run /auth/start) before seeding will work for them
+# — their stored token predates the grant.
 SCOPES = [
     "https://www.googleapis.com/auth/gmail.readonly",
     "https://www.googleapis.com/auth/gmail.compose",
     "https://www.googleapis.com/auth/gmail.modify",
+    "https://www.googleapis.com/auth/gmail.insert",
     "https://www.googleapis.com/auth/calendar",
 ]
 
