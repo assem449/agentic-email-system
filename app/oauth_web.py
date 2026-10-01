@@ -9,7 +9,6 @@ their token.
 
 import uuid
 from typing import Optional
-from urllib.parse import quote
 
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
@@ -17,20 +16,14 @@ from google_auth_oauthlib.flow import Flow
 
 from app import db
 from app.config import GOOGLE_OAUTH_CLIENT_SECRETS_PATH, OAUTH_REDIRECT_URI
-from app.google_auth import SCOPES
+from app.google_auth import SCOPES, account_chooser_url
 
 
 def _google_link(email: str, continue_fragment: str) -> str:
-    """Link to a specific Google account's Gmail rather than whatever
-    account is session index 0 in the browser — a participant signed
-    into their real account too would otherwise get bounced there
-    instead of their study account. Kept in sync with the identical
-    helper in app/checkin.py."""
-    continue_url = f"https://mail.google.com/mail/u/0/{continue_fragment}"
-    return (
-        "https://accounts.google.com/AccountChooser"
-        f"?Email={quote(email)}&continue={quote(continue_url, safe='')}"
-    )
+    """A Gmail link targeted at a specific account. See
+    account_chooser_url (app.google_auth) for why this wrapping exists
+    at all — used for Gmail URLs specifically here."""
+    return account_chooser_url(email, f"https://mail.google.com/mail/u/0/{continue_fragment}")
 
 router = APIRouter()
 

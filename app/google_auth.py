@@ -9,6 +9,8 @@ services from it, and writes back a refreshed token when Google issues
 one.
 """
 
+from urllib.parse import quote
+
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
@@ -61,3 +63,20 @@ def get_gmail_service_for(participant_id: str):
 
 def get_calendar_service_for(participant_id: str):
     return build("calendar", "v3", credentials=_load_credentials(participant_id))
+
+
+def account_chooser_url(email: str, continue_url: str) -> str:
+    """Wraps any Google URL (a Gmail link, a Calendar event's htmlLink,
+    anything) so it opens against a specific account rather than
+    whatever Google treats as the browser's session-index-0 account.
+    Without this, a participant also signed into their real account
+    gets bounced there instead of the study account whenever a link
+    like this is opened — same bug for Gmail deep links and Calendar
+    event links, so this one helper covers both (and anything else
+    Google-hosted later). Switches to `email` first if it's signed in
+    in that browser, or prompts sign-in if it isn't, then continues to
+    `continue_url`."""
+    return (
+        "https://accounts.google.com/AccountChooser"
+        f"?Email={quote(email)}&continue={quote(continue_url, safe='')}"
+    )

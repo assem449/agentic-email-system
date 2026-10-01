@@ -16,13 +16,13 @@ to swap out once a real study UI is decided.
 import json
 from datetime import datetime
 from typing import List, Optional
-from urllib.parse import quote
 
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 
 from app import db
+from app.google_auth import account_chooser_url
 from app.handlers.calendar import create_approved_event
 
 router = APIRouter()
@@ -52,17 +52,10 @@ STATUS_LABEL = {
 
 
 def _google_link(email: str, continue_fragment: str) -> str:
-    """A link to a specific Google account's Gmail, not just whatever
-    account happens to be session index 0 in the browser (a participant
-    signed into their real account too will otherwise get bounced there
-    instead of their study account). AccountChooser switches to `email`
-    first if it's signed in, or prompts sign-in if it isn't, then
-    continues to the given Gmail URL."""
-    continue_url = f"https://mail.google.com/mail/u/0/{continue_fragment}"
-    return (
-        "https://accounts.google.com/AccountChooser"
-        f"?Email={quote(email)}&continue={quote(continue_url, safe='')}"
-    )
+    """A Gmail link targeted at a specific account. See
+    account_chooser_url (app.google_auth) for why this wrapping exists
+    at all — used for Gmail URLs specifically here."""
+    return account_chooser_url(email, f"https://mail.google.com/mail/u/0/{continue_fragment}")
 
 
 def _gmail_link(email: str, gmail_id: str) -> str:
@@ -405,7 +398,10 @@ def approve_pending_self(token: str, event_id: str):
 
     link = create_approved_event(participant["id"], row)
     db.decide_pending_event(event_id, "approved", link)
-    return {"status": "approved", "calendar_event_link": link}
+    # Google's htmlLink doesn't target any account on its own — wrap it
+    # the same way as the Gmail links above, or it opens whatever
+    # account is session index 0 in the browser instead of this one.
+    return {"status": "approved", "calendar_event_link": account_chooser_url(participant["email"], link)}
 
 
 @router.post("/checkin/{token}/pending/{event_id}/reject")

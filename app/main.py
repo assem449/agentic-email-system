@@ -9,6 +9,7 @@ from typing import Optional
 from app import db
 from app.checkin import router as checkin_router
 from app.config import ADMIN_TOKEN, POLL_INTERVAL_SECONDS
+from app.google_auth import account_chooser_url
 from app.graph import build_graph
 from app.handlers.calendar import create_approved_event
 from app.oauth_web import router as oauth_router
@@ -102,7 +103,12 @@ def approve_pending(event_id: str, x_admin_token: Optional[str] = Header(None)):
 
     link = create_approved_event(row["participant_id"], row)
     db.decide_pending_event(event_id, "approved", link)
-    return {"status": "approved", "calendar_event_link": link}
+    # The event lives on the participant's calendar, not the reviewer's —
+    # account_chooser_url targets that account when the link is opened,
+    # same fix as the Gmail deep links (app/checkin.py, app/oauth_web.py).
+    participant = db.get_participant(row["participant_id"])
+    viewer_link = account_chooser_url(participant["email"], link) if participant else link
+    return {"status": "approved", "calendar_event_link": viewer_link}
 
 
 @app.post("/admin/pending/{event_id}/reject")
