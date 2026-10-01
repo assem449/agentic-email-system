@@ -96,36 +96,37 @@ def auth_callback(request: Request, code: str, state: str):
 <!doctype html>
 <html><head><meta charset="utf-8"><title>Connected</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *{{box-sizing:border-box;}}
   body{{
     margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
-    font-family:'Inter',-apple-system,system-ui,sans-serif;
+    font-family:'Open Sans',-apple-system,system-ui,sans-serif;
     background:#EDEBE3; color:#1A1A18; padding:24px;
   }}
   .card{{
     background:#fff; width:100%; max-width:420px; border-radius:20px;
     box-shadow:0 24px 60px rgba(20,20,19,0.16), 0 2px 8px rgba(20,20,19,0.06);
     padding:36px 32px 32px; position:relative;
-    animation:popIn .28s cubic-bezier(.2,.8,.2,1);
+    animation:popIn .45s cubic-bezier(.16,1,.3,1) .1s both;
   }}
-  @keyframes popIn{{from{{opacity:0; transform:scale(.95) translateY(6px);}} to{{opacity:1; transform:scale(1) translateY(0);}}}}
+  @keyframes popIn{{from{{opacity:0; transform:scale(.94) translateY(12px);}} to{{opacity:1; transform:scale(1) translateY(0);}}}}
   .close{{
     position:absolute; top:16px; right:16px; width:28px; height:28px; border-radius:50%;
     background:#F4F2EC; border:none; display:flex; align-items:center; justify-content:center;
-    cursor:pointer; color:#8a887f; text-decoration:none; font-size:15px; transition:background .15s;
+    cursor:pointer; color:#8a887f; text-decoration:none; font-size:15px; transition:background .2s ease;
   }}
   .close:hover{{background:#EAE7DD;}}
   .check{{width:44px; height:44px; border-radius:50%; background:#E9F5EC; display:flex; align-items:center; justify-content:center; margin-bottom:16px;}}
   h2{{margin:0 0 6px; font-size:21px; font-weight:600;}}
   p{{margin:0 0 4px; font-size:14px; color:#57544C; line-height:1.55;}}
-  .linkbox{{
-    background:#FAF9F6; border:1px solid #EDEAE1; border-radius:12px; padding:14px 16px;
-    word-break:break-all; font-size:13px; margin:16px 0 4px;
+  .go-btn{{
+    display:inline-flex; align-items:center; gap:8px; background:#D97757; color:#fff;
+    text-decoration:none; font-size:14px; font-weight:600; padding:12px 20px; border-radius:10px;
+    margin-top:16px; transition:background .2s ease;
   }}
-  .linkbox a{{color:#D97757; text-decoration:none; font-weight:500;}}
-  .foot{{font-size:12.5px; color:#a6a39a; margin-top:16px;}}
+  .go-btn:hover{{background:#C6653F;}}
+  .foot{{font-size:12.5px; color:#a6a39a; margin-top:14px; line-height:1.5;}}
 </style>
 </head>
 <body>
@@ -136,9 +137,9 @@ def auth_callback(request: Request, code: str, state: str):
     </div>
     <h2>You're connected</h2>
     <p>{email} is now enrolled in the study.</p>
-    <p>Bookmark this link. It's your personal daily check-in page for the rest of the study.</p>
-    <div class="linkbox"><a href="{checkin_url}">{checkin_url}</a></div>
-    <div class="foot">You can close this tab now.</div>
+    <p>This is your personal daily check-in page for the rest of the study.</p>
+    <a class="go-btn" href="{checkin_url}">Open your check-in page →</a>
+    <div class="foot">Bookmark this page once it opens, you'll use it every day.</div>
   </div>
 </body></html>
 """)

@@ -84,7 +84,7 @@ PAGE_STYLE = """
 *{box-sizing:border-box;}
 body{
   margin:0; min-height:100vh; display:flex; align-items:flex-start; justify-content:center;
-  font-family:'Inter',-apple-system,system-ui,sans-serif;
+  font-family:'Open Sans',-apple-system,system-ui,sans-serif;
   background:#F1F3F4; color:#1A1A18; padding:56px 20px 40px;
 }
 .wrap{width:100%; max-width:480px;}
@@ -94,6 +94,7 @@ body{
 .gmail-panel{
   background:#fff; border-radius:12px 12px 0 0; overflow:hidden;
   box-shadow:0 1px 2px rgba(0,0,0,0.08);
+  animation:fadeIn .4s ease-out;
 }
 .gmail-topbar{
   display:flex; align-items:center; gap:10px; padding:14px 20px;
@@ -102,7 +103,7 @@ body{
 .gmail-dot{width:10px; height:10px; border-radius:50%; background:#EA4335; flex-shrink:0;}
 .gmail-row{
   display:flex; align-items:center; gap:10px; padding:11px 20px;
-  border-bottom:1px solid #F1F1F1; text-decoration:none; color:inherit; transition:background .12s;
+  border-bottom:1px solid #F1F1F1; text-decoration:none; color:inherit; transition:background .18s ease;
 }
 .gmail-row:last-child{border-bottom:none;}
 .gmail-row:hover{background:#F8F9FA;}
@@ -116,13 +117,14 @@ body{
   background:#fff; border-radius:20px; position:relative; z-index:2;
   margin:-22px 14px 0; padding:30px 26px 28px;
   box-shadow:0 24px 60px rgba(20,20,19,0.18), 0 2px 8px rgba(20,20,19,0.08);
-  animation:popIn .28s cubic-bezier(.2,.8,.2,1);
+  animation:popIn .45s cubic-bezier(.16,1,.3,1) .12s both;
 }
-@keyframes popIn{from{opacity:0; transform:scale(.96) translateY(8px);} to{opacity:1; transform:scale(1) translateY(0);}}
+@keyframes fadeIn{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);}}
+@keyframes popIn{from{opacity:0; transform:scale(.94) translateY(14px);} to{opacity:1; transform:scale(1) translateY(0);}}
 .close{
   position:absolute; top:16px; right:16px; width:28px; height:28px; border-radius:50%;
   background:#F4F2EC; border:none; display:flex; align-items:center; justify-content:center;
-  cursor:pointer; color:#8a887f; text-decoration:none; font-size:15px; transition:background .15s;
+  cursor:pointer; color:#8a887f; text-decoration:none; font-size:15px; transition:background .2s ease;
 }
 .close:hover{background:#EAE7DD;}
 .eyebrow{font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:#a6a39a; font-weight:600; margin-bottom:6px;}
@@ -132,21 +134,21 @@ h1{margin:0 0 4px; font-size:22px; font-weight:700; line-height:1.25;}
 .row{display:flex; align-items:center; gap:10px; padding:11px 0; border-bottom:1px solid #F0EEE7;}
 .row:last-child{border-bottom:none;}
 .pill{cursor:pointer; border:1px solid #E5E2D9; background:#fff; font-size:12px; font-weight:600;
-      padding:5px 12px; border-radius:999px; transition:all .15s;}
+      padding:5px 12px; border-radius:999px; transition:all .2s ease;}
 .pill:hover{border-color:#D6D2C4;}
 .pill.on-yes{background:#E9F5EC; border-color:#2E7D46; color:#2E7D46;}
 .pill.on-no{background:#F5E4E4; border-color:#A6432E; color:#A6432E;}
 .num{cursor:pointer; width:28px; height:28px; border-radius:8px; border:1px solid #E5E2D9; background:#fff;
      font-size:12.5px; font-weight:600; color:#57544C; display:inline-flex; align-items:center; justify-content:center;
-     transition:all .15s;}
+     transition:all .2s ease;}
 .num:hover{border-color:#D6D2C4;}
 .num.on{background:#1A1A18; border-color:#1A1A18; color:#fff;}
 .section-label{font-size:13px; font-weight:600; color:#3d3c39; margin-bottom:8px;}
 textarea{width:100%; border:1px solid #E5E2D9; border-radius:10px; padding:10px 12px;
-         font-size:13.5px; font-family:inherit; resize:vertical; min-height:60px; transition:border-color .15s;}
+         font-size:13.5px; font-family:inherit; resize:vertical; min-height:60px; transition:border-color .2s ease;}
 textarea:focus{outline:none; border-color:#D97757;}
 button.submit{background:#D97757; color:#fff; border:none; border-radius:10px; padding:12px 24px;
-              font-size:14px; font-weight:600; cursor:pointer; transition:background .15s; width:100%;}
+              font-size:14px; font-weight:600; cursor:pointer; transition:background .2s ease; width:100%;}
 button.submit:hover{background:#C6653F;}
 a{color:#D97757; text-decoration:none;}
 .done{background:#FAF9F6; border-radius:14px; padding:20px; margin-top:16px; text-align:center;}
@@ -181,7 +183,7 @@ def checkin_page(token: str):
 <!doctype html>
 <html><head><meta charset="utf-8"><title>Day {day} check-in</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>{PAGE_STYLE}</style>
 </head>
 <body>
