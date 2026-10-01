@@ -32,6 +32,13 @@ What this deployment does, concretely:
   correct/wrong, an overall 1–10 draft-quality rating, and free-text
   notes. One submission per participant per day; visiting again the same
   day shows a "thanks, come back tomorrow" state instead of the form.
+  A **"What do these mean?" side drawer** explains each category (ack,
+  faq, meeting, support, emotional, ambiguous, spam) with a one-line
+  description and an example. On the participant's literal **Day 1
+  only**, a **welcome modal** auto-opens explaining what the study is
+  and what the assistant does/doesn't do; dismissing it (`welcomed_at`
+  in `study.db`) stops it from auto-opening again, but an "About this
+  study" link keeps it reachable on any later day too.
 - If your study sends participants a **fixed, researcher-authored
   scenario set** rather than relying on organic incoming mail, seed it
   with `scripts/seed_participant.py` instead of actually emailing it.

@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS participants (
     email TEXT,
     token_enc BLOB NOT NULL,
     checkin_token TEXT,
+    welcomed_at TEXT,
     connected_at TEXT NOT NULL,
     active INTEGER NOT NULL DEFAULT 1
 );
@@ -88,6 +89,8 @@ def _migrate(conn: sqlite3.Connection) -> None:
     cols = {row["name"] for row in conn.execute("PRAGMA table_info(participants)")}
     if "checkin_token" not in cols:
         conn.execute("ALTER TABLE participants ADD COLUMN checkin_token TEXT")
+    if "welcomed_at" not in cols:
+        conn.execute("ALTER TABLE participants ADD COLUMN welcomed_at TEXT")
 
     pending_cols = {row["name"] for row in conn.execute("PRAGMA table_info(pending_events)")}
     if "time_adjusted" not in pending_cols:
@@ -192,7 +195,7 @@ def delete_participant_data(participant_id: str) -> None:
 def get_participant(participant_id: str) -> Optional[sqlite3.Row]:
     with _conn() as conn:
         return conn.execute(
-            "SELECT id, email, checkin_token, connected_at FROM participants WHERE id = ? AND active = 1",
+            "SELECT id, email, checkin_token, welcomed_at, connected_at FROM participants WHERE id = ? AND active = 1",
             (participant_id,),
         ).fetchone()
 
@@ -200,9 +203,19 @@ def get_participant(participant_id: str) -> Optional[sqlite3.Row]:
 def get_participant_by_checkin_token(token: str) -> Optional[sqlite3.Row]:
     with _conn() as conn:
         return conn.execute(
-            "SELECT id, email, checkin_token, connected_at FROM participants WHERE checkin_token = ? AND active = 1",
+            "SELECT id, email, checkin_token, welcomed_at, connected_at FROM participants WHERE checkin_token = ? AND active = 1",
             (token,),
         ).fetchone()
+
+
+def mark_welcomed(participant_id: str) -> None:
+    """Records that this participant has seen the first-day welcome
+    screen, so GET /checkin/{token} stops auto-showing it (they can
+    still reopen it on demand from the small 'About this study' link)."""
+    with _conn() as conn:
+        conn.execute(
+            "UPDATE participants SET welcomed_at = ? WHERE id = ?", (_now(), participant_id)
+        )
 
 
 # --- pending calendar proposals -------------------------------------------

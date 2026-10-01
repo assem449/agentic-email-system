@@ -38,6 +38,32 @@ CATEGORY_STYLE = {
 }
 DEFAULT_STYLE = ("#6B6A66", "#EFEDE6")
 
+# Backs the "What do these mean?" side drawer — one entry per category
+# the classifier actually uses (app/classifier.py / app/graph.py),
+# described in plain terms with a representative example.
+CATEGORY_INFO = [
+    ("ack", "A short acknowledgment with nothing left to answer, like a thank-you. "
+            "Answered instantly from a template, no AI involved.",
+     "“Thanks so much!”"),
+    ("faq", "A common question that matches one already in the knowledge base, "
+            "answered instantly, or passed to the AI if nothing matches closely.",
+     "“What are your support hours?”"),
+    ("meeting", "A request to schedule a call or meeting. Your real calendar is checked "
+                "for a free slot, but nothing is ever booked until you approve it yourself.",
+     "“Can we grab 30 minutes tomorrow afternoon?”"),
+    ("support", "An account or product issue that needs a specific, helpful reply, "
+                "drafted by the AI (and reused if the same question comes up again).",
+     "“My export keeps failing, can you help?”"),
+    ("emotional", "A frustrated or upset message. The AI drafts an empathetic reply "
+                  "rather than a purely procedural one.",
+     "“This is so frustrating, nothing is working!”"),
+    ("ambiguous", "Doesn't fit cleanly into another category, so the AI drafts a reply "
+                  "case by case.",
+     "“Following up on my email from last week.”"),
+    ("spam", "Looks like spam or phishing. Blocked automatically — no draft, no reply.",
+     "“You've won a prize, claim it now!”"),
+]
+
 STATUS_LABEL = {
     "template": "Draft created",
     "cache_hit": "Draft created",
@@ -157,6 +183,45 @@ a{color:#2F6FED; text-decoration:none;}
 .done{background:#FAF9F6; border-radius:14px; padding:20px; margin-top:16px; text-align:center;}
 .done .big{font-size:22px; margin-bottom:6px;}
 .result{font-size:13px; margin-top:10px; text-align:center; min-height:16px;}
+
+.header-links{display:flex; gap:16px; margin-bottom:12px;}
+.link-btn{background:none; border:none; color:#2F6FED; font-size:12.5px; font-weight:600; cursor:pointer; padding:0;}
+.link-btn:hover{text-decoration:underline;}
+
+/* --- side drawer: category reference, and reused for the welcome modal's backdrop --- */
+.backdrop{position:fixed; inset:0; background:rgba(26,26,24,.35); opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:40;}
+.backdrop.open{opacity:1; pointer-events:auto;}
+.drawer{
+  position:fixed; top:0; right:0; height:100vh; width:320px; max-width:85vw; background:#fff;
+  box-shadow:-8px 0 30px rgba(0,0,0,.15); transform:translateX(100%);
+  transition:transform .3s cubic-bezier(.16,1,.3,1); z-index:50; overflow-y:auto; padding:30px 24px;
+}
+.drawer.open{transform:translateX(0);}
+.drawer h2{font-size:17px; margin:0 0 18px; font-weight:700;}
+.drawer-close{
+  position:absolute; top:16px; right:16px; width:28px; height:28px; border-radius:50%; background:#F4F2EC;
+  border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; color:#8a887f; font-size:15px;
+}
+.cat-item{margin-bottom:20px;}
+.cat-badge{font-size:10.5px; font-weight:700; padding:2px 10px; border-radius:999px; display:inline-block; margin-bottom:7px;}
+.cat-desc{font-size:13px; color:#57544C; line-height:1.55; margin-bottom:7px;}
+.cat-example{font-size:12.5px; color:#8a887f; font-style:italic; background:#FAF9F6; border-radius:8px; padding:8px 10px;}
+
+/* --- welcome modal: auto-opened on Day 1 only, reopenable from the header link --- */
+.welcome-overlay{
+  position:fixed; inset:0; background:rgba(26,26,24,.45); display:flex; align-items:center; justify-content:center;
+  padding:20px; opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:60;
+}
+.welcome-overlay.open{opacity:1; pointer-events:auto;}
+.welcome-modal{
+  background:#fff; border-radius:20px; max-width:440px; width:100%; padding:34px 30px; max-height:85vh; overflow-y:auto;
+  box-shadow:0 30px 80px rgba(0,0,0,.25); transform:scale(.95); transition:transform .25s cubic-bezier(.16,1,.3,1);
+}
+.welcome-overlay.open .welcome-modal{transform:scale(1);}
+.welcome-modal h2{font-size:21px; margin:0 0 14px; font-weight:700;}
+.welcome-modal p{font-size:14px; color:#57544C; line-height:1.6; margin:0 0 14px;}
+.welcome-modal ul{margin:0 0 18px; padding-left:20px;}
+.welcome-modal li{font-size:14px; color:#57544C; line-height:1.6; margin-bottom:7px;}
 """
 
 
@@ -169,6 +234,7 @@ def checkin_page(token: str):
     day = db.day_number_for(participant["id"])
     events = db.list_events_for_today(participant["id"])
     already = db.get_checkin_submission(participant["id"], day)
+    show_welcome = day == 1 and not participant["welcomed_at"]
 
     if already:
         body_html = f"""
@@ -197,11 +263,34 @@ def checkin_page(token: str):
       <div class="eyebrow">Email assistant study</div>
       <h1>Day {day}</h1>
       <div class="sub">{participant['email']}</div>
+      <div class="header-links">
+        <button type="button" class="link-btn" onclick="openDrawer()">What do these mean?</button>
+        <button type="button" class="link-btn" onclick="openWelcome()">About this study</button>
+      </div>
       <div class="lead">You received <strong>{n}</strong> email{'s' if n != 1 else ''} today. Here's a peek above, check your real Drafts and Calendar too, then let us know how it went.</div>
       {_pending_events_html(token, participant["id"])}
       {body_html}
     </div>
   </div>
+  {_category_drawer_html()}
+  {_welcome_modal_html(token, show_welcome)}
+<script>
+  function openDrawer() {{
+    document.getElementById('cat-drawer').classList.add('open');
+    document.getElementById('cat-backdrop').classList.add('open');
+  }}
+  function closeDrawer() {{
+    document.getElementById('cat-drawer').classList.remove('open');
+    document.getElementById('cat-backdrop').classList.remove('open');
+  }}
+  function openWelcome() {{
+    document.getElementById('welcome-overlay').classList.add('open');
+  }}
+  async function dismissWelcome(token) {{
+    document.getElementById('welcome-overlay').classList.remove('open');
+    fetch(`/checkin/${{token}}/welcome-seen`, {{method: 'POST'}}).catch(() => {{}});
+  }}
+</script>
 </body></html>
 """)
 
@@ -271,6 +360,67 @@ def _pending_events_html(token: str, participant_id: str) -> str:
   }}
 </script>
 """
+
+
+def _category_drawer_html() -> str:
+    """Reference panel explaining what each classification category
+    means and how it's handled, with an example — opened from the
+    'What do these mean?' link. Static content, same for every
+    participant and every day."""
+    items = ""
+    for category, description, example in CATEGORY_INFO:
+        color, bg = CATEGORY_STYLE.get(category, DEFAULT_STYLE)
+        items += f"""
+        <div class="cat-item">
+          <div class="cat-badge" style="color:{color}; background:{bg};">{category}</div>
+          <div class="cat-desc">{description}</div>
+          <div class="cat-example">{example}</div>
+        </div>
+        """
+    return f"""
+    <div class="backdrop" id="cat-backdrop" onclick="closeDrawer()"></div>
+    <div class="drawer" id="cat-drawer">
+      <button type="button" class="drawer-close" onclick="closeDrawer()" title="Close">&times;</button>
+      <h2>What do these categories mean?</h2>
+      {items}
+    </div>
+    """
+
+
+def _welcome_modal_html(token: str, auto_open: bool) -> str:
+    """First-day welcome screen, explaining what the study is and what
+    to expect. Auto-shown only once (day 1, before welcomed_at is set —
+    see app.db.mark_welcomed); reopenable anytime afterward from the
+    'About this study' link, which just toggles the same modal without
+    re-marking anything."""
+    open_class = " open" if auto_open else ""
+    return f"""
+    <div class="welcome-overlay{open_class}" id="welcome-overlay">
+      <div class="welcome-modal">
+        <h2>Welcome to the study 👋</h2>
+        <p>
+          You're helping test an assistant that reads unread emails in this inbox, figures out
+          what kind of message each one is, and drafts a reply, all without sending anything on
+          its own.
+        </p>
+        <p>Here's exactly what it does, and doesn't do:</p>
+        <ul>
+          <li>Drafts a reply to most emails and saves it to your Drafts folder. Nothing is ever sent automatically, you decide if and when to send each one.</li>
+          <li>For meeting requests, it checks your real calendar for a free time and proposes it, but never books anything until you approve it yourself, right here on this page.</li>
+          <li>Obvious spam gets blocked automatically.</li>
+        </ul>
+        <p>
+          Each day, come back to this page to see what happened with today's emails, approve or
+          reject any meeting proposals, and give quick feedback, it only takes a minute or two.
+        </p>
+        <p style="font-size:12.5px; color:#a6a39a;">
+          This is a research study, not your personal inbox. Nothing you do here is shared outside
+          the study team.
+        </p>
+        <button class="submit" onclick="dismissWelcome('{token}')">Let's get started</button>
+      </div>
+    </div>
+    """
 
 
 def _gmail_panel_html(events, email: str) -> str:
@@ -416,6 +566,20 @@ def reject_pending_self(token: str, event_id: str):
 
     db.decide_pending_event(event_id, "rejected")
     return {"status": "rejected"}
+
+
+@router.post("/checkin/{token}/welcome-seen")
+def mark_welcome_seen(token: str):
+    """Called once the first time the Day 1 welcome modal is dismissed,
+    so it stops auto-showing on later visits. Reopening it later via
+    the 'About this study' link doesn't call this again — it's already
+    marked, and calling it again is harmless either way (just a no-op
+    timestamp update), so no special-casing needed there."""
+    participant = db.get_participant_by_checkin_token(token)
+    if participant is None:
+        raise HTTPException(404, "Check-in link not recognized")
+    db.mark_welcomed(participant["id"])
+    return {"status": "ok"}
 
 
 @router.post("/checkin/{token}/submit")
