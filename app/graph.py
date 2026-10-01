@@ -1,8 +1,9 @@
+import os
+
 from langgraph.graph import StateGraph, END
 import time
 from app.state import EmailState
 from app.classifier import classify_email
-from app.distilbert_classifier import classify_email_distilbert
 from app.handlers.template import template_handler
 from app.handlers.cache import cache_handler
 from app.handlers.retrieval import retrieval_handler
@@ -10,10 +11,22 @@ from app.handlers.calendar import calendar_handler
 from app.handlers.llm import llm_handler
 from app.logging_utils import log_routing_decision
 
-# Which classifier the live pipeline uses. Swapping v1 <-> v2 is a
-# one-line change because both share a (subject, body) -> category
-# signature. eval_run.py rebinds classify_node directly to compare them.
-ACTIVE_CLASSIFIER = classify_email_distilbert  # or: classify_email
+# Which classifier the live pipeline uses. Both share a (subject, body)
+# -> category signature. eval_run.py rebinds classify_node directly to
+# compare them.
+#
+# DistilBERT (transformers + torch) is NOT imported unless explicitly
+# asked for via CLASSIFIER=distilbert: importing torch alone commonly
+# costs 300MB+ RSS before a single email is processed, which reliably
+# OOMs a memory-constrained deploy (e.g. Render's 512MB Starter plan).
+# It also needs data/distilbert_model/ present, which is gitignored and
+# not part of a fresh deploy's checkout — set this only on an instance
+# that actually has the trained model file and enough RAM.
+if os.environ.get("CLASSIFIER", "rules") == "distilbert":
+    from app.distilbert_classifier import classify_email_distilbert
+    ACTIVE_CLASSIFIER = classify_email_distilbert
+else:
+    ACTIVE_CLASSIFIER = classify_email
 
 
 def classify_node(state: EmailState) -> EmailState:

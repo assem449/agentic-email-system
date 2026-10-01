@@ -21,6 +21,11 @@ services:
         sync: false
       - key: STUDY_DB_PATH
         value: /data/study.db
+      - key: CLASSIFIER
+        value: rules   # the DistilBERT classifier (transformers+torch) needs
+                        # a bigger plan (500MB+ just importing torch) and the
+                        # trained model file, which isn't part of the repo —
+                        # see app/graph.py
       - key: GOOGLE_OAUTH_CLIENT_SECRETS_PATH
         value: /etc/secrets/oauth_client_secret.json
       - key: OAUTH_REDIRECT_URI
