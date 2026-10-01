@@ -108,104 +108,107 @@ body{
   font-family:'Open Sans',-apple-system,system-ui,sans-serif;
   background:#F1F3F4; color:#1A1A18; padding:56px 20px 40px;
 }
-.wrap{width:100%; max-width:480px;}
+/* Two columns side by side on a wide viewport (main content + the
+   always-visible category sidebar), wrapping to a stacked single
+   column on a narrow one — no media query needed, flex-wrap handles it. */
+.wrap{width:100%; max-width:900px; display:flex; gap:26px; align-items:flex-start; flex-wrap:wrap;}
+.main-col{flex:1 1 480px; min-width:320px; max-width:520px;}
 
 /* --- simulated inbox backdrop: a Gmail-inspired look, real data, not a
    real Gmail embed (Google blocks iframing gmail.com anyway) --- */
 .gmail-panel{
-  background:#fff; border-radius:14px; overflow:hidden;
+  background:#fff; border-radius:16px; overflow:hidden;
   box-shadow:0 2px 10px rgba(0,0,0,0.07);
   animation:fadeIn .4s ease-out;
 }
 .gmail-topbar{
-  display:flex; align-items:center; gap:10px; padding:14px 20px;
-  border-bottom:1px solid #EDEDED; font-size:14px; font-weight:600; color:#3c4043;
+  display:flex; align-items:center; gap:10px; padding:16px 22px;
+  border-bottom:1px solid #EDEDED; font-size:15px; font-weight:600; color:#3c4043;
 }
-.gmail-dot{width:10px; height:10px; border-radius:50%; background:#EA4335; flex-shrink:0;}
+.gmail-dot{width:11px; height:11px; border-radius:50%; background:#EA4335; flex-shrink:0;}
+.view-gmail-btn{
+  margin-left:auto; display:inline-flex; align-items:center; gap:6px; background:#fff; border:1px solid #DADCE0;
+  color:#3c4043; font-size:12.5px; font-weight:600; padding:7px 14px; border-radius:999px; transition:all .2s ease;
+}
+.view-gmail-btn:hover{background:#F8F9FA; border-color:#C4C7C9;}
 .gmail-row{
-  display:flex; align-items:center; gap:10px; padding:11px 20px;
+  display:flex; align-items:center; gap:12px; padding:13px 22px;
   border-bottom:1px solid #F1F1F1; text-decoration:none; color:inherit; transition:background .18s ease;
 }
 .gmail-row:last-child{border-bottom:none;}
 .gmail-row:hover{background:#F8F9FA;}
-.gmail-chip{font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:999px; width:70px; text-align:center; flex-shrink:0;}
-.gmail-subject{flex-grow:1; font-size:13px; color:#202124; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
-.gmail-status{font-size:11.5px; color:#80868b; flex-shrink:0;}
-.gmail-empty{padding:24px 20px; font-size:13px; color:#80868b; text-align:center;}
+.gmail-chip{font-size:11.5px; font-weight:700; padding:3px 10px; border-radius:999px; width:78px; text-align:center; flex-shrink:0;}
+.gmail-subject{flex-grow:1; font-size:14px; color:#202124; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.gmail-status{font-size:12.5px; color:#80868b; flex-shrink:0;}
+.gmail-empty{padding:26px 22px; font-size:14px; color:#80868b; text-align:center;}
 
 /* --- the popup card, stacked below the inbox panel, not overlapping it --- */
 .card{
-  background:#fff; border-radius:20px; position:relative;
-  margin:20px 0 0; padding:30px 26px 28px;
+  background:#fff; border-radius:22px; position:relative;
+  margin:20px 0 0; padding:34px 30px 32px;
   box-shadow:0 24px 60px rgba(20,20,19,0.18), 0 2px 8px rgba(20,20,19,0.08);
   animation:popIn .45s cubic-bezier(.16,1,.3,1) .12s both;
 }
 @keyframes fadeIn{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);}}
 @keyframes popIn{from{opacity:0; transform:scale(.94) translateY(14px);} to{opacity:1; transform:scale(1) translateY(0);}}
 .close{
-  position:absolute; top:16px; right:16px; width:28px; height:28px; border-radius:50%;
+  position:absolute; top:18px; right:18px; width:30px; height:30px; border-radius:50%;
   background:#F4F2EC; border:none; display:flex; align-items:center; justify-content:center;
-  cursor:pointer; color:#8a887f; text-decoration:none; font-size:15px; transition:background .2s ease;
+  cursor:pointer; color:#8a887f; text-decoration:none; font-size:16px; transition:background .2s ease;
 }
 .close:hover{background:#EAE7DD;}
-.eyebrow{font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:#a6a39a; font-weight:600; margin-bottom:6px;}
-h1{margin:0 0 4px; font-size:22px; font-weight:700; line-height:1.25;}
-.sub{font-size:13px; color:#8a887f; margin-bottom:14px;}
-.lead{font-size:14px; color:#57544C; line-height:1.55; margin-bottom:6px;}
-.row{display:flex; align-items:center; gap:10px; padding:11px 0; border-bottom:1px solid #F0EEE7;}
+.eyebrow{font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:#a6a39a; font-weight:600; margin-bottom:7px;}
+h1{margin:0 0 5px; font-size:25px; font-weight:700; line-height:1.25;}
+.sub{font-size:14px; color:#8a887f; margin-bottom:16px;}
+.lead{font-size:15px; color:#57544C; line-height:1.6; margin-bottom:6px;}
+.row{display:flex; align-items:center; gap:10px; padding:12px 0; border-bottom:1px solid #F0EEE7;}
 .row:last-child{border-bottom:none;}
-.pill{cursor:pointer; border:1px solid #E5E2D9; background:#fff; font-size:12px; font-weight:600;
-      padding:5px 12px; border-radius:999px; transition:all .2s ease;}
+.pill{cursor:pointer; border:1px solid #E5E2D9; background:#fff; font-size:12.5px; font-weight:600;
+      padding:6px 14px; border-radius:999px; transition:all .2s ease;}
 .pill:hover{border-color:#D6D2C4;}
 .pill.on-yes{background:#E9F5EC; border-color:#2E7D46; color:#2E7D46;}
 .pill.on-no{background:#F5E4E4; border-color:#A6432E; color:#A6432E;}
-.num{cursor:pointer; width:28px; height:28px; border-radius:8px; border:1px solid #E5E2D9; background:#fff;
-     font-size:12.5px; font-weight:600; color:#57544C; display:inline-flex; align-items:center; justify-content:center;
+.num{cursor:pointer; width:32px; height:32px; border-radius:9px; border:1px solid #E5E2D9; background:#fff;
+     font-size:13.5px; font-weight:600; color:#57544C; display:inline-flex; align-items:center; justify-content:center;
      transition:all .2s ease;}
 .num:hover{border-color:#D6D2C4;}
 .num.on{background:#1A1A18; border-color:#1A1A18; color:#fff;}
-.section-label{font-size:13px; font-weight:600; color:#3d3c39; margin-bottom:8px;}
-.meeting-card{background:#FAF9F6; border:1px solid #EDEAE1; border-radius:12px; padding:14px 16px; margin-bottom:10px;}
-.approve-btn{cursor:pointer; border:none; background:#2F6FED; color:#fff; font-size:12.5px; font-weight:600;
-             padding:8px 16px; border-radius:8px; transition:background .2s ease;}
+.section-label{font-size:14px; font-weight:600; color:#3d3c39; margin-bottom:9px;}
+.meeting-card{background:#FAF9F6; border:1px solid #EDEAE1; border-radius:14px; padding:16px 18px; margin-bottom:12px;}
+.approve-btn{cursor:pointer; border:none; background:#2F6FED; color:#fff; font-size:13px; font-weight:600;
+             padding:9px 18px; border-radius:9px; transition:background .2s ease;}
 .approve-btn:hover{background:#2558BE;}
 .approve-btn:disabled, .reject-btn:disabled{opacity:.5; cursor:default;}
-.reject-btn{cursor:pointer; border:1px solid #E5E2D9; background:#fff; color:#57544C; font-size:12.5px; font-weight:600;
-            padding:8px 16px; border-radius:8px; transition:all .2s ease;}
+.reject-btn{cursor:pointer; border:1px solid #E5E2D9; background:#fff; color:#57544C; font-size:13px; font-weight:600;
+            padding:9px 18px; border-radius:9px; transition:all .2s ease;}
 .reject-btn:hover{border-color:#D6D2C4;}
-textarea{width:100%; border:1px solid #E5E2D9; border-radius:10px; padding:10px 12px;
-         font-size:13.5px; font-family:inherit; resize:vertical; min-height:60px; transition:border-color .2s ease;}
+textarea{width:100%; border:1px solid #E5E2D9; border-radius:11px; padding:11px 14px;
+         font-size:14px; font-family:inherit; resize:vertical; min-height:68px; transition:border-color .2s ease;}
 textarea:focus{outline:none; border-color:#2F6FED;}
-button.submit{background:#2F6FED; color:#fff; border:none; border-radius:10px; padding:12px 24px;
-              font-size:14px; font-weight:600; cursor:pointer; transition:background .2s ease; width:100%;}
+button.submit{background:#2F6FED; color:#fff; border:none; border-radius:11px; padding:13px 26px;
+              font-size:15px; font-weight:600; cursor:pointer; transition:background .2s ease; width:100%;}
 button.submit:hover{background:#2558BE;}
 a{color:#2F6FED; text-decoration:none;}
-.done{background:#FAF9F6; border-radius:14px; padding:20px; margin-top:16px; text-align:center;}
-.done .big{font-size:22px; margin-bottom:6px;}
-.result{font-size:13px; margin-top:10px; text-align:center; min-height:16px;}
+.done{background:#FAF9F6; border-radius:16px; padding:22px; margin-top:16px; text-align:center;}
+.done .big{font-size:24px; margin-bottom:7px;}
+.result{font-size:14px; margin-top:10px; text-align:center; min-height:16px;}
 
-.header-links{display:flex; gap:16px; margin-bottom:12px;}
-.link-btn{background:none; border:none; color:#2F6FED; font-size:12.5px; font-weight:600; cursor:pointer; padding:0;}
+.header-links{display:flex; gap:16px; margin-bottom:14px;}
+.link-btn{background:none; border:none; color:#2F6FED; font-size:13px; font-weight:600; cursor:pointer; padding:0;}
 .link-btn:hover{text-decoration:underline;}
 
-/* --- side drawer: category reference, and reused for the welcome modal's backdrop --- */
-.backdrop{position:fixed; inset:0; background:rgba(26,26,24,.35); opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:40;}
-.backdrop.open{opacity:1; pointer-events:auto;}
-.drawer{
-  position:fixed; top:0; right:0; height:100vh; width:320px; max-width:85vw; background:#fff;
-  box-shadow:-8px 0 30px rgba(0,0,0,.15); transform:translateX(100%);
-  transition:transform .3s cubic-bezier(.16,1,.3,1); z-index:50; overflow-y:auto; padding:30px 24px;
+/* --- always-visible category sidebar, next to the main column --- */
+.sidebar{
+  flex:1 1 300px; min-width:280px; max-width:340px; background:#fff; border-radius:18px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.07); padding:28px 24px; align-self:flex-start;
+  animation:fadeIn .4s ease-out;
 }
-.drawer.open{transform:translateX(0);}
-.drawer h2{font-size:17px; margin:0 0 18px; font-weight:700;}
-.drawer-close{
-  position:absolute; top:16px; right:16px; width:28px; height:28px; border-radius:50%; background:#F4F2EC;
-  border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; color:#8a887f; font-size:15px;
-}
-.cat-item{margin-bottom:20px;}
-.cat-badge{font-size:10.5px; font-weight:700; padding:2px 10px; border-radius:999px; display:inline-block; margin-bottom:7px;}
-.cat-desc{font-size:13px; color:#57544C; line-height:1.55; margin-bottom:7px;}
-.cat-example{font-size:12.5px; color:#8a887f; font-style:italic; background:#FAF9F6; border-radius:8px; padding:8px 10px;}
+.sidebar h2{font-size:17px; margin:0 0 20px; font-weight:700;}
+.cat-item{margin-bottom:22px;}
+.cat-item:last-child{margin-bottom:0;}
+.cat-badge{font-size:11.5px; font-weight:700; padding:3px 11px; border-radius:999px; display:inline-block; margin-bottom:8px;}
+.cat-desc{font-size:13.5px; color:#57544C; line-height:1.6; margin-bottom:8px;}
+.cat-example{font-size:13px; color:#8a887f; font-style:italic; background:#FAF9F6; border-radius:9px; padding:9px 12px;}
 
 /* --- welcome modal: auto-opened on Day 1 only, reopenable from the header link --- */
 .welcome-overlay{
@@ -257,32 +260,25 @@ def checkin_page(token: str):
 </head>
 <body>
   <div class="wrap">
-    {_gmail_panel_html(events, participant['email'])}
-    <div class="card">
-      <a class="close" href="{_google_link(participant['email'], '#inbox')}" title="Back to inbox">&times;</a>
-      <div class="eyebrow">Email assistant study</div>
-      <h1>Day {day}</h1>
-      <div class="sub">{participant['email']}</div>
-      <div class="header-links">
-        <button type="button" class="link-btn" onclick="openDrawer()">What do these mean?</button>
-        <button type="button" class="link-btn" onclick="openWelcome()">About this study</button>
+    <div class="main-col">
+      {_gmail_panel_html(events, participant['email'])}
+      <div class="card">
+        <a class="close" href="{_google_link(participant['email'], '#inbox')}" title="Back to inbox">&times;</a>
+        <div class="eyebrow">Email assistant study</div>
+        <h1>Day {day}</h1>
+        <div class="sub">{participant['email']}</div>
+        <div class="header-links">
+          <button type="button" class="link-btn" onclick="openWelcome()">About this study</button>
+        </div>
+        <div class="lead">You received <strong>{n}</strong> email{'s' if n != 1 else ''} today. Here's a peek above, check your real Drafts and Calendar too, then let us know how it went.</div>
+        {_pending_events_html(token, participant["id"])}
+        {body_html}
       </div>
-      <div class="lead">You received <strong>{n}</strong> email{'s' if n != 1 else ''} today. Here's a peek above, check your real Drafts and Calendar too, then let us know how it went.</div>
-      {_pending_events_html(token, participant["id"])}
-      {body_html}
     </div>
+    {_category_sidebar_html()}
   </div>
-  {_category_drawer_html()}
   {_welcome_modal_html(token, show_welcome)}
 <script>
-  function openDrawer() {{
-    document.getElementById('cat-drawer').classList.add('open');
-    document.getElementById('cat-backdrop').classList.add('open');
-  }}
-  function closeDrawer() {{
-    document.getElementById('cat-drawer').classList.remove('open');
-    document.getElementById('cat-backdrop').classList.remove('open');
-  }}
   function openWelcome() {{
     document.getElementById('welcome-overlay').classList.add('open');
   }}
@@ -362,11 +358,11 @@ def _pending_events_html(token: str, participant_id: str) -> str:
 """
 
 
-def _category_drawer_html() -> str:
-    """Reference panel explaining what each classification category
-    means and how it's handled, with an example — opened from the
-    'What do these mean?' link. Static content, same for every
-    participant and every day."""
+def _category_sidebar_html() -> str:
+    """Always-visible reference panel next to the main column, explaining
+    what each classification category means and how it's handled, with
+    an example. Static content, same for every participant and every
+    day — no toggle needed, it's just always there."""
     items = ""
     for category, description, example in CATEGORY_INFO:
         color, bg = CATEGORY_STYLE.get(category, DEFAULT_STYLE)
@@ -378,9 +374,7 @@ def _category_drawer_html() -> str:
         </div>
         """
     return f"""
-    <div class="backdrop" id="cat-backdrop" onclick="closeDrawer()"></div>
-    <div class="drawer" id="cat-drawer">
-      <button type="button" class="drawer-close" onclick="closeDrawer()" title="Close">&times;</button>
+    <div class="sidebar">
       <h2>What do these categories mean?</h2>
       {items}
     </div>
@@ -436,7 +430,10 @@ def _gmail_panel_html(events, email: str) -> str:
 
     return f"""
     <div class="gmail-panel">
-      <div class="gmail-topbar"><span class="gmail-dot"></span> Inbox</div>
+      <div class="gmail-topbar">
+        <span class="gmail-dot"></span> Inbox
+        <a class="view-gmail-btn" href="{_google_link(email, '#inbox')}" target="_blank">View in Gmail ↗</a>
+      </div>
       {rows}
     </div>
     """
