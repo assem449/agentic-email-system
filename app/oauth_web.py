@@ -121,11 +121,11 @@ def auth_callback(request: Request, code: str, state: str):
   h2{{margin:0 0 6px; font-size:21px; font-weight:600;}}
   p{{margin:0 0 4px; font-size:14px; color:#57544C; line-height:1.55;}}
   .go-btn{{
-    display:inline-flex; align-items:center; gap:8px; background:#D97757; color:#fff;
+    display:inline-flex; align-items:center; gap:8px; background:#2F6FED; color:#fff;
     text-decoration:none; font-size:14px; font-weight:600; padding:12px 20px; border-radius:10px;
     margin-top:16px; transition:background .2s ease;
   }}
-  .go-btn:hover{{background:#C6653F;}}
+  .go-btn:hover{{background:#2558BE;}}
   .foot{{font-size:12.5px; color:#a6a39a; margin-top:14px; line-height:1.5;}}
 </style>
 </head>

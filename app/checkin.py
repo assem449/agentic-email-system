@@ -92,8 +92,8 @@ body{
 /* --- simulated inbox backdrop: a Gmail-inspired look, real data, not a
    real Gmail embed (Google blocks iframing gmail.com anyway) --- */
 .gmail-panel{
-  background:#fff; border-radius:12px 12px 0 0; overflow:hidden;
-  box-shadow:0 1px 2px rgba(0,0,0,0.08);
+  background:#fff; border-radius:14px; overflow:hidden;
+  box-shadow:0 2px 10px rgba(0,0,0,0.07);
   animation:fadeIn .4s ease-out;
 }
 .gmail-topbar{
@@ -112,10 +112,10 @@ body{
 .gmail-status{font-size:11.5px; color:#80868b; flex-shrink:0;}
 .gmail-empty{padding:24px 20px; font-size:13px; color:#80868b; text-align:center;}
 
-/* --- the popup card, layered over the inbox panel --- */
+/* --- the popup card, stacked below the inbox panel, not overlapping it --- */
 .card{
-  background:#fff; border-radius:20px; position:relative; z-index:2;
-  margin:-22px 14px 0; padding:30px 26px 28px;
+  background:#fff; border-radius:20px; position:relative;
+  margin:20px 0 0; padding:30px 26px 28px;
   box-shadow:0 24px 60px rgba(20,20,19,0.18), 0 2px 8px rgba(20,20,19,0.08);
   animation:popIn .45s cubic-bezier(.16,1,.3,1) .12s both;
 }
@@ -146,11 +146,11 @@ h1{margin:0 0 4px; font-size:22px; font-weight:700; line-height:1.25;}
 .section-label{font-size:13px; font-weight:600; color:#3d3c39; margin-bottom:8px;}
 textarea{width:100%; border:1px solid #E5E2D9; border-radius:10px; padding:10px 12px;
          font-size:13.5px; font-family:inherit; resize:vertical; min-height:60px; transition:border-color .2s ease;}
-textarea:focus{outline:none; border-color:#D97757;}
-button.submit{background:#D97757; color:#fff; border:none; border-radius:10px; padding:12px 24px;
+textarea:focus{outline:none; border-color:#2F6FED;}
+button.submit{background:#2F6FED; color:#fff; border:none; border-radius:10px; padding:12px 24px;
               font-size:14px; font-weight:600; cursor:pointer; transition:background .2s ease; width:100%;}
-button.submit:hover{background:#C6653F;}
-a{color:#D97757; text-decoration:none;}
+button.submit:hover{background:#2558BE;}
+a{color:#2F6FED; text-decoration:none;}
 .done{background:#FAF9F6; border-radius:14px; padding:20px; margin-top:16px; text-align:center;}
 .done .big{font-size:22px; margin-bottom:6px;}
 .result{font-size:13px; margin-top:10px; text-align:center; min-height:16px;}
