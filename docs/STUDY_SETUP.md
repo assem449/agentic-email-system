@@ -124,6 +124,46 @@ Open `<your-url>/admin`, enter your `ADMIN_TOKEN`, and approve/reject each
 proposal. Approving calls the Calendar API right then, on that
 participant's own calendar.
 
+## Classifier: rules vs DistilBERT
+
+The routing graph can classify emails with either a fast hand-written
+rule set or a trained DistilBERT model (98.45% vs 94.57% accuracy on the
+125-email eval set — see `NOTES.md`). Controlled by one env var:
+
+```
+CLASSIFIER=rules        # default; no extra setup, works on any plan
+CLASSIFIER=distilbert   # the actual research model
+```
+
+`transformers`/`torch` are only imported when `CLASSIFIER=distilbert` is
+set, so leaving it unset (or `rules`) keeps the process light enough for
+a 512MB plan. DistilBERT itself needs more — budget for Render's
+**Standard** plan (2GB RAM), not Starter.
+
+The trained model (`data/distilbert_model/final`, 255MB+) is gitignored
+and was never part of any deploy's checkout — it's distributed via the
+Hugging Face Hub instead of git:
+
+1. One-time, on your own machine (wherever the model was actually
+   trained): `python scripts/upload_model_to_hf.py <your-hf-username>/<repo-name>`.
+   This creates a public Hub repo (just classifier weights, no
+   participant/email content — fine to make public) and uploads the
+   model folder.
+2. On the deploy, set:
+   ```
+   CLASSIFIER=distilbert
+   DISTILBERT_MODEL_REPO=<your-hf-username>/<repo-name>
+   DISTILBERT_MODEL_PATH=/data/distilbert_model   # persistent disk, so
+                                                    # it's only downloaded once
+   ```
+3. On first boot with no model at `DISTILBERT_MODEL_PATH`, the app
+   downloads it from that Hub repo automatically (`huggingface_hub.snapshot_download`)
+   and loads it from there on every boot after.
+
+If `DISTILBERT_MODEL_PATH` is missing and `DISTILBERT_MODEL_REPO` isn't
+set either, the app raises a clear error at classify-time rather than
+silently falling back to rules.
+
 ## What's still a placeholder, on purpose
 
 - `/admin` and the post-connect page are minimal HTML, meant to be

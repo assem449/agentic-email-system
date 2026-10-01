@@ -13,6 +13,7 @@ python-dateutil
 cryptography
 transformers
 torch
+huggingface_hub
 datasets
 scikit-learn
 numpy

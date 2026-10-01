@@ -2,16 +2,20 @@ services:
   - type: web
     name: agentic-email-system
     runtime: python
-    plan: starter   # must be a paid, always-on plan — the poller runs as a
-                     # background thread inside this process and would die
-                     # if a free tier spun the service down after inactivity
+    plan: standard   # DistilBERT (transformers+torch+model weights in RAM)
+                      # needs more than the Starter plan's 512MB — standard
+                      # gives 2GB. Also must stay an always-on plan either
+                      # way: the poller runs as a background thread inside
+                      # this process and would die if the plan spun down.
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     disk:
       name: study-data
       mountPath: /data
-      sizeGB: 1   # study.db is tiny (tokens + short text rows); 1GB is ample
+      sizeGB: 2   # study.db itself is tiny, but the downloaded DistilBERT
+                  # model (~255MB) also lives on this disk so it survives
+                  # restarts instead of re-downloading every boot
     envVars:
       - key: ANTHROPIC_API_KEY
         sync: false
@@ -22,10 +26,12 @@ services:
       - key: STUDY_DB_PATH
         value: /data/study.db
       - key: CLASSIFIER
-        value: rules   # the DistilBERT classifier (transformers+torch) needs
-                        # a bigger plan (500MB+ just importing torch) and the
-                        # trained model file, which isn't part of the repo —
-                        # see app/graph.py
+        value: distilbert
+      - key: DISTILBERT_MODEL_REPO
+        sync: false   # the <username>/<repo> you uploaded to via
+                       # scripts/upload_model_to_hf.py
+      - key: DISTILBERT_MODEL_PATH
+        value: /data/distilbert_model
       - key: GOOGLE_OAUTH_CLIENT_SECRETS_PATH
         value: /etc/secrets/oauth_client_secret.json
       - key: OAUTH_REDIRECT_URI
