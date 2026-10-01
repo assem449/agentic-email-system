@@ -14,6 +14,7 @@ to swap out once a real study UI is decided.
 """
 
 import json
+from datetime import datetime
 from typing import List, Optional
 from urllib.parse import quote
 
@@ -22,6 +23,7 @@ from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 
 from app import db
+from app.handlers.calendar import create_approved_event
 
 router = APIRouter()
 
@@ -144,6 +146,14 @@ h1{margin:0 0 4px; font-size:22px; font-weight:700; line-height:1.25;}
 .num:hover{border-color:#D6D2C4;}
 .num.on{background:#1A1A18; border-color:#1A1A18; color:#fff;}
 .section-label{font-size:13px; font-weight:600; color:#3d3c39; margin-bottom:8px;}
+.meeting-card{background:#FAF9F6; border:1px solid #EDEAE1; border-radius:12px; padding:14px 16px; margin-bottom:10px;}
+.approve-btn{cursor:pointer; border:none; background:#2F6FED; color:#fff; font-size:12.5px; font-weight:600;
+             padding:8px 16px; border-radius:8px; transition:background .2s ease;}
+.approve-btn:hover{background:#2558BE;}
+.approve-btn:disabled, .reject-btn:disabled{opacity:.5; cursor:default;}
+.reject-btn{cursor:pointer; border:1px solid #E5E2D9; background:#fff; color:#57544C; font-size:12.5px; font-weight:600;
+            padding:8px 16px; border-radius:8px; transition:all .2s ease;}
+.reject-btn:hover{border-color:#D6D2C4;}
 textarea{width:100%; border:1px solid #E5E2D9; border-radius:10px; padding:10px 12px;
          font-size:13.5px; font-family:inherit; resize:vertical; min-height:60px; transition:border-color .2s ease;}
 textarea:focus{outline:none; border-color:#2F6FED;}
@@ -195,11 +205,79 @@ def checkin_page(token: str):
       <h1>Day {day}</h1>
       <div class="sub">{participant['email']}</div>
       <div class="lead">You received <strong>{n}</strong> email{'s' if n != 1 else ''} today. Here's a peek above, check your real Drafts and Calendar too, then let us know how it went.</div>
+      {_pending_events_html(token, participant["id"])}
       {body_html}
     </div>
   </div>
 </body></html>
 """)
+
+
+def _pending_events_html(token: str, participant_id: str) -> str:
+    """Meeting proposals awaiting this participant's own approval —
+    scoped so they only ever see and act on their own. Approving calls
+    create_approved_event() immediately: the real Calendar event is
+    created right away, no researcher involved. A researcher can still
+    act on the same proposal from /admin — whichever happens first wins,
+    the other 404s on an already-decided row."""
+    pending = db.list_pending_events_for_participant(participant_id)
+    if not pending:
+        return ""
+
+    cards = ""
+    for p in pending:
+        try:
+            when = datetime.fromisoformat(p["proposed_start"]).strftime("%A, %b %d at %I:%M %p")
+        except ValueError:
+            when = p["proposed_start"]
+        subject = p["subject"] or "(no subject)"
+        moved_note = (
+            '<div style="font-size:12px; color:#a6a39a; margin-top:4px;">'
+            "Your requested time was busy, so this is the next open slot.</div>"
+            if p["time_adjusted"] else ""
+        )
+        cards += f"""
+        <div class="meeting-card" data-event-id="{p['id']}">
+          <div style="font-size:13.5px; font-weight:600;">{subject}</div>
+          <div style="font-size:12.5px; color:#8a887f; margin-top:2px;">From {p['sender']}</div>
+          <div style="font-size:13.5px; margin-top:8px;">📅 {when}</div>
+          {moved_note}
+          <div style="display:flex; gap:8px; margin-top:12px;">
+            <button type="button" class="approve-btn" onclick="decideEvent('{token}','{p['id']}','approve',this)">Approve</button>
+            <button type="button" class="reject-btn" onclick="decideEvent('{token}','{p['id']}','reject',this)">Reject</button>
+          </div>
+          <div class="meeting-result"></div>
+        </div>
+        """
+
+    return f"""
+    <div style="margin-top:18px;">
+      <div class="section-label">Meeting requests awaiting your approval</div>
+      {cards}
+    </div>
+<script>
+  async function decideEvent(token, eventId, action, btn) {{
+    const card = btn.closest('.meeting-card');
+    card.querySelectorAll('button').forEach(b => b.disabled = true);
+    const res = await fetch(`/checkin/${{token}}/pending/${{eventId}}/${{action}}`, {{method: 'POST'}});
+    const data = await res.json().catch(() => ({{}}));
+    const resultEl = card.querySelector('.meeting-result');
+    if (res.ok && action === 'approve') {{
+      resultEl.innerHTML = `Added to your calendar. <a href="${{data.calendar_event_link}}" target="_blank">View it</a>`;
+      resultEl.style.color = '#2E7D46';
+    }} else if (res.ok) {{
+      resultEl.textContent = 'Declined, no event created.';
+      resultEl.style.color = '#8a887f';
+    }} else {{
+      resultEl.textContent = 'Something went wrong, please try again.';
+      resultEl.style.color = '#A6432E';
+      card.querySelectorAll('button').forEach(b => b.disabled = false);
+    }}
+    resultEl.style.marginTop = '8px';
+    resultEl.style.fontSize = '13px';
+  }}
+</script>
+"""
 
 
 def _gmail_panel_html(events, email: str) -> str:
@@ -307,6 +385,41 @@ def _form_html(token: str, events) -> str:
   }}
 </script>
 """
+
+
+@router.post("/checkin/{token}/pending/{event_id}/approve")
+def approve_pending_self(token: str, event_id: str):
+    """Participant-initiated approval, from their own check-in page.
+    Creates the real calendar event immediately — see
+    app.handlers.calendar.create_approved_event. Scoped to the
+    participant behind `token`: a pending row that exists but belongs
+    to someone else, or isn't pending anymore (already decided here or
+    on /admin), 404s the same as a row that doesn't exist at all."""
+    participant = db.get_participant_by_checkin_token(token)
+    if participant is None:
+        raise HTTPException(404, "Check-in link not recognized")
+
+    row = db.get_pending_event(event_id)
+    if row is None or row["participant_id"] != participant["id"] or row["status"] != "pending":
+        raise HTTPException(404, "No such pending meeting request")
+
+    link = create_approved_event(participant["id"], row)
+    db.decide_pending_event(event_id, "approved", link)
+    return {"status": "approved", "calendar_event_link": link}
+
+
+@router.post("/checkin/{token}/pending/{event_id}/reject")
+def reject_pending_self(token: str, event_id: str):
+    participant = db.get_participant_by_checkin_token(token)
+    if participant is None:
+        raise HTTPException(404, "Check-in link not recognized")
+
+    row = db.get_pending_event(event_id)
+    if row is None or row["participant_id"] != participant["id"] or row["status"] != "pending":
+        raise HTTPException(404, "No such pending meeting request")
+
+    db.decide_pending_event(event_id, "rejected")
+    return {"status": "rejected"}
 
 
 @router.post("/checkin/{token}/submit")

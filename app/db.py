@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS pending_events (
     reply_preview TEXT,
     proposed_start TEXT NOT NULL,
     proposed_end TEXT NOT NULL,
+    time_adjusted INTEGER NOT NULL DEFAULT 0,
     status TEXT NOT NULL DEFAULT 'pending',
     created_at TEXT NOT NULL,
     decided_at TEXT,
@@ -87,6 +88,12 @@ def _migrate(conn: sqlite3.Connection) -> None:
     cols = {row["name"] for row in conn.execute("PRAGMA table_info(participants)")}
     if "checkin_token" not in cols:
         conn.execute("ALTER TABLE participants ADD COLUMN checkin_token TEXT")
+
+    pending_cols = {row["name"] for row in conn.execute("PRAGMA table_info(pending_events)")}
+    if "time_adjusted" not in pending_cols:
+        conn.execute(
+            "ALTER TABLE pending_events ADD COLUMN time_adjusted INTEGER NOT NULL DEFAULT 0"
+        )
 
     conn.execute(
         "CREATE UNIQUE INDEX IF NOT EXISTS idx_participants_checkin_token "
@@ -208,6 +215,7 @@ def create_pending_event(
     reply_preview: str,
     proposed_start: str,
     proposed_end: str,
+    time_adjusted: bool = False,
 ) -> str:
     event_id = str(uuid.uuid4())
     with _conn() as conn:
@@ -215,22 +223,34 @@ def create_pending_event(
             """
             INSERT INTO pending_events
                 (id, participant_id, gmail_id, sender, subject, reply_preview,
-                 proposed_start, proposed_end, status, created_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'pending', ?)
+                 proposed_start, proposed_end, time_adjusted, status, created_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending', ?)
             """,
             (
                 event_id, participant_id, gmail_id, sender, subject,
-                reply_preview, proposed_start, proposed_end, _now(),
+                reply_preview, proposed_start, proposed_end, int(time_adjusted), _now(),
             ),
         )
     return event_id
 
 
 def list_pending_events(status: str = "pending") -> list[sqlite3.Row]:
+    """All participants' proposals — backs the researcher /admin page."""
     with _conn() as conn:
         return conn.execute(
             "SELECT * FROM pending_events WHERE status = ? ORDER BY created_at ASC",
             (status,),
+        ).fetchall()
+
+
+def list_pending_events_for_participant(participant_id: str, status: str = "pending") -> list[sqlite3.Row]:
+    """One participant's own proposals — backs the check-in page's
+    self-approve section. Scoped so a participant can only ever see and
+    act on their own meeting proposals."""
+    with _conn() as conn:
+        return conn.execute(
+            "SELECT * FROM pending_events WHERE participant_id = ? AND status = ? ORDER BY created_at ASC",
+            (participant_id, status),
         ).fetchall()
 
 

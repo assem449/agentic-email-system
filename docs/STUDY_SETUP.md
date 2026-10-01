@@ -9,9 +9,16 @@ What this deployment does, concretely:
   automatically. That's the human-in-the-loop for replies: a draft sits
   there until a person opens Gmail and sends it.
 - A meeting-classified email **never books a calendar event by itself**.
-  It creates a *pending proposal* instead. A reviewer looks at it on the
-  `/admin` page and explicitly approves or rejects it — only approval
-  calls the Calendar API and actually creates the event.
+  Before proposing a time, it checks the participant's real calendar
+  availability (`freebusy.query`) — if the time parsed from the email is
+  free, it's used as-is; if it's busy, the next open 30-minute slot
+  within business hours (9am–6pm, weekdays, 5-day search window) is
+  found instead. Either way it creates a *pending proposal*, not an
+  event. The participant can approve or reject it themselves, right on
+  their own check-in page (`/checkin/{token}`) — approving creates the
+  real Calendar event immediately. A researcher can also act on any
+  participant's proposal from `/admin`; whichever happens first wins,
+  the other read attempt just finds it no longer pending.
 - No database of raw email content exists. The one thing persisted is a
   small SQLite file (`study.db`) holding each participant's OAuth token
   (encrypted at rest), pending-proposal metadata, a per-email log
@@ -53,7 +60,9 @@ UI. Every action any of them trigger is a plain JSON/HTTP endpoint:
 | Approve a proposal → really books the event | `POST /admin/pending/{id}/approve` |
 | Reject a proposal | `POST /admin/pending/{id}/reject` |
 | Classify one email with no account (the "simulated form" option) | `POST /route-email` |
-| A participant's daily check-in page | `GET /checkin/{checkin_token}` |
+| A participant's daily check-in page (includes their own pending proposals) | `GET /checkin/{checkin_token}` |
+| Participant approves their own proposal → really books the event | `POST /checkin/{checkin_token}/pending/{id}/approve` |
+| Participant rejects their own proposal | `POST /checkin/{checkin_token}/pending/{id}/reject` |
 | Submit a day's feedback | `POST /checkin/{checkin_token}/submit` |
 
 ## 1. Google Cloud Console (once)
