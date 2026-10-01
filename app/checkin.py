@@ -268,7 +268,8 @@ def checkin_page(token: str):
         <h1>Day {day}</h1>
         <div class="sub">{participant['email']}</div>
         <div class="header-links">
-          <button type="button" class="link-btn" onclick="openWelcome()">About this study</button>
+          <button type="button" class="link-btn" onclick="openOverlay('welcome-overlay')">About this study</button>
+          <button type="button" class="link-btn" onclick="openOverlay('instructions-overlay')">Instructions</button>
         </div>
         <div class="lead">You received <strong>{n}</strong> email{'s' if n != 1 else ''} today. Here's a peek above, check your real Drafts and Calendar too, then let us know how it went.</div>
         {_pending_events_html(token, participant["id"])}
@@ -278,12 +279,16 @@ def checkin_page(token: str):
     {_category_sidebar_html()}
   </div>
   {_welcome_modal_html(token, show_welcome)}
+  {_instructions_modal_html()}
 <script>
-  function openWelcome() {{
-    document.getElementById('welcome-overlay').classList.add('open');
+  function openOverlay(id) {{
+    document.getElementById(id).classList.add('open');
+  }}
+  function closeOverlay(id) {{
+    document.getElementById(id).classList.remove('open');
   }}
   async function dismissWelcome(token) {{
-    document.getElementById('welcome-overlay').classList.remove('open');
+    closeOverlay('welcome-overlay');
     fetch(`/checkin/${{token}}/welcome-seen`, {{method: 'POST'}}).catch(() => {{}});
   }}
 </script>
@@ -412,6 +417,45 @@ def _welcome_modal_html(token: str, auto_open: bool) -> str:
           the study team.
         </p>
         <button class="submit" onclick="dismissWelcome('{token}')">Let's get started</button>
+      </div>
+    </div>
+    """
+
+
+def _instructions_modal_html() -> str:
+    """On-demand 'how this page works' reference — what's expected of
+    the participant day to day, and a guide to the page's own controls.
+    Never auto-shown (unlike the welcome modal); reached only via the
+    'Instructions' link, any day. Reuses the same overlay/modal CSS as
+    the welcome modal (generic enough for either), under its own id so
+    the two can be open independently."""
+    return """
+    <div class="welcome-overlay" id="instructions-overlay">
+      <div class="welcome-modal">
+        <button type="button" class="close" style="position:absolute; top:18px; right:18px;"
+                onclick="closeOverlay('instructions-overlay')" title="Close">&times;</button>
+        <h2>What to do each day</h2>
+        <ul>
+          <li>Open this page once a day, using the same link you bookmarked after connecting.</li>
+          <li>Check the inbox preview and your real Gmail Drafts folder for anything drafted today.</li>
+          <li>If a meeting was requested, approve or reject the proposed time right here.</li>
+          <li>Mark whether each email was classified correctly, rate the drafts overall, and add any notes.</li>
+          <li>Submit, you're done for the day, it takes about a minute or two.</li>
+        </ul>
+        <h2>Getting around this page</h2>
+        <ul>
+          <li><strong>Inbox preview</strong> (top) — today's emails, styled like Gmail. Click a row, or
+          "View in Gmail," to open the real message.</li>
+          <li><strong>Sidebar</strong> (right) — explains what each category label (ack, faq, meeting, etc.)
+          means and how it's handled.</li>
+          <li><strong>Meeting requests</strong> — Approve books the real event on your calendar immediately;
+          Reject discards it. Nothing happens until you choose.</li>
+          <li><strong>Feedback form</strong> (bottom) — Correct/Wrong per email, a 1–10 overall rating, and an
+          optional note, then Submit.</li>
+          <li><strong>About this study / Instructions</strong> — these two links, reachable anytime from the top
+          of this card.</li>
+        </ul>
+        <button class="submit" onclick="closeOverlay('instructions-overlay')">Got it</button>
       </div>
     </div>
     """
