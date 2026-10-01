@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: agentic-email-system
+    runtime: python
+    plan: starter   # must be a paid, always-on plan — the poller runs as a
+                     # background thread inside this process and would die
+                     # if a free tier spun the service down after inactivity
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    disk:
+      name: study-data
+      mountPath: /data
+      sizeGB: 1   # study.db is tiny (tokens + short text rows); 1GB is ample
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: TOKEN_ENCRYPTION_KEY
+        sync: false
+      - key: ADMIN_TOKEN
+        sync: false
+      - key: STUDY_DB_PATH
+        value: /data/study.db
+      - key: GOOGLE_OAUTH_CLIENT_SECRETS_PATH
+        value: /etc/secrets/oauth_client_secret.json
+      - key: OAUTH_REDIRECT_URI
+        sync: false   # fill in after the first deploy, once you know the
+                       # assigned (or custom) domain — see docs/STUDY_SETUP.md
