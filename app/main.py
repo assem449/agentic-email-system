@@ -1,8 +1,11 @@
+import csv
+import io
+import json
 import threading
 import uuid
 
 from fastapi import FastAPI, Header, HTTPException
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, Response
 from pydantic import BaseModel
 from typing import Optional
 
@@ -120,6 +123,71 @@ def reject_pending(event_id: str, x_admin_token: Optional[str] = Header(None)):
 
     db.decide_pending_event(event_id, "rejected")
     return {"status": "rejected"}
+
+
+@app.get("/admin/export")
+def export_feedback(format: str = "json", x_admin_token: Optional[str] = Header(None)):
+    """Every participant's daily feedback, with each per-email id resolved
+    back to its real subject/category — for pulling into analysis.
+    ?format=json (default, nested per day) or ?format=csv (one row per
+    rated email, day-level fields repeated — easier to drop into a
+    spreadsheet)."""
+    _require_admin(x_admin_token)
+
+    submissions = db.list_all_checkin_submissions()
+    events_by_id = db.get_email_events_by_id()
+
+    def per_email_detail(per_email_json: str) -> list:
+        out = []
+        for item in json.loads(per_email_json or "[]"):
+            e = events_by_id.get(item.get("email_event_id"))
+            out.append({
+                "email_event_id": item.get("email_event_id"),
+                "correct": item.get("correct"),
+                "subject": e["subject"] if e else None,
+                "category": e["category"] if e else None,
+                "handler_used": e["handler_used"] if e else None,
+            })
+        return out
+
+    if format == "csv":
+        buf = io.StringIO()
+        writer = csv.writer(buf)
+        writer.writerow([
+            "participant_id", "email", "day_number", "overall_rating", "notes",
+            "submitted_at", "email_subject", "email_category", "email_correct",
+        ])
+        for s in submissions:
+            details = per_email_detail(s["per_email_json"])
+            if not details:
+                writer.writerow([
+                    s["participant_id"], s["email"], s["day_number"], s["overall_rating"],
+                    s["notes"], s["submitted_at"], "", "", "",
+                ])
+            else:
+                for d in details:
+                    writer.writerow([
+                        s["participant_id"], s["email"], s["day_number"], s["overall_rating"],
+                        s["notes"], s["submitted_at"], d["subject"], d["category"], d["correct"],
+                    ])
+        return Response(
+            content=buf.getvalue(),
+            media_type="text/csv",
+            headers={"Content-Disposition": "attachment; filename=feedback_export.csv"},
+        )
+
+    return [
+        {
+            "participant_id": s["participant_id"],
+            "email": s["email"],
+            "day_number": s["day_number"],
+            "overall_rating": s["overall_rating"],
+            "notes": s["notes"],
+            "submitted_at": s["submitted_at"],
+            "per_email": per_email_detail(s["per_email_json"]),
+        }
+        for s in submissions
+    ]
 
 
 @app.get("/admin", response_class=HTMLResponse)

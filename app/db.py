@@ -376,5 +376,28 @@ def get_checkin_submission(participant_id: str, day_number: int) -> Optional[sql
         ).fetchone()
 
 
+def list_all_checkin_submissions() -> list[sqlite3.Row]:
+    """Every participant's every day of feedback, joined with their
+    email, for /admin/export. Backs reporting, not the live app."""
+    with _conn() as conn:
+        return conn.execute(
+            """
+            SELECT c.participant_id, p.email, c.day_number, c.overall_rating,
+                   c.notes, c.per_email_json, c.submitted_at
+            FROM checkin_submissions c
+            JOIN participants p ON p.id = c.participant_id
+            ORDER BY p.id, c.day_number
+            """
+        ).fetchall()
+
+
+def get_email_events_by_id() -> dict:
+    """{email_event_id: row}, for resolving per_email_json's bare ids
+    back to a subject/category when exporting feedback."""
+    with _conn() as conn:
+        rows = conn.execute("SELECT * FROM email_events").fetchall()
+    return {r["id"]: r for r in rows}
+
+
 def _now() -> str:
     return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())

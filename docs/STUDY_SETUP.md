@@ -75,6 +75,8 @@ UI. Every action any of them trigger is a plain JSON/HTTP endpoint:
 | Participant approves their own proposal → really books the event | `POST /checkin/{checkin_token}/pending/{id}/approve` |
 | Participant rejects their own proposal | `POST /checkin/{checkin_token}/pending/{id}/reject` |
 | Submit a day's feedback | `POST /checkin/{checkin_token}/submit` |
+| Export all feedback (JSON, nested per day) | `GET /admin/export` (header `X-Admin-Token`) |
+| Export all feedback (CSV, one row per rated email) | `GET /admin/export?format=csv` |
 
 ## 1. Google Cloud Console (once)
 
