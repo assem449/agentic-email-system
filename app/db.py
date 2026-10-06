@@ -14,9 +14,12 @@ from contextlib import contextmanager
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Optional
+from zoneinfo import ZoneInfo
 
-from app.config import DB_PATH
+from app.config import DB_PATH, STUDY_TIMEZONE
 from app.crypto import decrypt, encrypt
+
+_STUDY_TZ = ZoneInfo(STUDY_TIMEZONE)
 
 _SCHEMA = """
 CREATE TABLE IF NOT EXISTS participants (
@@ -312,35 +315,44 @@ def record_email_event(
         )
 
 
-def _today_utc() -> date:
-    # connected_at / created_at are stored in UTC (_now(), below), so
-    # "today" has to be computed in UTC too — date.today() uses the
-    # server's local time, which can disagree with UTC by a day near
-    # midnight and silently shift the reported study day by one.
-    return datetime.now(timezone.utc).date()
+def _parse_utc(timestamp: str) -> datetime:
+    # created_at / connected_at are stored as "%Y-%m-%dT%H:%M:%SZ" (_now(),
+    # below) -- naive but always UTC.
+    return datetime.strptime(timestamp, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+
+
+def _today_study_tz() -> date:
+    # "Today" is evaluated in the study's own timezone (STUDY_TIMEZONE),
+    # not raw UTC -- a participant's calendar day changes at their local
+    # midnight, not UTC's, and those can disagree by several hours. Using
+    # plain UTC meant someone connecting in the evening (local time)
+    # could already be on the next UTC date, so their next real day's
+    # check-in would still read "Day 1" until UTC itself rolled over.
+    return datetime.now(_STUDY_TZ).date()
 
 
 def day_number_for(participant_id: str) -> Optional[int]:
-    """1-indexed study day, based on calendar days since this
-    participant connected. None if they're not an active participant."""
+    """1-indexed study day, based on calendar days (in STUDY_TIMEZONE)
+    since this participant connected. None if they're not an active
+    participant."""
     p = get_participant(participant_id)
     if p is None:
         return None
-    connected_date = date.fromisoformat(p["connected_at"][:10])
-    return (_today_utc() - connected_date).days + 1
+    connected_date = _parse_utc(p["connected_at"]).astimezone(_STUDY_TZ).date()
+    return (_today_study_tz() - connected_date).days + 1
 
 
 def list_events_for_today(participant_id: str) -> list[sqlite3.Row]:
-    today = _today_utc().isoformat()
+    today = _today_study_tz()
     with _conn() as conn:
-        return conn.execute(
-            """
-            SELECT * FROM email_events
-            WHERE participant_id = ? AND date(created_at) = ?
-            ORDER BY created_at ASC
-            """,
-            (participant_id, today),
+        rows = conn.execute(
+            "SELECT * FROM email_events WHERE participant_id = ? ORDER BY created_at ASC",
+            (participant_id,),
         ).fetchall()
+    return [
+        r for r in rows
+        if _parse_utc(r["created_at"]).astimezone(_STUDY_TZ).date() == today
+    ]
 
 
 def save_checkin_submission(

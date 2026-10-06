@@ -53,3 +53,13 @@ ADMIN_TOKEN = os.environ.get("ADMIN_TOKEN", "dev-admin-token")
 DB_PATH = os.environ.get("STUDY_DB_PATH", "study.db")
 
 POLL_INTERVAL_SECONDS = int(os.environ.get("POLL_INTERVAL_SECONDS", "30"))
+
+# What "a day" means for the check-in page's "Day N" count and "today's
+# emails" filter -- an IANA zone name, not raw UTC. Participants
+# experience their day changing at their own local midnight, not at
+# UTC's; using plain UTC meant a participant connecting in the evening
+# (local time) could already be on the next UTC calendar date, so their
+# next real day's check-in would still read "Day 1" until UTC itself
+# rolled over, hours after their own day already had. Defaults to
+# Toronto since that's where this study's participants are.
+STUDY_TIMEZONE = os.environ.get("STUDY_TIMEZONE", "America/Toronto")
