@@ -33,9 +33,18 @@ def get_gmail_service():
 
 
 def fetch_unread_emails(service, max_results=10):
-    """Returns list of dicts: {id, sender, subject, body}"""
+    """Returns list of dicts: {id, sender, subject, body}.
+
+    Filters by the UNREAD label directly rather than q="is:unread" --
+    the q= search query runs against Gmail's search index, which lags
+    behind for messages written via messages.insert (seeding) by
+    anywhere from seconds to several minutes, even though the UNREAD
+    label is applied and visible in the mailbox immediately. labelIds
+    filters on label metadata directly, with no such delay, so seeded
+    scenarios get picked up on the very next poll instead of an
+    unpredictable wait."""
     results = service.users().messages().list(
-        userId="me", q="is:unread", maxResults=max_results
+        userId="me", labelIds=["UNREAD"], maxResults=max_results
     ).execute()
 
     messages = results.get("messages", [])
