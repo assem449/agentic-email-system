@@ -135,11 +135,19 @@ inbox every `POLL_INTERVAL_SECONDS`.
 Send each participant (or open yourself, once per sandbox account):
 
 ```
-<your-url>/auth/start?participant_id=p01
+<your-url>/auth/start
 ```
 
-Pick your own `participant_id` per account (`p01`, `p02`, ...) so you can
-tell them apart later — omit it and a random one is generated.
+A participant's `participant_id` is always the email address of the
+Google account they actually sign in with (lowercased) — not anything
+passed in the URL. So the same sandbox account always lands on the
+same participant row no matter how many times it reconnects, and every
+other endpoint that takes a `participant_id` (`/admin/seed`,
+`/admin/pending`, `/auth/disconnect`) expects that email address, e.g.
+`p01@yourdomain.example.com`. You can still open
+`<your-url>/auth/start?participant_id=anything` — the query value is
+only used as the OAuth `state` round-trip value and has no effect on
+the participant that gets created.
 
 ## 4. Review proposed meetings
 

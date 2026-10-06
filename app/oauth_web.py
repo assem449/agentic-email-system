@@ -46,25 +46,26 @@ def _flow() -> Flow:
 
 @router.get("/auth/start")
 def auth_start(participant_id: Optional[str] = None):
-    """Landing link participants click. A fresh participant_id is minted
-    if none is supplied, so `/auth/start` alone is a usable enrollment
-    link for the study."""
-    participant_id = participant_id or str(uuid.uuid4())
+    """Landing link participants click. The participant's real identity
+    is always the connected Google account's email address (set in
+    /auth/callback once we know it) -- not anything passed here.
+    `participant_id`, if given, is just carried through as the OAuth
+    `state` value; it has no effect on which participant row gets
+    created or updated. Omit it entirely and this still works."""
+    state = participant_id or str(uuid.uuid4())
 
     flow = _flow()
     authorization_url, _ = flow.authorization_url(
         access_type="offline",
         include_granted_scopes="true",
         prompt="consent",  # force a refresh_token every time, for a study
-        state=participant_id,
+        state=state,
     )
     return RedirectResponse(authorization_url)
 
 
 @router.get("/auth/callback")
 def auth_callback(request: Request, code: str, state: str):
-    participant_id = state
-
     flow = _flow()
     try:
         flow.fetch_token(code=code)
@@ -73,14 +74,20 @@ def auth_callback(request: Request, code: str, state: str):
 
     creds = flow.credentials
 
-    # Confirm the token works and learn the account's address, purely so
-    # the admin review page can show something more useful than a uuid.
-    email = "(unknown)"
+    # The participant's id is always the connected account's own email
+    # (lowercased) -- not whatever was passed to /auth/start -- so the
+    # same Google account always maps to the same participant row no
+    # matter what, if anything, was in the enrollment link. Only falls
+    # back to the /auth/start state value if Google's profile lookup
+    # itself fails, so a participant row still gets created either way.
+    email = None
     try:
         gmail = build_gmail_from_creds(creds)
-        email = gmail.users().getProfile(userId="me").execute().get("emailAddress", email)
+        email = gmail.users().getProfile(userId="me").execute().get("emailAddress")
     except Exception:
         pass
+    participant_id = email.lower() if email else state
+    email = email or "(unknown)"
 
     checkin_token = db.upsert_participant(participant_id, email, creds.to_json())
     checkin_url = str(request.base_url).rstrip("/") + f"/checkin/{checkin_token}"
