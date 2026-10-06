@@ -55,6 +55,28 @@ What this deployment does, concretely:
   **Requires the `gmail.insert` scope** (added to `app/google_auth.py`'s
   `SCOPES`) — any participant who connected before this was added needs
   to reconnect once via `/auth/start` before seeding works for them.
+  `scripts/seed_participant.py` only works **run on the server itself**
+  (the Render Shell tab, say) — it decrypts that participant's OAuth
+  token directly out of `study.db`, so it needs the exact same
+  `TOKEN_ENCRYPTION_KEY` the live app used to encrypt it; running it
+  locally raises `cryptography.fernet.InvalidToken` unless your local
+  env is byte-for-byte the same. For iterating on scenarios from your
+  own machine without redeploying or shelling in every time, use
+  `POST /admin/seed` instead — same underlying `seed_scenarios()` call,
+  but it runs inside the live server process (so it already has the
+  right key) and takes the scenarios straight in the request body:
+  ```bash
+  curl -X POST https://your-url.onrender.com/admin/seed \
+    -H "X-Admin-Token: <your admin token>" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "participant_id": "p01",
+      "scenarios": [
+        {"subject": "Quick question about pricing", "body": "What does the pro plan cost?"},
+        {"sender": "Alex Chen <alex@example.com>", "subject": "Can we meet Thursday 2pm?", "body": "..."}
+      ]
+    }'
+  ```
 
 The `/admin` page, the "Connected" page, and the check-in page are all
 **plain server-rendered HTML, deliberately built to look reasonably clean
@@ -77,6 +99,7 @@ UI. Every action any of them trigger is a plain JSON/HTTP endpoint:
 | Submit a day's feedback | `POST /checkin/{checkin_token}/submit` |
 | Export all feedback (JSON, nested per day) | `GET /admin/export` (header `X-Admin-Token`) |
 | Export all feedback (CSV, one row per rated email) | `GET /admin/export?format=csv` |
+| Seed scenario emails into a connected participant's mailbox | `POST /admin/seed` (header `X-Admin-Token`, JSON body below) |
 
 ## 1. Google Cloud Console (once)
 

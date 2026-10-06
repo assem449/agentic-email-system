@@ -17,6 +17,7 @@ from app.graph import build_graph
 from app.handlers.calendar import create_approved_event
 from app.oauth_web import router as oauth_router
 from app.poller import run_poller
+from app.seeding import seed_scenarios
 
 app = FastAPI(title="Adaptive Email Router")
 app.include_router(oauth_router)
@@ -188,6 +189,48 @@ def export_feedback(format: str = "json", x_admin_token: Optional[str] = Header(
         }
         for s in submissions
     ]
+
+
+class Scenario(BaseModel):
+    subject: str
+    body: str
+    sender: Optional[str] = None
+
+
+class SeedRequest(BaseModel):
+    participant_id: str
+    scenarios: list[Scenario]
+
+
+@app.post("/admin/seed")
+def seed(req: SeedRequest, x_admin_token: Optional[str] = Header(None)):
+    """Insert scenario emails straight into a connected participant's
+    mailbox (see app/seeding.py — bypasses spam filtering entirely).
+    Lets you iterate on scenarios from your own machine without ever
+    needing scenarios.json or a shell on the server: just curl this
+    with a JSON body whenever the scenario set changes."""
+    _require_admin(x_admin_token)
+
+    participant = db.get_participant(req.participant_id)
+    if participant is None:
+        raise HTTPException(404, f"no active participant with id {req.participant_id!r}")
+
+    try:
+        ids = seed_scenarios(
+            req.participant_id,
+            participant["email"],
+            [s.dict() for s in req.scenarios],
+        )
+    except Exception as e:
+        if "insufficient" in str(e).lower() or "403" in str(e):
+            raise HTTPException(
+                403,
+                "Insert failed, likely a scope problem — this participant probably "
+                "connected before gmail.insert was added. Have them reconnect via "
+                "/auth/start, then retry.",
+            )
+        raise
+    return {"inserted": len(ids), "gmail_message_ids": ids}
 
 
 @app.get("/admin", response_class=HTMLResponse)
