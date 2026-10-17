@@ -7,7 +7,7 @@ import uuid
 from fastapi import FastAPI, Header, HTTPException
 from fastapi.responses import HTMLResponse, Response
 from pydantic import BaseModel
-from typing import Optional
+from typing import Dict, Optional
 
 from app import db
 from app.checkin import router as checkin_router
@@ -47,7 +47,7 @@ class EmailResponse(BaseModel):
     email_id: str
     category: str
     handler_used: str
-    response: str
+    response: Optional[str]  # None when no reply is needed
     tokens_used: Optional[int]
     latency_ms: Optional[float]
 
@@ -195,6 +195,9 @@ class Scenario(BaseModel):
     subject: str
     body: str
     sender: Optional[str] = None
+    # Optional extra headers, e.g. {"List-Unsubscribe": "<mailto:x@y>"},
+    # so a seeded newsletter looks like real bulk mail to the filter.
+    headers: Optional[Dict[str, str]] = None
 
 
 class SeedRequest(BaseModel):

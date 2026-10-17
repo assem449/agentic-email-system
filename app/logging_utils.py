@@ -16,6 +16,10 @@ def log_routing_decision(state: EmailState) -> EmailState:
         "handler_used": state.get("handler_used"),
         "tokens_used": state.get("tokens_used"),
         "latency_ms": state.get("latency_ms"),
+        "reply_needed": state.get("reply_needed"),
+        "needs_review": state.get("needs_review"),
+        "bulk_reason": state.get("bulk_reason"),
+        "classifier_category": state.get("classifier_category"),
         "response_preview": (state.get("response") or "")[:200],
     }
     with open(LOG_PATH, "a") as f:
