@@ -57,21 +57,34 @@ AGENT_LABELS = [
 LIST_PAGE_SIZE = 50
 
 
+LABEL_PARENT = "AI"
+
+
 def ensure_labels(service) -> dict:
-    """Create any missing agent labels; return {label name: label id}."""
+    """Create any missing agent labels; return {label name: label id}.
+
+    The "AI" parent is created first: a nested name like "AI/Processed"
+    is not reliably accepted while its parent label does not exist.
+    """
     existing = service.users().labels().list(userId="me").execute().get("labels", [])
-    ids = {lab["name"]: lab["id"] for lab in existing}
-    for name in AGENT_LABELS:
-        if name not in ids:
-            created = service.users().labels().create(
-                userId="me",
-                body={
-                    "name": name,
-                    "labelListVisibility": "labelShow",
-                    "messageListVisibility": "show",
-                },
-            ).execute()
-            ids[name] = created["id"]
+    # Gmail label names are case-insensitive, so "ai/processed" made by
+    # hand counts as ours rather than causing a create conflict.
+    by_lower = {lab["name"].lower(): lab["id"] for lab in existing}
+    ids = {}
+    for name in [LABEL_PARENT] + AGENT_LABELS:
+        if name.lower() in by_lower:
+            ids[name] = by_lower[name.lower()]
+            continue
+        created = service.users().labels().create(
+            userId="me",
+            body={
+                "name": name,
+                "labelListVisibility": "labelShow",
+                "messageListVisibility": "show",
+            },
+        ).execute()
+        ids[name] = created["id"]
+        by_lower[name.lower()] = created["id"]
     return ids
 
 

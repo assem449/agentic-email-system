@@ -1,5 +1,8 @@
+import threading
 import time
+import traceback
 import uuid
+from datetime import datetime, timezone
 
 from app import db
 from app.google_auth import NotConnected, get_gmail_service_for
@@ -19,6 +22,23 @@ from app.graph import build_graph
 from app.config import POLL_INTERVAL_SECONDS
 
 graph = build_graph()
+
+# What the last poll did, per participant, for GET /admin/poller-status.
+# In memory only: it describes this process, and resets on restart.
+STATUS = {"started_at": None, "last_poll_at": None, "last_loop_error": None, "participants": {}}
+
+# The background loop and POST /admin/poll-now must never poll at the same
+# time, or both could pick up the same unread email and draft it twice.
+_poll_lock = threading.Lock()
+
+
+def _now() -> str:
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _short_error(e: Exception) -> str:
+    return f"{type(e).__name__}: {e}\n" + "".join(traceback.format_tb(e.__traceback__)[-3:])
+
 
 # participant_id -> {label name: Gmail label id}. Label ids are stable, so
 # they are looked up (and created if missing) once per participant.
@@ -80,40 +100,65 @@ def process_email(service, labels: dict, email: dict, participant_id: str):
     add_labels(service, gmail_id, to_add)
 
 
-def poll_once() -> None:
+def poll_once() -> dict:
     """One pass over every connected, active participant. Each
     participant's failure (revoked token, API hiccup) is isolated so it
-    doesn't take down the rest of the study."""
-    for participant_id in db.list_active_participant_ids():
-        try:
-            service = get_gmail_service_for(participant_id)
-        except NotConnected:
-            print(f"[{participant_id}] token invalid/revoked — skipping until they reconnect")
-            continue
-
-        try:
-            labels = _labels_for(participant_id, service)
-            emails = fetch_unread_emails(
-                service, max_results=10,
-                processed_label_id=labels[LABEL_PROCESSED],
+    doesn't take down the rest of the study. Returns STATUS."""
+    with _poll_lock:
+        for participant_id in db.list_active_participant_ids():
+            st = STATUS["participants"].setdefault(
+                participant_id, {"processed_total": 0}
             )
-        except Exception as e:
-            print(f"[{participant_id}] error: {e}")
-            continue
+            st["last_poll_at"] = _now()
+            st["last_error"] = None
+            st["found_last_poll"] = 0
 
-        for email in emails:
             try:
-                process_email(service, labels, email, participant_id)
+                service = get_gmail_service_for(participant_id)
+            except NotConnected:
+                st["last_error"] = "token invalid/revoked — reconnect via /auth/start"
+                print(f"[{participant_id}] token invalid/revoked — skipping until they reconnect")
+                continue
+
+            try:
+                labels = _labels_for(participant_id, service)
+                emails = fetch_unread_emails(
+                    service, max_results=10,
+                    processed_label_id=labels[LABEL_PROCESSED],
+                )
             except Exception as e:
-                # One bad email must not block the rest of the batch.
-                print(f"[{participant_id}] error on '{email['subject'][:40]}': {e}")
+                st["last_error"] = _short_error(e)
+                print(f"[{participant_id}] error: {st['last_error']}")
+                continue
+
+            st["found_last_poll"] = len(emails)
+            for email in emails:
+                try:
+                    process_email(service, labels, email, participant_id)
+                    st["processed_total"] += 1
+                except Exception as e:
+                    # One bad email must not block the rest of the batch.
+                    st["last_error"] = f"on '{email['subject'][:40]}': " + _short_error(e)
+                    print(f"[{participant_id}] error {st['last_error']}")
+
+        STATUS["last_poll_at"] = _now()
+    return STATUS
 
 
 def run_poller(interval_seconds: int = POLL_INTERVAL_SECONDS):
     print(f"Starting multi-participant poller — checking every {interval_seconds}s...")
-    db.init_db()
+    STATUS["started_at"] = _now()
     while True:
-        poll_once()
+        # Anything escaping poll_once (e.g. a database error listing
+        # participants) used to end this thread for good, silently, while
+        # the web app kept serving. Log it and try again next interval.
+        try:
+            db.init_db()
+            poll_once()
+            STATUS["last_loop_error"] = None
+        except Exception as e:
+            STATUS["last_loop_error"] = _short_error(e)
+            print(f"poller loop error: {STATUS['last_loop_error']}")
         time.sleep(interval_seconds)
 
 
