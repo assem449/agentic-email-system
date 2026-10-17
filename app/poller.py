@@ -119,6 +119,12 @@ def poll_once() -> dict:
                 st["last_error"] = "token invalid/revoked — reconnect via /auth/start"
                 print(f"[{participant_id}] token invalid/revoked — skipping until they reconnect")
                 continue
+            except Exception as e:
+                # Anything else (network, Google outage) must not stop the
+                # remaining participants from being polled.
+                st["last_error"] = _short_error(e)
+                print(f"[{participant_id}] error connecting: {st['last_error']}")
+                continue
 
             try:
                 labels = _labels_for(participant_id, service)
