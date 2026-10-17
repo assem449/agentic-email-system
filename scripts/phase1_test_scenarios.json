@@ -1,0 +1,51 @@
+[
+  {
+    "expected": "announcement_promo, no draft, labels AI/Processed + AI/Announcement",
+    "sender": "LinkedIn <notifications-noreply@linkedin.com>",
+    "subject": "You appeared in 12 searches this week",
+    "body": "See who's looking at your profile. Thanks for being a LinkedIn member!",
+    "headers": {"List-Unsubscribe": "<mailto:unsubscribe@linkedin.com>"}
+  },
+  {
+    "expected": "announcement_promo, no draft (caught by the unsubscribe footer)",
+    "sender": "Department of Computer Science <cs-news@university.ca>",
+    "subject": "October newsletter: seminars and events",
+    "body": "Hello everyone,\n\nThis month: a guest seminar on Friday at 2pm in Room B201, the fall career fair next Thursday, and new lab hours.\n\nThank you for reading.\n\nUnsubscribe | Email preferences"
+  },
+  {
+    "expected": "announcement_promo, no draft (a forwarded LinkedIn email with no comment)",
+    "sender": "Prof. Smith <smith@university.ca>",
+    "subject": "Fwd: 10 new jobs for you",
+    "body": "---------- Forwarded message ---------\nFrom: LinkedIn <jobs-noreply@linkedin.com>\nDate: Mon, Oct 12, 2026\nSubject: 10 new jobs for you\n\n10 new jobs match your profile. Thanks!"
+  },
+  {
+    "expected": "ack, no draft, labels AI/Processed + AI/No reply needed",
+    "sender": "Sarah Lee <sarah.lee@university.ca>",
+    "subject": "Re: Lab 3 posted",
+    "body": "Thanks, got it!\n\nOn Mon, Oct 12, 2026 at 9:00 AM TA wrote:\n> Lab 3 is now posted on the course page."
+  },
+  {
+    "expected": "draft created (was a 'Glad I could help!' template before): answers both questions",
+    "sender": "Sarah Lee <sarah.lee@university.ca>",
+    "subject": "Assignment 2 questions",
+    "body": "Hi,\n\nThank you for the feedback on my draft. I had two questions about Assignment 2. Is the deadline this Friday or next Monday? And are we allowed to use numpy for question 3, or should it be plain Python?\n\nThanks,\nSarah\nStudent #1002345"
+  },
+  {
+    "expected": "draft created (short thanks, but it asks something)",
+    "sender": "Sarah Lee <sarah.lee@university.ca>",
+    "subject": "Re: Midterm results",
+    "body": "Thanks, but could you check my midterm grade? I think question 4 was marked twice."
+  },
+  {
+    "expected": "emotional, draft created, labels AI/Draft ready + AI/Needs review",
+    "sender": "Tom Nguyen <tom.nguyen@university.ca>",
+    "subject": "Group project",
+    "body": "I'm really upset. My group hasn't replied in a week and the presentation is on Monday. I don't know what to do.\n\nSent from my iPhone"
+  },
+  {
+    "expected": "spam, moved to Spam, no draft",
+    "sender": "Account Services <security@univ-mail-alerts.biz>",
+    "subject": "Your mailbox is suspended",
+    "body": "Your university account is suspended. Verify your account within 24 hours to avoid losing access."
+  }
+]
