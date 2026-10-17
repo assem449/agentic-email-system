@@ -26,6 +26,12 @@ LABEL_MAP_PATH = "data/label_map.json"
 # run from wherever the model was actually trained.
 MODEL_REPO = os.environ.get("DISTILBERT_MODEL_REPO")
 
+# Below this softmax probability the top label is not trusted and the email
+# goes to `ambiguous` (the LLM). Without it a long real email that looks
+# like nothing in the training set still gets forced into a cheap handler,
+# e.g. `ack` -> no reply. 0.7 is a starting point, not a tuned value.
+CONFIDENCE_THRESHOLD = 0.7
+
 _model = None
 _tokenizer = None
 _label_map = None
@@ -74,5 +80,8 @@ def classify_email_distilbert(subject: str, body: str) -> str:
     )
     with torch.no_grad():
         logits = _model(**inputs).logits
-    pred_id = logits.argmax(dim=-1).item()
-    return _label_map[pred_id]
+    probs = torch.softmax(logits, dim=-1)[0]
+    confidence, pred_id = probs.max(dim=-1)
+    if confidence.item() < CONFIDENCE_THRESHOLD:
+        return "ambiguous"
+    return _label_map[pred_id.item()]

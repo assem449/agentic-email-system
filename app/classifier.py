@@ -47,10 +47,20 @@ RULES = [
     ]),
 ]
 
+# `ack` only fires on short messages. `\bthanks?\b` matches nearly every
+# real email ("Thanks for the slides. I had a few questions about..."), and
+# since ack now means "no reply", a long email caught by it would be
+# ignored. This is the length cap deferred in docs/NOTES.md section 3.
+ACK_MAX_WORDS = 20
+
+
 def classify_email(subject: str, body: str) -> str:
     text = f"{subject}\n{body}".lower().strip()
+    short = len(body.split()) <= ACK_MAX_WORDS
 
     for category, patterns in RULES:
+        if category == "ack" and not short:
+            continue
         for pattern in patterns:
             if re.search(pattern, text, re.MULTILINE):
                 return category

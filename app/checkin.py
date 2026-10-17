@@ -29,6 +29,7 @@ router = APIRouter()
 
 CATEGORY_STYLE = {
     "ack": ("#6B6A66", "#EFEDE6"),
+    "announcement_promo": ("#5A6B2E", "#EEF2E2"),
     "faq": ("#2E6A7D", "#E4F0F5"),
     "meeting": ("#A6432E", "#FBE9E4"),
     "support": ("#7A5A2E", "#F5EEE0"),
@@ -43,8 +44,13 @@ DEFAULT_STYLE = ("#6B6A66", "#EFEDE6")
 # described in plain terms with a representative example.
 CATEGORY_INFO = [
     ("ack", "A short acknowledgment with nothing left to answer, like a thank-you. "
-            "Answered instantly from a template, no AI involved.",
+            "No reply is drafted; the email stays unread for you. If it also asks "
+            "something, the AI drafts a reply instead.",
      "“Thanks so much!”"),
+    ("announcement_promo", "A newsletter, announcement, LinkedIn notification or other "
+                           "bulk mail. No reply is drafted; it stays unread and gets the "
+                           "AI/Announcement label.",
+     "“You appeared in 12 searches this week”"),
     ("faq", "A common question that matches one already in the knowledge base, "
             "answered instantly, or passed to the AI if nothing matches closely.",
      "“What are your support hours?”"),
@@ -65,6 +71,8 @@ CATEGORY_INFO = [
 ]
 
 STATUS_LABEL = {
+    "no_reply": "No reply needed",
+    "no_reply_bulk": "No reply needed",
     "template": "Draft created",
     "cache_hit": "Draft created",
     "cache_miss_llm": "Draft created",

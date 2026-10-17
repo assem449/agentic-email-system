@@ -199,3 +199,24 @@ Ran full 3-baseline eval on the complete 125-email set with all classifier patch
 - Both remaining DistilBERT misclassifications are genuine edge cases, not systematic failures — unlike rules v1 which had systematic category-level gaps (support, emotional, spam all needed multiple patches)
 
 **These are the headline numbers for the paper.**
+
+---
+
+## 11. Supervisor demo feedback → live-pipeline fixes — 2026-10-17
+
+Supervisor tested the prototype on the Gmail account. Three failures:
+1. **Bulk mail got replies.** LinkedIn/announcement emails were drafted a reply. Cause: the poller drafted for every non-spam email, and the 7 labels had no "no reply" option. Bulk mail landed in `ack` (template reply) or `ambiguous` (LLM).
+2. **Complex emails got generic "thank you" replies.** Main cause: the live classifier is rules v1 (`CLASSIFIER` defaults to `rules`), and its `\bthanks?\b` / `\bthank you\b` ack patterns fire on any email that says thank you anywhere ("Thank you for the feedback. I had a few questions about..."). Those emails went to the fixed template ("Glad I could help!"). Contributing causes: sign-offs like `Thanks,\nName` were left in the body; the LLM prompt asked for a support-agent reply "under 100 words" with `max_tokens=300` and no thread context; HTML-only bodies came through empty.
+3. Customer-support domain. Phase 2 will cover this (new academic categories).
+
+**Changes (live pipeline):**
+- `app/email_text.py` (new): HTML-to-text fallback, quoted-history split, signature/mobile-footer strip. Bulk detection from Gmail tab labels (Promotions/Social/Updates/Forums), `List-Unsubscribe`, `List-Id`, `Precedence`, `Auto-Submitted`, no-reply senders. Also two body checks: an "unsubscribe"/"email preferences" footer, and a forward of a bulk email with ≤5 words of comment. Deterministic, zero tokens.
+- `app/classifier.py`: `ack` only fires when the body is ≤20 words (the length cap deferred in section 3).
+- `app/graph.py`: new `no_reply` node. Bulk mail → `announcement_promo` (the classifier's label is kept in `classifier_category`). `ack` → no draft unless the body asks something (`?`, "could you", "please", "let me know", "I have a question", "wondering"), in which case it goes to the LLM. `spam` still wins over the bulk flag. `emotional` drafts get `needs_review`.
+- `app/poller.py`: emails are **left unread**, with labels `AI/Processed` plus one of `AI/Announcement`, `AI/No reply needed`, `AI/Draft ready`, `AI/Needs review`. Still lists by the `UNREAD` label (not a search query, because of the seeding index lag). Already-processed emails are skipped by label. One failing email no longer aborts a participant's batch.
+- `app/gmail_client.py`: drafts are threaded (`threadId`, `In-Reply-To`, `References`), reply to `Reply-To` when set, and avoid "Re: Re:".
+- `app/handlers/llm.py`: academic-community prompt. Address every question in order, match register, refer to specifics, use `[CONFIRM: ...]` placeholders, never promise grades or extensions. Length follows the email. `max_tokens=800`. Sender name and earlier thread are passed in.
+- `app/distilbert_classifier.py`: top-label probability < 0.7 → `ambiguous` (only when `CLASSIFIER=distilbert`). Untuned starting value.
+- Check-in page shows "No reply needed" for these. `/admin/seed` scenarios accept optional `headers`, so a seeded newsletter can carry `List-Unsubscribe`.
+
+**Effect on earlier results:** Sections 1–10 were measured with the old LLM prompt, the `ack → template` route and no ack length cap. Rules v1 accuracy on `ack` examples over 20 words will change, and LLM token counts will change. Re-run `research/eval_run.py` before comparing with these sections.

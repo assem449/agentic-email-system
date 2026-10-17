@@ -4,10 +4,10 @@ class EmailState(TypedDict):
     email_id: str
     sender: str
     subject: str
-    body: str
+    body: str                    # cleaned: quoted history and signature removed
     category: Optional[str]      # set by classifier node
     handler_used: Optional[str]  # set by the handler node
-    response: Optional[str]
+    response: Optional[str]      # None when no reply should be drafted
     tokens_used: Optional[int]
     latency_ms: Optional[float]
     input_tokens: int
@@ -18,4 +18,10 @@ class EmailState(TypedDict):
     # the calendar node has nothing to hold a proposal against and just
     # returns a dry-run description instead of persisting anything.
     participant_id: Optional[str]
-    gmail_id: Optional[str]
+    gmail_id: Optional[str]    # Live-pipeline fields. Eval runs leave them unset, which routes every
+    # email exactly as before the bulk filter existed.
+    quoted_text: Optional[str]   # earlier messages in the thread, for the LLM
+    bulk_reason: Optional[str]   # set when headers/labels/body mark bulk mail
+    classifier_category: Optional[str]  # classifier's label before bulk override
+    reply_needed: Optional[bool]
+    needs_review: Optional[bool]

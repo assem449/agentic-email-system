@@ -8,6 +8,15 @@ What this deployment does, concretely:
   reply directly into their Gmail Drafts folder** — nothing is ever sent
   automatically. That's the human-in-the-loop for replies: a draft sits
   there until a person opens Gmail and sends it.
+- **Not every email gets a draft.** Bulk mail (newsletters, LinkedIn,
+  mailing lists: detected from Gmail's tab labels, list headers, no-reply
+  senders, an "unsubscribe" footer, or a forward of one of those) and
+  short thank-yous get no draft. Emails are **left unread** so the
+  participant still sees them; the poller labels each one instead:
+  `AI/Processed` plus `AI/Announcement`, `AI/No reply needed`,
+  `AI/Draft ready` or `AI/Needs review`. To seed a bulk-mail scenario,
+  give it `"headers": {"List-Unsubscribe": "<mailto:x@example.com>"}`,
+  since `messages.insert` skips Gmail's own tab classification.
 - A meeting-classified email **never books a calendar event by itself**.
   Before proposing a time, it checks the participant's real calendar
   availability (`freebusy.query`) — if the time parsed from the email is
@@ -33,7 +42,8 @@ What this deployment does, concretely:
   notes. One submission per participant per day; visiting again the same
   day shows a "thanks, come back tomorrow" state instead of the form.
   An **always-visible sidebar** next to the main content explains each
-  category (ack, faq, meeting, support, emotional, ambiguous, spam)
+  category (ack, announcement_promo, faq, meeting, support, emotional,
+  ambiguous, spam)
   with a one-line description and an example. On the participant's
   literal **Day 1 only**, a **welcome modal** auto-opens explaining
   what the study is and what the assistant does/doesn't do; dismissing
