@@ -195,20 +195,38 @@ def delete_participant_data(participant_id: str) -> None:
         conn.execute("DELETE FROM participants WHERE id = ?", (participant_id,))
 
 
-def get_participant(participant_id: str) -> Optional[sqlite3.Row]:
+# include_inactive=True also returns participants whose Google access
+# lapsed (active = 0): in the consent screen's Testing mode Google expires
+# every grant after 7 days, and that participant's check-in page must keep
+# working so it can ask them to reconnect. A disconnect-on-request deletes
+# the row entirely, so it is never returned either way.
+_PARTICIPANT_COLS = "id, email, checkin_token, welcomed_at, connected_at, active"
+
+
+def get_participant(participant_id: str, include_inactive: bool = False) -> Optional[sqlite3.Row]:
+    active_clause = "" if include_inactive else " AND active = 1"
     with _conn() as conn:
         return conn.execute(
-            "SELECT id, email, checkin_token, welcomed_at, connected_at FROM participants WHERE id = ? AND active = 1",
+            f"SELECT {_PARTICIPANT_COLS} FROM participants WHERE id = ?{active_clause}",
             (participant_id,),
         ).fetchone()
 
 
-def get_participant_by_checkin_token(token: str) -> Optional[sqlite3.Row]:
+def get_participant_by_checkin_token(token: str, include_inactive: bool = False) -> Optional[sqlite3.Row]:
+    active_clause = "" if include_inactive else " AND active = 1"
     with _conn() as conn:
         return conn.execute(
-            "SELECT id, email, checkin_token, welcomed_at, connected_at FROM participants WHERE checkin_token = ? AND active = 1",
+            f"SELECT {_PARTICIPANT_COLS} FROM participants WHERE checkin_token = ?{active_clause}",
             (token,),
         ).fetchone()
+
+
+def list_inactive_participant_ids() -> list[str]:
+    with _conn() as conn:
+        rows = conn.execute(
+            "SELECT id FROM participants WHERE active = 0"
+        ).fetchall()
+    return [r["id"] for r in rows]
 
 
 def mark_welcomed(participant_id: str) -> None:
@@ -333,9 +351,9 @@ def _today_study_tz() -> date:
 
 def day_number_for(participant_id: str) -> Optional[int]:
     """1-indexed study day, based on calendar days (in STUDY_TIMEZONE)
-    since this participant connected. None if they're not an active
-    participant."""
-    p = get_participant(participant_id)
+    since this participant first connected (a lapsed connection does not
+    reset it). None if there is no such participant."""
+    p = get_participant(participant_id, include_inactive=True)
     if p is None:
         return None
     connected_date = _parse_utc(p["connected_at"]).astimezone(_STUDY_TZ).date()

@@ -16,6 +16,7 @@ to swap out once a real study UI is decided.
 import json
 from datetime import datetime
 from typing import List, Optional
+from urllib.parse import quote
 
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import HTMLResponse
@@ -238,7 +239,7 @@ a{color:#2F6FED; text-decoration:none;}
 
 @router.get("/checkin/{token}", response_class=HTMLResponse)
 def checkin_page(token: str):
-    participant = db.get_participant_by_checkin_token(token)
+    participant = db.get_participant_by_checkin_token(token, include_inactive=True)
     if participant is None:
         raise HTTPException(404, "This check-in link isn't recognized. It may have been disconnected.")
 
@@ -280,6 +281,7 @@ def checkin_page(token: str):
           <button type="button" class="link-btn" onclick="openOverlay('instructions-overlay')">Instructions</button>
         </div>
         <div class="lead">You received <strong>{n}</strong> email{'s' if n != 1 else ''} today. Here's a peek above, check your real Drafts and Calendar too, then let us know how it went.</div>
+        {_reconnect_html(participant)}
         {_pending_events_html(token, participant["id"])}
         {body_html}
       </div>
@@ -369,6 +371,25 @@ def _pending_events_html(token: str, participant_id: str) -> str:
   }}
 </script>
 """
+
+
+def _reconnect_html(participant) -> str:
+    """Shown when Google access has lapsed. In the consent screen's Testing
+    mode every grant expires after 7 days, so in a multi-week study each
+    participant sees this about once a week. Mail that arrives meanwhile
+    stays unread and is processed once they reconnect."""
+    if participant["active"]:
+        return ""
+    url = f"/auth/start?login_hint={quote(participant['email'])}"
+    return f"""
+    <div style="margin:14px 0; padding:14px 16px; border-radius:12px; background:#FBE9E4; color:#7A2E1F; font-size:13.5px;">
+      <div style="font-weight:700; margin-bottom:4px;">Your Gmail connection has expired</div>
+      <div style="margin-bottom:10px;">Google ends access every 7 days during the study, so the assistant
+        can't see new emails right now. Reconnect to continue. Nothing is lost: emails that arrived
+        meanwhile will be processed as soon as you do.</div>
+      <a href="{url}" style="display:inline-block; padding:8px 14px; border-radius:8px; background:#A6432E; color:#fff; text-decoration:none; font-weight:600;">Reconnect Gmail</a>
+    </div>
+    """
 
 
 def _category_sidebar_html() -> str:
@@ -587,9 +608,11 @@ def approve_pending_self(token: str, event_id: str):
     participant behind `token`: a pending row that exists but belongs
     to someone else, or isn't pending anymore (already decided here or
     on /admin), 404s the same as a row that doesn't exist at all."""
-    participant = db.get_participant_by_checkin_token(token)
+    participant = db.get_participant_by_checkin_token(token, include_inactive=True)
     if participant is None:
         raise HTTPException(404, "Check-in link not recognized")
+    if not participant["active"]:
+        raise HTTPException(409, "Your Gmail connection expired. Reconnect first, then approve.")
 
     row = db.get_pending_event(event_id)
     if row is None or row["participant_id"] != participant["id"] or row["status"] != "pending":
@@ -605,7 +628,7 @@ def approve_pending_self(token: str, event_id: str):
 
 @router.post("/checkin/{token}/pending/{event_id}/reject")
 def reject_pending_self(token: str, event_id: str):
-    participant = db.get_participant_by_checkin_token(token)
+    participant = db.get_participant_by_checkin_token(token, include_inactive=True)
     if participant is None:
         raise HTTPException(404, "Check-in link not recognized")
 
@@ -624,7 +647,7 @@ def mark_welcome_seen(token: str):
     the 'About this study' link doesn't call this again — it's already
     marked, and calling it again is harmless either way (just a no-op
     timestamp update), so no special-casing needed there."""
-    participant = db.get_participant_by_checkin_token(token)
+    participant = db.get_participant_by_checkin_token(token, include_inactive=True)
     if participant is None:
         raise HTTPException(404, "Check-in link not recognized")
     db.mark_welcomed(participant["id"])
@@ -633,7 +656,7 @@ def mark_welcome_seen(token: str):
 
 @router.post("/checkin/{token}/submit")
 def submit_checkin(token: str, submission: CheckinSubmission):
-    participant = db.get_participant_by_checkin_token(token)
+    participant = db.get_participant_by_checkin_token(token, include_inactive=True)
     if participant is None:
         raise HTTPException(404, "Check-in link not recognized")
 
