@@ -25,7 +25,13 @@ What this script does instead:
     leakage (see integration note at the bottom of this file).
 
 Usage:
-    ./venv/bin/python3 distilbert_cv.py
+    python research/distilbert_cv.py                      # original 7-category set
+    python research/distilbert_cv.py \
+        --data data/academic/dataset.json --out data/academic --name academic
+
+--out keeps the label map and final model of a new dataset out of the
+paths the live pipeline loads (data/label_map.json, data/distilbert_model/),
+so training on new categories can't break the deployed classifier.
 
 Runtime note: this trains 5 full DistilBERT models instead of 1, so
 expect roughly 5x the runtime of the original trainer.py. Reduce
@@ -34,7 +40,9 @@ num_train_epochs below if you need it to run faster before the deadline
 80/20 split is not.
 """
 
+import argparse
 import json
+import sys
 import numpy as np
 from pathlib import Path
 from sklearn.model_selection import StratifiedKFold
@@ -48,25 +56,42 @@ from transformers import (
 )
 import torch
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from cv_metrics import per_category_scores, per_group_accuracy, format_report
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--data", default="data/eval_set.json")
+parser.add_argument("--out", default="data",
+                    help="where label_map.json and distilbert_model/ go")
+parser.add_argument("--name", default="distilbert",
+                    help="prefix for the logs/ result files")
+parser.add_argument("--epochs", type=int, default=10)
+parser.add_argument("--skip-final", action="store_true",
+                    help="only run the 5 folds, not the final all-data model")
+cli = parser.parse_args()
+OUT = Path(cli.out)
+OUT.mkdir(parents=True, exist_ok=True)
+
 N_FOLDS = 5
 SEED = 42
 MODEL_NAME = "distilbert-base-uncased"
 MAX_LENGTH = 128
-NUM_EPOCHS = 10  # match original trainer; lower this if runtime is a problem
+NUM_EPOCHS = cli.epochs  # 10 matches the original trainer; lower it if runtime is a problem
 
 # --- Load eval set ---
-with open("data/eval_set.json") as f:
+with open(cli.data) as f:
     data = json.load(f)
 
 ids = [d["id"] for d in data]
 texts = [f"{d['subject']} {d['body']}" for d in data]
 labels = [d["true_category"] for d in data]
+roles = {d["id"]: d.get("role") for d in data}
 
 # --- Encode labels (same mapping for every fold — fit once on full label set) ---
 le = LabelEncoder()
 encoded_labels = le.fit_transform(labels)
 label_map = {i: label for i, label in enumerate(le.classes_)}
-Path("data/label_map.json").write_text(json.dumps(label_map))
+(OUT / "label_map.json").write_text(json.dumps(label_map))
 print("Labels:", label_map)
 
 tokenizer = DistilBertTokenizerFast.from_pretrained(MODEL_NAME)
@@ -114,7 +139,7 @@ for fold_idx, (train_idx, test_idx) in enumerate(skf.split(X, y), start=1):
     )
 
     args = TrainingArguments(
-        output_dir=f"data/distilbert_cv/fold_{fold_idx}",
+        output_dir=str(OUT / "distilbert_cv" / f"fold_{fold_idx}"),
         num_train_epochs=NUM_EPOCHS,
         per_device_train_batch_size=8,
         per_device_eval_batch_size=8,
@@ -172,23 +197,41 @@ print(f"\nMean accuracy: {mean_acc:.4f} ± {std_acc:.4f}")
 print(f"Pooled OOF accuracy (all {len(oof_predictions)} emails, each predicted "
       f"by a model that never trained on it): {pooled_acc:.4f}")
 
+oof_ids = list(oof_predictions)
+y_true = [oof_predictions[i]["true_category"] for i in oof_ids]
+y_pred = [oof_predictions[i]["predicted_category"] for i in oof_ids]
+category_scores, macro_f1 = per_category_scores(y_true, y_pred)
+role_acc = None
+if any(roles.values()):
+    role_acc = per_group_accuracy(y_true, y_pred, [roles[i] or "unknown" for i in oof_ids])
+print("\nPer-category scores (pooled out-of-fold predictions):")
+print(format_report(category_scores, macro_f1, role_acc))
+
 # --- Save everything ---
 Path("logs").mkdir(exist_ok=True)
-with open("logs/distilbert_cv_results.json", "w") as f:
+with open(f"logs/{cli.name}_cv_results.json", "w") as f:
     json.dump({
         "fold_accuracies": fold_accuracies,
         "mean_accuracy": mean_acc,
         "std_accuracy": std_acc,
         "pooled_oof_accuracy": pooled_acc,
+        "macro_f1": macro_f1,
+        "per_category": category_scores,
+        "accuracy_by_role": role_acc,
+        "dataset": cli.data,
         "n_folds": N_FOLDS,
         "seed": SEED,
     }, f, indent=2)
 
-with open("logs/oof_predictions.json", "w") as f:
+oof_path = "logs/oof_predictions.json" if cli.name == "distilbert" else f"logs/{cli.name}_oof_predictions.json"
+with open(oof_path, "w") as f:
     json.dump(oof_predictions, f, indent=2)
 
-print("\nSaved logs/distilbert_cv_results.json (report this mean ± std in the paper)")
-print("Saved logs/oof_predictions.json (leakage-free predictions for every email)")
+print(f"\nSaved logs/{cli.name}_cv_results.json (report this mean ± std in the paper)")
+print(f"Saved {oof_path} (leakage-free predictions for every email)")
+
+if cli.skip_final:
+    sys.exit(0)
 
 # --- Train final deployment model on ALL data ---
 # This is the model that actually ships in the pipeline. Its accuracy is NOT
@@ -204,7 +247,7 @@ final_model = DistilBertForSequenceClassification.from_pretrained(
     MODEL_NAME, num_labels=len(le.classes_)
 )
 final_args = TrainingArguments(
-    output_dir="data/distilbert_model",
+    output_dir=str(OUT / "distilbert_model"),
     num_train_epochs=NUM_EPOCHS,
     per_device_train_batch_size=8,
     seed=SEED,
@@ -212,6 +255,6 @@ final_args = TrainingArguments(
 )
 final_trainer = Trainer(model=final_model, args=final_args, train_dataset=full_dataset)
 final_trainer.train()
-final_trainer.save_model("data/distilbert_model/final")
-tokenizer.save_pretrained("data/distilbert_model/final")
-print("Final deployment model saved to data/distilbert_model/final")
+final_trainer.save_model(str(OUT / "distilbert_model" / "final"))
+tokenizer.save_pretrained(str(OUT / "distilbert_model" / "final"))
+print(f"Final deployment model saved to {OUT / 'distilbert_model' / 'final'}")
