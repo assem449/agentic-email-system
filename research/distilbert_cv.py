@@ -66,6 +66,8 @@ parser.add_argument("--out", default="data",
 parser.add_argument("--name", default="distilbert",
                     help="prefix for the logs/ result files")
 parser.add_argument("--epochs", type=int, default=10)
+parser.add_argument("--with-sender", action="store_true",
+                    help="prepend the sender to the classifier input")
 parser.add_argument("--skip-final", action="store_true",
                     help="only run the 5 folds, not the final all-data model")
 cli = parser.parse_args()
@@ -83,7 +85,13 @@ with open(cli.data) as f:
     data = json.load(f)
 
 ids = [d["id"] for d in data]
-texts = [f"{d['subject']} {d['body']}" for d in data]
+# With --with-sender the input becomes "sender | subject body". Compare runs
+# with and without it: a gain that comes from sender domains alone would be
+# a dataset shortcut, not real phishing detection.
+if cli.with_sender:
+    texts = [f"{d.get('sender', '')} | {d['subject']} {d['body']}" for d in data]
+else:
+    texts = [f"{d['subject']} {d['body']}" for d in data]
 labels = [d["true_category"] for d in data]
 roles = {d["id"]: d.get("role") for d in data}
 
@@ -219,6 +227,7 @@ with open(f"logs/{cli.name}_cv_results.json", "w") as f:
         "per_category": category_scores,
         "accuracy_by_role": role_acc,
         "dataset": cli.data,
+        "with_sender": cli.with_sender,
         "n_folds": N_FOLDS,
         "seed": SEED,
     }, f, indent=2)

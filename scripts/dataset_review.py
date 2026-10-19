@@ -2,6 +2,8 @@
 
     python scripts/dataset_review.py export   # dataset.json -> review.csv
     python scripts/dataset_review.py merge    # review.csv -> dataset.json
+    python scripts/dataset_review.py import data/academic/additions_border_sender.json
+                                              # append new emails to dataset.json
 
 In review.csv (opens in Excel / Google Sheets / Numbers):
   - corrected_category: leave empty if the label is right; otherwise type
@@ -12,7 +14,9 @@ In review.csv (opens in Excel / Google Sheets / Numbers):
   - notes: free text, kept in dataset.json for your own reference.
 
 merge refuses to write anything if a category name is misspelled or an id
-is duplicated, so a typo can't silently corrupt the dataset.
+is duplicated, so a typo can't silently corrupt the dataset. import adds
+only emails whose id is not already in dataset.json, so running it twice
+is harmless; run export afterwards to see them in review.csv.
 """
 
 import csv
@@ -110,8 +114,39 @@ def merge():
           "review.csv (it resets corrected_category).")
 
 
+def import_file(path: str):
+    dataset = json.loads(DATASET.read_text())
+    existing = {r["id"] for r in dataset}
+    new = json.loads(Path(path).read_text())
+
+    errors = []
+    for r in new:
+        rid = r.get("id", "")
+        if r.get("true_category") not in CATEGORIES:
+            errors.append(f"{rid}: unknown category '{r.get('true_category')}'")
+        if r.get("role") not in ROLES:
+            errors.append(f"{rid}: role must be student or instructor")
+        if not (r.get("body") or "").strip():
+            errors.append(f"{rid}: empty body")
+    if len({r.get("id") for r in new}) != len(new):
+        errors.append("duplicate ids inside the import file")
+    if errors:
+        print("Nothing written:")
+        for e in errors:
+            print("  -", e)
+        sys.exit(1)
+
+    added = [r for r in new if r["id"] not in existing]
+    DATASET.write_text(json.dumps(dataset + added, indent=2, ensure_ascii=False))
+    print(f"Added {len(added)} emails ({len(new) - len(added)} already present). "
+          f"Dataset now has {len(dataset) + len(added)}.")
+
+
 if __name__ == "__main__":
-    if len(sys.argv) != 2 or sys.argv[1] not in ("export", "merge"):
+    if len(sys.argv) == 3 and sys.argv[1] == "import":
+        import_file(sys.argv[2])
+    elif len(sys.argv) == 2 and sys.argv[1] in ("export", "merge"):
+        {"export": export, "merge": merge}[sys.argv[1]]()
+    else:
         print(__doc__)
         sys.exit(1)
-    {"export": export, "merge": merge}[sys.argv[1]]()
