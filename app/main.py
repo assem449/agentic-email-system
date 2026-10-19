@@ -16,6 +16,7 @@ from app.google_auth import account_chooser_url
 from app.graph import build_graph
 from app.handlers.calendar import create_approved_event
 from app.oauth_web import router as oauth_router
+from app import poller
 from app.poller import run_poller
 from app.seeding import seed_scenarios
 
@@ -32,9 +33,14 @@ def _startup():
     # an asyncio task — this is a study-scale deployment (dozens of
     # participants polled every ~30s), not something that needs to scale
     # past a single worker.
-    threading.Thread(
+    global _poller_thread
+    _poller_thread = threading.Thread(
         target=run_poller, args=(POLL_INTERVAL_SECONDS,), daemon=True
-    ).start()
+    )
+    _poller_thread.start()
+
+
+_poller_thread: Optional[threading.Thread] = None
 
 
 class EmailRequest(BaseModel):
@@ -234,6 +240,33 @@ def seed(req: SeedRequest, x_admin_token: Optional[str] = Header(None)):
             )
         raise
     return {"inserted": len(ids), "gmail_message_ids": ids}
+
+
+@app.get("/admin/poller-status")
+def poller_status(x_admin_token: Optional[str] = Header(None)):
+    """Is the background poller alive, when did it last run, and what was
+    the last error per participant. For debugging without Render logs."""
+    _require_admin(x_admin_token)
+    return {
+        "thread_alive": bool(_poller_thread and _poller_thread.is_alive()),
+        "active_participants": db.list_active_participant_ids(),
+        # Google access lapsed (7-day expiry in Testing mode, or revoked);
+        # each one needs to reconnect via /auth/start.
+        "inactive_participants": db.list_inactive_participant_ids(),
+        **poller.STATUS,
+    }
+
+
+@app.post("/admin/poll-now")
+def poll_now(x_admin_token: Optional[str] = Header(None)):
+    """Run one poll right now, in this request, and return what happened
+    (including any error) instead of waiting for the next interval."""
+    _require_admin(x_admin_token)
+    status = poller.poll_once()
+    return {
+        "thread_alive": bool(_poller_thread and _poller_thread.is_alive()),
+        **status,
+    }
 
 
 @app.get("/admin", response_class=HTMLResponse)

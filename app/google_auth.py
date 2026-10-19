@@ -12,6 +12,7 @@ one.
 from urllib.parse import quote
 
 from google.auth.transport.requests import Request
+from google.auth.exceptions import RefreshError
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
@@ -49,7 +50,16 @@ def _load_credentials(participant_id: str) -> Credentials:
 
     if not creds.valid:
         if creds.expired and creds.refresh_token:
-            creds.refresh(Request())
+            try:
+                creds.refresh(Request())
+            except RefreshError as e:
+                # invalid_grant: the participant revoked access in their
+                # Google account, or the grant expired. It will never
+                # refresh again, so stop polling them; reconnecting via
+                # /auth/start sets them active again.
+                if "invalid_grant" in str(e):
+                    db.deactivate_participant(participant_id)
+                raise NotConnected(participant_id) from e
             db.save_refreshed_token(participant_id, creds.to_json())
         else:
             raise NotConnected(participant_id)
