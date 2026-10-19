@@ -39,6 +39,11 @@ announcements with nothing to do.
 - Instructor: "Faculty newsletter: research funding deadlines"
 - Rule: if a mass email requires an action by a deadline (submit, register,
   pay), it is `admin_action`, not this.
+- Rule: a mass email that offers an optional opportunity (calls for
+  volunteers, supervisors, committee members, applicants) is this, not
+  `collaboration_opportunity`. Only an opportunity offered to the owner
+  personally, or a personal ask on top of a forwarded announcement, is
+  `collaboration_opportunity`.
 
 ### `informational`
 Personal or course-specific FYI with nothing to answer: acknowledgements,
