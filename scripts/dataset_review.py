@@ -4,6 +4,9 @@
     python scripts/dataset_review.py merge    # review.csv -> dataset.json
     python scripts/dataset_review.py import data/academic/additions_border_sender.json
                                               # append new emails to dataset.json
+    python scripts/dataset_review.py export --data data/academic/dataset_v2.json
+                                              # any command on another dataset;
+                                              # its sheet is review_v2.csv
 
 In review.csv (opens in Excel / Google Sheets / Numbers):
   - corrected_category: leave empty if the label is right; otherwise type
@@ -12,6 +15,9 @@ In review.csv (opens in Excel / Google Sheets / Numbers):
     (e.g. real-01), source = real, and its true_category. Remove names and
     personal details first.
   - notes: free text, kept in dataset.json for your own reference.
+  - seed: the real email a generated one imitates (e.g. real-05), or empty.
+    distilbert_cv.py --group-by-seed keeps an email and its seed in the
+    same fold.
 
 merge refuses to write anything if a category name is misspelled or an id
 is duplicated, so a typo can't silently corrupt the dataset. import adds
@@ -35,7 +41,7 @@ CATEGORIES = {
 }
 ROLES = {"student", "instructor"}
 COLUMNS = ["id", "role", "true_category", "corrected_category", "trap",
-           "source", "sender", "subject", "body", "notes"]
+           "source", "seed", "sender", "subject", "body", "notes"]
 
 
 def export():
@@ -44,7 +50,7 @@ def export():
         w = csv.DictWriter(f, fieldnames=COLUMNS)
         w.writeheader()
         for r in rows:
-            w.writerow({**{k: r.get(k, "") for k in COLUMNS}, "corrected_category": ""})
+            w.writerow({**{k: "" if r.get(k) is None else r[k] for k in COLUMNS}, "corrected_category": ""})
     print(f"Wrote {len(rows)} rows to {REVIEW.relative_to(ROOT)}")
 
 
@@ -96,6 +102,7 @@ def merge():
             "true_category": label,
             "source": (row.get("source") or "generated").strip(),
             "trap": _truthy(row.get("trap", "")),
+            "seed": (row.get("seed") or "").strip() or None,
         }
         if (row.get("notes") or "").strip():
             record["notes"] = row["notes"].strip()
@@ -143,6 +150,11 @@ def import_file(path: str):
 
 
 if __name__ == "__main__":
+    if "--data" in sys.argv:
+        i = sys.argv.index("--data")
+        DATASET = Path(sys.argv[i + 1]).resolve()
+        REVIEW = DATASET.with_name(DATASET.stem.replace("dataset", "review") + ".csv")
+        del sys.argv[i:i + 2]
     if len(sys.argv) == 3 and sys.argv[1] == "import":
         import_file(sys.argv[2])
     elif len(sys.argv) == 2 and sys.argv[1] in ("export", "merge"):

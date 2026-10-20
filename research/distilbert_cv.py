@@ -28,6 +28,12 @@ Usage:
     python research/distilbert_cv.py                      # original 7-category set
     python research/distilbert_cv.py \
         --data data/academic/dataset.json --out data/academic --name academic
+    python research/distilbert_cv.py --data data/academic/dataset_v2.json \
+        --out data/academic_v2 --name academic_v2 --group-by-seed
+
+--group-by-seed keeps each real email and the generated emails written in
+its style (same "seed") in one fold, so the model is never tested on an
+email whose near-copy it trained on.
 
 --out keeps the label map and final model of a new dataset out of the
 paths the live pipeline loads (data/label_map.json, data/distilbert_model/),
@@ -45,7 +51,7 @@ import json
 import sys
 import numpy as np
 from pathlib import Path
-from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import StratifiedGroupKFold, StratifiedKFold
 from sklearn.preprocessing import LabelEncoder
 from datasets import Dataset
 from transformers import (
@@ -68,6 +74,8 @@ parser.add_argument("--name", default="distilbert",
 parser.add_argument("--epochs", type=int, default=10)
 parser.add_argument("--with-sender", action="store_true",
                     help="prepend the sender to the classifier input")
+parser.add_argument("--group-by-seed", action="store_true",
+                    help="keep emails that share a seed in the same fold")
 parser.add_argument("--skip-final", action="store_true",
                     help="only run the 5 folds, not the final all-data model")
 cli = parser.parse_args()
@@ -116,7 +124,12 @@ def compute_metrics(eval_pred):
     return {"accuracy": acc}
 
 
-skf = StratifiedKFold(n_splits=N_FOLDS, shuffle=True, random_state=SEED)
+if cli.group_by_seed:
+    skf = StratifiedGroupKFold(n_splits=N_FOLDS, shuffle=True, random_state=SEED)
+    groups = [d.get("seed") or d["id"] for d in data]
+else:
+    skf = StratifiedKFold(n_splits=N_FOLDS, shuffle=True, random_state=SEED)
+    groups = None
 
 fold_accuracies = []
 oof_predictions = {}  # email_id -> predicted category (string)
@@ -126,7 +139,7 @@ X = np.array(texts)
 y = encoded_labels
 ID = np.array(ids)
 
-for fold_idx, (train_idx, test_idx) in enumerate(skf.split(X, y), start=1):
+for fold_idx, (train_idx, test_idx) in enumerate(skf.split(X, y, groups), start=1):
     print(f"\n{'='*50}")
     print(f"FOLD {fold_idx}/{N_FOLDS}")
     print(f"{'='*50}")
