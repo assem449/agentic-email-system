@@ -47,3 +47,4 @@ data/distilbert_model/
 
 *.csv
 *.xlsx
+seed_body.json
