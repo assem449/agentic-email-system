@@ -13,6 +13,7 @@ single self-contained HTML response, no framework, no build step, easy
 to swap out once a real study UI is decided.
 """
 
+import html
 import json
 from datetime import datetime
 from typing import List, Optional
@@ -29,46 +30,59 @@ from app.handlers.calendar import create_approved_event
 router = APIRouter()
 
 CATEGORY_STYLE = {
-    "ack": ("#6B6A66", "#EFEDE6"),
     "announcement_promo": ("#5A6B2E", "#EEF2E2"),
-    "faq": ("#2E6A7D", "#E4F0F5"),
-    "meeting": ("#A6432E", "#FBE9E4"),
-    "support": ("#7A5A2E", "#F5EEE0"),
-    "spam": ("#7A2E2E", "#F5E4E4"),
-    "emotional": ("#4A3D7A", "#ECE7F5"),
+    "informational": ("#6B6A66", "#EFEDE6"),
+    "admin_action": ("#7A5A2E", "#F5EEE0"),
+    "course_logistics": ("#2E6A7D", "#E4F0F5"),
+    "academic_question": ("#2E4F7D", "#E4EAF5"),
+    "meeting_request": ("#A6432E", "#FBE9E4"),
+    "request_exception": ("#8A5A00", "#FBF0D9"),
+    "collaboration_opportunity": ("#2E7D5A", "#E2F2EA"),
+    "wellbeing": ("#4A3D7A", "#ECE7F5"),
     "ambiguous": ("#6B6A66", "#EFEDE6"),
+    "spam": ("#7A2E2E", "#F5E4E4"),
 }
 DEFAULT_STYLE = ("#6B6A66", "#EFEDE6")
 
 # Backs the "What do these mean?" side drawer — one entry per category
-# the classifier actually uses (app/classifier.py / app/graph.py),
+# the classifier uses (data/academic/categories.md, app/graph.py),
 # described in plain terms with a representative example.
 CATEGORY_INFO = [
-    ("ack", "A short acknowledgment with nothing left to answer, like a thank-you. "
-            "No reply is drafted; the email stays unread for you. If it also asks "
-            "something, the AI drafts a reply instead.",
-     "“Thanks so much!”"),
-    ("announcement_promo", "A newsletter, announcement, LinkedIn notification or other "
-                           "bulk mail. No reply is drafted; it stays unread and gets the "
-                           "AI/Announcement label.",
-     "“You appeared in 12 searches this week”"),
-    ("faq", "A common question that matches one already in the knowledge base, "
-            "answered instantly, or passed to the AI if nothing matches closely.",
-     "“What are your support hours?”"),
-    ("meeting", "A request to schedule a call or meeting. Your real calendar is checked "
-                "for a free slot, but nothing is ever booked until you approve it yourself.",
-     "“Can we grab 30 minutes tomorrow afternoon?”"),
-    ("support", "An account or product issue that needs a specific, helpful reply, "
-                "drafted by the AI (and reused if the same question comes up again).",
-     "“My export keeps failing, can you help?”"),
-    ("emotional", "A frustrated or upset message. The AI drafts an empathetic reply "
-                  "rather than a purely procedural one.",
-     "“This is so frustrating, nothing is working!”"),
-    ("ambiguous", "Doesn't fit cleanly into another category, so the AI drafts a reply "
-                  "case by case.",
-     "“Following up on my email from last week.”"),
-    ("spam", "Looks like spam or phishing. Blocked automatically — no draft, no reply.",
-     "“You've won a prize, claim it now!”"),
+    ("announcement_promo", "Newsletters, event invitations, promotions and other bulk mail. "
+                           "No reply; labelled AI/Announcement.",
+     "“Upcoming Events & Opportunities this week”"),
+    ("informational", "Tells you something and asks for nothing: confirmations, FYIs, "
+                      "thank-yous. No reply; labelled AI/No reply needed. If it also asks "
+                      "something, a reply is drafted.",
+     "“Midterm marks are now on eClass.”"),
+    ("admin_action", "Asks you to do something administrative: a form, a survey, a payment, "
+                     "a deadline. No reply; labelled AI/Action needed.",
+     "“Please complete the staff survey by November 20.”"),
+    ("course_logistics", "A question about how a course runs: dates, rooms, policies. For "
+                         "instructors, answered from the course FAQ; anything the FAQ doesn't "
+                         "cover is left for you with AI/Needs review.",
+     "“Is the late penalty 10% per day?”"),
+    ("academic_question", "A question about course content or ideas. The AI drafts a reply.",
+     "“Why does this proof need strong induction?”"),
+    ("meeting_request", "A request to meet or reschedule. Your calendar is checked for a free "
+                        "slot, but nothing is booked until you approve it on this page.",
+     "“Could we move our meeting to Friday at 2?”"),
+    ("request_exception", "Asks for an exception only you can decide: an extension, a regrade, "
+                          "a different exam time. No reply is drafted; you get a short note in "
+                          "your Drafts (addressed to you) and AI/Needs review.",
+     "“Could I get a 3-day extension on Assignment 3?”"),
+    ("collaboration_opportunity", "An invitation to work together: research, a TA role, "
+                                  "a project team. The AI drafts a reply.",
+     "“Would you like to co-author a workshop paper?”"),
+    ("wellbeing", "Someone is struggling or in distress. The AI drafts a careful reply, "
+                  "labelled AI/Needs review so you read it first.",
+     "“I've been having a really hard time this term.”"),
+    ("ambiguous", "Unclear what is being asked. The AI drafts a reply, labelled AI/Needs "
+                  "review.",
+     "“Following up on the thing we talked about.”"),
+    ("spam", "Spam or phishing. Moved to Spam only when the sender also fails Gmail's "
+             "checks; otherwise kept for you with AI/Needs review.",
+     "“Your mailbox is full, verify your account now.”"),
 ]
 
 STATUS_LABEL = {
@@ -90,6 +104,7 @@ STATUS_LABEL = {
     "logistics_not_covered": "Needs review (not in course FAQ)",
     "logistics_other_course": "Needs review (another course)",
     "logistics_review_role": "Needs review",
+    "exception_note": "Note for you (no reply)",
 }
 
 
@@ -155,6 +170,11 @@ body{
 .gmail-row:hover{background:#F8F9FA;}
 .gmail-chip{font-size:11.5px; font-weight:700; padding:3px 10px; border-radius:999px; width:78px; text-align:center; flex-shrink:0;}
 .gmail-subject{flex-grow:1; font-size:14px; color:#202124; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.gmail-note{white-space:normal; font-size:12.5px; color:#6b6a66; margin-top:3px;}
+.role-choice{display:flex; gap:10px; margin:6px 0 18px;}
+.role-option{flex:1; padding:12px; border:1.5px solid #dad7cd; border-radius:10px; background:#fff; cursor:pointer; font-size:14px; font-family:inherit;}
+.role-option.selected{border-color:#202124; background:#f5f3ec; font-weight:600;}
+.submit:disabled{opacity:.4; cursor:not-allowed;}
 .gmail-status{font-size:12.5px; color:#80868b; flex-shrink:0;}
 .gmail-empty{padding:26px 22px; font-size:14px; color:#80868b; text-align:center;}
 
@@ -253,7 +273,9 @@ def checkin_page(token: str):
     day = db.day_number_for(participant["id"])
     events = db.list_events_for_today(participant["id"])
     already = db.get_checkin_submission(participant["id"], day)
-    show_welcome = day == 1 and not participant["welcomed_at"]
+    # Also whenever the role is missing: it can't be skipped, and
+    # course_logistics can't draft until it is known.
+    show_welcome = (day == 1 and not participant["welcomed_at"]) or not participant["role"]
 
     if already:
         body_html = f"""
@@ -295,7 +317,7 @@ def checkin_page(token: str):
     </div>
     {_category_sidebar_html()}
   </div>
-  {_welcome_modal_html(token, show_welcome)}
+  {_welcome_modal_html(token, show_welcome, participant["role"])}
   {_instructions_modal_html()}
 <script>
   function openOverlay(id) {{
@@ -307,6 +329,25 @@ def checkin_page(token: str):
   async function dismissWelcome(token) {{
     closeOverlay('welcome-overlay');
     fetch(`/checkin/${{token}}/welcome-seen`, {{method: 'POST'}}).catch(() => {{}});
+  }}
+  let chosenRole = null;
+  function pickRole(role, el) {{
+    chosenRole = role;
+    document.querySelectorAll('.role-option').forEach(b => b.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('welcome-start').disabled = false;
+  }}
+  async function saveRoleAndStart(token) {{
+    if (!chosenRole) return;
+    const res = await fetch(`/checkin/${{token}}/role`, {{
+      method: 'POST', headers: {{'Content-Type': 'application/json'}},
+      body: JSON.stringify({{role: chosenRole}}),
+    }});
+    if (!res.ok && res.status !== 409) {{
+      alert('Could not save your choice, please try again.');
+      return;
+    }}
+    location.reload();
   }}
 </script>
 </body></html>
@@ -330,7 +371,7 @@ def _pending_events_html(token: str, participant_id: str) -> str:
             when = datetime.fromisoformat(p["proposed_start"]).strftime("%A, %b %d at %I:%M %p")
         except ValueError:
             when = p["proposed_start"]
-        subject = p["subject"] or "(no subject)"
+        subject = html.escape(p["subject"] or "(no subject)")
         moved_note = (
             '<div style="font-size:12px; color:#a6a39a; margin-top:4px;">'
             "Your requested time was busy, so this is the next open slot.</div>"
@@ -339,7 +380,7 @@ def _pending_events_html(token: str, participant_id: str) -> str:
         cards += f"""
         <div class="meeting-card" data-event-id="{p['id']}">
           <div style="font-size:13.5px; font-weight:600;">{subject}</div>
-          <div style="font-size:12.5px; color:#8a887f; margin-top:2px;">From {p['sender']}</div>
+          <div style="font-size:12.5px; color:#8a887f; margin-top:2px;">From {html.escape(p['sender'] or '')}</div>
           <div style="font-size:13.5px; margin-top:8px;">📅 {when}</div>
           {moved_note}
           <div style="display:flex; gap:8px; margin-top:12px;">
@@ -422,37 +463,57 @@ def _category_sidebar_html() -> str:
     """
 
 
-def _welcome_modal_html(token: str, auto_open: bool) -> str:
+def _welcome_modal_html(token: str, auto_open: bool, role: Optional[str]) -> str:
     """First-day welcome screen, explaining what the study is and what
-    to expect. Auto-shown only once (day 1, before welcomed_at is set —
-    see app.db.mark_welcomed); reopenable anytime afterward from the
-    'About this study' link, which just toggles the same modal without
-    re-marking anything."""
+    to expect. Auto-shown on day 1 before welcomed_at is set (see
+    app.db.mark_welcomed), and whenever no role is set yet; reopenable
+    anytime afterward from the 'About this study' link.
+
+    Until the participant chooses student or instructor, the modal asks
+    for it and can't be dismissed without choosing. The choice is final
+    (POST /checkin/{token}/role refuses a second one)."""
     open_class = " open" if auto_open else ""
+    if role:
+        role_html = f'<p><strong>Your inbox:</strong> {role.capitalize()}</p>'
+        button = f'<button class="submit" onclick="dismissWelcome(\'{token}\')">Let\'s get started</button>'
+    else:
+        role_html = """
+        <p><strong>Whose inbox is this?</strong> This changes how replies are drafted. You
+        can't change it later.</p>
+        <div class="role-choice">
+          <button type="button" class="role-option" onclick="pickRole('student', this)">I'm a student</button>
+          <button type="button" class="role-option" onclick="pickRole('instructor', this)">I'm an instructor or TA</button>
+        </div>
+        """
+        button = (f'<button class="submit" id="welcome-start" disabled '
+                  f'onclick="saveRoleAndStart(\'{token}\')">Let\'s get started</button>')
     return f"""
     <div class="welcome-overlay{open_class}" id="welcome-overlay">
       <div class="welcome-modal">
         <h2>Welcome to the study 👋</h2>
         <p>
           You're helping test an assistant that reads unread emails in this inbox, figures out
-          what kind of message each one is, and drafts a reply, all without sending anything on
-          its own.
+          what kind of message each one is, and decides what help it needs, all without sending
+          anything on its own.
         </p>
         <p>Here's exactly what it does, and doesn't do:</p>
         <ul>
-          <li>Drafts a reply to most emails and saves it to your Drafts folder. Nothing is ever sent automatically, you decide if and when to send each one.</li>
+          <li>Drafts replies to questions, invitations and other emails that need an answer, and saves them to your Drafts folder. Nothing is ever sent automatically.</li>
+          <li>Leaves announcements, newsletters and FYIs alone, just labelling them (AI/Announcement, AI/No reply needed, AI/Action needed).</li>
+          <li>Never answers requests only you can decide, like extensions or regrades: you get a short note in your Drafts, addressed to you, instead.</li>
           <li>For meeting requests, it checks your real calendar for a free time and proposes it, but never books anything until you approve it yourself, right here on this page.</li>
-          <li>Obvious spam gets blocked automatically.</li>
+          <li>Anything uncertain is labelled AI/Needs review. Spam is moved to Spam only when the sender also fails Gmail's checks.</li>
         </ul>
         <p>
           Each day, come back to this page to see what happened with today's emails, approve or
           reject any meeting proposals, and give quick feedback, it only takes a minute or two.
         </p>
+        {role_html}
         <p style="font-size:12.5px; color:#a6a39a;">
           This is a research study, not your personal inbox. Nothing you do here is shared outside
           the study team.
         </p>
-        <button class="submit" onclick="dismissWelcome('{token}')">Let's get started</button>
+        {button}
       </div>
     </div>
     """
@@ -522,11 +583,15 @@ def _gmail_panel_html(events, email: str) -> str:
 def _gmail_row_html(e, email: str) -> str:
     color, bg = CATEGORY_STYLE.get(e["category"], DEFAULT_STYLE)
     status = STATUS_LABEL.get(e["handler_used"], e["handler_used"] or "Processed")
-    subject = e["subject"] or "(no subject)"
+    subject = html.escape(e["subject"] or "(no subject)")
+    note = ""
+    if e["handler_used"] == "exception_note" and e["response_preview"]:
+        # The note summarises text an outsider wrote: escaped like the subject.
+        note = f'<div class="gmail-note">{html.escape(e["response_preview"])}</div>'
     return f"""
     <a class="gmail-row" href="{_gmail_link(email, e['gmail_id'])}" target="_blank">
       <div class="gmail-chip" style="color:{color}; background:{bg};">{e['category'] or '...'}</div>
-      <div class="gmail-subject">{subject}</div>
+      <div class="gmail-subject">{subject}{note}</div>
       <div class="gmail-status">{status}</div>
     </a>
     """
@@ -539,7 +604,7 @@ def _form_html(token: str, events) -> str:
     per_email_rows = ""
     for e in events:
         eid = e["id"]
-        subject = e["subject"] or "(no subject)"
+        subject = html.escape(e["subject"] or "(no subject)")
         per_email_rows += f"""
         <div class="row" data-email-id="{eid}">
           <div style="flex-grow:1; font-size:13px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
@@ -645,6 +710,25 @@ def reject_pending_self(token: str, event_id: str):
 
     db.decide_pending_event(event_id, "rejected")
     return {"status": "rejected"}
+
+
+class RoleChoice(BaseModel):
+    role: str
+
+
+@router.post("/checkin/{token}/role")
+def choose_role(token: str, choice: RoleChoice):
+    """The participant's one-time choice: student or instructor. Refused
+    once a role is set, so it can't be changed later."""
+    participant = db.get_participant_by_checkin_token(token, include_inactive=True)
+    if participant is None:
+        raise HTTPException(404, "Check-in link not recognized")
+    if choice.role not in db.ROLES:
+        raise HTTPException(400, f"role must be one of {db.ROLES}")
+    if not db.set_participant_role(participant["id"], choice.role):
+        raise HTTPException(409, "A role is already set and can't be changed")
+    db.mark_welcomed(participant["id"])
+    return {"status": "ok", "role": choice.role}
 
 
 @router.post("/checkin/{token}/welcome-seen")

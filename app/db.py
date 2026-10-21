@@ -466,13 +466,17 @@ def get_participant_role(participant_id: str) -> Optional[str]:
     return row["role"] if row else None
 
 
-def set_participant_role(participant_id: str, role: str) -> None:
+def set_participant_role(participant_id: str, role: str) -> bool:
+    """Set the role once. Returns False (and changes nothing) if a role is
+    already set: participants choose it at the start and can't change it."""
     if role not in ROLES:
         raise ValueError(f"role must be one of {ROLES}, got {role!r}")
     with _conn() as conn:
-        conn.execute(
-            "UPDATE participants SET role = ? WHERE id = ?", (role, participant_id)
+        cur = conn.execute(
+            "UPDATE participants SET role = ? WHERE id = ? AND role IS NULL",
+            (role, participant_id),
         )
+    return cur.rowcount == 1
 
 
 # --- FAQ reply cache ---------------------------------------------------------

@@ -7,6 +7,7 @@ from app.state import EmailState
 from app.classifier import classify_email
 from app.handlers.calendar import calendar_handler
 from app.handlers.course_logistics import course_logistics_handler
+from app.handlers.request_exception import request_exception_handler
 from app.handlers.llm import llm_handler
 from app.logging_utils import log_routing_decision
 
@@ -60,7 +61,7 @@ NEEDS_REVIEW_CATEGORIES = {"wellbeing", "ambiguous"}
 DRAFT_ROUTES = {
     "meeting_request": "calendar",
     "course_logistics": "course_logistics",
-    "request_exception": "llm",
+    "request_exception": "request_exception",
     "academic_question": "llm",
     "collaboration_opportunity": "llm",
     "wellbeing": "llm",
@@ -175,6 +176,7 @@ def build_graph():
     g.add_node("classify", classify_node)
     g.add_node("calendar", calendar_handler)
     g.add_node("course_logistics", course_logistics_handler)
+    g.add_node("request_exception", request_exception_handler)
     g.add_node("llm", llm_handler)
     g.add_node("spam", spam_node)
     g.add_node("suspicious", suspicious_node)
@@ -192,12 +194,13 @@ def build_graph():
             "no_reply": "no_reply",
             "calendar": "calendar",
             "course_logistics": "course_logistics",
+            "request_exception": "request_exception",
             "llm": "llm",
         },
     )
 
     g.add_node("log", log_routing_decision)
-    for node in ["calendar", "course_logistics", "llm"]:
+    for node in ["calendar", "course_logistics", "request_exception", "llm"]:
         g.add_edge(node, "mark_reply")
     for node in ["mark_reply", "no_reply", "spam", "suspicious"]:
         g.add_edge(node, "log")

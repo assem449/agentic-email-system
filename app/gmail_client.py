@@ -224,6 +224,28 @@ def create_draft_reply(service, email: dict, reply_text: str):
     ).execute()
 
 
+def create_self_note(service, email: dict, owner_address: str, note_text: str):
+    """A draft in the original thread addressed to the inbox owner, not the
+    sender: a note about the email, not a reply to it. Sending it by
+    mistake only emails the owner."""
+    msg = EmailMessage()
+    msg["To"] = owner_address
+    msg["Subject"] = f"[AI note] Exception request: {email['subject'] or '(no subject)'}"
+    if email.get("message_id"):
+        msg["In-Reply-To"] = email["message_id"]
+        msg["References"] = " ".join(
+            x for x in (email.get("references"), email["message_id"]) if x
+        )
+    msg.set_content(note_text)
+
+    message = {"raw": base64.urlsafe_b64encode(msg.as_bytes()).decode()}
+    if email.get("thread_id"):
+        message["threadId"] = email["thread_id"]
+    return service.users().drafts().create(
+        userId="me", body={"message": message}
+    ).execute()
+
+
 def move_to_spam(service, gmail_id: str):
     service.users().messages().modify(
         userId="me", id=gmail_id,

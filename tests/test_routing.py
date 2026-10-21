@@ -74,7 +74,7 @@ def test_informational_that_asks_something_gets_a_draft():
 
 @pytest.mark.parametrize("category,node", [
     ("meeting_request", "calendar"), ("course_logistics", "course_logistics"),
-    ("request_exception", "llm"), ("wellbeing", "llm"), ("something_new", "llm"),
+    ("request_exception", "request_exception"), ("wellbeing", "llm"), ("something_new", "llm"),
 ])
 def test_drafting_routes(category, node):
     assert route_decision(state(category)) == node
@@ -99,19 +99,19 @@ def run(category, **kw):
 
 
 def test_actions_moved_to_spam():
-    assert gmail_actions(run("spam", verdict="fail")) == (True, False, [LABEL_PROCESSED])
+    assert gmail_actions(run("spam", verdict="fail")) == (True, None, [LABEL_PROCESSED])
 
 
 def test_actions_spam_held():
     result = run("spam", verdict="pass")
     assert result["handler_used"] == "spam_held"
-    assert gmail_actions(result) == (False, False, [LABEL_PROCESSED, LABEL_NEEDS_REVIEW])
+    assert gmail_actions(result) == (False, None, [LABEL_PROCESSED, LABEL_NEEDS_REVIEW])
 
 
 def test_actions_auth_failed():
     result = run("course_logistics", verdict="fail")
     assert result["handler_used"] == "auth_failed"
-    assert gmail_actions(result) == (False, False, [LABEL_PROCESSED, LABEL_NEEDS_REVIEW])
+    assert gmail_actions(result) == (False, None, [LABEL_PROCESSED, LABEL_NEEDS_REVIEW])
 
 
 @pytest.mark.parametrize("category,label", [
@@ -123,14 +123,14 @@ def test_actions_auth_failed():
 def test_actions_bulk_labels(category, label):
     result = run(category, bulk="header:list-id")
     assert result["category"] == category  # no relabel to announcement_promo
-    assert gmail_actions(result) == (False, False, [LABEL_PROCESSED, label])
+    assert gmail_actions(result) == (False, None, [LABEL_PROCESSED, label])
 
 
 def test_actions_draft_with_review():
     result = {"handler_used": "llm", "category": "wellbeing",
               "reply_needed": True, "needs_review": True}
     assert gmail_actions(result) == (
-        False, True, [LABEL_PROCESSED, LABEL_DRAFT_READY, LABEL_NEEDS_REVIEW])
+        False, "reply", [LABEL_PROCESSED, LABEL_DRAFT_READY, LABEL_NEEDS_REVIEW])
 
 
 # --- Header parsing ---
