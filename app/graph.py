@@ -5,8 +5,6 @@ from langgraph.graph import StateGraph, END
 import time
 from app.state import EmailState
 from app.classifier import classify_email
-from app.handlers.cache import cache_handler
-from app.handlers.retrieval import retrieval_handler
 from app.handlers.calendar import calendar_handler
 from app.handlers.llm import llm_handler
 from app.logging_utils import log_routing_decision
@@ -29,21 +27,48 @@ else:
     ACTIVE_CLASSIFIER = classify_email
 
 
+# The rules classifier (CLASSIFIER=rules) still speaks the v1 customer-
+# support categories. Mapping them here keeps it usable as a fallback; the
+# DistilBERT model trained on data/academic/dataset_v2.json already returns
+# the 11 academic categories.
+LEGACY_CATEGORIES = {
+    "ack": "informational",
+    "faq": "course_logistics",
+    "meeting": "meeting_request",
+    "emotional": "wellbeing",
+    "support": "ambiguous",
+}
+
+
 def classify_node(state: EmailState) -> EmailState:
-    state["category"] = ACTIVE_CLASSIFIER(state["subject"], state["body"])
+    category = ACTIVE_CLASSIFIER(state["subject"], state["body"])
+    state["category"] = LEGACY_CATEGORIES.get(category, category)
     return state
 
 
-# Categories that never get a drafted reply. `ack` is a thank-you or
-# confirmation; replying "You're welcome!" to it is noise in a real inbox.
-NO_REPLY_CATEGORIES = {"ack"}
+# Categories that never get a drafted reply. The poller labels them:
+# admin_action -> AI/Action needed, announcement_promo -> AI/Announcement,
+# informational -> AI/No reply needed.
+NO_REPLY_CATEGORIES = {"announcement_promo", "informational", "admin_action"}
 
 # Drafts in these categories are flagged for a human to read before sending.
-NEEDS_REVIEW_CATEGORIES = {"emotional"}
+NEEDS_REVIEW_CATEGORIES = {"wellbeing", "ambiguous"}
 
-# Skipping a reply is the costly mistake (the sender is ignored), so a
-# no-reply label is overridden when the email visibly asks for something:
-# "Thanks, but can you check my grade?" goes to the LLM, not the bin.
+# Drafting handler per category. Categories whose own handler isn't built
+# yet go to the LLM for now; unknown categories do too.
+DRAFT_ROUTES = {
+    "meeting_request": "calendar",
+    "course_logistics": "llm",
+    "request_exception": "llm",
+    "academic_question": "llm",
+    "collaboration_opportunity": "llm",
+    "wellbeing": "llm",
+    "ambiguous": "llm",
+}
+
+# Skipping a reply is the costly mistake (the sender is ignored), so an
+# informational email is sent to the LLM when it visibly asks something:
+# "Thanks, but can you check my grade?" gets a draft, not silence.
 _ASKS_SOMETHING = re.compile(
     r"\?|\b(can|could|would|will) you\b|\bplease\b|\blet me know\b"
     r"|\bi (have|had) a question\b|\bwondering\b",
@@ -52,59 +77,80 @@ _ASKS_SOMETHING = re.compile(
 
 
 def route_decision(state: EmailState) -> str:
-    category = state["category"]
-    # Spam wins over the bulk flag: phishing often carries list headers too.
+    category = LEGACY_CATEGORIES.get(state["category"], state["category"])
+    # Gmail's DMARC verdict. Eval runs and seeded messages carry none.
+    verdict = state.get("auth_verdict") or "none"
+
+    # Spam is moved only when the headers agree. Spam from a domain that
+    # passes DMARC may be a real notice the classifier misread (tuition,
+    # payroll), and moving a real email to Spam effectively loses it.
     if category == "spam":
-        return "spam"
+        return "spam" if verdict != "pass" else "suspicious"
+    # Bulk mail never gets a draft; its category picks the label.
     if state.get("bulk_reason"):
         return "no_reply"
+    # Failed DMARC: the sender may be forged, so no draft is written to it.
+    if verdict == "fail":
+        return "suspicious"
     if category in NO_REPLY_CATEGORIES:
-        if _ASKS_SOMETHING.search(state["body"]):
-            return "ambiguous"
+        if category == "informational" and _ASKS_SOMETHING.search(state["body"]):
+            return "llm"
         return "no_reply"
-    return category
+    return DRAFT_ROUTES.get(category, "llm")
 
 
-def no_reply_node(state: EmailState) -> EmailState:
-    """Terminal node for email that needs no answer: no draft is created.
-
-    Bulk mail (newsletters, LinkedIn, mailing lists) is relabelled
-    `announcement_promo` here rather than by the classifier, because the
-    signal is in the headers, not the text. The classifier's own guess is
-    kept in classifier_category for analysis.
-    """
-    start = time.perf_counter()
-    state["classifier_category"] = state["category"]
-    if state.get("bulk_reason"):
-        state["handler_used"] = "no_reply_bulk"
-        state["category"] = "announcement_promo"
-    else:
-        state["handler_used"] = "no_reply"
-    state["reply_needed"] = False
+def _no_cost(state: EmailState, start: float) -> None:
     state["response"] = None
     state["tokens_used"] = 0
     state["input_tokens"] = 0
     state["output_tokens"] = 0
     state["latency_ms"] = (time.perf_counter() - start) * 1000
+
+
+def no_reply_node(state: EmailState) -> EmailState:
+    """Terminal node for email that needs no answer: no draft is created.
+
+    For bulk mail (newsletters, mailing lists) the classifier's category
+    is kept: a faculty-office survey sent to a list is still admin_action
+    and gets AI/Action needed, not AI/Announcement.
+    """
+    start = time.perf_counter()
+    state["classifier_category"] = state["category"]
+    state["handler_used"] = "no_reply_bulk" if state.get("bulk_reason") else "no_reply"
+    state["reply_needed"] = False
+    _no_cost(state, start)
+    return state
+
+
+def suspicious_node(state: EmailState) -> EmailState:
+    """Header safety check: kept in the inbox with AI/Needs review, no draft.
+
+    Two cases: the classifier said spam but DMARC passed (possibly a real
+    notice, so not moved to Spam), or DMARC failed on an email the
+    classifier didn't flag (possibly forged, so not answered).
+    """
+    start = time.perf_counter()
+    state["handler_used"] = "spam_held" if state["category"] == "spam" else "auth_failed"
+    state["reply_needed"] = False
+    state["needs_review"] = True
+    state["suspicious"] = True
+    _no_cost(state, start)
     return state
 
 
 def spam_node(state: EmailState) -> EmailState:
-    """Terminal node for emails the CLASSIFIER labels spam.
+    """Terminal node for spam the headers don't vouch for: moved to Spam.
 
     This is not a pre-pipeline filter: it runs after classification, so
-    spam detection performance here is classifier accuracy, not the
-    accuracy of a separate spam filter. It also does not touch Gmail
-    labels — that happens in the poller, outside the evaluated graph.
+    spam detection performance here is classifier accuracy plus the header
+    check in route_decision. It does not touch Gmail itself; the poller
+    moves the message, outside the evaluated graph.
     """
     start = time.perf_counter()
     state["handler_used"] = "blocked"
-    state["response"] = "[blocked — flagged as spam/phishing]"
-    state["tokens_used"] = 0
-    state["input_tokens"] = 0
-    state["output_tokens"] = 0
-    state["latency_ms"] = (time.perf_counter() - start) * 1000
     state["reply_needed"] = False
+    _no_cost(state, start)
+    state["response"] = "[blocked — flagged as spam/phishing]"
     return state
 
 
@@ -122,11 +168,10 @@ def build_graph():
     # graph_module.classify_node / graph_module.calendar_handler before
     # calling build_graph() and have the change take effect.
     g.add_node("classify", classify_node)
-    g.add_node("cache", cache_handler)
-    g.add_node("retrieval", retrieval_handler)
     g.add_node("calendar", calendar_handler)
     g.add_node("llm", llm_handler)
     g.add_node("spam", spam_node)
+    g.add_node("suspicious", suspicious_node)
     g.add_node("no_reply", no_reply_node)
     g.add_node("mark_reply", mark_reply_node)
 
@@ -137,19 +182,17 @@ def build_graph():
         route_decision,
         {
             "spam": "spam",
+            "suspicious": "suspicious",
             "no_reply": "no_reply",
-            "faq": "retrieval",
-            "meeting": "calendar",
-            "emotional": "llm",
-            "support": "cache",
-            "ambiguous": "llm",
+            "calendar": "calendar",
+            "llm": "llm",
         },
     )
 
     g.add_node("log", log_routing_decision)
-    for node in ["cache", "retrieval", "calendar", "llm"]:
+    for node in ["calendar", "llm"]:
         g.add_edge(node, "mark_reply")
-    for node in ["mark_reply", "no_reply", "spam"]:
+    for node in ["mark_reply", "no_reply", "spam", "suspicious"]:
         g.add_edge(node, "log")
 
     g.add_edge("log", END)

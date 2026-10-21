@@ -25,3 +25,5 @@ class EmailState(TypedDict):
     classifier_category: Optional[str]  # classifier's label before bulk override
     reply_needed: Optional[bool]
     needs_review: Optional[bool]
+    auth_verdict: Optional[str]  # Gmail's DMARC verdict: pass | fail | none
+    suspicious: Optional[bool]   # held back by the header safety check

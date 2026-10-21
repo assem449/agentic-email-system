@@ -17,6 +17,7 @@ from app.gmail_client import (
     LABEL_NO_REPLY,
     LABEL_DRAFT_READY,
     LABEL_NEEDS_REVIEW,
+    LABEL_ACTION_NEEDED,
 )
 from app.graph import build_graph
 from app.config import POLL_INTERVAL_SECONDS
@@ -59,6 +60,7 @@ def process_email(service, labels: dict, email: dict, participant_id: str):
         "body": email["body"],
         "quoted_text": email["quoted_text"],
         "bulk_reason": email["bulk_reason"],
+        "auth_verdict": email.get("auth_verdict"),
         "category": None,
         "handler_used": None,
         "response": None,
@@ -68,24 +70,14 @@ def process_email(service, labels: dict, email: dict, participant_id: str):
         "gmail_id": email["gmail_id"],
     })
 
-    category = result["category"]
     gmail_id = email["gmail_id"]
 
-    print(f"[{participant_id}] [{category}] {email['subject'][:40]} -> {result['handler_used']}")
+    print(f"[{participant_id}] [{result['category']}] {email['subject'][:40]} -> {result['handler_used']}")
 
-    # Emails are deliberately left UNREAD: the participant still needs to
-    # see an announcement or check a draft. The AI/Processed label is what
-    # keeps the poller from handling the same email again.
-    to_add = [labels[LABEL_PROCESSED]]
-
-    if category == "spam":
+    spam, draft, names = gmail_actions(result)
+    if spam:
         move_to_spam(service, gmail_id)
-    elif not result.get("reply_needed"):
-        if category == "announcement_promo":
-            to_add.append(labels[LABEL_ANNOUNCEMENT])
-        else:
-            to_add.append(labels[LABEL_NO_REPLY])
-    else:
+    if draft:
         # A meeting-classified email lands here too: the calendar node
         # never books anything itself, it only queued a pending proposal
         # (see app/handlers/calendar.py) that a human approves separately.
@@ -93,11 +85,36 @@ def process_email(service, labels: dict, email: dict, participant_id: str):
         # already a human-in-the-loop step, since nothing sends until the
         # participant (or a study reviewer) opens and sends it themselves.
         create_draft_reply(service, email, result["response"])
-        to_add.append(labels[LABEL_DRAFT_READY])
-        if result.get("needs_review"):
-            to_add.append(labels[LABEL_NEEDS_REVIEW])
+    add_labels(service, gmail_id, [labels[n] for n in names])
 
-    add_labels(service, gmail_id, to_add)
+
+# Label for each no-reply category; any other no-reply email gets
+# AI/No reply needed.
+NO_REPLY_LABELS = {
+    "admin_action": LABEL_ACTION_NEEDED,
+    "announcement_promo": LABEL_ANNOUNCEMENT,
+}
+
+
+def gmail_actions(result: dict) -> tuple[bool, bool, list]:
+    """What to do in Gmail for a graph result: (move to Spam?, create a
+    draft?, label names to add).
+
+    Emails are deliberately left UNREAD: the participant still needs to
+    see an announcement or check a draft. AI/Processed is always added; it
+    is what keeps the poller from handling the same email again.
+    """
+    names = [LABEL_PROCESSED]
+    if result["handler_used"] == "blocked":
+        return True, False, names
+    if result.get("suspicious"):
+        return False, False, names + [LABEL_NEEDS_REVIEW]
+    if not result.get("reply_needed"):
+        return False, False, names + [NO_REPLY_LABELS.get(result["category"], LABEL_NO_REPLY)]
+    names.append(LABEL_DRAFT_READY)
+    if result.get("needs_review"):
+        names.append(LABEL_NEEDS_REVIEW)
+    return False, True, names
 
 
 def poll_once() -> dict:

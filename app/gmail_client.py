@@ -8,7 +8,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
 from app.email_text import (
-    body_bulk_reason, bulk_reason, clean_body, headers_dict, html_to_text,
+    auth_verdict, body_bulk_reason, bulk_reason, clean_body, headers_dict,
+    html_to_text,
 )
 
 SCOPES = [
@@ -45,9 +46,10 @@ LABEL_ANNOUNCEMENT = "AI/Announcement"
 LABEL_NO_REPLY = "AI/No reply needed"
 LABEL_DRAFT_READY = "AI/Draft ready"
 LABEL_NEEDS_REVIEW = "AI/Needs review"
+LABEL_ACTION_NEEDED = "AI/Action needed"
 AGENT_LABELS = [
     LABEL_PROCESSED, LABEL_ANNOUNCEMENT, LABEL_NO_REPLY,
-    LABEL_DRAFT_READY, LABEL_NEEDS_REVIEW,
+    LABEL_DRAFT_READY, LABEL_NEEDS_REVIEW, LABEL_ACTION_NEEDED,
 ]
 
 # Unread emails are left unread now, so the UNREAD list also returns ones
@@ -98,7 +100,8 @@ def fetch_unread_emails(service, max_results=10, processed_label_id=None):
     """Returns up to max_results unread emails not yet labelled processed.
 
     Keys: gmail_id, thread_id, message_id, references, sender, reply_to,
-    subject, body (cleaned), quoted_text, raw_body, bulk_reason.
+    subject, body (cleaned), quoted_text, raw_body, bulk_reason,
+    auth_verdict.
 
     Filters by the UNREAD label directly rather than q="is:unread" --
     the q= search query runs against Gmail's search index, which lags
@@ -150,6 +153,7 @@ def fetch_unread_emails(service, max_results=10, processed_label_id=None):
             "quoted_text": quoted,
             "raw_body": raw_body,
             "bulk_reason": bulk_reason(label_ids, headers) or body_bulk_reason(raw_body),
+            "auth_verdict": auth_verdict(msg["payload"]),
         })
 
     return emails
