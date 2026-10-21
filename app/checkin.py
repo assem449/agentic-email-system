@@ -85,6 +85,11 @@ STATUS_LABEL = {
     "blocked": "Blocked as spam",
     "spam_held": "Needs review (possible spam, sender verified)",
     "auth_failed": "Needs review (sender failed verification)",
+    "faq_llm": "Draft created",
+    "faq_cache_hit": "Draft created",
+    "logistics_not_covered": "Needs review (not in course FAQ)",
+    "logistics_other_course": "Needs review (another course)",
+    "logistics_review_role": "Needs review",
 }
 
 

@@ -29,7 +29,23 @@ CREATE TABLE IF NOT EXISTS participants (
     checkin_token TEXT,
     welcomed_at TEXT,
     connected_at TEXT NOT NULL,
-    active INTEGER NOT NULL DEFAULT 1
+    active INTEGER NOT NULL DEFAULT 1,
+    role TEXT
+);
+
+-- course_logistics replies written from one FAQ entry, reused for the
+-- next email that matches the same entry. faq_version is a hash of the
+-- FAQ file, so editing the FAQ (a changed policy) stops old replies from
+-- being reused. Stored without greeting or sign-off name.
+CREATE TABLE IF NOT EXISTS faq_cache (
+    participant_id TEXT NOT NULL,
+    course TEXT NOT NULL,
+    term TEXT NOT NULL,
+    faq_version TEXT NOT NULL,
+    entry_id TEXT NOT NULL,
+    reply TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (participant_id, course, term, faq_version, entry_id)
 );
 
 CREATE TABLE IF NOT EXISTS pending_events (
@@ -94,6 +110,8 @@ def _migrate(conn: sqlite3.Connection) -> None:
         conn.execute("ALTER TABLE participants ADD COLUMN checkin_token TEXT")
     if "welcomed_at" not in cols:
         conn.execute("ALTER TABLE participants ADD COLUMN welcomed_at TEXT")
+    if "role" not in cols:
+        conn.execute("ALTER TABLE participants ADD COLUMN role TEXT")
 
     pending_cols = {row["name"] for row in conn.execute("PRAGMA table_info(pending_events)")}
     if "time_adjusted" not in pending_cols:
@@ -192,6 +210,7 @@ def delete_participant_data(participant_id: str) -> None:
         conn.execute("DELETE FROM pending_events WHERE participant_id = ?", (participant_id,))
         conn.execute("DELETE FROM email_events WHERE participant_id = ?", (participant_id,))
         conn.execute("DELETE FROM checkin_submissions WHERE participant_id = ?", (participant_id,))
+        conn.execute("DELETE FROM faq_cache WHERE participant_id = ?", (participant_id,))
         conn.execute("DELETE FROM participants WHERE id = ?", (participant_id,))
 
 
@@ -200,7 +219,7 @@ def delete_participant_data(participant_id: str) -> None:
 # every grant after 7 days, and that participant's check-in page must keep
 # working so it can ask them to reconnect. A disconnect-on-request deletes
 # the row entirely, so it is never returned either way.
-_PARTICIPANT_COLS = "id, email, checkin_token, welcomed_at, connected_at, active"
+_PARTICIPANT_COLS = "id, email, checkin_token, welcomed_at, connected_at, active, role"
 
 
 def get_participant(participant_id: str, include_inactive: bool = False) -> Optional[sqlite3.Row]:
@@ -431,3 +450,50 @@ def get_email_events_by_id() -> dict:
 
 def _now() -> str:
     return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+
+# --- inbox role --------------------------------------------------------------
+
+ROLES = ("student", "instructor")
+
+
+def get_participant_role(participant_id: str) -> Optional[str]:
+    """'student', 'instructor', or None until the participant has chosen."""
+    with _conn() as conn:
+        row = conn.execute(
+            "SELECT role FROM participants WHERE id = ?", (participant_id,)
+        ).fetchone()
+    return row["role"] if row else None
+
+
+def set_participant_role(participant_id: str, role: str) -> None:
+    if role not in ROLES:
+        raise ValueError(f"role must be one of {ROLES}, got {role!r}")
+    with _conn() as conn:
+        conn.execute(
+            "UPDATE participants SET role = ? WHERE id = ?", (role, participant_id)
+        )
+
+
+# --- FAQ reply cache ---------------------------------------------------------
+
+def get_faq_reply(participant_id: str, course: str, term: str,
+                  faq_version: str, entry_id: str) -> Optional[str]:
+    with _conn() as conn:
+        row = conn.execute(
+            "SELECT reply FROM faq_cache WHERE participant_id = ? AND course = ? "
+            "AND term = ? AND faq_version = ? AND entry_id = ?",
+            (participant_id, course, term, faq_version, entry_id),
+        ).fetchone()
+    return row["reply"] if row else None
+
+
+def put_faq_reply(participant_id: str, course: str, term: str,
+                  faq_version: str, entry_id: str, reply: str) -> None:
+    with _conn() as conn:
+        conn.execute(
+            "INSERT OR REPLACE INTO faq_cache "
+            "(participant_id, course, term, faq_version, entry_id, reply, created_at) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (participant_id, course, term, faq_version, entry_id, reply, _now()),
+        )

@@ -7,10 +7,6 @@ No Gmail, calendar or LLM calls: route_decision and gmail_actions are pure,
 and the graph tests only take paths that end without a drafting handler.
 """
 
-import os
-
-os.environ.setdefault("ANTHROPIC_API_KEY", "test")  # llm.py reads it on import
-
 import pytest
 
 import app.graph as graph_module
@@ -77,7 +73,7 @@ def test_informational_that_asks_something_gets_a_draft():
 
 
 @pytest.mark.parametrize("category,node", [
-    ("meeting_request", "calendar"), ("course_logistics", "llm"),
+    ("meeting_request", "calendar"), ("course_logistics", "course_logistics"),
     ("request_exception", "llm"), ("wellbeing", "llm"), ("something_new", "llm"),
 ])
 def test_drafting_routes(category, node):

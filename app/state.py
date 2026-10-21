@@ -27,3 +27,5 @@ class EmailState(TypedDict):
     needs_review: Optional[bool]
     auth_verdict: Optional[str]  # Gmail's DMARC verdict: pass | fail | none
     suspicious: Optional[bool]   # held back by the header safety check
+    role: Optional[str]          # inbox owner: student | instructor | None (not chosen yet)
+    faq_entry_id: Optional[str]  # course_logistics: the FAQ entry the reply came from

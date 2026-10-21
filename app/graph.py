@@ -6,6 +6,7 @@ import time
 from app.state import EmailState
 from app.classifier import classify_email
 from app.handlers.calendar import calendar_handler
+from app.handlers.course_logistics import course_logistics_handler
 from app.handlers.llm import llm_handler
 from app.logging_utils import log_routing_decision
 
@@ -58,7 +59,7 @@ NEEDS_REVIEW_CATEGORIES = {"wellbeing", "ambiguous"}
 # yet go to the LLM for now; unknown categories do too.
 DRAFT_ROUTES = {
     "meeting_request": "calendar",
-    "course_logistics": "llm",
+    "course_logistics": "course_logistics",
     "request_exception": "llm",
     "academic_question": "llm",
     "collaboration_opportunity": "llm",
@@ -155,9 +156,13 @@ def spam_node(state: EmailState) -> EmailState:
 
 
 def mark_reply_node(state: EmailState) -> EmailState:
-    """Runs after every drafting handler, before logging."""
-    state["reply_needed"] = True
-    state["needs_review"] = state["category"] in NEEDS_REVIEW_CATEGORIES
+    """Runs after every drafting handler, before logging. A handler that
+    decides not to draft (course_logistics without a matching FAQ entry)
+    leaves response None and sets needs_review itself."""
+    state["reply_needed"] = state.get("response") is not None
+    state["needs_review"] = (
+        state["category"] in NEEDS_REVIEW_CATEGORIES or bool(state.get("needs_review"))
+    )
     return state
 
 
@@ -169,6 +174,7 @@ def build_graph():
     # calling build_graph() and have the change take effect.
     g.add_node("classify", classify_node)
     g.add_node("calendar", calendar_handler)
+    g.add_node("course_logistics", course_logistics_handler)
     g.add_node("llm", llm_handler)
     g.add_node("spam", spam_node)
     g.add_node("suspicious", suspicious_node)
@@ -185,12 +191,13 @@ def build_graph():
             "suspicious": "suspicious",
             "no_reply": "no_reply",
             "calendar": "calendar",
+            "course_logistics": "course_logistics",
             "llm": "llm",
         },
     )
 
     g.add_node("log", log_routing_decision)
-    for node in ["calendar", "llm"]:
+    for node in ["calendar", "course_logistics", "llm"]:
         g.add_edge(node, "mark_reply")
     for node in ["mark_reply", "no_reply", "spam", "suspicious"]:
         g.add_edge(node, "log")

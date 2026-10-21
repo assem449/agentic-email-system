@@ -61,6 +61,7 @@ def process_email(service, labels: dict, email: dict, participant_id: str):
         "quoted_text": email["quoted_text"],
         "bulk_reason": email["bulk_reason"],
         "auth_verdict": email.get("auth_verdict"),
+        "role": db.get_participant_role(participant_id),
         "category": None,
         "handler_used": None,
         "response": None,
@@ -107,7 +108,9 @@ def gmail_actions(result: dict) -> tuple[bool, bool, list]:
     names = [LABEL_PROCESSED]
     if result["handler_used"] == "blocked":
         return True, False, names
-    if result.get("suspicious"):
+    if not result.get("reply_needed") and result.get("needs_review"):
+        # Header safety check, or a course_logistics email the FAQ
+        # doesn't cover: kept in the inbox for the person, no draft.
         return False, False, names + [LABEL_NEEDS_REVIEW]
     if not result.get("reply_needed"):
         return False, False, names + [NO_REPLY_LABELS.get(result["category"], LABEL_NO_REPLY)]
