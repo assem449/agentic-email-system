@@ -31,7 +31,9 @@ services:
         sync: false   # the <username>/<repo> you uploaded to via
                        # scripts/upload_model_to_hf.py
       - key: DISTILBERT_MODEL_PATH
-        value: /data/distilbert_model
+        value: /data/distilbert_model_v2   # a model already on the disk is
+                                           # never re-downloaded, so a new
+                                           # model needs a new path
       - key: GOOGLE_OAUTH_CLIENT_SECRETS_PATH
         value: /etc/secrets/oauth_client_secret.json
       - key: OAUTH_REDIRECT_URI

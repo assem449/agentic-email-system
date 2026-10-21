@@ -14,6 +14,11 @@ Setup (once):
 
 Usage:
     python scripts/upload_model_to_hf.py <your-hf-username>/<repo-name>
+    python scripts/upload_model_to_hf.py --model-dir data/academic_v2 <your-hf-username>/<repo-name>
+
+--model-dir is the --out folder given to research/distilbert_cv.py
+(default: data). Its label_map.json is uploaded next to the weights, so
+the deploy reads category names that match the model it downloaded.
 
 Creates the repo if it doesn't exist (public by default -- the model is
 just classifier weights trained on your own labeled eval set, nothing
@@ -22,7 +27,10 @@ in it; pass --private if you'd rather keep it private, which then also
 requires setting HF_TOKEN in the deploy environment so it can download).
 """
 
+import shutil
 import sys
+import tempfile
+from pathlib import Path
 
 from huggingface_hub import HfApi, create_repo
 
@@ -31,16 +39,29 @@ def main():
     args = sys.argv[1:]
     private = "--private" in args
     args = [a for a in args if a != "--private"]
+    model_dir = Path("data")
+    if "--model-dir" in args:
+        i = args.index("--model-dir")
+        model_dir = Path(args[i + 1])
+        del args[i:i + 2]
 
     if len(args) != 1:
-        print(f"Usage: {sys.argv[0]} [--private] <hf-username>/<repo-name>")
+        print(f"Usage: {sys.argv[0]} [--private] [--model-dir DIR] <hf-username>/<repo-name>")
         sys.exit(1)
 
     repo_id = args[0]
-    local_path = "data/distilbert_model/final"
+    weights = model_dir / "distilbert_model" / "final"
+    label_map = model_dir / "label_map.json"
+    for needed in (weights, label_map):
+        if not needed.exists():
+            print(f"Missing {needed} -- train with --out {model_dir} first.")
+            sys.exit(1)
 
-    create_repo(repo_id, private=private, exist_ok=True)
-    HfApi().upload_folder(folder_path=local_path, repo_id=repo_id, repo_type="model")
+    with tempfile.TemporaryDirectory() as staging:
+        shutil.copytree(weights, staging, dirs_exist_ok=True)
+        shutil.copy(label_map, Path(staging) / "label_map.json")
+        create_repo(repo_id, private=private, exist_ok=True)
+        HfApi().upload_folder(folder_path=staging, repo_id=repo_id, repo_type="model")
 
     print(f"\nUploaded to https://huggingface.co/{repo_id}")
     print(f"Set DISTILBERT_MODEL_REPO={repo_id} in your deploy environment.")
