@@ -1,0 +1,146 @@
+[
+  {
+    "expected": "announcement_promo (bulk headers) -> no draft, AI/Announcement",
+    "sender": "FES Student Life <fes-studentlife@northfield.edu>",
+    "subject": "This week at FES: hackathon, career panel and free pizza",
+    "body": "Hi FES students,\n\nHere's what's happening this week:\n\n• Wednesday 5–7 pm: Women in Engineering career panel, Riverside Hall 110\n• Friday: Hack the City kickoff, teams of 2–4, register on the Experience Northfield Portal\n• Thursday: Free pizza at the Engineering Society general meeting\n\nHave an event to promote? Fill out the event form on our website.\n\nFES Student Life\nYou're receiving this because you're an FES student. Unsubscribe | Email preferences",
+    "headers": {
+      "List-Id": "<studentlife.fes.northfield.edu>",
+      "List-Unsubscribe": "<mailto:unsubscribe@fes.northfield.edu>"
+    }
+  },
+  {
+    "expected": "announcement_promo (no bulk headers) -> no draft, AI/Announcement",
+    "sender": "Orbis Tech Campus Recruiting <campus@orbistech.com>",
+    "subject": "Orbis Tech info session on campus next Tuesday",
+    "body": "Hi there,\n\nOrbis Tech is coming to Northfield! Join our software engineering team for an info session next Tuesday at 6 pm in the Student Centre, Room 204. Learn about our summer internship program, meet recent grads and grab some swag.\n\nRSVP on the Experience Northfield Portal.\n\nSee you there,\nOrbis Tech Campus Recruiting"
+  },
+  {
+    "expected": "informational -> no draft, AI/No reply needed",
+    "sender": "TA Marco Rossi <m.rossi@northfield.edu>",
+    "subject": "Quiz 4 marks posted",
+    "body": "Hi all,\n\nQuiz 4 marks are now on eClass. The average was 7.4/10. Solutions are posted under Week 7.\n\nMarco"
+  },
+  {
+    "expected": "informational, bulk course list (case C) -> no draft, AI/No reply needed",
+    "sender": "CS 2200 Course Announcements <cs2200-announce@northfield.edu>",
+    "subject": "Lab 4 is now due Friday, not Thursday",
+    "body": "Hi everyone,\n\nBecause of the room booking issue, Lab 4 is now due Friday at 11:59 pm instead of Thursday. Nothing else changes.\n\nProf. Moreau",
+    "headers": {
+      "List-Id": "<cs2200-announce.northfield.edu>",
+      "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+    }
+  },
+  {
+    "expected": "informational that asks something -> LLM draft, AI/Draft ready",
+    "sender": "Leo Martins <leo.martins@my.northfield.edu>",
+    "subject": "Re: notes from today",
+    "body": "thanks for the notes!! could you also send me the slides from the second half? my laptop died halfway through\n\nOn Tue, you wrote:\n> Uploaded my notes from today's lecture to the group folder."
+  },
+  {
+    "expected": "admin_action -> no draft, AI/Action needed",
+    "sender": "Office of the Registrar <registrar@northfield.edu>",
+    "subject": "Action required: apply to graduate by November 15",
+    "body": "Dear Student,\n\nOur records show you may be eligible to graduate in February 2027. To be considered, you must submit your application to graduate through the Student Portal by November 15. Late applications will be moved to the next convocation.\n\nOffice of the Registrar\nNorthfield University"
+  },
+  {
+    "expected": "admin_action, bulk list (case A) -> no draft, AI/Action needed",
+    "sender": "FES Dean's Office <fes-students@northfield.edu>",
+    "subject": "Please complete the Student Experience Survey by November 20",
+    "body": "Dear FES students,\n\nThe Faculty is running its annual Student Experience Survey. It takes about 10 minutes and your answers are anonymous. Please complete it by November 20 using the link in the Experience Northfield Portal. Everyone who completes it can enter a draw for one of five $50 campus card credits.\n\nThank you,\nFES Dean's Office",
+    "headers": {
+      "List-Id": "<fes-students.northfield.edu>",
+      "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+    }
+  },
+  {
+    "expected": "course_logistics (student inbox) -> no draft, AI/Needs review",
+    "sender": "TA Priyanka Rao <p.rao@northfield.edu>",
+    "subject": "Please confirm your presentation slot",
+    "body": "Hi,\n\nYour group has been assigned the 2:40 pm presentation slot on November 20. Could you confirm by Friday that this works for everyone in your group?\n\nThanks,\nPriyanka"
+  },
+  {
+    "expected": "course_logistics (student inbox) -> no draft, AI/Needs review",
+    "sender": "Kai Nakamura <k.nakamura@my.northfield.edu>",
+    "subject": "midterm room?",
+    "body": "hey do you know which room the MATH 2100 midterm is in on thursday? eclass just says exam centre"
+  },
+  {
+    "expected": "academic_question -> LLM draft, AI/Draft ready",
+    "sender": "Nina Kowalski <nina.kowalski@my.northfield.edu>",
+    "subject": "question about lecture 7",
+    "body": "Hi! Do you understand why the variance of the sample mean is sigma^2/n and not just sigma^2? I missed that part of the lecture and the slides skip the step.\n\nNina"
+  },
+  {
+    "expected": "collaboration_opportunity -> LLM draft, AI/Draft ready",
+    "sender": "Prof. Victor Lang <v.lang@northfield.edu>",
+    "subject": "Research assistant position next term",
+    "body": "Hello,\n\nI was impressed by your work in STAT 2200 this term. I have a paid part-time research assistant position in my lab for the winter term, about 8 hours a week, working on survey data cleaning and analysis. Would you be interested? If so, please send me your CV and unofficial transcript.\n\nBest,\nVictor Lang"
+  },
+  {
+    "expected": "wellbeing -> careful LLM draft, AI/Draft ready + AI/Needs review",
+    "sender": "Zara Ahmed <zara.ahmed@my.northfield.edu>",
+    "subject": "sorry for disappearing",
+    "body": "hey, sorry I've been missing our study sessions. honestly I've been really overwhelmed, I failed the chem midterm and I haven't been sleeping much. I'll try to come on sunday but I'm not doing great"
+  },
+  {
+    "expected": "ambiguous -> clarifying-question draft, AI/Draft ready + AI/Needs review",
+    "sender": "Ben Carter <b.carter@my.northfield.edu>",
+    "subject": "that thing",
+    "body": "hey did you end up doing that thing we talked about? let me know before the weekend"
+  },
+  {
+    "expected": "request_exception -> note to self in Drafts (To: you), AI/Needs review, no reply",
+    "sender": "Leo Martins <leo.martins@my.northfield.edu>",
+    "subject": "can you ask for an extension for us?",
+    "body": "hey since you're group leader could you email Prof. Moreau and ask for a 2-day extension on the CS 2200 group report? two of us got sick this week and we can send doctor's notes"
+  },
+  {
+    "expected": "meeting_request, free time -> draft accepting Tuesday 2:00 pm + pending event on check-in page",
+    "sender": "Prof. Elena Moreau <e.moreau@northfield.edu>",
+    "subject": "Quick meeting about your project",
+    "body": "Hi,\n\nCould we meet next Tuesday at 2 pm for about 20 minutes to go over your project proposal? My office is Riverside Hall 214.\n\nBest,\nProf. Moreau"
+  },
+  {
+    "expected": "meeting_request, busy time (needs your calendar event Wed 10-11) -> draft proposing another time + pending event 'time adjusted'",
+    "sender": "Sofia Petrova <s.petrova@my.northfield.edu>",
+    "subject": "study session wednesday?",
+    "body": "Hi! Could we do a study session for the STAT final next Wednesday at 10:30? Library room 3 is free then."
+  },
+  {
+    "expected": "meeting_request, range -> draft accepting a slot Thursday afternoon + pending event",
+    "sender": "Academic Advising <advising@northfield.edu>",
+    "subject": "Your second-year advising appointment",
+    "body": "Dear student,\n\nAs part of your second-year check-in, please meet with your academic advisor. Your advisor is available next Thursday afternoon. Please reply with a time that works for you.\n\nAcademic Advising"
+  },
+  {
+    "expected": "meeting_request, no time given -> draft proposing your next free slot + pending event",
+    "sender": "TA Marco Rossi <m.rossi@northfield.edu>",
+    "subject": "Meet to go over your midterm?",
+    "body": "Hi,\n\nYou asked about your midterm grade. I'm happy to go through it with you. When would be a good time to meet this week?\n\nMarco"
+  },
+  {
+    "expected": "spam, no Gmail verdict (seeded) -> moved to Spam",
+    "sender": "Northfield IT Helpdesk <it-support@northfie1d.edu>",
+    "subject": "Action required: your mailbox is full",
+    "body": "Dear student,\n\nYour mailbox has exceeded its storage limit. To avoid losing new messages, verify your account within 24 hours:\n\nhttp://northfie1d-mail.verify-now.co/login\n\nIT Helpdesk"
+  },
+  {
+    "expected": "spam with dmarc=pass (case E) -> NOT moved; no draft, AI/Needs review (if classified spam)",
+    "sender": "Campus Perks <rewards@campusperks-mail.com>",
+    "subject": "Congratulations! You've won a $500 campus gift card",
+    "body": "Congratulations! Your student email was selected in this month's draw. Claim your $500 campus gift card now by confirming your details and paying the $4.99 processing fee at campusperks-mail.com/claim. Offer expires tonight!",
+    "headers": {
+      "Authentication-Results": "mx.google.com; dkim=pass header.i=@campusperks-mail.com; spf=pass smtp.mailfrom=campusperks-mail.com; dmarc=pass (p=QUARANTINE) header.from=campusperks-mail.com"
+    }
+  },
+  {
+    "expected": "dmarc=fail on a normal email (case F) -> no draft, AI/Needs review",
+    "sender": "Mei Tanaka <m.tanaka@my.northfield.edu>",
+    "subject": "slides for friday",
+    "body": "hi, here are my slides for friday's presentation, can you look at them tonight and tell me if the timing works?",
+    "headers": {
+      "Authentication-Results": "mx.google.com; dkim=fail header.i=@my.northfield.edu; spf=fail smtp.mailfrom=my.northfield.edu; dmarc=fail (p=QUARANTINE) header.from=my.northfield.edu"
+    }
+  }
+]
