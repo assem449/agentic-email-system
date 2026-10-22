@@ -38,6 +38,32 @@ subject line and no notes about the draft.\
 """
 
 
+# Added to SYSTEM_PROMPT for one category. Categories not listed use the
+# general prompt as is.
+CATEGORY_GUIDANCE = {
+    "ambiguous": (
+        "It is unclear what the sender is asking. Do not guess an answer. "
+        "Acknowledge the email briefly and ask one or two specific questions "
+        "that would make the request clear (which course, assignment, date or "
+        "earlier conversation they mean)."
+    ),
+}
+
+ROLE_CONTEXT = {
+    "student": "The inbox owner, who will send this reply, is a student.",
+    "instructor": "The inbox owner, who will send this reply, is an instructor or TA.",
+}
+
+
+def system_prompt(state: EmailState) -> str:
+    parts = [SYSTEM_PROMPT]
+    if state.get("role") in ROLE_CONTEXT:
+        parts.append(ROLE_CONTEXT[state["role"]])
+    if state.get("category") in CATEGORY_GUIDANCE:
+        parts.append(CATEGORY_GUIDANCE[state["category"]])
+    return "\n\n".join(parts)
+
+
 def _sender_name(sender: str) -> str:
     name, addr = parseaddr(sender or "")
     return name or addr or "unknown"
@@ -63,7 +89,7 @@ def llm_handler(state: EmailState) -> EmailState:
     message = _client.messages.create(
         model=LLM_MODEL,
         max_tokens=800,
-        system=SYSTEM_PROMPT,
+        system=system_prompt(state),
         messages=[{"role": "user", "content": _user_content(state)}],
     )
 

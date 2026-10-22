@@ -1,0 +1,4502 @@
+[
+  {
+    "id": "aca-announcement_promo-01",
+    "role": "student",
+    "sender": "Career Centre <careers@university.ca>",
+    "subject": "Fall Career Fair - Thursday, Nov 6",
+    "body": "Hi students,\n\nOver 80 employers will be at the Fall Career Fair this Thursday from 10am to 3pm in the Student Centre atrium. Bring copies of your resume and drop by the resume clinic at booth 12.\n\nSee you there!\nCareer Centre Team\n\nYou are receiving this because you are a registered student. Manage email preferences.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-02",
+    "role": "student",
+    "sender": "LinkedIn <jobs-noreply@linkedin.com>",
+    "subject": "12 new jobs for Software Engineering Intern",
+    "body": "Hi Sam, based on your profile, here are new jobs: Software Engineering Intern at Shopify, Data Analyst Co-op at RBC, and 10 more. See all jobs. Unsubscribe.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-03",
+    "role": "student",
+    "sender": "Student Union <events@su.university.ca>",
+    "subject": "Halloween Social this Friday!",
+    "body": "Costumes encouraged! Free pizza, a DJ, and a costume contest with a $100 bookstore gift card for first place. Friday 7pm, Hart House. Bring your student card.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-04",
+    "role": "student",
+    "sender": "Handshake <notifications@joinhandshake.com>",
+    "subject": "Employers are viewing your profile",
+    "body": "3 employers viewed your profile this week. Complete your profile to stand out: add your skills and upload a resume. View on Handshake.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-05",
+    "role": "student",
+    "sender": "Library Services <library-news@university.ca>",
+    "subject": "Extended exam hours start Dec 1",
+    "body": "The main library will be open 24/7 from December 1 to December 20 for the exam period. Quiet study rooms can be booked online up to 3 days ahead.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-06",
+    "role": "student",
+    "sender": "Computer Science Student Society <cssu@university.ca>",
+    "subject": "CSSU Hackathon registration now open",
+    "body": "Our annual 24-hour hackathon is back on Nov 15-16! Teams of up to 4, prizes from our sponsors, meals provided. Register by Nov 10 at the link below. Beginners welcome.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-07",
+    "role": "student",
+    "sender": "Athletics & Recreation <rec@university.ca>",
+    "subject": "Intramural winter season - sign up",
+    "body": "Basketball, volleyball and indoor soccer leagues open for the winter term. Team captains can register until January 9. Free agents welcome.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-08",
+    "role": "student",
+    "sender": "Spotify <no-reply@spotify.com>",
+    "subject": "Students get Premium for $5.99",
+    "body": "Verify your student status and save on Spotify Premium. Offer renews monthly. Terms apply.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-09",
+    "role": "student",
+    "sender": "Dean of Science <science-dean@university.ca>",
+    "subject": "A message from the Dean: welcome back",
+    "body": "Dear Science students,\n\nWelcome back to campus. This term we are opening the new collaborative learning space on the third floor and launching peer tutoring for first-year courses. I wish you all a productive semester.\n\nSincerely,\nProf. Helen Marsh, Dean of Science",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-10",
+    "role": "student",
+    "sender": "Bookstore <bookstore@university.ca>",
+    "subject": "20% off hoodies this week only",
+    "body": "Show your school spirit! All university apparel is 20% off until Sunday, in store and online. Use code SPIRIT20.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-11",
+    "role": "student",
+    "sender": "Prof. Daniel Okafor <d.okafor@university.ca>",
+    "subject": "[MATH 240] Course announcement: no tutorial next week",
+    "body": "Hello everyone,\n\nThis is a reminder that there are no tutorials next week because of reading week. Lectures resume on Monday the 27th. Enjoy the break.\n\nProf. Okafor\n\nThis message was sent to all students enrolled in MATH 240 via the course site.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-12",
+    "role": "student",
+    "sender": "Wellness Centre <wellness@university.ca>",
+    "subject": "Therapy dogs visit on Wednesday",
+    "body": "De-stress before midterms! Therapy dogs will be in the library lobby Wednesday 12-2pm. Free tea and snacks too.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-13",
+    "role": "student",
+    "sender": "Medium Daily Digest <noreply@medium.com>",
+    "subject": "Top stories in Machine Learning",
+    "body": "Today's highlights: 'Transformers explained simply', 'How I landed my first ML internship', and more. Read on Medium.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-14",
+    "role": "student",
+    "sender": "International Student Office <iso@university.ca>",
+    "subject": "Info session: working in Canada after graduation",
+    "body": "Join our webinar on Post-Graduation Work Permits on Tuesday at 5pm. A licensed immigration advisor will answer questions. Register to receive the Zoom link.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-15",
+    "role": "student",
+    "sender": "Engineering Society <engsoc@university.ca>",
+    "subject": "Engineering week - full schedule inside",
+    "body": "Engineering week is here! Monday: bridge-building competition. Tuesday: alumni panel. Wednesday: pub night. Full schedule attached. Don't miss the closing ceremony Friday.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-16",
+    "role": "student",
+    "sender": "Amazon <store-news@amazon.ca>",
+    "subject": "Prime Student: 6 months free",
+    "body": "Start your 6-month Prime Student trial today. Free shipping, Prime Video and more. Cancel anytime.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-17",
+    "role": "student",
+    "sender": "Department of Mathematics <math-undergrad@university.ca>",
+    "subject": "Math Café: Thursdays at 4pm",
+    "body": "Drop by the Math Café every Thursday at 4pm in BA 6180 for informal problem solving and free coffee. All undergraduates welcome.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-18",
+    "role": "student",
+    "sender": "Campus Security <security-alerts@university.ca>",
+    "subject": "Reminder: bike theft prevention",
+    "body": "We have seen an increase in bike thefts near the residences. Please use U-locks and register your bike with Campus Security for free.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-19",
+    "role": "student",
+    "sender": "Coursera <no-reply@coursera.org>",
+    "subject": "Your learning recommendations",
+    "body": "Based on your interests: Machine Learning Specialization, Google Data Analytics Certificate. Enroll for free. Unsubscribe from these emails.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-20",
+    "role": "student",
+    "sender": "Alumni Relations <alumni@university.ca>",
+    "subject": "Student mentorship program - apply now",
+    "body": "Connect with an alumni mentor in your field. Applications for the winter mentorship cohort close November 30. Over 300 mentors available.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-21",
+    "role": "instructor",
+    "sender": "Faculty of Arts & Science <fas-news@university.ca>",
+    "subject": "Faculty Newsletter - November",
+    "body": "In this issue: new teaching awards, research funding deadlines, the renovation of Sidney Smith Hall, and profiles of new faculty members. Read online.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-22",
+    "role": "instructor",
+    "sender": "Centre for Teaching Support <ctsi@university.ca>",
+    "subject": "Workshop: Designing assessments in the age of AI",
+    "body": "Join us for a 90-minute workshop on assessment design that maintains academic integrity. Thursday Nov 13, 1-2:30pm, online. Register via the CTSI portal.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-23",
+    "role": "instructor",
+    "sender": "Research Office <research-news@university.ca>",
+    "subject": "Funding opportunities digest - week 46",
+    "body": "This week: NSERC Discovery Grants internal deadline, SSHRC Insight Development Grants, and a new industry partnership fund. Details and deadlines inside.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-24",
+    "role": "instructor",
+    "sender": "Elsevier <journals@elsevier.com>",
+    "subject": "Call for papers: Special Issue on Learning Analytics",
+    "body": "We invite submissions to a special issue of Computers & Education on learning analytics. Submission deadline: March 1. Learn more.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-25",
+    "role": "instructor",
+    "sender": "ResearchGate <no-reply@researchgate.net>",
+    "subject": "Your research reached 120 reads",
+    "body": "Congratulations! Your publication 'Adaptive feedback in large classes' was read 120 times this week. See who's reading your work.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-26",
+    "role": "instructor",
+    "sender": "Faculty Association <ufa@university.ca>",
+    "subject": "General meeting on December 3",
+    "body": "All members are invited to the general meeting on December 3 at noon in the Faculty Club. Agenda: bargaining update and pension plan review. Lunch provided.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-27",
+    "role": "instructor",
+    "sender": "IT Services <it-announce@university.ca>",
+    "subject": "Planned maintenance: learning management system",
+    "body": "The learning management system will be unavailable on Saturday from 1am to 5am for scheduled maintenance. No action is required.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-28",
+    "role": "instructor",
+    "sender": "Springer Nature <conferences@springernature.com>",
+    "subject": "Last chance: early-bird registration ends Friday",
+    "body": "Register for the International Conference on Educational Technology before Friday to save 25%. Keynotes from leading researchers. Barcelona, June 2027.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-29",
+    "role": "instructor",
+    "sender": "Department of Computer Science <cs-dept@university.ca>",
+    "subject": "Department colloquium: Prof. Lin Zhao on fair ML",
+    "body": "This Friday at 11am in BA 1170, Prof. Lin Zhao (Waterloo) will speak on fairness in machine learning systems. Coffee and pastries from 10:45.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-30",
+    "role": "instructor",
+    "sender": "Wiley <author-services@wiley.com>",
+    "subject": "New: open access options for your next paper",
+    "body": "Learn about our open access publishing agreements with Canadian institutions. Your institution may cover article processing charges.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-31",
+    "role": "instructor",
+    "sender": "Library Services <library-news@university.ca>",
+    "subject": "New database trial: IEEE Xplore full access",
+    "body": "The library has a trial of full IEEE Xplore access until December 15. Send feedback to help us decide whether to subscribe.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-32",
+    "role": "instructor",
+    "sender": "Provost's Office <provost@university.ca>",
+    "subject": "Message from the Provost: academic planning update",
+    "body": "Dear colleagues,\n\nI am pleased to share the draft academic plan for the next five years. Town halls will be held throughout November. I welcome your feedback.\n\nRegards,\nThe Provost",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-33",
+    "role": "instructor",
+    "sender": "Zoom <no-reply@zoom.us>",
+    "subject": "Zoom Workplace: new AI features available",
+    "body": "Discover AI Companion, now included with your account. Summarize meetings, catch up on chat and more. Learn more.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-34",
+    "role": "instructor",
+    "sender": "Teaching Assistants' Union <tau@university.ca>",
+    "subject": "Bulletin: TA training sessions",
+    "body": "A reminder to course instructors that mandatory TA training sessions run in the first two weeks of January. Please share the schedule with your TAs.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-35",
+    "role": "instructor",
+    "sender": "Academia.edu <updates@academia-mail.com>",
+    "subject": "Your paper was mentioned",
+    "body": "A paper on Academia.edu mentions your name. Upgrade to Premium to see who mentioned you.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-36",
+    "role": "instructor",
+    "sender": "Faculty of Engineering <eng-events@university.ca>",
+    "subject": "Holiday reception - December 12",
+    "body": "Faculty and staff are warmly invited to the holiday reception on December 12 from 4 to 6pm in the Myhal Centre atrium.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-37",
+    "role": "instructor",
+    "sender": "Google Scholar Alerts <scholaralerts-noreply@google.com>",
+    "subject": "New citations to your articles",
+    "body": "3 new citations to articles by you, including 'Peer assessment at scale' cited in 'Automated grading in MOOCs: a review'.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-38",
+    "role": "instructor",
+    "sender": "Sustainability Office <green@university.ca>",
+    "subject": "Campus sustainability week",
+    "body": "Join us for sustainability week: a repair café, bike tune-ups, and a talk on climate-conscious travel for researchers.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-39",
+    "role": "instructor",
+    "sender": "Canvas <notifications@instructure.com>",
+    "subject": "Canvas release notes: November",
+    "body": "New features this month: improved SpeedGrader rubrics, discussion checkpoints, and accessibility checker updates. Read the full release notes.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-announcement_promo-40",
+    "role": "instructor",
+    "sender": "Graduate Studies <sgs-news@university.ca>",
+    "subject": "Graduate supervision workshop series",
+    "body": "The School of Graduate Studies is offering a workshop series on effective graduate supervision for new faculty. Sessions start January 20.",
+    "true_category": "announcement_promo",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-01",
+    "role": "student",
+    "sender": "Prof. Maria Lopez <m.lopez@university.ca>",
+    "subject": "Re: Assignment 2 feedback",
+    "body": "Hi Jordan,\n\nYour grade and comments for Assignment 2 are now posted on the course page. Nice work on the proofs section.\n\nBest,\nProf. Lopez",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-02",
+    "role": "student",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "Re: lab report",
+    "body": "Got it, thanks! I'll use your graphs in the final version.\n\nOn Tue, Oct 14, 2026 at 3:12 PM Alex wrote:\n> Here are the graphs for section 3.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-03",
+    "role": "student",
+    "sender": "Registrar's Office <registrar@university.ca>",
+    "subject": "Your enrolment in CSC 263 is confirmed",
+    "body": "This message confirms your enrolment in CSC 263H1 F LEC0101. No further action is required.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-04",
+    "role": "student",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Midterm marks released",
+    "body": "Hi all,\n\nMidterm marks are now released on the course site. The class average was 71%. Solutions will be posted tomorrow.\n\nKevin",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-05",
+    "role": "student",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "notes from today",
+    "body": "Hey, I uploaded my notes from today's lecture to our group folder in case you missed anything. No need to reply.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-06",
+    "role": "student",
+    "sender": "Student Accounts <fees@university.ca>",
+    "subject": "Payment received",
+    "body": "We have received your payment of $3,450.00 for the fall term. Your account balance is now $0.00. Thank you.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-07",
+    "role": "student",
+    "sender": "Prof. James Allen <j.allen@university.ca>",
+    "subject": "Re: missed lecture",
+    "body": "Thanks for letting me know, Emma. The slides and recording are on the course page. Hope you feel better.\n\nJA",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-08",
+    "role": "student",
+    "sender": "Lena Novak <lena.novak@mail.university.ca>",
+    "subject": "Re: group project slides",
+    "body": "Perfect, looks great. Thanks for finishing the intro slides!",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-09",
+    "role": "student",
+    "sender": "Library Services <library@university.ca>",
+    "subject": "Your hold is ready for pickup",
+    "body": "The item you requested, 'Introduction to Algorithms, 4th ed.', is ready for pickup at the Robarts circulation desk until November 2.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-10",
+    "role": "student",
+    "sender": "Co-op Office <coop@university.ca>",
+    "subject": "Your application was submitted",
+    "body": "Your application for the position 'Junior Data Analyst - City of Toronto' has been submitted. Employers usually respond within two weeks.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-11",
+    "role": "student",
+    "sender": "Prof. Aisha Rahman <a.rahman@university.ca>",
+    "subject": "Room change for Friday",
+    "body": "Hi everyone, Friday's lecture will be in MP 102 instead of our usual room because of a booking conflict. Same time. See you there.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-12",
+    "role": "student",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "Re: study session",
+    "body": "Sounds good, see you at 6 in the library then.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-13",
+    "role": "student",
+    "sender": "Graduate Admissions <admissions@university.ca>",
+    "subject": "Application status update",
+    "body": "Your application to the MSc in Computer Science is complete and has been forwarded to the department for review. You will be notified of a decision by March.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-14",
+    "role": "student",
+    "sender": "TA Sofia Rossi <sofia.rossi@mail.university.ca>",
+    "subject": "Re: question about Q2",
+    "body": "Glad that helped! Good luck with the rest of the problem set.\n\nSofia\n\n> Thanks so much, I understand it now.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-15",
+    "role": "student",
+    "sender": "Residence Life <residence@university.ca>",
+    "subject": "Fire drill completed",
+    "body": "Thank you for participating in today's fire drill. All residents evacuated in under 4 minutes. No action needed.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-16",
+    "role": "student",
+    "sender": "Prof. Daniel Okafor <d.okafor@university.ca>",
+    "subject": "Re: Thank you",
+    "body": "You're very welcome, Mia. Good luck in your next courses!",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-17",
+    "role": "student",
+    "sender": "Ethan Brooks <ethan.brooks@mail.university.ca>",
+    "subject": "fyi",
+    "body": "Just so you know, I'll be about 10 minutes late to the group meeting tomorrow. Start without me.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-18",
+    "role": "student",
+    "sender": "Scholarships Office <awards@university.ca>",
+    "subject": "Award disbursed",
+    "body": "Your In-Course Scholarship of $1,500 has been applied to your student account.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-19",
+    "role": "student",
+    "sender": "Prof. Maria Lopez <m.lopez@university.ca>",
+    "subject": "Office hours cancelled today",
+    "body": "Hi all, I have to cancel today's office hours. They will resume as usual next Tuesday.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-20",
+    "role": "student",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "Re: textbook",
+    "body": "No problem at all, keep it until the end of term.\n\nHannah",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-21",
+    "role": "instructor",
+    "sender": "Jordan Patel <jordan.patel@mail.university.ca>",
+    "subject": "Assignment 3 submitted",
+    "body": "Hi Professor,\n\nJust letting you know I submitted Assignment 3 on the portal a few minutes ago. Thanks for the extra office hours this week.\n\nJordan Patel\nStudent #1004567",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-22",
+    "role": "instructor",
+    "sender": "Emma Wilson <emma.wilson@mail.university.ca>",
+    "subject": "Absence on Tuesday",
+    "body": "Dear Professor Allen,\n\nI wanted to let you know that I will miss Tuesday's lecture because of a medical appointment. I'll catch up with the recording.\n\nBest regards,\nEmma Wilson",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-23",
+    "role": "instructor",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Grading done for tutorial 3",
+    "body": "Hi Prof, I finished grading the tutorial 3 quizzes and uploaded the marks to the gradebook. Average was 7.8/10.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-24",
+    "role": "instructor",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "Thank you",
+    "body": "Dear Prof. Okafor,\n\nThank you for a great semester. Your course was the highlight of my year, and I've decided to take the second-year course too.\n\nWarm regards,\nMia",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-25",
+    "role": "instructor",
+    "sender": "Department Admin <cs-admin@university.ca>",
+    "subject": "Your room booking is confirmed",
+    "body": "Your booking of BA 3200 for the review session on Dec 4, 2-4pm, is confirmed.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-26",
+    "role": "instructor",
+    "sender": "Lucas Martin <lucas.martin@mail.university.ca>",
+    "subject": "Re: feedback on proposal",
+    "body": "Thank you for the comments, Professor. I'll revise the methods section accordingly.\n\nLucas\n\nOn Wed, Oct 15 Prof. Rahman wrote:\n> Your proposal is a good start but the methods need more detail.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-27",
+    "role": "instructor",
+    "sender": "Accessibility Services <accessibility@university.ca>",
+    "subject": "Accommodation letter on file",
+    "body": "This is to confirm that an accommodation letter for one of your students in STA 220 has been uploaded to the instructor portal. The letter outlines approved accommodations; no reply is required.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-28",
+    "role": "instructor",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "Got it",
+    "body": "Got it, thank you for confirming the room.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-29",
+    "role": "instructor",
+    "sender": "TA Sofia Rossi <sofia.rossi@mail.university.ca>",
+    "subject": "Tutorial attendance this week",
+    "body": "FYI, attendance in Thursday's tutorial was 34 out of 40. Most questions were about problem 4.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-30",
+    "role": "instructor",
+    "sender": "Exam Services <exams@university.ca>",
+    "subject": "Final exam schedule published",
+    "body": "The final exam schedule for the fall term has been published. Your course MATH 240 is scheduled for Dec 15, 9am-12pm, in EX 100.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-31",
+    "role": "instructor",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "Re: lab safety form",
+    "body": "I've signed and uploaded the lab safety form. Thanks for the reminder!",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-32",
+    "role": "instructor",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "Late to class",
+    "body": "Hi Prof, my bus is delayed so I'll be about 15 minutes late to today's lecture. Sorry about that.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-33",
+    "role": "instructor",
+    "sender": "Research Office <research@university.ca>",
+    "subject": "Grant funds released",
+    "body": "The first instalment of your NSERC Discovery Grant has been released to your research account.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-34",
+    "role": "instructor",
+    "sender": "Dr. Sarah Bennett <s.bennett@university.ca>",
+    "subject": "Re: guest lecture",
+    "body": "Thanks again for having me in your class yesterday. The students asked great questions. Slides are attached as promised.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-35",
+    "role": "instructor",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "Thanks for the reference letter",
+    "body": "Dear Professor Lopez,\n\nI wanted to let you know I was accepted into the MSc program at McGill. Thank you so much for writing my reference letter.\n\nIsabella",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-36",
+    "role": "instructor",
+    "sender": "Liam Nguyen <liam.nguyen@mail.university.ca>",
+    "subject": "Re: group change",
+    "body": "Thanks, I've joined group 7 on the portal now.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-37",
+    "role": "instructor",
+    "sender": "Course Evaluations <course-evals@university.ca>",
+    "subject": "Course evaluation results available",
+    "body": "Your course evaluation results for the summer term are now available in the evaluation dashboard.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-38",
+    "role": "instructor",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Re: regrade batch",
+    "body": "Done, I've re-marked the five scripts you sent and updated the marks.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-39",
+    "role": "instructor",
+    "sender": "Olivia Brown <olivia.brown@mail.university.ca>",
+    "subject": "Sounds good",
+    "body": "Sounds good, thank you Professor!",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-informational-40",
+    "role": "instructor",
+    "sender": "Teaching Lab Coordinator <labs@university.ca>",
+    "subject": "Lab equipment restocked",
+    "body": "The chemistry teaching lab has been restocked for next week's experiment. Everything on your list is now available.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-01",
+    "role": "student",
+    "sender": "Financial Aid Office <finaid@university.ca>",
+    "subject": "Action required: submit your OSAP documents",
+    "body": "Dear student,\n\nYour OSAP file is missing your signed Master Student Financial Assistance Agreement. Please upload it through the student portal by Friday, October 31, or your funding may be delayed.\n\nFinancial Aid Office",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-02",
+    "role": "student",
+    "sender": "Residence Life <residence@university.ca>",
+    "subject": "Housing deposit due November 15",
+    "body": "Returning residents must pay the $500 housing deposit by November 15 to keep a place for next year. Pay online through the housing portal.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-03",
+    "role": "student",
+    "sender": "Registrar's Office <registrar@university.ca>",
+    "subject": "Reminder: last day to drop courses without academic penalty",
+    "body": "The last day to drop fall courses without academic penalty is November 4. Make changes in ACORN before 11:59pm.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-04",
+    "role": "student",
+    "sender": "Student Health Plan <healthplan@university.ca>",
+    "subject": "Opt-out deadline approaching",
+    "body": "If you have comparable health coverage and want to opt out of the student health plan, you must submit proof of coverage by September 30.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-05",
+    "role": "student",
+    "sender": "Co-op Office <coop@university.ca>",
+    "subject": "Complete your work term report",
+    "body": "Your work term report for the summer placement is due December 1. Upload it to the co-op portal and have your supervisor complete the evaluation form.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-06",
+    "role": "student",
+    "sender": "International Student Office <iso@university.ca>",
+    "subject": "Your study permit expires soon",
+    "body": "Our records show your study permit expires on January 15. Please apply for an extension and upload the confirmation to your student file.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-07",
+    "role": "student",
+    "sender": "Library Services <library@university.ca>",
+    "subject": "Overdue item: please return",
+    "body": "The item 'Linear Algebra Done Right' is 7 days overdue. Please return it or renew it online to avoid further fines.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-08",
+    "role": "student",
+    "sender": "Graduation Office <convocation@university.ca>",
+    "subject": "Apply to graduate by December 1",
+    "body": "If you plan to graduate in June, you must submit your graduation request in ACORN by December 1.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-09",
+    "role": "student",
+    "sender": "Prof. Aisha Rahman <a.rahman@university.ca>",
+    "subject": "Sign the lab safety form before Monday",
+    "body": "Everyone, please sign the lab safety acknowledgement on the course site before Monday's lab. You won't be allowed into the lab without it.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-10",
+    "role": "student",
+    "sender": "Student Accounts <fees@university.ca>",
+    "subject": "Outstanding balance on your account",
+    "body": "Your student account has an outstanding balance of $215.00. Please pay by October 30 to avoid a hold on your record.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-11",
+    "role": "student",
+    "sender": "Exam Services <exams@university.ca>",
+    "subject": "Register for accommodated exams",
+    "body": "Students with exam accommodations must book their final exams through the accommodated testing portal at least 14 days before the exam.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-12",
+    "role": "student",
+    "sender": "Department of Computer Science <cs-undergrad@university.ca>",
+    "subject": "Program request period opens",
+    "body": "First-year students: the program request period for second year is open until April 1. Submit your requests in ACORN.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-13",
+    "role": "student",
+    "sender": "IT Services <it-help@university.ca>",
+    "subject": "Set up multi-factor authentication by Friday",
+    "body": "To keep your account secure, all students must set up multi-factor authentication by Friday. Follow the steps at the IT help page. Accounts without MFA will be locked.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-14",
+    "role": "student",
+    "sender": "Scholarships Office <awards@university.ca>",
+    "subject": "Complete your scholarship acceptance",
+    "body": "Congratulations on your award! Please accept it in the awards portal and upload your void cheque by November 10 so we can process the payment.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-15",
+    "role": "student",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Join your tutorial group on the portal",
+    "body": "Please sign up for a tutorial section on the course site by Wednesday. Unassigned students will be placed in a random section.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-16",
+    "role": "student",
+    "sender": "Health & Wellness <wellness@university.ca>",
+    "subject": "Immunization records required for placement",
+    "body": "Students in the clinical placement program must upload immunization records before December 15.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-17",
+    "role": "student",
+    "sender": "Parking Services <parking@university.ca>",
+    "subject": "Renew your parking permit",
+    "body": "Your winter parking permit must be renewed by December 20. Permits not renewed will be released to the waitlist.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-18",
+    "role": "student",
+    "sender": "Residence Life <residence@university.ca>",
+    "subject": "Room inspection: please complete checklist",
+    "body": "Room inspections take place next week. Please complete the online room condition checklist by Sunday.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-19",
+    "role": "student",
+    "sender": "Registrar's Office <registrar@university.ca>",
+    "subject": "Update your mailing address",
+    "body": "We were unable to deliver mail to the address on file. Please update your mailing address in ACORN.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-20",
+    "role": "student",
+    "sender": "Study Abroad Office <goabroad@university.ca>",
+    "subject": "Submit your exchange course approvals",
+    "body": "Your exchange semester starts in January. Please submit your course approval forms by November 20 so credits can be transferred.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-21",
+    "role": "instructor",
+    "sender": "Faculty Office <fas-office@university.ca>",
+    "subject": "Final grades due December 22",
+    "body": "Dear instructors,\n\nFinal grades for fall courses must be submitted in the grading portal by 11:59pm on December 22. Late submissions delay students' transcripts.\n\nFaculty Office",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-22",
+    "role": "instructor",
+    "sender": "Department Admin <cs-admin@university.ca>",
+    "subject": "Submit your textbook orders for winter",
+    "body": "Please submit your textbook orders for winter courses to the bookstore by October 31.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-23",
+    "role": "instructor",
+    "sender": "Research Ethics Board <reb@university.ca>",
+    "subject": "Annual renewal required for protocol #4521",
+    "body": "Your ethics protocol #4521 expires on November 30. Submit the annual renewal form in the ethics portal to continue data collection.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-24",
+    "role": "instructor",
+    "sender": "Human Resources <hr@university.ca>",
+    "subject": "Complete mandatory accessibility training",
+    "body": "All faculty must complete the AODA accessibility training module by December 31. It takes about 30 minutes.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-25",
+    "role": "instructor",
+    "sender": "Finance Office <finance@university.ca>",
+    "subject": "Expense claim missing receipts",
+    "body": "Your expense claim #88213 for conference travel is missing two receipts. Please upload them within 10 business days or the claim will be returned.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-26",
+    "role": "instructor",
+    "sender": "Exam Services <exams@university.ca>",
+    "subject": "Submit your final exam papers",
+    "body": "Please submit the final exam paper for MATH 240 to Exam Services by November 25 so copies can be printed.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-27",
+    "role": "instructor",
+    "sender": "Department Chair <cs-chair@university.ca>",
+    "subject": "Teaching preferences for next year",
+    "body": "Please fill in the teaching preferences form for next academic year by November 14.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-28",
+    "role": "instructor",
+    "sender": "Library Services <library-reserves@university.ca>",
+    "subject": "Course reserves request deadline",
+    "body": "To have readings on reserve for the winter term, submit your course reserves list by December 5.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-29",
+    "role": "instructor",
+    "sender": "Graduate Studies <sgs@university.ca>",
+    "subject": "Annual progress reports due",
+    "body": "Supervisors: annual progress reports for your graduate students are due by January 15. Complete them in the graduate portal.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-30",
+    "role": "instructor",
+    "sender": "Accessibility Services <accessibility@university.ca>",
+    "subject": "Please confirm test accommodations",
+    "body": "Please confirm by Friday whether the student with accommodations in STA 220 can write the midterm in the testing centre with 25% extra time.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-31",
+    "role": "instructor",
+    "sender": "IT Services <it-help@university.ca>",
+    "subject": "Your course site will be archived",
+    "body": "Course sites from 2024 will be archived on January 1. Download any materials you want to keep before then.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-32",
+    "role": "instructor",
+    "sender": "Room Booking <rooms@university.ca>",
+    "subject": "Confirm your review session booking",
+    "body": "Your tentative booking of MP 202 for Dec 10 will be released unless you confirm it by Monday.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-33",
+    "role": "instructor",
+    "sender": "Research Office <research@university.ca>",
+    "subject": "Grant final report overdue",
+    "body": "The final financial report for your internal research grant is overdue. Please submit it as soon as possible.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-34",
+    "role": "instructor",
+    "sender": "Faculty Office <fas-office@university.ca>",
+    "subject": "Syllabus upload required",
+    "body": "Please upload your winter course syllabi to the syllabus repository by January 5, as required by faculty policy.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-35",
+    "role": "instructor",
+    "sender": "Department Admin <cs-admin@university.ca>",
+    "subject": "TA hours sign-off",
+    "body": "Please review and sign off on your TAs' hours for October in the HR portal by November 7.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-36",
+    "role": "instructor",
+    "sender": "Health & Safety <ehs@university.ca>",
+    "subject": "Lab safety inspection checklist",
+    "body": "Your research lab is scheduled for its annual safety inspection. Please complete the pre-inspection checklist by November 12.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-37",
+    "role": "instructor",
+    "sender": "Payroll <payroll@university.ca>",
+    "subject": "Update your tax forms",
+    "body": "Please submit your updated TD1 tax forms through the HR portal before the next pay period.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-38",
+    "role": "instructor",
+    "sender": "Department Chair <cs-chair@university.ca>",
+    "subject": "Annual activity report",
+    "body": "Annual activity reports for the merit review are due January 31. Please use the new template.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-39",
+    "role": "instructor",
+    "sender": "Academic Integrity Office <integrity@university.ca>",
+    "subject": "Submit case documentation",
+    "body": "Please submit the documentation for the academic integrity case you reported in CSC 108 within 10 business days.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-admin_action-40",
+    "role": "instructor",
+    "sender": "Exam Services <exams@university.ca>",
+    "subject": "Approve your invigilation schedule",
+    "body": "Please approve your final exam invigilation schedule in the exams portal by November 20.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-01",
+    "role": "student",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Please confirm your presentation slot",
+    "body": "Hi Jordan,\n\nYou've been assigned the 2:40pm presentation slot on November 20. Can you confirm by Friday that this works for your group?\n\nThanks,\nKevin",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-02",
+    "role": "student",
+    "sender": "Prof. Maria Lopez <m.lopez@university.ca>",
+    "subject": "Re: your project topic",
+    "body": "Hi Sam,\n\nBefore I approve your project topic, could you tell me which dataset you plan to use and whether you'll be working alone or with a partner?\n\nBest,\nProf. Lopez",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-03",
+    "role": "student",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "midterm room?",
+    "body": "hey do you know which room the MATH 240 midterm is in? the course page says EX but not which floor",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-04",
+    "role": "student",
+    "sender": "TA Sofia Rossi <sofia.rossi@mail.university.ca>",
+    "subject": "Tutorial section change",
+    "body": "Hi Daniel, you asked to switch to the Thursday tutorial. There is one spot left. Do you still want it? Please reply by tomorrow.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-05",
+    "role": "student",
+    "sender": "Lena Novak <lena.novak@mail.university.ca>",
+    "subject": "Assignment 2 deadline",
+    "body": "Hi! Is Assignment 2 due this Friday or next Monday? I've seen both on Piazza and I'm confused.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-06",
+    "role": "student",
+    "sender": "Prof. James Allen <j.allen@university.ca>",
+    "subject": "Exam format question for you",
+    "body": "Hi Emma,\n\nYou registered for the accommodated exam. Would you prefer to write the final on paper or on a computer? I need to tell Exam Services by next week.\n\nJA",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-07",
+    "role": "student",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "lab partner for next week",
+    "body": "Hi, the TA said we need to tell her our lab partners for next week's lab by Wednesday. Do you want to be partners again?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-08",
+    "role": "student",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Missing student number on your submission",
+    "body": "Hi Ethan, your Assignment 3 PDF doesn't have your student number on the cover page. Could you reply with it so I can match your grade?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-09",
+    "role": "student",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "Is the final cumulative?",
+    "body": "Hey, do you remember if Prof. Okafor said the final covers everything or only after the midterm?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-10",
+    "role": "student",
+    "sender": "Course Coordinator <stats-coord@university.ca>",
+    "subject": "Choose your project dataset",
+    "body": "Dear STA 220 students, please reply with your choice of dataset (A, B, or C) for the course project by October 30.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-11",
+    "role": "student",
+    "sender": "Prof. Aisha Rahman <a.rahman@university.ca>",
+    "subject": "Re: lab attendance",
+    "body": "Hi Hannah,\n\nOur records show you missed Lab 4. Did you attend a different section that week? Let me know so I can update attendance.\n\nAisha Rahman",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-12",
+    "role": "student",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "where do we submit the report",
+    "body": "Do we submit the lab report on Quercus or MarkUs? The instructions say both lol",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-13",
+    "role": "student",
+    "sender": "TA Sofia Rossi <sofia.rossi@mail.university.ca>",
+    "subject": "Seminar reading order",
+    "body": "Hi everyone in group B, please reply with which reading you'll lead in next week's seminar so we can make the schedule.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-14",
+    "role": "student",
+    "sender": "Ethan Brooks <ethan.brooks@mail.university.ca>",
+    "subject": "late penalty?",
+    "body": "Do you know what the late penalty is for the essay? I might submit one day late.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-15",
+    "role": "student",
+    "sender": "Prof. Daniel Okafor <d.okafor@university.ca>",
+    "subject": "Confirm your exam centre",
+    "body": "Hi Mia,\n\nYou indicated you'll write the final from Vancouver. Please confirm the name of the testing centre you've booked so I can send the exam.\n\nDaniel Okafor",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-16",
+    "role": "student",
+    "sender": "Lena Novak <lena.novak@mail.university.ca>",
+    "subject": "Re: Group report format",
+    "body": "Do you know if the report has to be in APA or IEEE format? And is the 10-page limit including references?\n\n> I'll start the intro tonight",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-17",
+    "role": "student",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Confirm your group members",
+    "body": "Please reply to this email listing all members of your project group by Friday. Groups not confirmed will be assigned randomly.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-18",
+    "role": "student",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "quiz this week?",
+    "body": "Is there a quiz in tutorial this week or was it moved? I missed the announcement.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-19",
+    "role": "student",
+    "sender": "Prof. Maria Lopez <m.lopez@university.ca>",
+    "subject": "Choosing your presentation date",
+    "body": "Hi all, please reply with your first and second choice of presentation week (week 10, 11, or 12).",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-20",
+    "role": "student",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "calculator allowed?",
+    "body": "Are we allowed a calculator for the stats midterm? I can't find it in the syllabus.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-21",
+    "role": "instructor",
+    "sender": "Jordan Patel <jordan.patel@mail.university.ca>",
+    "subject": "When is the midterm?",
+    "body": "Hi Professor,\n\nCould you confirm the date and time of the midterm? The syllabus says October 28 but the course page says October 30.\n\nThank you,\nJordan",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-22",
+    "role": "instructor",
+    "sender": "Emma Wilson <emma.wilson@mail.university.ca>",
+    "subject": "Late penalty question",
+    "body": "Dear Prof. Allen,\n\nIs the late penalty 10% per day or 10% total? I want to make sure before I plan my week.\n\nBest regards,\nEmma Wilson",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-23",
+    "role": "instructor",
+    "sender": "Lucas Martin <lucas.martin@mail.university.ca>",
+    "subject": "Which chapters are on the final?",
+    "body": "Hello Professor Okafor, which chapters will the final exam cover? Is chapter 9 included?\n\nLucas Martin, MATH 240",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-24",
+    "role": "instructor",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "Question about tutorial attendance",
+    "body": "Hi Professor, is tutorial attendance part of the participation grade? And if so, how many tutorials can we miss?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-25",
+    "role": "instructor",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "Assignment submission format",
+    "body": "Hi, for Assignment 4, should we submit a single PDF or separate files for each question? Also, can handwritten answers be scanned?\n\nThanks,\nAva",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-26",
+    "role": "instructor",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "Office hours location",
+    "body": "Hello, where are your office hours held this week? The room listed on the syllabus seems to be locked.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-27",
+    "role": "instructor",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "Grading scheme",
+    "body": "Dear Professor Lopez,\n\nCould you clarify how much the final project is worth? The syllabus says 30% but the slides from week 1 said 35%.\n\nIsabella Garcia",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-28",
+    "role": "instructor",
+    "sender": "Liam Nguyen <liam.nguyen@mail.university.ca>",
+    "subject": "Is there a lecture on Monday?",
+    "body": "Hi Prof, Monday is Thanksgiving. Is there still a lecture, or will it be recorded?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-29",
+    "role": "instructor",
+    "sender": "Olivia Brown <olivia.brown@mail.university.ca>",
+    "subject": "Midterm aid sheet",
+    "body": "Hello, are we allowed an aid sheet for the midterm? If yes, is it one-sided or double-sided?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-30",
+    "role": "instructor",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Question about marking scheme",
+    "body": "Hi Prof, for question 3 on the midterm, should partial credit be given if the student sets up the integral correctly but makes an arithmetic error?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-31",
+    "role": "instructor",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "Group size for the project",
+    "body": "Hi Professor, can project groups have 4 people or is the maximum 3? Two of my friends want to join our group.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-32",
+    "role": "instructor",
+    "sender": "Ethan Brooks <ethan.brooks@mail.university.ca>",
+    "subject": "Where to find practice exams",
+    "body": "Hello, are there past exams or practice questions for the final posted anywhere? I couldn't find them on the course site.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-33",
+    "role": "instructor",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "Prerequisite question",
+    "body": "Hi Prof. Rahman, I'm planning to take your course next term. Is STA 130 a strict prerequisite, or can I take it concurrently?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-34",
+    "role": "instructor",
+    "sender": "Sam Taylor <sam.taylor@mail.university.ca>",
+    "subject": "Re: Assignment 2",
+    "body": "Hi again,\n\nQuick follow-up: is the word limit for the essay 1500 or 2000 words? And does the bibliography count?\n\nThanks,\nSam\n\nOn Mon, Prof. Allen wrote:\n> The essay prompt is now posted.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-35",
+    "role": "instructor",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "Lab report due date",
+    "body": "Hi Professor, is Lab Report 3 due at the start of the lab or by midnight that day?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-36",
+    "role": "instructor",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "Course textbook edition",
+    "body": "Hello, does the 3rd edition of the textbook work, or do we need the 4th edition? The 3rd is much cheaper used.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-37",
+    "role": "instructor",
+    "sender": "Course Coordinator <stats-coord@university.ca>",
+    "subject": "Tutorial room for week 9",
+    "body": "Hi, the tutorial room for week 9 is double-booked. Should we move tutorial 0102 online or to another room?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-38",
+    "role": "instructor",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "Bonus marks",
+    "body": "Hi Prof, are there any bonus marks in this course, or is the grade only based on the items in the syllabus?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-39",
+    "role": "instructor",
+    "sender": "Lena Novak <lena.novak@mail.university.ca>",
+    "subject": "Final exam date conflict check",
+    "body": "Dear Professor, the final exam timetable lists our exam on December 15 at 9am. Is that the final date, or could it still change?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-course_logistics-40",
+    "role": "instructor",
+    "sender": "Alex Moreau <alex.moreau@mail.university.ca>",
+    "subject": "Participation grade",
+    "body": "Hello Professor Okafor, how is the participation grade calculated? Does posting on Piazza count?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-01",
+    "role": "student",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "how did you do Q3?",
+    "body": "Hey, I'm stuck on Q3 of the problem set. Did you use induction or a direct proof? I keep going in circles with the base case.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-02",
+    "role": "student",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "Big-O question",
+    "body": "Hi, quick question about the lecture: why is the loop in example 2 O(n log n) and not O(n^2)? I thought the inner loop runs n times.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-03",
+    "role": "student",
+    "sender": "Lena Novak <lena.novak@mail.university.ca>",
+    "subject": "confused about p-values",
+    "body": "Can you explain the difference between a p-value and the significance level? I thought they were the same thing until today's tutorial.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-04",
+    "role": "student",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "Lab 5 circuit",
+    "body": "Hey, in lab 5 did your voltage across R2 come out around 3.3V? Mine is 5V and I don't know if I wired it wrong or if my calculation is off.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-05",
+    "role": "student",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "reading for seminar",
+    "body": "Did you understand the main argument in the Foucault reading? I don't get what he means by 'disciplinary power'. Want to compare notes?",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-06",
+    "role": "student",
+    "sender": "Ethan Brooks <ethan.brooks@mail.university.ca>",
+    "subject": "recursion question",
+    "body": "How did you get the recurrence for the merge sort question? I got T(n) = 2T(n/2) + n but I'm not sure how to solve it without the master theorem.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-07",
+    "role": "student",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "Econ problem set 4",
+    "body": "Hi! For question 2 on the econ problem set, are we supposed to assume perfect competition? The question doesn't say and it changes the answer.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-08",
+    "role": "student",
+    "sender": "Prof. Maria Lopez <m.lopez@university.ca>",
+    "subject": "Re: your thesis chapter",
+    "body": "Hi Sam,\n\nI read your draft chapter. Can you explain why you chose a mixed-effects model rather than a simple regression? I'd like to understand your reasoning before our next meeting.\n\nMaria",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-09",
+    "role": "student",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "organic chem mechanism",
+    "body": "Do you know why the reaction in question 6 goes through SN1 and not SN2? The substrate looks primary to me.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-10",
+    "role": "student",
+    "sender": "Alex Moreau <alex.moreau@mail.university.ca>",
+    "subject": "help with the proof",
+    "body": "I've been staring at the pigeonhole question for an hour. How do you choose the pigeonholes? Any hint without giving the full answer?",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-11",
+    "role": "student",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "linear algebra",
+    "body": "Why does a matrix with a zero eigenvalue have no inverse? I understand the rule but not the intuition.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-12",
+    "role": "student",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "python error in A2",
+    "body": "Hey, did you get a KeyError when running the starter code for A2? I think it's the dictionary in parse_input but I can't see why.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-13",
+    "role": "student",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "history essay sources",
+    "body": "For the history essay, would a journal article from 1985 count as a primary or secondary source? It analyses letters from the period.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-14",
+    "role": "student",
+    "sender": "TA Sofia Rossi <sofia.rossi@mail.university.ca>",
+    "subject": "Re: your lab analysis",
+    "body": "Hi Jordan,\n\nIn your lab analysis you concluded the relationship is linear, but your residual plot shows a clear curve. Can you explain how you reached that conclusion?\n\nSofia",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-15",
+    "role": "student",
+    "sender": "Liam Nguyen <liam.nguyen@mail.university.ca>",
+    "subject": "stats question",
+    "body": "When do we use a t-test instead of a z-test? I keep mixing them up on practice problems.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-16",
+    "role": "student",
+    "sender": "Olivia Brown <olivia.brown@mail.university.ca>",
+    "subject": "Re: study guide",
+    "body": "Thanks for sharing the study guide! One thing: in section 3 you wrote that mitosis produces 4 cells. Isn't that meiosis?\n\n> Here's my study guide for the bio midterm",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-17",
+    "role": "student",
+    "sender": "Lucas Martin <lucas.martin@mail.university.ca>",
+    "subject": "dynamic programming",
+    "body": "How do you know when a problem needs dynamic programming instead of greedy? I got the coin change question wrong because I used greedy.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-18",
+    "role": "student",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "philosophy paper",
+    "body": "Do you think Kant's categorical imperative allows lying to save a life? I need to take a position in my paper and I'm torn.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-19",
+    "role": "student",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "SQL join question",
+    "body": "What's the actual difference between LEFT JOIN and INNER JOIN in the lab queries? My results are the same for both.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-20",
+    "role": "student",
+    "sender": "Emma Wilson <emma.wilson@mail.university.ca>",
+    "subject": "physics problem 7",
+    "body": "For problem 7, do we include air resistance? The answer key gives 12.4 m/s but I get 14.0 without it.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-21",
+    "role": "instructor",
+    "sender": "Jordan Patel <jordan.patel@mail.university.ca>",
+    "subject": "Question about part b of Assignment 3",
+    "body": "Hi Professor,\n\nI don't understand part b of question 2 on Assignment 3. Are we supposed to prove the statement for all n, or just find a counterexample? I tried induction but the inductive step doesn't seem to work.\n\nThank you,\nJordan Patel",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-22",
+    "role": "instructor",
+    "sender": "Emma Wilson <emma.wilson@mail.university.ca>",
+    "subject": "Clarification on today's lecture",
+    "body": "Dear Professor Allen,\n\nIn today's lecture you said that correlation does not imply causation, but then the example seemed to suggest a causal link. Could you explain the difference again?\n\nBest,\nEmma",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-23",
+    "role": "instructor",
+    "sender": "Lucas Martin <lucas.martin@mail.university.ca>",
+    "subject": "Eigenvalues question",
+    "body": "Hello Professor Okafor, I'm having trouble understanding why similar matrices have the same eigenvalues. Is there an intuitive explanation, or should I just rely on the proof from class?",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-24",
+    "role": "instructor",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "Help with problem 4",
+    "body": "Hi Professor, I've been working on problem 4 for a while. I get a negative probability, which can't be right. Here is my setup: P(A|B) = P(A and B)/P(B) = 0.3/0.2. Where am I going wrong?",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-25",
+    "role": "instructor",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "Feedback on my draft",
+    "body": "Hi Professor Lopez, could you look at the attached outline for my essay and tell me whether my thesis is specific enough? I'm worried it's too broad.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-26",
+    "role": "instructor",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "Why is my answer wrong?",
+    "body": "Hello, on the midterm I wrote that the time complexity of the algorithm was O(n). It was marked wrong but I still don't see why it's O(n log n). Can you explain?",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-27",
+    "role": "instructor",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "Readings for the research proposal",
+    "body": "Dear Professor Rahman,\n\nCould you recommend two or three key papers on peer assessment that I should start with for my research proposal?\n\nThanks,\nIsabella",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-28",
+    "role": "instructor",
+    "sender": "Liam Nguyen <liam.nguyen@mail.university.ca>",
+    "subject": "Hypothesis testing confusion",
+    "body": "Hi Prof, I'm confused about one-tailed vs two-tailed tests. In question 5, how do we know which one to use? The question just says 'test whether the mean has changed'.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-29",
+    "role": "instructor",
+    "sender": "Olivia Brown <olivia.brown@mail.university.ca>",
+    "subject": "Lab 6 results",
+    "body": "Hello Professor, our enzyme activity in Lab 6 decreased at higher temperatures, but much earlier than expected. Is this likely an error in our procedure or could it be the enzyme we used?",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-30",
+    "role": "instructor",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "Understanding the case study",
+    "body": "Dear Professor, in the case study for week 6, why did the company's decision to cut prices lead to lower profits? I thought lower prices would increase sales enough to compensate.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-31",
+    "role": "instructor",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "Recursion in A2",
+    "body": "Hi Professor, my recursive solution for question 3 works for small inputs but hits a recursion depth error for large ones. Is the assignment expecting an iterative solution?",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-32",
+    "role": "instructor",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "Question on the reading",
+    "body": "Hi Professor Allen, in this week's reading the author argues that standardized tests measure socioeconomic status more than ability. Is that the consensus in the field, or one perspective among others?",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-33",
+    "role": "instructor",
+    "sender": "Alex Moreau <alex.moreau@mail.university.ca>",
+    "subject": "Proof technique",
+    "body": "Hello, when should we use proof by contradiction instead of contrapositive? They seem interchangeable in the examples from class.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-34",
+    "role": "instructor",
+    "sender": "Sam Taylor <sam.taylor@mail.university.ca>",
+    "subject": "Thesis methodology",
+    "body": "Hi Maria,\n\nI've attached a revised methods section. I'm still unsure whether a mixed-effects model is appropriate with only 12 participants. Would you recommend something simpler?\n\nSam",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-35",
+    "role": "instructor",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "Understanding feedback",
+    "body": "Hello Professor, on my lab report you wrote 'analysis does not follow from the data'. Could you explain which part you meant so I can improve the next one?",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-36",
+    "role": "instructor",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "Graph algorithms",
+    "body": "Hi Prof, why does Dijkstra's algorithm fail with negative edge weights? I tried an example and it still gave the right answer.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-37",
+    "role": "instructor",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Question 2 solution check",
+    "body": "Hi Prof, before I post the solutions, can you check my answer for question 2? I get 3/8 but several students got 5/8 and their reasoning looks plausible too.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-38",
+    "role": "instructor",
+    "sender": "Ethan Brooks <ethan.brooks@mail.university.ca>",
+    "subject": "Statistics project",
+    "body": "Hello Professor, for my project I'm comparing exam scores across three sections. Should I use ANOVA or multiple t-tests? I read that multiple t-tests are a problem but I don't understand why.",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-39",
+    "role": "instructor",
+    "sender": "Emma Wilson <emma.wilson@mail.university.ca>",
+    "subject": "Re: Clarification on today's lecture",
+    "body": "Thank you for the explanation, Professor. One more question: does that mean a randomized experiment is the only way to show causation?\n\nOn Tue, Prof. Allen wrote:\n> Good question, Emma. The difference is...",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-academic_question-40",
+    "role": "instructor",
+    "sender": "Lena Novak <lena.novak@mail.university.ca>",
+    "subject": "Conflicting findings in my literature review",
+    "body": "Dear Professor Lopez, two of the main studies in my literature review reach opposite conclusions about class size and achievement. How should I weigh them against each other in the paper?",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-01",
+    "role": "student",
+    "sender": "Prof. Maria Lopez <m.lopez@university.ca>",
+    "subject": "Can we meet this week?",
+    "body": "Hi Sam,\n\nCan we meet this week to discuss your thesis progress? I'm free Wednesday after 2pm or Thursday morning.\n\nMaria",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-02",
+    "role": "student",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "group meeting for the project",
+    "body": "Hey team, when is everyone free to meet this week for the project? I can do Tuesday evening or Friday afternoon.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-03",
+    "role": "student",
+    "sender": "TA Sofia Rossi <sofia.rossi@mail.university.ca>",
+    "subject": "Let's meet to go over your lab",
+    "body": "Hi Jordan, I'd like to go over your lab analysis with you. Could you come to my office hours on Thursday at 3pm, or suggest another time?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-04",
+    "role": "student",
+    "sender": "Co-op Office <coop@university.ca>",
+    "subject": "Schedule your co-op advising appointment",
+    "body": "Hi Emma, please book a 30-minute advising appointment before December 1 to discuss your work term options. Reply with times that work for you.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-05",
+    "role": "student",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "study session before the midterm",
+    "body": "Want to do a study session before the midterm? Maybe Sunday at 2 in the library?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-06",
+    "role": "student",
+    "sender": "Prof. Aisha Rahman <a.rahman@university.ca>",
+    "subject": "Meeting about your research assistant position",
+    "body": "Hello Hannah,\n\nCould we have a short call on Monday or Tuesday to talk about your RA tasks for next month? 20 minutes should be enough.\n\nAisha",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-07",
+    "role": "student",
+    "sender": "Lena Novak <lena.novak@mail.university.ca>",
+    "subject": "reschedule our meeting?",
+    "body": "Hi! Something came up on Thursday. Could we move our group meeting to Friday at the same time?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-08",
+    "role": "student",
+    "sender": "Academic Advisor <advising@university.ca>",
+    "subject": "Program planning meeting",
+    "body": "Dear Omar, as part of your second-year check-in, please schedule a meeting with your academic advisor. Available slots are Mondays and Wednesdays, 10am to 4pm.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-09",
+    "role": "student",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "call tonight?",
+    "body": "Can we hop on a quick call tonight around 8 to split up the presentation slides?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-10",
+    "role": "student",
+    "sender": "Prof. James Allen <j.allen@university.ca>",
+    "subject": "Re: reference letter",
+    "body": "Hi Emma,\n\nI'm happy to write the letter. Could we meet briefly so I can learn more about the program? Would Tuesday at 11 work?\n\nJA",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-11",
+    "role": "student",
+    "sender": "Ethan Brooks <ethan.brooks@mail.university.ca>",
+    "subject": "meeting with the client",
+    "body": "The client wants to meet our group next week to review the prototype. Are you available Wednesday at 4?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-12",
+    "role": "student",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "coffee to talk about the club",
+    "body": "Hey! Would you be free for coffee this week? I'd love to talk about you joining the debate club executive.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-13",
+    "role": "student",
+    "sender": "Graduate Coordinator <cs-grad@university.ca>",
+    "subject": "Thesis committee meeting",
+    "body": "Dear Sam, please propose three possible times in the next two weeks for your first thesis committee meeting. Your supervisor and two committee members need to attend.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-14",
+    "role": "student",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "lab report meeting",
+    "body": "Could we meet on Zoom tomorrow to finish the lab report? I'm free after 6.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-15",
+    "role": "student",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Meet to discuss your midterm?",
+    "body": "Hi Noah, you asked about your midterm grade. Would you like to meet during my office hours on Monday at 1pm to go through it?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-16",
+    "role": "student",
+    "sender": "Alex Moreau <alex.moreau@mail.university.ca>",
+    "subject": "Re: hackathon team",
+    "body": "Great, let's meet Thursday after class to plan our hackathon idea? Say 5:30 in the Bahen lobby?\n\n> I'm in! Count me on the team.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-17",
+    "role": "student",
+    "sender": "Career Centre <careers@university.ca>",
+    "subject": "Book your resume review",
+    "body": "Hi Liam, you requested a resume review. Please reply with two or three times next week when you could meet with a career educator.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-18",
+    "role": "student",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "practice presentation",
+    "body": "Can we meet Monday morning to practice the presentation once before class?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-19",
+    "role": "student",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "meeting for the case competition",
+    "body": "Our team needs to meet before the case competition registration closes. Does Saturday at noon work for you?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-20",
+    "role": "student",
+    "sender": "Prof. Daniel Okafor <d.okafor@university.ca>",
+    "subject": "Following up on your summer research interest",
+    "body": "Hi Mia,\n\nThanks for your interest in summer research. Let's set up a 30-minute meeting next week to discuss possible projects. What times work for you?\n\nDaniel Okafor",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-21",
+    "role": "instructor",
+    "sender": "Jordan Patel <jordan.patel@mail.university.ca>",
+    "subject": "Office hours appointment",
+    "body": "Hi Professor,\n\nI have a conflict with your regular office hours. Would it be possible to meet on Thursday at 2pm instead to go over my project proposal?\n\nThank you,\nJordan",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-22",
+    "role": "instructor",
+    "sender": "Emma Wilson <emma.wilson@mail.university.ca>",
+    "subject": "Meeting request",
+    "body": "Dear Professor Allen,\n\nCould I book 15 minutes with you sometime this week to talk about graduate school options?\n\nBest regards,\nEmma Wilson",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-23",
+    "role": "instructor",
+    "sender": "Lucas Martin <lucas.martin@mail.university.ca>",
+    "subject": "Can we meet about my grade?",
+    "body": "Hello Professor Okafor, I would like to meet to understand where I lost marks on the midterm. Are you available Monday afternoon?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-24",
+    "role": "instructor",
+    "sender": "Sam Taylor <sam.taylor@mail.university.ca>",
+    "subject": "Next supervision meeting",
+    "body": "Hi Maria,\n\nShould we meet next week to discuss chapter 2? I'm available Tuesday morning or any time Wednesday.\n\nSam",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-25",
+    "role": "instructor",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "TA meeting before the midterm",
+    "body": "Hi Prof, could we schedule a quick TA meeting before the midterm to agree on the marking scheme? Friday morning would work for all three TAs.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-26",
+    "role": "instructor",
+    "sender": "Dr. Sarah Bennett <s.bennett@university.ca>",
+    "subject": "Coffee to discuss a joint course?",
+    "body": "Hi! I'd love to chat about co-teaching a course on learning analytics next year. Do you have time for coffee next week?\n\nSarah",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-27",
+    "role": "instructor",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "Meeting about grad school",
+    "body": "Dear Professor Lopez,\n\nI'm applying to master's programs and would appreciate 20 minutes of your advice. Would sometime next week work?\n\nIsabella",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-28",
+    "role": "instructor",
+    "sender": "Department Chair <cs-chair@university.ca>",
+    "subject": "Annual review meeting",
+    "body": "Hello, please let me know your availability for a 30-minute annual review meeting in the week of November 17.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-29",
+    "role": "instructor",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "Can I come to office hours early?",
+    "body": "Hi Professor, would it be okay if I came to your office hours 15 minutes early on Wednesday? I have a lab right after.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-30",
+    "role": "instructor",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "Meeting to discuss research opportunity",
+    "body": "Hello Professor Rahman, could we schedule a short meeting to talk about the research assistant role you mentioned in class?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-31",
+    "role": "instructor",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "Zoom meeting?",
+    "body": "Hi Prof, I'm off campus this week. Could we meet on Zoom instead of in person for our appointment on Thursday?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-32",
+    "role": "instructor",
+    "sender": "Olivia Brown <olivia.brown@mail.university.ca>",
+    "subject": "Reschedule our meeting",
+    "body": "Dear Professor, I'm sorry but I need to reschedule our meeting on Tuesday at 10. Would Wednesday at the same time work?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-33",
+    "role": "instructor",
+    "sender": "Graduate Coordinator <cs-grad@university.ca>",
+    "subject": "Committee meeting for Sam Taylor",
+    "body": "Dear Professor Lopez, please share your availability for Sam Taylor's first committee meeting between November 10 and 21.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-34",
+    "role": "instructor",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "Talk about my project idea",
+    "body": "Hi Professor, I have an idea for the final project and would like to run it by you before I start. When would be a good time to meet?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-35",
+    "role": "instructor",
+    "sender": "Prof. Lin Zhao <l.zhao@uwaterloo.ca>",
+    "subject": "Call about the workshop",
+    "body": "Hi, following our conversation at the conference, could we schedule a call to plan the workshop proposal? Any time next Thursday or Friday works for me.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-36",
+    "role": "instructor",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "Meeting before the final",
+    "body": "Hello Professor, could I meet with you before the final to go over a few practice problems? I'm free most afternoons this week.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-37",
+    "role": "instructor",
+    "sender": "Ethan Brooks <ethan.brooks@mail.university.ca>",
+    "subject": "Meeting about course load",
+    "body": "Hi Prof, I'm thinking about dropping a course and would like to talk to you about it first. Do you have 10 minutes after Tuesday's lecture?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-38",
+    "role": "instructor",
+    "sender": "Alex Moreau <alex.moreau@mail.university.ca>",
+    "subject": "Office hours this Friday?",
+    "body": "Hello, are you holding office hours this Friday? If so, could I sign up for the 1pm slot?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-39",
+    "role": "instructor",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "Summer research meeting",
+    "body": "Dear Professor Okafor, thank you for replying! I'm available Monday after 1pm or Thursday morning next week for the meeting.\n\nMia",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-meeting_request-40",
+    "role": "instructor",
+    "sender": "Liam Nguyen <liam.nguyen@mail.university.ca>",
+    "subject": "Meet about the group conflict",
+    "body": "Hi Professor, our group is having trouble dividing work fairly. Could two of us meet with you this week to talk about it?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-01",
+    "role": "student",
+    "sender": "Prof. James Allen <j.allen@university.ca>",
+    "subject": "Re: extension request",
+    "body": "Hi Emma,\n\nI can consider your extension request, but I need supporting documentation first. Please send the medical note or Verification of Illness form by Friday.\n\nJA",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-02",
+    "role": "student",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Regrade request received",
+    "body": "Hi Noah,\n\nI received your regrade request for question 3. Before I forward it to the professor, can you explain in a few sentences why you think your answer deserves more marks?\n\nKevin",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-03",
+    "role": "student",
+    "sender": "Accessibility Services <accessibility@university.ca>",
+    "subject": "Accommodation renewal needed",
+    "body": "Dear student, your accommodations expire at the end of this term. To keep extra exam time next term, please submit updated documentation and request a renewal.",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-04",
+    "role": "student",
+    "sender": "Prof. Daniel Okafor <d.okafor@university.ca>",
+    "subject": "Your deferred exam request",
+    "body": "Hi Lucas,\n\nI received your request to defer the final exam. The petition must be submitted through the Registrar's petition system; I can't approve it directly. Please file it and send me the reference number.\n\nDaniel Okafor",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-05",
+    "role": "student",
+    "sender": "Lena Novak <lena.novak@mail.university.ca>",
+    "subject": "can you ask for an extension for our group?",
+    "body": "Hey, since you're the group leader, could you email the prof to ask for a 2-day extension on the report? Two of us were sick this week.",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-06",
+    "role": "student",
+    "sender": "Prof. Maria Lopez <m.lopez@university.ca>",
+    "subject": "Re: late submission",
+    "body": "Hi Sam,\n\nYour assignment was submitted two days late. Our policy allows late submissions only with an approved reason. Can you tell me what happened?\n\nMaria Lopez",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-07",
+    "role": "student",
+    "sender": "Registrar's Office <registrar@university.ca>",
+    "subject": "Petition update: more information required",
+    "body": "Your petition for a late course withdrawal requires additional documentation. Please upload a statement and supporting documents within 10 days.",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-08",
+    "role": "student",
+    "sender": "Prof. Aisha Rahman <a.rahman@university.ca>",
+    "subject": "Re: missed quiz",
+    "body": "Hello Hannah,\n\nI see you missed Quiz 3. If you'd like the weight moved to the final, please submit the absence declaration form and reply to confirm.\n\nAisha",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-09",
+    "role": "student",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "did you get an extension too?",
+    "body": "Did the prof approve your extension for the essay? I got mine but she wants a doctor's note by Monday. Did she ask you for one?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-10",
+    "role": "student",
+    "sender": "Exam Services <exams@university.ca>",
+    "subject": "Exam conflict: alternate sitting",
+    "body": "We noticed you have two exams scheduled at the same time on December 12. Please request an alternate sitting through the exam conflict form.",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-11",
+    "role": "student",
+    "sender": "TA Sofia Rossi <sofia.rossi@mail.university.ca>",
+    "subject": "Your request for a lab makeup",
+    "body": "Hi Jordan, you asked to make up Lab 4. The professor needs your reason for missing it before we can schedule a makeup. Can you send it?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-12",
+    "role": "student",
+    "sender": "Prof. James Allen <j.allen@university.ca>",
+    "subject": "Re: grade appeal",
+    "body": "Hi Ethan,\n\nI've received your grade appeal for the midterm. Please submit the formal appeal form with your reasons; I'll review it with the TA and respond within two weeks.\n\nJA",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-13",
+    "role": "student",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "late penalty waiver",
+    "body": "My laptop died the night before the deadline and I lost my work. Do you think the prof would waive the late penalty if I explain? How did you word yours last time?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-14",
+    "role": "student",
+    "sender": "Accessibility Services <accessibility@university.ca>",
+    "subject": "Please confirm your exam accommodations",
+    "body": "Hi Mia, your instructor has asked whether you want to use your extra-time accommodation for the midterm. Please confirm by Wednesday.",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-15",
+    "role": "student",
+    "sender": "Prof. Daniel Okafor <d.okafor@university.ca>",
+    "subject": "Extension approved with conditions",
+    "body": "Hi Liam,\n\nI can give you an extension until Monday at noon if you send me the progress you have so far today. Please confirm you accept.\n\nDO",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-16",
+    "role": "student",
+    "sender": "Co-op Office <coop@university.ca>",
+    "subject": "Request to extend your work term",
+    "body": "Your employer has requested an extension of your work term by 4 months. Please confirm whether you agree, as this affects your course enrolment.",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-17",
+    "role": "student",
+    "sender": "Prof. Maria Lopez <m.lopez@university.ca>",
+    "subject": "Re: rewriting the quiz",
+    "body": "Hi Ava,\n\nI'm not able to offer a quiz rewrite, but I can let you replace the quiz grade with your final exam percentage. Would you like that?\n\nMaria",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-18",
+    "role": "student",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "submitting late together",
+    "body": "We missed the group submission deadline by an hour because the portal crashed. Should we email the TA together to ask for no penalty?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-19",
+    "role": "student",
+    "sender": "Graduate Coordinator <cs-grad@university.ca>",
+    "subject": "Program extension request",
+    "body": "Dear Sam, your request to extend your program by one term has been received. Please submit a supervisor's letter of support to complete the request.",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-20",
+    "role": "student",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Remark request outcome needed",
+    "body": "Hi Priya, I re-checked question 5 and found the mark was entered wrong. Do you also want me to look at question 6, which you mentioned, before I send the final remark?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-21",
+    "role": "instructor",
+    "sender": "Emma Wilson <emma.wilson@mail.university.ca>",
+    "subject": "Extension request for Assignment 3",
+    "body": "Dear Professor Allen,\n\nI was sick with the flu this week and couldn't finish Assignment 3. Would it be possible to get a three-day extension? I can provide a medical note.\n\nThank you,\nEmma Wilson",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-22",
+    "role": "instructor",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "Regrade request: midterm question 3",
+    "body": "Hello Professor, I believe question 3 on my midterm was marked incorrectly. I used a different method but reached the correct answer. Could you please review it?\n\nNoah Clark, #1007788",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-23",
+    "role": "instructor",
+    "sender": "Lucas Martin <lucas.martin@mail.university.ca>",
+    "subject": "Deferring the final exam",
+    "body": "Dear Professor Okafor, I have a family wedding abroad during the final exam. Is it possible to write the exam at a different time?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-24",
+    "role": "instructor",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "Accommodation for midterm",
+    "body": "Hi Professor Rahman, I have an accommodation for extra time through Accessibility Services. Could you confirm that I'll be able to write the midterm with 25% extra time?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-25",
+    "role": "instructor",
+    "sender": "Sam Taylor <sam.taylor@mail.university.ca>",
+    "subject": "Late submission",
+    "body": "Hi Maria,\n\nI'm sorry, I submitted the assignment two days late because my grandmother was in hospital. Could the late penalty be waived?\n\nSam",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-26",
+    "role": "instructor",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "Missed quiz",
+    "body": "Dear Professor, I missed today's quiz because I had a job interview that couldn't be moved. Could I write it another day or have it reweighted?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-27",
+    "role": "instructor",
+    "sender": "Jordan Patel <jordan.patel@mail.university.ca>",
+    "subject": "Grade appeal",
+    "body": "Hi Professor,\n\nI'd like to appeal my grade on the final project. The feedback says the analysis was incomplete, but sections 4 and 5 cover it in detail. Could you take another look?\n\nJordan",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-28",
+    "role": "instructor",
+    "sender": "Ethan Brooks <ethan.brooks@mail.university.ca>",
+    "subject": "Group extension",
+    "body": "Dear Professor Allen, two members of our group were sick this week. Could our group have a two-day extension on the report?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-29",
+    "role": "instructor",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "Exam conflict",
+    "body": "Hello Professor Lopez, my final exam for your course is at the same time as my chemistry exam on December 12. What should I do?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-30",
+    "role": "instructor",
+    "sender": "Liam Nguyen <liam.nguyen@mail.university.ca>",
+    "subject": "Can I submit by Monday?",
+    "body": "Hi Prof, I've had three midterms this week and I'm behind on the lab report. Would it be okay to submit it Monday instead of Friday?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-31",
+    "role": "instructor",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "Lab makeup",
+    "body": "Hello Professor, I missed Lab 5 because of a medical appointment. Is there a makeup lab I can attend?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-32",
+    "role": "instructor",
+    "sender": "Olivia Brown <olivia.brown@mail.university.ca>",
+    "subject": "Rewrite request",
+    "body": "Dear Professor, I did very poorly on the quiz because I misread the instructions. Is there any chance I could rewrite it?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-33",
+    "role": "instructor",
+    "sender": "Accessibility Services <accessibility@university.ca>",
+    "subject": "New accommodation request for STA 220",
+    "body": "Dear instructor, a student in STA 220 has requested an extension of up to 3 days on assignments as an accommodation. Please confirm whether this is feasible for your course.",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-34",
+    "role": "instructor",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "Laptop broke before deadline",
+    "body": "Hello Professor, my laptop stopped working the night before the deadline and I lost my draft. I've attached the repair receipt. Could I get a 48-hour extension?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-35",
+    "role": "instructor",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "Remark request question 5",
+    "body": "Hi Professor, I think my answer to question 5 was marked as wrong because the TA missed the second page. Could it be remarked?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-36",
+    "role": "instructor",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "Portal crash at deadline",
+    "body": "Dear Professor, our group's submission was one hour late because the portal crashed. We have screenshots of the error. Could the late penalty be removed?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-37",
+    "role": "instructor",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "Religious observance",
+    "body": "Hi Professor, the midterm falls on a religious holiday I observe. Is it possible to write it on another day?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-38",
+    "role": "instructor",
+    "sender": "Lena Novak <lena.novak@mail.university.ca>",
+    "subject": "Extension for the essay",
+    "body": "Dear Professor Okafor,\n\nI'm a varsity athlete and we have a tournament out of town the week the essay is due. Could I have a one-week extension? My coach can confirm the dates.\n\nLena",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-39",
+    "role": "instructor",
+    "sender": "Alex Moreau <alex.moreau@mail.university.ca>",
+    "subject": "Late withdrawal support",
+    "body": "Hello Professor, I'm petitioning for a late withdrawal from the course. The registrar asked for a short statement from the instructor. Would you be able to provide one?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-request_exception-40",
+    "role": "instructor",
+    "sender": "TA Sofia Rossi <sofia.rossi@mail.university.ca>",
+    "subject": "Student asking for an extension",
+    "body": "Hi Prof, a student in my tutorial asked me for a one-week extension on Lab 6 for personal reasons. Should I direct them to you, or can I approve it?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-01",
+    "role": "student",
+    "sender": "Prof. Aisha Rahman <a.rahman@university.ca>",
+    "subject": "Research assistant position",
+    "body": "Hi Hannah,\n\nI was impressed by your work in STA 220. I have a part-time research assistant position in my lab for the winter term, about 8 hours a week, paid. Would you be interested?\n\nAisha Rahman",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-02",
+    "role": "student",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "splitting the project work",
+    "body": "Hey team, I made a doc with the project tasks. Can everyone pick two tasks by tomorrow? I'll take the literature review and the intro.",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-03",
+    "role": "student",
+    "sender": "Prof. Daniel Okafor <d.okafor@university.ca>",
+    "subject": "TA position for next term",
+    "body": "Hi Mia,\n\nWould you consider being a TA for MATH 140 next term? You did very well in the course and I think you'd be great with first-years.\n\nDaniel",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-04",
+    "role": "student",
+    "sender": "Lena Novak <lena.novak@mail.university.ca>",
+    "subject": "join our hackathon team?",
+    "body": "We need one more person who knows frontend for the hackathon. Interested in joining our team? We're building a study planner app.",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-05",
+    "role": "student",
+    "sender": "Dr. Sarah Bennett <s.bennett@university.ca>",
+    "subject": "Summer research project",
+    "body": "Dear Jordan,\n\nYour professor recommended you to me. I'm looking for an undergraduate to help with a summer project on learning analytics. Would you like to hear more?\n\nSarah Bennett",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-06",
+    "role": "student",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "who does the slides",
+    "body": "For the presentation, can you do the slides on the results section? I'll do methods and Chen will do the intro.",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-07",
+    "role": "student",
+    "sender": "Engineering Design Team <solar-car@university.ca>",
+    "subject": "Solar car team: we'd like you on board",
+    "body": "Hi Ethan, thanks for coming to our info session. We'd like to invite you to join the electrical subteam. Let us know if you're in!",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-08",
+    "role": "student",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "group for the next assignment",
+    "body": "Want to be partners for Assignment 4 again? We worked well together on the last one.",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-09",
+    "role": "student",
+    "sender": "Prof. Maria Lopez <m.lopez@university.ca>",
+    "subject": "Co-authoring a conference paper",
+    "body": "Hi Sam,\n\nYour thesis results are strong enough for a conference submission. Would you like to co-author a paper for the March deadline? I'd suggest you take the lead.\n\nMaria",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-10",
+    "role": "student",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "dividing the lab report",
+    "body": "Could you write the discussion section of the lab report? I'll do the data analysis and graphs.",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-11",
+    "role": "student",
+    "sender": "Startup Incubator <launchpad@university.ca>",
+    "subject": "Founder looking for a technical co-founder",
+    "body": "A student founder in our incubator is looking for a technical co-founder for an ed-tech startup and asked us to contact you after your demo day pitch. Interested in a conversation?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-12",
+    "role": "student",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "github repo for the project",
+    "body": "I set up the GitHub repo for our project. Can you add the data cleaning script and open a pull request when it's ready?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-13",
+    "role": "student",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "case competition team",
+    "body": "Would you like to be on my team for the national case competition in February? We need someone strong in finance.",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-14",
+    "role": "student",
+    "sender": "Lab Manager <rahman-lab@university.ca>",
+    "subject": "Volunteer research opportunity",
+    "body": "Hi Liam, our lab is looking for volunteer research assistants to help with data collection next term. Let us know if you're interested.",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-15",
+    "role": "student",
+    "sender": "Alex Moreau <alex.moreau@mail.university.ca>",
+    "subject": "open source contribution",
+    "body": "I'm contributing to an open-source library for the course project. Want to work on the documentation part with me?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-16",
+    "role": "student",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "Re: project roles",
+    "body": "Okay, so you're on the backend and I'm on the database. Can you share the API endpoints you're planning so I can design the tables?\n\n> I can take the backend",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-17",
+    "role": "student",
+    "sender": "Student Union <su-exec@university.ca>",
+    "subject": "Join the student union committee",
+    "body": "Hi Olivia, we're recruiting members for the academic affairs committee. You'd help shape course evaluation policy. Interested?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-18",
+    "role": "student",
+    "sender": "Prof. James Allen <j.allen@university.ca>",
+    "subject": "Peer mentor role",
+    "body": "Hi Emma,\n\nWould you be interested in being a peer mentor for first-year students in the education program next year? It's a small stipend and looks great on applications.\n\nJA",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-19",
+    "role": "student",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "study group for stats",
+    "body": "A few of us are starting a weekly study group for STA 220. Want to join? We'll take turns explaining topics.",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-20",
+    "role": "student",
+    "sender": "Research Office <undergrad-research@university.ca>",
+    "subject": "Undergraduate research award: faculty match",
+    "body": "Hi Lucas, a faculty member in physics has expressed interest in supervising your undergraduate research award project. Would you like us to connect you?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-21",
+    "role": "instructor",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "Joining your research lab",
+    "body": "Dear Professor Rahman,\n\nI really enjoyed STA 220 and I'm very interested in your research on survey methods. Would there be any opportunity to join your lab as a volunteer or research assistant next term?\n\nBest,\nHannah Lee",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-22",
+    "role": "instructor",
+    "sender": "Dr. Sarah Bennett <s.bennett@university.ca>",
+    "subject": "Collaborating on a grant",
+    "body": "Hi,\n\nI'm putting together an SSHRC Insight grant on feedback in large classes and I think your work on peer assessment would be a great fit. Would you be open to being a co-applicant?\n\nSarah",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-23",
+    "role": "instructor",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "Summer research interest",
+    "body": "Dear Professor Okafor, I'm interested in doing summer research in combinatorics. Do you take undergraduate students, and are there projects I could help with?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-24",
+    "role": "instructor",
+    "sender": "Prof. Lin Zhao <l.zhao@uwaterloo.ca>",
+    "subject": "Joint workshop at the conference",
+    "body": "Hi, would you be interested in co-organizing a workshop on fairness in educational technology at next year's conference? I think our groups would complement each other well.",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-25",
+    "role": "instructor",
+    "sender": "Jordan Patel <jordan.patel@mail.university.ca>",
+    "subject": "Independent study course",
+    "body": "Hi Professor,\n\nI'd like to do an independent study course next term on machine learning for education. Would you consider supervising it? I have a draft topic.\n\nJordan",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-26",
+    "role": "instructor",
+    "sender": "Industry Partner <partnerships@edtechco.com>",
+    "subject": "Research partnership inquiry",
+    "body": "Dear Professor Lopez, our company is developing an adaptive learning platform and would like to explore a research partnership with your group, including funding a graduate student. Could we explore this?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-27",
+    "role": "instructor",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "Teaching assistant interest",
+    "body": "Hello Professor, I'd like to apply to be a TA for your course next term. Is there anything I should prepare beyond the official application?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-28",
+    "role": "instructor",
+    "sender": "Prof. Michael Grant <m.grant@university.ca>",
+    "subject": "Co-teaching the new data science course",
+    "body": "Hi,\n\nThe department approved the new data science course. Would you like to co-teach it with me next fall? We could split the modules by expertise.\n\nMichael",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-29",
+    "role": "instructor",
+    "sender": "Sam Taylor <sam.taylor@mail.university.ca>",
+    "subject": "Paper submission",
+    "body": "Hi Maria,\n\nThank you for suggesting the conference paper. I'd love to take the lead. Should we use the results from chapter 3 only, or include the pilot study too?\n\nSam",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-30",
+    "role": "instructor",
+    "sender": "Ethan Brooks <ethan.brooks@mail.university.ca>",
+    "subject": "Student club faculty advisor",
+    "body": "Dear Professor Allen, our new Education Technology Club needs a faculty advisor. Would you be willing to take on this role? It would involve attending a meeting once a term.",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-31",
+    "role": "instructor",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "Honours thesis supervision",
+    "body": "Dear Professor Lopez, I'm planning an honours thesis next year and would be honoured if you would supervise it. My topic is on motivation in online learning.",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-32",
+    "role": "instructor",
+    "sender": "Journal Editor <editor@jlearnsci.org>",
+    "subject": "Invitation to review",
+    "body": "Dear Professor, we would like to invite you to review a manuscript titled 'Peer feedback quality in large STEM courses' for the Journal of the Learning Sciences. Can you accept this invitation?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-33",
+    "role": "instructor",
+    "sender": "Liam Nguyen <liam.nguyen@mail.university.ca>",
+    "subject": "Volunteer for your study",
+    "body": "Hello Professor Rahman, I saw the poster for your study on study habits. I'd like to help with data collection rather than just participate. Are you looking for volunteers?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-34",
+    "role": "instructor",
+    "sender": "Dr. Priyanka Rao <p.rao@mcgill.ca>",
+    "subject": "Visiting student exchange",
+    "body": "Hi, one of my PhD students would like to spend three months in your lab next summer to work on peer assessment. Would you be open to hosting her?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-35",
+    "role": "instructor",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "Hackathon mentor",
+    "body": "Hi Professor, our hackathon is looking for faculty mentors to judge projects and give feedback. Would you be interested in joining us on November 15?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-36",
+    "role": "instructor",
+    "sender": "Olivia Brown <olivia.brown@mail.university.ca>",
+    "subject": "Research project idea",
+    "body": "Dear Professor, I have an idea for a research project on study apps and exam performance. Would you be interested in supervising it as a directed reading course?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-37",
+    "role": "instructor",
+    "sender": "Dept. of Education <edu-chair@university.ca>",
+    "subject": "Cross-department curriculum committee",
+    "body": "We are forming a cross-department committee to redesign first-year math support. Would you be willing to represent mathematics?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-38",
+    "role": "instructor",
+    "sender": "Alex Moreau <alex.moreau@mail.university.ca>",
+    "subject": "Open source project with your course",
+    "body": "Hi Professor Okafor, a few students and I are building an open-source tool for practising proofs. Would you be open to trying it in your course and giving feedback?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-39",
+    "role": "instructor",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "Teaching fellowship",
+    "body": "Hello Professor, I'm applying for the graduate teaching fellowship and would need a faculty mentor for the teaching component. Would you consider mentoring me?",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-collaboration_opportunity-40",
+    "role": "instructor",
+    "sender": "Prof. Lin Zhao <l.zhao@uwaterloo.ca>",
+    "subject": "Dataset sharing",
+    "body": "Hi again, would your group be willing to share the anonymized peer assessment dataset for a joint analysis? We could co-author the resulting paper.",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-01",
+    "role": "student",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "i'm not doing great",
+    "body": "Hey, sorry I haven't replied in the group chat. Honestly I'm really overwhelmed this week and haven't been sleeping. I don't know how I'm going to get through midterms.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-02",
+    "role": "student",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "rough week",
+    "body": "My dad was taken to the hospital last night and I'm flying home tomorrow. I'm a mess right now. Can you let the group know I'll be away?",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-03",
+    "role": "student",
+    "sender": "Lena Novak <lena.novak@mail.university.ca>",
+    "subject": "can we talk",
+    "body": "I've been feeling really down lately and I don't really have anyone else to talk to here. Would you be okay checking in with me sometime?",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-04",
+    "role": "student",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "sorry for disappearing",
+    "body": "Sorry I disappeared from the project. I've been dealing with a lot of anxiety and some days I can't get out of bed. I don't want to let you all down.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-05",
+    "role": "student",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "worried about Mia",
+    "body": "Hi, I'm worried about Mia. She hasn't come to class in two weeks and she sent me a message last night that really scared me. I don't know what to do.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-06",
+    "role": "student",
+    "sender": "Ethan Brooks <ethan.brooks@mail.university.ca>",
+    "subject": "struggling",
+    "body": "I failed the midterm and I feel like I'm not cut out for this program. Everyone else seems to get it. I'm thinking about dropping out.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-07",
+    "role": "student",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "homesick",
+    "body": "This is my first term in Canada and I'm really homesick and lonely. I don't know many people. Sorry for the random email, you just seemed nice in the lab.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-08",
+    "role": "student",
+    "sender": "Prof. Maria Lopez <m.lopez@university.ca>",
+    "subject": "Checking in",
+    "body": "Hi Sam,\n\nI noticed you seemed exhausted in our last meeting and you mentioned you haven't been sleeping. How are you doing? Please don't hesitate to tell me if you need support.\n\nMaria",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-09",
+    "role": "student",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "panic attack",
+    "body": "I had a panic attack in the middle of the exam today and had to leave. I'm so embarrassed. I don't know what to do now.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-10",
+    "role": "student",
+    "sender": "Alex Moreau <alex.moreau@mail.university.ca>",
+    "subject": "need someone to talk to",
+    "body": "Hey, I broke up with my partner this weekend and I can't focus on anything. Would you want to grab dinner and talk? I just don't want to be alone tonight.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-11",
+    "role": "student",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "financial stress",
+    "body": "I just found out my scholarship won't cover next term and I don't know how I'll pay rent. I'm so stressed I can't think about the assignment.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-12",
+    "role": "student",
+    "sender": "Liam Nguyen <liam.nguyen@mail.university.ca>",
+    "subject": "burned out",
+    "body": "I'm completely burned out. I've been working 25 hours a week and studying at night, and I feel like I'm falling apart. How do you manage it?",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-13",
+    "role": "student",
+    "sender": "TA Sofia Rossi <sofia.rossi@mail.university.ca>",
+    "subject": "Are you okay?",
+    "body": "Hi Jordan, you seemed very upset after tutorial today. I just wanted to check in and see if you're okay. The wellness centre also has drop-in hours if you need them.\n\nSofia",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-14",
+    "role": "student",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "grief",
+    "body": "My grandmother passed away yesterday. I'm going to miss the next few classes. I'm finding it really hard to deal with.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-15",
+    "role": "student",
+    "sender": "Olivia Brown <olivia.brown@mail.university.ca>",
+    "subject": "I feel so alone",
+    "body": "Everyone in our program seems to have friends already and I just feel invisible. Sorry to dump this on you.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-16",
+    "role": "student",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "not okay",
+    "body": "I don't really see the point of anything anymore. I'm tired all the time and I keep thinking everyone would be better off without me.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-17",
+    "role": "student",
+    "sender": "Lucas Martin <lucas.martin@mail.university.ca>",
+    "subject": "health issues",
+    "body": "I've been diagnosed with a chronic illness this month and I'm still processing it. I'm scared about how it will affect my studies.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-18",
+    "role": "student",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "Re: group meeting",
+    "body": "I'm sorry I missed the meeting. Things at home have been really bad lately, my parents are fighting all the time and I can't concentrate.\n\n> Where were you today?",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-19",
+    "role": "student",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "thank you for listening",
+    "body": "Thanks for listening yesterday. I'm still not feeling great, though. I keep crying for no reason. Do you think I should talk to someone at the counselling centre?",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-20",
+    "role": "student",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "unsafe at home",
+    "body": "I don't feel safe going back home for the break. I don't know who to tell or where I could stay.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-21",
+    "role": "instructor",
+    "sender": "Emma Wilson <emma.wilson@mail.university.ca>",
+    "subject": "Struggling this term",
+    "body": "Dear Professor Allen,\n\nI'm writing because I'm really struggling this term. I've been dealing with anxiety and depression, and I'm falling behind in all my courses. I don't know what to do.\n\nEmma",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-22",
+    "role": "instructor",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "I can't do this anymore",
+    "body": "Professor, I'm sorry to email you this but I can't do this anymore. I haven't slept in days and I feel like giving up on everything.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-23",
+    "role": "instructor",
+    "sender": "Jordan Patel <jordan.patel@mail.university.ca>",
+    "subject": "Family emergency",
+    "body": "Hi Professor,\n\nMy mother was diagnosed with cancer last week and I've been at the hospital most days. I'm finding it very hard to focus on anything.\n\nJordan",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-24",
+    "role": "instructor",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "Concerned about a classmate",
+    "body": "Dear Professor Rahman, I'm worried about a student in our class. She told me she's been having thoughts of hurting herself. I wasn't sure who to tell, so I'm writing to you.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-25",
+    "role": "instructor",
+    "sender": "Lucas Martin <lucas.martin@mail.university.ca>",
+    "subject": "Personal difficulties",
+    "body": "Hello Professor Okafor, I've been going through a very difficult time since my parents' divorce. I wanted you to know why my performance has dropped.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-26",
+    "role": "instructor",
+    "sender": "Olivia Brown <olivia.brown@mail.university.ca>",
+    "subject": "Feeling overwhelmed",
+    "body": "Dear Professor, I feel completely overwhelmed. I'm working two jobs to pay tuition and I can barely keep up. I'm afraid I'll fail.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-27",
+    "role": "instructor",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "Not doing well",
+    "body": "Hello Professor, I'm an international student and I've been very isolated and anxious this term. I haven't been eating properly. I'm sorry if this is not the right place to say this.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-28",
+    "role": "instructor",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Concern about a student in my tutorial",
+    "body": "Hi Prof, a student in my tutorial broke down in tears today and said she hasn't left her room in a week except for class. I gave her the counselling number but wanted to let you know.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-29",
+    "role": "instructor",
+    "sender": "Ethan Brooks <ethan.brooks@mail.university.ca>",
+    "subject": "Thinking of dropping out",
+    "body": "Dear Professor Allen, I've been feeling like a failure since the midterm. I'm seriously thinking about leaving university. I don't feel like I belong here.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-30",
+    "role": "instructor",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "Bereavement",
+    "body": "Hello Professor, my father passed away suddenly on the weekend. I'll be travelling home for the funeral and I'm not sure when I'll be back.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-31",
+    "role": "instructor",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "Housing crisis",
+    "body": "Dear Professor Lopez, I was evicted from my apartment this week and I'm staying with friends. Everything is chaos and I'm having trouble keeping up.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-32",
+    "role": "instructor",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "Panic attacks during exams",
+    "body": "Hi Professor, I've started having panic attacks during exams and I had to leave the midterm early. I don't know if I can sit the final in the exam hall.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-33",
+    "role": "instructor",
+    "sender": "Sam Taylor <sam.taylor@mail.university.ca>",
+    "subject": "Re: Checking in",
+    "body": "Hi Maria,\n\nThank you for asking. Honestly, I'm not doing well. I've been feeling burned out for months and I'm questioning whether I should continue the PhD.\n\nSam",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-34",
+    "role": "instructor",
+    "sender": "Liam Nguyen <liam.nguyen@mail.university.ca>",
+    "subject": "Sorry for my behaviour",
+    "body": "Hi Professor, I'm sorry for leaving the lecture suddenly today. I've been having a really hard time with my mental health and I felt like I couldn't breathe.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-35",
+    "role": "instructor",
+    "sender": "Alex Moreau <alex.moreau@mail.university.ca>",
+    "subject": "Urgent",
+    "body": "Professor, I don't feel safe right now. I'm not sure who else to reach out to. Please help.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-36",
+    "role": "instructor",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "Struggling with a health diagnosis",
+    "body": "Dear Professor, I was recently diagnosed with an eating disorder and I've started treatment. Some weeks are very hard. I wanted to let you know.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-37",
+    "role": "instructor",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "Food insecurity",
+    "body": "Hello Professor, I'm embarrassed to say this, but I've been skipping meals because I can't afford food. It's affecting my concentration in class.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-38",
+    "role": "instructor",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "Hard time at home",
+    "body": "Hi Professor, things at home are very difficult right now and I've been the one taking care of my younger siblings. I'm exhausted and falling behind.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-39",
+    "role": "instructor",
+    "sender": "Lena Novak <lena.novak@mail.university.ca>",
+    "subject": "Lonely",
+    "body": "Dear Professor Okafor, I know this isn't academic, but you mentioned we could reach out. I've been extremely lonely this year and it's starting to affect everything.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-wellbeing-40",
+    "role": "instructor",
+    "sender": "Residence Don <don.north@university.ca>",
+    "subject": "Student welfare concern",
+    "body": "Hello, I'm a residence don. One of your students, who lives on my floor, has been missing classes and seems very withdrawn. She mentioned your course is the one she's most worried about. I wanted to flag this.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-01",
+    "role": "student",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "quick question",
+    "body": "hey are you around?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-02",
+    "role": "student",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "Re: Re: Re: thing",
+    "body": "so what did you decide about the thing?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-03",
+    "role": "student",
+    "sender": "Prof. Maria Lopez <m.lopez@university.ca>",
+    "subject": "Following up",
+    "body": "Hi Sam, just following up on my last email. Let me know.\n\nM",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-04",
+    "role": "student",
+    "sender": "Lena Novak <lena.novak@mail.university.ca>",
+    "subject": "(no subject)",
+    "body": "did you see it",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-05",
+    "role": "student",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "hmm",
+    "body": "I'm not sure about what we talked about earlier. Can you think about it and let me know?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-06",
+    "role": "student",
+    "sender": "Unknown Sender <m.kowalski@gmail.com>",
+    "subject": "Hello",
+    "body": "Hi, I got your email from a friend. I wanted to ask you something but it's a bit complicated to explain by email.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-07",
+    "role": "student",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "about tomorrow",
+    "body": "Is it still on for tomorrow or not?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-08",
+    "role": "student",
+    "sender": "Ethan Brooks <ethan.brooks@mail.university.ca>",
+    "subject": "Re: the doc",
+    "body": "See my comments. Thoughts?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-09",
+    "role": "student",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Re: your email",
+    "body": "Hi, I'm not sure what you mean. Can you clarify?\n\nKevin",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-10",
+    "role": "student",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "?",
+    "body": "??",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-11",
+    "role": "student",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "sorry",
+    "body": "Sorry about earlier, I hope that's okay",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-12",
+    "role": "student",
+    "sender": "Alex Moreau <alex.moreau@mail.university.ca>",
+    "subject": "Re: that link",
+    "body": "Was that the right one? It looked different from what I expected.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-13",
+    "role": "student",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "update",
+    "body": "Just wanted to give you an update on everything. Call me when you can?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-14",
+    "role": "student",
+    "sender": "Department Office <dept-office@university.ca>",
+    "subject": "Re: your inquiry",
+    "body": "Hello, we received your message but it seems the attachment was missing. Could you resend your inquiry?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-15",
+    "role": "student",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "the form",
+    "body": "Did you do the form? Which one do I need?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-16",
+    "role": "student",
+    "sender": "Olivia Brown <olivia.brown@mail.university.ca>",
+    "subject": "Re: Re: plans",
+    "body": "maybe? depends on the other thing",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-17",
+    "role": "student",
+    "sender": "Liam Nguyen <liam.nguyen@mail.university.ca>",
+    "subject": "important",
+    "body": "Need to talk to you about something important. Not over email.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-18",
+    "role": "student",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "hey",
+    "body": "Hey! Long time. What's up?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-19",
+    "role": "student",
+    "sender": "Prof. Daniel Okafor <d.okafor@university.ca>",
+    "subject": "Re:",
+    "body": "See below.\n\n> (forwarded message without content)",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-20",
+    "role": "student",
+    "sender": "Lucas Martin <lucas.martin@mail.university.ca>",
+    "subject": "did you get my message",
+    "body": "Did you get my message from last week? Let me know what you think.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-21",
+    "role": "instructor",
+    "sender": "Jordan Patel <jordan.patel@mail.university.ca>",
+    "subject": "Quick question",
+    "body": "Hi Professor, I have a quick question. Would you have a moment?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-22",
+    "role": "instructor",
+    "sender": "Emma Wilson <emma.wilson@mail.university.ca>",
+    "subject": "Following up on my previous email",
+    "body": "Dear Professor Allen,\n\nI'm following up on my email from last week. Please let me know.\n\nThank you,\nEmma",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-23",
+    "role": "instructor",
+    "sender": "Unknown Sender <jsmith1987@gmail.com>",
+    "subject": "Question",
+    "body": "Hello, I have a question about your work. Please contact me.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-24",
+    "role": "instructor",
+    "sender": "Lucas Martin <lucas.martin@mail.university.ca>",
+    "subject": "Re: Re: Assignment",
+    "body": "So is that okay then?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-25",
+    "role": "instructor",
+    "sender": "Chen Wei <chen.wei@mail.university.ca>",
+    "subject": "(no subject)",
+    "body": "Professor, sorry to bother you.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-26",
+    "role": "instructor",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "Hello",
+    "body": "Hello Professor, I hope you're well. I wanted to reach out about something.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-27",
+    "role": "instructor",
+    "sender": "Dr. Sarah Bennett <s.bennett@university.ca>",
+    "subject": "That thing we discussed",
+    "body": "Hi, any thoughts on that thing we discussed at lunch? No rush.\n\nS",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-28",
+    "role": "instructor",
+    "sender": "Hannah Lee <hannah.lee@mail.university.ca>",
+    "subject": "Re: your comment",
+    "body": "I'm not sure I understand what you meant in your comment. Could you explain?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-29",
+    "role": "instructor",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "Hi",
+    "body": "Hi Professor, is now a good time?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-30",
+    "role": "instructor",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "Re: Re: Re:",
+    "body": "ok so what should I do",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-31",
+    "role": "instructor",
+    "sender": "Department Office <cs-office@university.ca>",
+    "subject": "Re: your request",
+    "body": "Hello, could you clarify which request this refers to? We have several on file under your name.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-32",
+    "role": "instructor",
+    "sender": "Olivia Brown <olivia.brown@mail.university.ca>",
+    "subject": "Concern",
+    "body": "Hi Professor, I have a concern but I'm not sure how to put it into words.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-33",
+    "role": "instructor",
+    "sender": "Ethan Brooks <ethan.brooks@mail.university.ca>",
+    "subject": "about earlier",
+    "body": "About what you said earlier, I think you're right but I'm not sure.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-34",
+    "role": "instructor",
+    "sender": "Unknown Sender <info@consultancy-group.com>",
+    "subject": "Inquiry",
+    "body": "Dear Sir/Madam, we would like to discuss a matter with you. Kindly advise a suitable time.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-35",
+    "role": "instructor",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "Sorry",
+    "body": "Sorry, I sent the wrong file earlier. Please ignore it.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-36",
+    "role": "instructor",
+    "sender": "Liam Nguyen <liam.nguyen@mail.university.ca>",
+    "subject": "Re: your email",
+    "body": "Is this about the thing from Tuesday?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-37",
+    "role": "instructor",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "Question about something",
+    "body": "Hi, I had a question but I think I figured it out. Actually, maybe not. I'll let you know.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-38",
+    "role": "instructor",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "Re: Re: request",
+    "body": "So can I or not?",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-39",
+    "role": "instructor",
+    "sender": "Prof. Michael Grant <m.grant@university.ca>",
+    "subject": "Re: Fwd:",
+    "body": "What do you make of this?\n\n---------- Forwarded message ---------\nFrom: Dean's Office\n(see attached)",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-ambiguous-40",
+    "role": "instructor",
+    "sender": "Alex Moreau <alex.moreau@mail.university.ca>",
+    "subject": "Hello again",
+    "body": "Hello again Professor, me again! Hope it's okay that I'm writing.",
+    "true_category": "ambiguous",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-01",
+    "role": "student",
+    "sender": "IT Help Desk <it-support@univ-mail-alerts.com>",
+    "subject": "Your mailbox is full",
+    "body": "Your university mailbox has reached its storage limit. Click here within 24 hours to upgrade your storage or your account will be deactivated.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-02",
+    "role": "student",
+    "sender": "Campus Jobs <hr@student-jobs-portal.net>",
+    "subject": "Remote assistant job - $500/week",
+    "body": "We are hiring students for a flexible remote personal assistant role. $500 per week, no experience required. Reply with your phone number to start today.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-03",
+    "role": "student",
+    "sender": "Financial Aid <finaid@university-grants.org>",
+    "subject": "You qualify for a $2,000 grant",
+    "body": "Congratulations! You have been selected for a $2,000 student grant. To receive the funds, confirm your banking details at the secure link below.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-04",
+    "role": "student",
+    "sender": "Security Team <noreply@acc0unt-verify.com>",
+    "subject": "Unusual sign-in activity",
+    "body": "We detected unusual sign-in activity on your student account. Verify your identity immediately by entering your password here to avoid suspension.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-05",
+    "role": "student",
+    "sender": "Apple Gift Card <rewards@prize-winner.biz>",
+    "subject": "You've won an iPad!",
+    "body": "You were selected as our weekly winner! Claim your free iPad now by paying a small shipping fee.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-06",
+    "role": "student",
+    "sender": "Prof. Maria L0pez <maria.lopez.prof@gmail.com>",
+    "subject": "Quick favour",
+    "body": "Hi, are you available? I need you to buy some gift cards for a student event and I will reimburse you. Please reply quickly, I'm in a meeting.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-07",
+    "role": "student",
+    "sender": "Registrar <registrar@student-portal-update.com>",
+    "subject": "Account suspended",
+    "body": "Your student account has been suspended due to unpaid fees. Pay now with your credit card to restore access.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-08",
+    "role": "student",
+    "sender": "Crypto Rewards <info@coin-airdrop.io>",
+    "subject": "Free crypto for students",
+    "body": "Get 0.05 BTC free! Students only. Connect your wallet now to claim your airdrop.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-09",
+    "role": "student",
+    "sender": "Textbook Deals <sales@freetextbooks-now.ru>",
+    "subject": "Download all your textbooks free",
+    "body": "Download every textbook PDF for free. Just enter your university login to access the library.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-10",
+    "role": "student",
+    "sender": "Housing Office <housing@residence-payments.net>",
+    "subject": "Urgent: residence payment failed",
+    "body": "Your residence payment failed. Wire transfer the amount within 48 hours to avoid eviction. Bank details attached.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-11",
+    "role": "student",
+    "sender": "Scholarship Committee <awards@intl-scholarship-fund.org>",
+    "subject": "Claim your scholarship",
+    "body": "You've been awarded an international scholarship of $10,000. A processing fee of $150 is required to release the funds.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-12",
+    "role": "student",
+    "sender": "DocuSign <docs@docusign-secure-mail.com>",
+    "subject": "Document waiting for your signature",
+    "body": "You have a document from Financial Aid waiting. Log in with your university credentials to view and sign.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-13",
+    "role": "student",
+    "sender": "Netflix <billing@netflix-account-help.com>",
+    "subject": "Payment declined",
+    "body": "Your payment was declined. Update your card details now to keep your student plan.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-14",
+    "role": "student",
+    "sender": "Job Offer <recruit@globalhiring-agency.com>",
+    "subject": "Congratulations, you're hired",
+    "body": "After reviewing your resume, we offer you a data entry position. We will send you a cheque to buy equipment; deposit it and send back the difference.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-15",
+    "role": "student",
+    "sender": "Microsoft 365 <admin@office365-renewal.com>",
+    "subject": "Your license expires today",
+    "body": "Your Microsoft 365 student licence expires today. Renew now by signing in with your school account.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-16",
+    "role": "student",
+    "sender": "Canada Revenue <cra-refund@tax-refund-canada.com>",
+    "subject": "Tax refund available",
+    "body": "You are eligible for a tax refund of $812.40. Submit your SIN and banking information to receive it.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-17",
+    "role": "student",
+    "sender": "Library <library@lib-account-notice.com>",
+    "subject": "Overdue fine: pay now",
+    "body": "You have an overdue fine of $45. Pay immediately with this link or your degree will be withheld.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-18",
+    "role": "student",
+    "sender": "Dating Alert <hello@campus-singles.xyz>",
+    "subject": "3 students near you want to meet",
+    "body": "Three students from your campus want to meet you tonight. See their photos now!",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-19",
+    "role": "student",
+    "sender": "Tutor Services <help@essay-writers-pro.com>",
+    "subject": "Get your essay written in 24h",
+    "body": "Professional writers will complete your essay in 24 hours. 100% plagiarism free. 50% off today.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-20",
+    "role": "student",
+    "sender": "Student Survey <survey@student-rewards.click>",
+    "subject": "Complete survey, get $100",
+    "body": "Answer 5 questions about campus life and receive a $100 Amazon gift card instantly.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-21",
+    "role": "instructor",
+    "sender": "IT Services <it-security@university-mail-support.com>",
+    "subject": "Password expires in 24 hours",
+    "body": "Your faculty email password expires in 24 hours. Click here to keep your current password.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-22",
+    "role": "instructor",
+    "sender": "Journal of Advanced Global Research <editor@jagr-publishing.org>",
+    "subject": "Invitation to publish - fast review",
+    "body": "Dear Esteemed Professor, we invite you to publish in our journal with peer review in 7 days. Article processing charge is only $299.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-23",
+    "role": "instructor",
+    "sender": "Dean of Arts <dean.office.university@gmail.com>",
+    "subject": "Are you available?",
+    "body": "Hello, are you on campus? I need you to handle a confidential task for me. Reply as soon as possible.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-24",
+    "role": "instructor",
+    "sender": "International Conference <info@icset-conference.net>",
+    "subject": "Keynote invitation",
+    "body": "Dear Professor, you have been selected as keynote speaker at the International Conference on Science, Engineering and Technology in Dubai. Registration fee applies.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-25",
+    "role": "instructor",
+    "sender": "Payroll Department <payroll@uni-payroll-update.com>",
+    "subject": "Update your direct deposit",
+    "body": "We are updating our payroll system. Please confirm your bank account details to receive this month's salary.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-26",
+    "role": "instructor",
+    "sender": "Research Funding Agency <grants@global-research-foundation.org>",
+    "subject": "Your grant has been approved",
+    "body": "Your research grant of $250,000 has been approved. To release the funds, pay the administrative fee by wire transfer.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-27",
+    "role": "instructor",
+    "sender": "Zoom <alerts@zoom-meeting-invites.com>",
+    "subject": "You missed a meeting",
+    "body": "You missed a scheduled meeting with the Department Chair. Sign in to view the recording.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-28",
+    "role": "instructor",
+    "sender": "Adobe <noreply@adobe-docs-share.net>",
+    "subject": "Shared document: Faculty Salary Review",
+    "body": "A document 'Faculty Salary Review 2026' has been shared with you. Sign in with your email credentials to view.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-29",
+    "role": "instructor",
+    "sender": "Predatory Publisher <submissions@intl-journal-scientific.com>",
+    "subject": "Call for papers: all fields",
+    "body": "We accept papers in all fields of science, arts and humanities. Publication guaranteed within 2 weeks.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-30",
+    "role": "instructor",
+    "sender": "Bank Security <security@rbc-alerts-online.com>",
+    "subject": "Your account is locked",
+    "body": "We have locked your account due to suspicious activity. Confirm your identity to unlock it.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-31",
+    "role": "instructor",
+    "sender": "Webinar Pro <events@edu-webinars-free.com>",
+    "subject": "Earn passive income as a professor",
+    "body": "Learn how professors are earning $10k a month online with our proven system. Free webinar today.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-32",
+    "role": "instructor",
+    "sender": "Library <library-alert@univ-library-access.com>",
+    "subject": "Library access will be revoked",
+    "body": "Your access to library databases will be revoked. Re-authenticate now with your faculty login.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-33",
+    "role": "instructor",
+    "sender": "Editorial Board <board@scholarly-press-intl.com>",
+    "subject": "Join our editorial board",
+    "body": "Dear Dr., we are pleased to invite you to join our editorial board. A membership fee of $199 per year applies.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-34",
+    "role": "instructor",
+    "sender": "Courier <delivery@parcel-tracking-ca.com>",
+    "subject": "Package could not be delivered",
+    "body": "We attempted to deliver a package to your office. Pay the $2.99 redelivery fee to reschedule.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-35",
+    "role": "instructor",
+    "sender": "Student <student.urgent.help@outlook.com>",
+    "subject": "Urgent help needed",
+    "body": "Professor, I am a student in your class and I lost my wallet abroad. Could you send me $300 by e-transfer? I will pay you back next week.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-36",
+    "role": "instructor",
+    "sender": "Antivirus <support@secure-pc-scan.com>",
+    "subject": "Virus detected on your device",
+    "body": "A virus was detected on your university computer. Download our tool immediately to remove it.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-37",
+    "role": "instructor",
+    "sender": "Conference Registration <register@worldcongress-2027.org>",
+    "subject": "Final reminder: speaker fee",
+    "body": "As a confirmed speaker, please pay your speaker fee of $650 to secure your slot.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-38",
+    "role": "instructor",
+    "sender": "SharePoint <no-reply@sharepoint-docs-access.com>",
+    "subject": "Exam papers shared with you",
+    "body": "Final exam papers have been shared with you. Log in to access.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-39",
+    "role": "instructor",
+    "sender": "HR Benefits <benefits@employee-benefit-update.com>",
+    "subject": "Open enrollment: action required",
+    "body": "Open enrollment ends today. Log in with your staff credentials to keep your benefits.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-spam-40",
+    "role": "instructor",
+    "sender": "Gift Card Promo <promo@faculty-appreciation.biz>",
+    "subject": "Faculty appreciation gift",
+    "body": "As a thank you for your service, claim your $100 gift card by completing a short form with your personal details.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": false
+  },
+  {
+    "id": "aca-trap-01",
+    "role": "student",
+    "sender": "Prof. Maria Lopez <m.lopez@university.ca>",
+    "subject": "Re: Thanks!",
+    "body": "Thanks, glad it helped. One thing though, could you send me your final dataset before Friday so I can check the results?\n\n> Thank you for the feedback!",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-trap-02",
+    "role": "instructor",
+    "sender": "Jordan Patel <jordan.patel@mail.university.ca>",
+    "subject": "Thank you + one question",
+    "body": "Thank you so much for the lecture today, it really helped. Quick question: will the slides for week 8 be posted before the quiz?\n\nJordan",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-trap-03",
+    "role": "instructor",
+    "sender": "Emma Wilson <emma.wilson@mail.university.ca>",
+    "subject": "Question about the midterm date",
+    "body": "Hi Professor, when is the midterm exactly? Also, honestly, I've been having a really hard time lately and I'm not sure I'll be okay to write it. I haven't been sleeping or eating much.",
+    "true_category": "wellbeing",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-trap-04",
+    "role": "student",
+    "sender": "Department of Computer Science <cs-undergrad@university.ca>",
+    "subject": "Course registration deadline - action required",
+    "body": "To all CS students: you must request your winter courses in ACORN by November 14. Students who miss the deadline will lose priority enrolment. Unsubscribe from department mailing list.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-trap-05",
+    "role": "instructor",
+    "sender": "Prof. Michael Grant <m.grant@university.ca>",
+    "subject": "Fwd: Faculty newsletter",
+    "body": "Can you take a look at the funding call in this newsletter and tell me if you'd like to apply together? Deadline is soon.\n\n---------- Forwarded message ---------\nFrom: Faculty of Arts & Science <fas-news@university.ca>\nSubject: Faculty Newsletter - November\n\nIn this issue: research funding deadlines...",
+    "true_category": "collaboration_opportunity",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-trap-06",
+    "role": "student",
+    "sender": "IT Services <it-security@university.ca>",
+    "subject": "Mandatory: set up multi-factor authentication",
+    "body": "Official notice from University IT: all students must enable multi-factor authentication by November 30. Do not reply with your password; we will never ask for it. Instructions are on the IT help site.",
+    "true_category": "admin_action",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-trap-07",
+    "role": "instructor",
+    "sender": "Lucas Martin <lucas.martin@mail.university.ca>",
+    "subject": "Meeting to discuss my extension",
+    "body": "Dear Professor Okafor, could we meet this week to discuss an extension for my project? I've had a family emergency and need about a week more.",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-trap-08",
+    "role": "instructor",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "Re: Assignment 2 question",
+    "body": "Got it, thanks! That makes sense now.\n\nOn Mon, Prof. Allen wrote:\n> In part b you should use the conditional probability formula. Does that help?",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-trap-09",
+    "role": "student",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "meeting + Q3",
+    "body": "Can we meet tomorrow at 4 to work on the problem set? I still don't get how to set up Q3, so we can go through it together.",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-trap-10",
+    "role": "instructor",
+    "sender": "Isabella Garcia <isabella.garcia@mail.university.ca>",
+    "subject": "Course outline question",
+    "body": "Dear Professor, the outline says late work loses 10% per day. Does that also apply to the final project, or could I get an exception since my laptop was stolen?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": true
+  }
+]

@@ -8,7 +8,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
 from app.email_text import (
-    body_bulk_reason, bulk_reason, clean_body, headers_dict, html_to_text,
+    auth_verdict, body_bulk_reason, bulk_reason, clean_body, headers_dict,
+    html_to_text,
 )
 
 SCOPES = [
@@ -45,9 +46,10 @@ LABEL_ANNOUNCEMENT = "AI/Announcement"
 LABEL_NO_REPLY = "AI/No reply needed"
 LABEL_DRAFT_READY = "AI/Draft ready"
 LABEL_NEEDS_REVIEW = "AI/Needs review"
+LABEL_ACTION_NEEDED = "AI/Action needed"
 AGENT_LABELS = [
     LABEL_PROCESSED, LABEL_ANNOUNCEMENT, LABEL_NO_REPLY,
-    LABEL_DRAFT_READY, LABEL_NEEDS_REVIEW,
+    LABEL_DRAFT_READY, LABEL_NEEDS_REVIEW, LABEL_ACTION_NEEDED,
 ]
 
 # Unread emails are left unread now, so the UNREAD list also returns ones
@@ -98,7 +100,8 @@ def fetch_unread_emails(service, max_results=10, processed_label_id=None):
     """Returns up to max_results unread emails not yet labelled processed.
 
     Keys: gmail_id, thread_id, message_id, references, sender, reply_to,
-    subject, body (cleaned), quoted_text, raw_body, bulk_reason.
+    subject, body (cleaned), quoted_text, raw_body, bulk_reason,
+    auth_verdict.
 
     Filters by the UNREAD label directly rather than q="is:unread" --
     the q= search query runs against Gmail's search index, which lags
@@ -150,6 +153,7 @@ def fetch_unread_emails(service, max_results=10, processed_label_id=None):
             "quoted_text": quoted,
             "raw_body": raw_body,
             "bulk_reason": bulk_reason(label_ids, headers) or body_bulk_reason(raw_body),
+            "auth_verdict": auth_verdict(msg["payload"]),
         })
 
     return emails
@@ -215,6 +219,28 @@ def create_draft_reply(service, email: dict, reply_text: str):
     if email.get("thread_id"):
         message["threadId"] = email["thread_id"]
 
+    return service.users().drafts().create(
+        userId="me", body={"message": message}
+    ).execute()
+
+
+def create_self_note(service, email: dict, owner_address: str, note_text: str):
+    """A draft in the original thread addressed to the inbox owner, not the
+    sender: a note about the email, not a reply to it. Sending it by
+    mistake only emails the owner."""
+    msg = EmailMessage()
+    msg["To"] = owner_address
+    msg["Subject"] = f"[AI note] Exception request: {email['subject'] or '(no subject)'}"
+    if email.get("message_id"):
+        msg["In-Reply-To"] = email["message_id"]
+        msg["References"] = " ".join(
+            x for x in (email.get("references"), email["message_id"]) if x
+        )
+    msg.set_content(note_text)
+
+    message = {"raw": base64.urlsafe_b64encode(msg.as_bytes()).decode()}
+    if email.get("thread_id"):
+        message["threadId"] = email["thread_id"]
     return service.users().drafts().create(
         userId="me", body={"message": message}
     ).execute()

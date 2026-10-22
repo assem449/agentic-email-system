@@ -45,7 +45,7 @@ def _flow() -> Flow:
 
 
 @router.get("/auth/start")
-def auth_start(participant_id: Optional[str] = None):
+def auth_start(participant_id: Optional[str] = None, login_hint: Optional[str] = None):
     """Landing link participants click. The participant's real identity
     is always the connected Google account's email address (set in
     /auth/callback once we know it) -- not anything passed here.
@@ -60,6 +60,9 @@ def auth_start(participant_id: Optional[str] = None):
         include_granted_scopes="true",
         prompt="consent",  # force a refresh_token every time, for a study
         state=state,
+        # Pre-selects the right Google account when the check-in page's
+        # "Reconnect Gmail" button sends a participant here.
+        **({"login_hint": login_hint} if login_hint else {}),
     )
     return RedirectResponse(authorization_url)
 

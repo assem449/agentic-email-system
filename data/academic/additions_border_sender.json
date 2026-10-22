@@ -1,0 +1,302 @@
+[
+  {
+    "id": "aca-border-01",
+    "role": "instructor",
+    "sender": "Jordan Patel <jordan.patel@mail.university.ca>",
+    "subject": "Late penalty for Lab 4",
+    "body": "Hi Professor, what is the late penalty for Lab 4? The syllabus mentions 10% but doesn't say if that's per day.\n\nJordan",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-02",
+    "role": "instructor",
+    "sender": "Jordan Patel <jordan.patel@mail.university.ca>",
+    "subject": "Late penalty for Lab 4",
+    "body": "Hi Professor, I submitted Lab 4 one day late because I was moving apartments. Could the late penalty be waived this once?\n\nJordan",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-03",
+    "role": "instructor",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "Notes on the midterm?",
+    "body": "Hello, are we allowed to bring notes to the midterm, or is it closed book?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-04",
+    "role": "instructor",
+    "sender": "Ava Johnson <ava.johnson@mail.university.ca>",
+    "subject": "Notes on the midterm?",
+    "body": "Hello, I have a documented memory condition. Could I be allowed one page of notes on the midterm even though it's closed book?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-05",
+    "role": "instructor",
+    "sender": "Liam Nguyen <liam.nguyen@mail.university.ca>",
+    "subject": "How do extensions work?",
+    "body": "Hi Prof, what is the process for requesting an extension in this course? Do we email you or use a form?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-06",
+    "role": "instructor",
+    "sender": "Liam Nguyen <liam.nguyen@mail.university.ca>",
+    "subject": "Extension on the essay",
+    "body": "Hi Prof, could I have a three-day extension on the essay? I had two other deadlines move onto the same day.",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-07",
+    "role": "instructor",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "Final exam date",
+    "body": "Dear Professor, is the final exam date on the timetable fixed now, or could it still change?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-08",
+    "role": "instructor",
+    "sender": "Mia Torres <mia.torres@mail.university.ca>",
+    "subject": "Writing the final early",
+    "body": "Dear Professor, my only flight home leaves the morning of the final. Could I write it a day early?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-09",
+    "role": "instructor",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "Resubmission policy",
+    "body": "Hello, does the course allow resubmitting a lab after it's graded? I couldn't find it in the outline.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-10",
+    "role": "instructor",
+    "sender": "Noah Clark <noah.clark@mail.university.ca>",
+    "subject": "Resubmitting Lab 2",
+    "body": "Hello, I realised Lab 2 didn't follow the formatting guidelines. Would you allow me to resubmit it, even though the deadline has passed?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-11",
+    "role": "student",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "late days",
+    "body": "do you know how many late days we get in this course? I can't find it anywhere",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-12",
+    "role": "student",
+    "sender": "Priya Shah <priya.shah@mail.university.ca>",
+    "subject": "one more late day?",
+    "body": "can you ask Prof if our group can use one more late day than allowed? we're so close to finishing",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-13",
+    "role": "student",
+    "sender": "TA Kevin Wu <kevin.wu@mail.university.ca>",
+    "subject": "Midterm: in person or online?",
+    "body": "Hi Ethan, can you confirm whether you'll write the midterm in person or online? Both options are open to everyone.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-14",
+    "role": "student",
+    "sender": "Prof. James Allen <j.allen@university.ca>",
+    "subject": "Writing the midterm online",
+    "body": "Hi Ethan,\n\nYou asked to write the midterm online although it is in person for the class. Please tell me the reason so I can decide whether to approve it.\n\nJA",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-15",
+    "role": "student",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "regrade window",
+    "body": "is the regrade window one week or two weeks after marks come out?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-16",
+    "role": "student",
+    "sender": "Daniel Kim <daniel.kim@mail.university.ca>",
+    "subject": "reopen the regrade window?",
+    "body": "the regrade window closed yesterday but I only saw my mark today. should I ask Prof to reopen it for me? would you sign on too since yours was late as well?",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-17",
+    "role": "student",
+    "sender": "TA Sofia Rossi <sofia.rossi@mail.university.ca>",
+    "subject": "Your tutorial section",
+    "body": "Hi Hannah, which tutorial section are you registered in? Your name isn't on my list for Thursday.",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-18",
+    "role": "student",
+    "sender": "TA Sofia Rossi <sofia.rossi@mail.university.ca>",
+    "subject": "Permanent tutorial switch",
+    "body": "Hi Hannah, you asked to attend the Thursday tutorial permanently instead of your registered one. The coordinator needs your reason before approving the switch.",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-19",
+    "role": "student",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "lab attendance",
+    "body": "what's the attendance policy for labs? is it graded or just recommended?",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-border-20",
+    "role": "student",
+    "sender": "Omar Farouk <omar.farouk@mail.university.ca>",
+    "subject": "excusing my labs",
+    "body": "I missed two labs for a family funeral. can you ask the TA to excuse them for me? I'll send the documentation tonight.",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-sender-01",
+    "role": "instructor",
+    "sender": "Jordan Patel <jpatel.uni@gmail.com>",
+    "subject": "Midterm room",
+    "body": "Hi Professor, sorry for writing from my personal email, my university account is locked. Which room is the midterm in?\n\nJordan Patel, MATH 240",
+    "true_category": "course_logistics",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-sender-02",
+    "role": "instructor",
+    "sender": "Chen Wei <chenwei.99@gmail.com>",
+    "subject": "Extension request",
+    "body": "Hello Professor, my university email isn't working. I was sick all week; could I get a two-day extension on Assignment 3? I have a doctor's note.",
+    "true_category": "request_exception",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-sender-03",
+    "role": "instructor",
+    "sender": "Isabella Garcia <isa.garcia.writes@gmail.com>",
+    "subject": "Question on today's proof",
+    "body": "Dear Professor, why did we need strong induction in today's proof instead of regular induction?",
+    "true_category": "academic_question",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-sender-04",
+    "role": "student",
+    "sender": "Lena Novak <lenanovak21@gmail.com>",
+    "subject": "study group tomorrow?",
+    "body": "want to meet tomorrow at 3 in the library to go over the problem set?",
+    "true_category": "meeting_request",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-sender-05",
+    "role": "student",
+    "sender": "Alex Moreau <alex.moreau.dev@outlook.com>",
+    "subject": "Re: notes",
+    "body": "got them, thanks! no need to send the slides too.",
+    "true_category": "informational",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-sender-06",
+    "role": "student",
+    "sender": "IT Service Desk <helpdesk@university.ca-support.net>",
+    "subject": "Mailbox quota exceeded",
+    "body": "Your university mailbox is over quota. Sign in with your university username and password at the link to keep receiving mail.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-sender-07",
+    "role": "instructor",
+    "sender": "Prof. Daniel Okafor <d.okafor@university-ca.org>",
+    "subject": "Quick request",
+    "body": "Hello, I'm in a meeting. Can you purchase four $100 gift cards for a student award and send me the codes? I'll reimburse you today.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-sender-08",
+    "role": "student",
+    "sender": "Registrar <registrar@university.ca.account-review.com>",
+    "subject": "Enrolment hold",
+    "body": "A hold has been placed on your enrolment. Confirm your identity by entering your login and SMS code to remove it.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-sender-09",
+    "role": "instructor",
+    "sender": "Library Services <library@university-ca-access.info>",
+    "subject": "Database access expiring",
+    "body": "Your faculty database access expires today. Re-authenticate with your email credentials to keep access.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": true
+  },
+  {
+    "id": "aca-sender-10",
+    "role": "student",
+    "sender": "Payroll Office <payroll@universityca-hr.com>",
+    "subject": "Student TA pay update",
+    "body": "Your TA payment could not be processed. Update your direct deposit details through this secure form within 24 hours.",
+    "true_category": "spam",
+    "source": "generated",
+    "trap": true
+  }
+]

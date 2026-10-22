@@ -250,6 +250,9 @@ def poller_status(x_admin_token: Optional[str] = Header(None)):
     return {
         "thread_alive": bool(_poller_thread and _poller_thread.is_alive()),
         "active_participants": db.list_active_participant_ids(),
+        # Google access lapsed (7-day expiry in Testing mode, or revoked);
+        # each one needs to reconnect via /auth/start.
+        "inactive_participants": db.list_inactive_participant_ids(),
         **poller.STATUS,
     }
 

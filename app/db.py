@@ -29,7 +29,23 @@ CREATE TABLE IF NOT EXISTS participants (
     checkin_token TEXT,
     welcomed_at TEXT,
     connected_at TEXT NOT NULL,
-    active INTEGER NOT NULL DEFAULT 1
+    active INTEGER NOT NULL DEFAULT 1,
+    role TEXT
+);
+
+-- course_logistics replies written from one FAQ entry, reused for the
+-- next email that matches the same entry. faq_version is a hash of the
+-- FAQ file, so editing the FAQ (a changed policy) stops old replies from
+-- being reused. Stored without greeting or sign-off name.
+CREATE TABLE IF NOT EXISTS faq_cache (
+    participant_id TEXT NOT NULL,
+    course TEXT NOT NULL,
+    term TEXT NOT NULL,
+    faq_version TEXT NOT NULL,
+    entry_id TEXT NOT NULL,
+    reply TEXT NOT NULL,
+    created_at TEXT NOT NULL,
+    PRIMARY KEY (participant_id, course, term, faq_version, entry_id)
 );
 
 CREATE TABLE IF NOT EXISTS pending_events (
@@ -94,6 +110,8 @@ def _migrate(conn: sqlite3.Connection) -> None:
         conn.execute("ALTER TABLE participants ADD COLUMN checkin_token TEXT")
     if "welcomed_at" not in cols:
         conn.execute("ALTER TABLE participants ADD COLUMN welcomed_at TEXT")
+    if "role" not in cols:
+        conn.execute("ALTER TABLE participants ADD COLUMN role TEXT")
 
     pending_cols = {row["name"] for row in conn.execute("PRAGMA table_info(pending_events)")}
     if "time_adjusted" not in pending_cols:
@@ -192,23 +210,42 @@ def delete_participant_data(participant_id: str) -> None:
         conn.execute("DELETE FROM pending_events WHERE participant_id = ?", (participant_id,))
         conn.execute("DELETE FROM email_events WHERE participant_id = ?", (participant_id,))
         conn.execute("DELETE FROM checkin_submissions WHERE participant_id = ?", (participant_id,))
+        conn.execute("DELETE FROM faq_cache WHERE participant_id = ?", (participant_id,))
         conn.execute("DELETE FROM participants WHERE id = ?", (participant_id,))
 
 
-def get_participant(participant_id: str) -> Optional[sqlite3.Row]:
+# include_inactive=True also returns participants whose Google access
+# lapsed (active = 0): in the consent screen's Testing mode Google expires
+# every grant after 7 days, and that participant's check-in page must keep
+# working so it can ask them to reconnect. A disconnect-on-request deletes
+# the row entirely, so it is never returned either way.
+_PARTICIPANT_COLS = "id, email, checkin_token, welcomed_at, connected_at, active, role"
+
+
+def get_participant(participant_id: str, include_inactive: bool = False) -> Optional[sqlite3.Row]:
+    active_clause = "" if include_inactive else " AND active = 1"
     with _conn() as conn:
         return conn.execute(
-            "SELECT id, email, checkin_token, welcomed_at, connected_at FROM participants WHERE id = ? AND active = 1",
+            f"SELECT {_PARTICIPANT_COLS} FROM participants WHERE id = ?{active_clause}",
             (participant_id,),
         ).fetchone()
 
 
-def get_participant_by_checkin_token(token: str) -> Optional[sqlite3.Row]:
+def get_participant_by_checkin_token(token: str, include_inactive: bool = False) -> Optional[sqlite3.Row]:
+    active_clause = "" if include_inactive else " AND active = 1"
     with _conn() as conn:
         return conn.execute(
-            "SELECT id, email, checkin_token, welcomed_at, connected_at FROM participants WHERE checkin_token = ? AND active = 1",
+            f"SELECT {_PARTICIPANT_COLS} FROM participants WHERE checkin_token = ?{active_clause}",
             (token,),
         ).fetchone()
+
+
+def list_inactive_participant_ids() -> list[str]:
+    with _conn() as conn:
+        rows = conn.execute(
+            "SELECT id FROM participants WHERE active = 0"
+        ).fetchall()
+    return [r["id"] for r in rows]
 
 
 def mark_welcomed(participant_id: str) -> None:
@@ -333,9 +370,9 @@ def _today_study_tz() -> date:
 
 def day_number_for(participant_id: str) -> Optional[int]:
     """1-indexed study day, based on calendar days (in STUDY_TIMEZONE)
-    since this participant connected. None if they're not an active
-    participant."""
-    p = get_participant(participant_id)
+    since this participant first connected (a lapsed connection does not
+    reset it). None if there is no such participant."""
+    p = get_participant(participant_id, include_inactive=True)
     if p is None:
         return None
     connected_date = _parse_utc(p["connected_at"]).astimezone(_STUDY_TZ).date()
@@ -413,3 +450,54 @@ def get_email_events_by_id() -> dict:
 
 def _now() -> str:
     return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+
+# --- inbox role --------------------------------------------------------------
+
+ROLES = ("student", "instructor")
+
+
+def get_participant_role(participant_id: str) -> Optional[str]:
+    """'student', 'instructor', or None until the participant has chosen."""
+    with _conn() as conn:
+        row = conn.execute(
+            "SELECT role FROM participants WHERE id = ?", (participant_id,)
+        ).fetchone()
+    return row["role"] if row else None
+
+
+def set_participant_role(participant_id: str, role: str) -> bool:
+    """Set the role once. Returns False (and changes nothing) if a role is
+    already set: participants choose it at the start and can't change it."""
+    if role not in ROLES:
+        raise ValueError(f"role must be one of {ROLES}, got {role!r}")
+    with _conn() as conn:
+        cur = conn.execute(
+            "UPDATE participants SET role = ? WHERE id = ? AND role IS NULL",
+            (role, participant_id),
+        )
+    return cur.rowcount == 1
+
+
+# --- FAQ reply cache ---------------------------------------------------------
+
+def get_faq_reply(participant_id: str, course: str, term: str,
+                  faq_version: str, entry_id: str) -> Optional[str]:
+    with _conn() as conn:
+        row = conn.execute(
+            "SELECT reply FROM faq_cache WHERE participant_id = ? AND course = ? "
+            "AND term = ? AND faq_version = ? AND entry_id = ?",
+            (participant_id, course, term, faq_version, entry_id),
+        ).fetchone()
+    return row["reply"] if row else None
+
+
+def put_faq_reply(participant_id: str, course: str, term: str,
+                  faq_version: str, entry_id: str, reply: str) -> None:
+    with _conn() as conn:
+        conn.execute(
+            "INSERT OR REPLACE INTO faq_cache "
+            "(participant_id, course, term, faq_version, entry_id, reply, created_at) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?)",
+            (participant_id, course, term, faq_version, entry_id, reply, _now()),
+        )

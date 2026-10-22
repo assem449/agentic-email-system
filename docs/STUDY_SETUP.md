@@ -126,6 +126,15 @@ UI. Every action any of them trigger is a plain JSON/HTTP endpoint:
    "In production" + 100+ users) — the tradeoff is a 100 test-user cap,
    plenty for a study.
 
+   **Testing mode also expires every participant's access after 7 days.**
+   For a multi-week study each participant has to reconnect about once a
+   week. When their access lapses the poller marks them inactive (it no
+   longer blocks other participants), and their check-in page shows a
+   **Reconnect Gmail** button that pre-selects their account. Emails that
+   arrive while they're disconnected stay unread and are processed after
+   they reconnect. `GET /admin/poller-status` lists who is currently
+   lapsed under `inactive_participants`.
+
 ## 2. Configure and run
 
 ```bash

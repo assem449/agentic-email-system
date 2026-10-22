@@ -1,0 +1,99 @@
+{
+  "course": "EECS 1019",
+  "course_name": "Discrete Mathematics",
+  "term": "Fall 2026",
+  "instructor": "Prof. Haddad",
+  "aliases": ["EECS 1019", "EECS1019", "discrete math", "discrete mathematics"],
+  "entries": [
+    {
+      "id": "late-penalty",
+      "question": "What is the late penalty for assignments?",
+      "answer": "Late assignments lose 10% per day, up to 3 days. After 3 days they receive a mark of zero. Weekends count as days."
+    },
+    {
+      "id": "assignment-deadlines",
+      "question": "When are assignments due and how do I submit them?",
+      "answer": "There are 5 assignments, each due on a Friday at 11:59 pm on eClass. Submit one PDF per assignment. The due dates are listed in the course schedule on eClass."
+    },
+    {
+      "id": "submission-format",
+      "question": "Can I submit handwritten answers or several files?",
+      "answer": "Handwritten answers are accepted if they are scanned clearly into a single PDF. Photos of individual pages and multiple files are not accepted."
+    },
+    {
+      "id": "midterm-date",
+      "question": "When and where is the midterm?",
+      "answer": "The midterm is on Wednesday, October 28, from 6:00 to 7:30 pm, in Room 100 of the Exam Centre on Main Campus."
+    },
+    {
+      "id": "midterm-coverage",
+      "question": "What material does the midterm cover?",
+      "answer": "The midterm covers chapters 1 to 4: logic, proofs, sets and functions, and induction."
+    },
+    {
+      "id": "final-exam",
+      "question": "When is the final exam and what does it cover?",
+      "answer": "The final exam is scheduled by the Registrar during the December exam period; the date is posted on the exam timetable in November. It is cumulative and covers chapters 1 to 9."
+    },
+    {
+      "id": "aid-sheet",
+      "question": "Can I bring notes, an aid sheet or a calculator to exams?",
+      "answer": "One double-sided, handwritten letter-size aid sheet is allowed on the midterm and the final. Calculators are not allowed and are not needed."
+    },
+    {
+      "id": "grading-scheme",
+      "question": "How is the final grade calculated?",
+      "answer": "Assignments 25% (5 x 5%), weekly quizzes 10% (best 8 of 10), midterm 25%, final exam 40%. There are no bonus marks."
+    },
+    {
+      "id": "quizzes",
+      "question": "How do the weekly quizzes work and what if I miss one?",
+      "answer": "There are 10 short online quizzes on eClass, open from Monday to Thursday each week. Only your best 8 count, so up to 2 missed quizzes are dropped automatically."
+    },
+    {
+      "id": "office-hours",
+      "question": "When and where are office hours?",
+      "answer": "Prof. Haddad: Tuesdays 2-3 pm in Room 3021, Riverside Hall. TA office hours: Thursdays 4-5 pm on Zoom; the link is on eClass. Any changes are announced on eClass."
+    },
+    {
+      "id": "tutorials",
+      "question": "How do tutorials work and is attendance required?",
+      "answer": "Tutorials run weekly from week 2. Attendance is not graded, but the quizzes are based on tutorial problems. Attend the section you are registered in."
+    },
+    {
+      "id": "regrade-policy",
+      "question": "How do I request a regrade?",
+      "answer": "Submit a regrade request through the form on eClass within 7 days of the marks being released, explaining which question and why. The whole submission may be re-marked."
+    },
+    {
+      "id": "textbook",
+      "question": "Which textbook do we use? Is an older edition okay?",
+      "answer": "Rosen, Discrete Mathematics and Its Applications. The 7th or 8th edition both work; section numbers in the schedule follow the 8th edition."
+    },
+    {
+      "id": "prerequisites",
+      "question": "What are the prerequisites for this course?",
+      "answer": "High-school Calculus and Advanced Functions (or equivalent). There is no corequisite."
+    },
+    {
+      "id": "collaboration-policy",
+      "question": "Can I work with other students on assignments?",
+      "answer": "You may discuss ideas with classmates, but you must write up your own solutions and list the names of anyone you discussed them with. Copying solutions or using AI tools to write answers is an academic integrity violation."
+    },
+    {
+      "id": "lecture-recordings",
+      "question": "Are lectures recorded? Where are the slides?",
+      "answer": "Lectures are recorded and posted on eClass within 24 hours, together with the slides."
+    },
+    {
+      "id": "missed-midterm",
+      "question": "What happens if I miss the midterm?",
+      "answer": "If you miss the midterm with a documented reason submitted within 48 hours, its weight moves to the final exam. Without documentation, the midterm receives a mark of zero."
+    },
+    {
+      "id": "accommodations",
+      "question": "How do exam accommodations work?",
+      "answer": "Accommodations are arranged through Accessibility Services. Register with them and they will send your letter to the instructor; exams are then written at the Accessibility exam centre."
+    }
+  ]
+}

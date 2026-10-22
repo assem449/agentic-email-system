@@ -69,6 +69,31 @@ def headers_dict(payload: dict) -> dict:
     return {h["name"].lower(): h["value"] for h in payload.get("headers", [])}
 
 
+_DMARC = re.compile(r"\bdmarc=(\w+)", re.IGNORECASE)
+
+
+def auth_verdict(payload: dict) -> str:
+    """Gmail's DMARC verdict for this message: "pass", "fail" or "none".
+
+    Only the Authentication-Results header written by Gmail itself
+    (authserv-id mx.google.com) counts. A sender can put any header in
+    their own message, including a fake "dmarc=pass", so headers_dict --
+    which keeps the last header of each name -- can't be used here. "none"
+    covers a missing header (e.g. seeded messages), no DMARC record and
+    temporary errors.
+    """
+    for h in payload.get("headers", []):
+        if h["name"].lower() != "authentication-results":
+            continue
+        value = h["value"].strip()
+        if not value.lower().startswith("mx.google.com"):
+            continue
+        m = _DMARC.search(value)
+        result = m.group(1).lower() if m else "none"
+        return result if result in ("pass", "fail") else "none"
+    return "none"
+
+
 def bulk_reason(label_ids, headers: dict) -> str | None:
     """Why this message is bulk mail, or None if it looks person-to-person.
 

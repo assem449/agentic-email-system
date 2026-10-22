@@ -2,6 +2,7 @@ import threading
 import time
 import traceback
 import uuid
+from typing import Optional
 from datetime import datetime, timezone
 
 from app import db
@@ -11,12 +12,14 @@ from app.gmail_client import (
     add_labels,
     fetch_unread_emails,
     create_draft_reply,
+    create_self_note,
     move_to_spam,
     LABEL_PROCESSED,
     LABEL_ANNOUNCEMENT,
     LABEL_NO_REPLY,
     LABEL_DRAFT_READY,
     LABEL_NEEDS_REVIEW,
+    LABEL_ACTION_NEEDED,
 )
 from app.graph import build_graph
 from app.config import POLL_INTERVAL_SECONDS
@@ -51,7 +54,8 @@ def _labels_for(participant_id: str, service) -> dict:
     return _label_cache[participant_id]
 
 
-def process_email(service, labels: dict, email: dict, participant_id: str):
+def process_email(service, labels: dict, email: dict, participant_id: str,
+                  owner_address: str = ""):
     result = graph.invoke({
         "email_id": str(uuid.uuid4()),
         "sender": email["sender"],
@@ -59,6 +63,8 @@ def process_email(service, labels: dict, email: dict, participant_id: str):
         "body": email["body"],
         "quoted_text": email["quoted_text"],
         "bulk_reason": email["bulk_reason"],
+        "auth_verdict": email.get("auth_verdict"),
+        "role": db.get_participant_role(participant_id),
         "category": None,
         "handler_used": None,
         "response": None,
@@ -68,24 +74,16 @@ def process_email(service, labels: dict, email: dict, participant_id: str):
         "gmail_id": email["gmail_id"],
     })
 
-    category = result["category"]
     gmail_id = email["gmail_id"]
 
-    print(f"[{participant_id}] [{category}] {email['subject'][:40]} -> {result['handler_used']}")
+    print(f"[{participant_id}] [{result['category']}] {email['subject'][:40]} -> {result['handler_used']}")
 
-    # Emails are deliberately left UNREAD: the participant still needs to
-    # see an announcement or check a draft. The AI/Processed label is what
-    # keeps the poller from handling the same email again.
-    to_add = [labels[LABEL_PROCESSED]]
-
-    if category == "spam":
+    spam, draft, names = gmail_actions(result)
+    if spam:
         move_to_spam(service, gmail_id)
-    elif not result.get("reply_needed"):
-        if category == "announcement_promo":
-            to_add.append(labels[LABEL_ANNOUNCEMENT])
-        else:
-            to_add.append(labels[LABEL_NO_REPLY])
-    else:
+    if draft == "self_note":
+        create_self_note(service, email, owner_address, result["response"])
+    elif draft == "reply":
         # A meeting-classified email lands here too: the calendar node
         # never books anything itself, it only queued a pending proposal
         # (see app/handlers/calendar.py) that a human approves separately.
@@ -93,11 +91,41 @@ def process_email(service, labels: dict, email: dict, participant_id: str):
         # already a human-in-the-loop step, since nothing sends until the
         # participant (or a study reviewer) opens and sends it themselves.
         create_draft_reply(service, email, result["response"])
-        to_add.append(labels[LABEL_DRAFT_READY])
-        if result.get("needs_review"):
-            to_add.append(labels[LABEL_NEEDS_REVIEW])
+    add_labels(service, gmail_id, [labels[n] for n in names])
 
-    add_labels(service, gmail_id, to_add)
+
+# Label for each no-reply category; any other no-reply email gets
+# AI/No reply needed.
+NO_REPLY_LABELS = {
+    "admin_action": LABEL_ACTION_NEEDED,
+    "announcement_promo": LABEL_ANNOUNCEMENT,
+}
+
+
+def gmail_actions(result: dict) -> tuple[bool, Optional[str], list]:
+    """What to do in Gmail for a graph result: (move to Spam?, which draft
+    -- "reply", "self_note" or None --, label names to add).
+
+    Emails are deliberately left UNREAD: the participant still needs to
+    see an announcement or check a draft. AI/Processed is always added; it
+    is what keeps the poller from handling the same email again.
+    """
+    names = [LABEL_PROCESSED]
+    if result["handler_used"] == "blocked":
+        return True, None, names
+    if result.get("note_to_self"):
+        # request_exception: a note for the owner, never a reply.
+        return False, "self_note", names + [LABEL_NEEDS_REVIEW]
+    if not result.get("reply_needed") and result.get("needs_review"):
+        # Header safety check, or a course_logistics email the FAQ
+        # doesn't cover: kept in the inbox for the person, no draft.
+        return False, None, names + [LABEL_NEEDS_REVIEW]
+    if not result.get("reply_needed"):
+        return False, None, names + [NO_REPLY_LABELS.get(result["category"], LABEL_NO_REPLY)]
+    names.append(LABEL_DRAFT_READY)
+    if result.get("needs_review"):
+        names.append(LABEL_NEEDS_REVIEW)
+    return False, "reply", names
 
 
 def poll_once() -> dict:
@@ -138,9 +166,11 @@ def poll_once() -> dict:
                 continue
 
             st["found_last_poll"] = len(emails)
+            participant = db.get_participant(participant_id)
+            owner_address = participant["email"] if participant else ""
             for email in emails:
                 try:
-                    process_email(service, labels, email, participant_id)
+                    process_email(service, labels, email, participant_id, owner_address)
                     st["processed_total"] += 1
                 except Exception as e:
                     # One bad email must not block the rest of the batch.
