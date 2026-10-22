@@ -83,11 +83,13 @@ def route_decision(state: EmailState) -> str:
     # Gmail's DMARC verdict. Eval runs and seeded messages carry none.
     verdict = state.get("auth_verdict") or "none"
 
-    # Spam is moved only when the headers agree. Spam from a domain that
-    # passes DMARC may be a real notice the classifier misread (tuition,
-    # payroll), and moving a real email to Spam effectively loses it.
+    # Spam is moved only when Gmail's own check failed too. Spam that passes
+    # DMARC may be a real notice the classifier misread (tuition, payroll),
+    # and with no verdict at all (seeded mail, no DMARC record) there is no
+    # second opinion; moving a real email to Spam effectively loses it, so
+    # both are kept in the inbox for the person to review.
     if category == "spam":
-        return "spam" if verdict != "pass" else "suspicious"
+        return "spam" if verdict == "fail" else "suspicious"
     # Bulk mail never gets a draft; its category picks the label.
     if state.get("bulk_reason"):
         return "no_reply"
@@ -127,8 +129,8 @@ def no_reply_node(state: EmailState) -> EmailState:
 def suspicious_node(state: EmailState) -> EmailState:
     """Header safety check: kept in the inbox with AI/Needs review, no draft.
 
-    Two cases: the classifier said spam but DMARC passed (possibly a real
-    notice, so not moved to Spam), or DMARC failed on an email the
+    Two cases: the classifier said spam but DMARC didn't fail (possibly a
+    real notice, so not moved to Spam), or DMARC failed on an email the
     classifier didn't flag (possibly forged, so not answered).
     """
     start = time.perf_counter()

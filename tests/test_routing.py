@@ -40,13 +40,13 @@ def test_bulk_in_a_drafting_category_gets_no_draft():
 
 # --- Decision 2: Spam only when the classifier and the headers agree ---
 
-@pytest.mark.parametrize("verdict", ["fail", "none", None])
-def test_spam_with_bad_or_missing_headers_is_moved(verdict):  # case D
-    assert route_decision(state("spam", verdict=verdict)) == "spam"
+def test_spam_that_fails_dmarc_is_moved():  # case D
+    assert route_decision(state("spam", verdict="fail")) == "spam"
 
 
-def test_spam_from_a_verified_sender_is_held_for_review():  # case E
-    assert route_decision(state("spam", verdict="pass")) == "suspicious"
+@pytest.mark.parametrize("verdict", ["pass", "none", None])
+def test_spam_without_a_failed_check_is_held_for_review(verdict):  # case E, and unknown
+    assert route_decision(state("spam", verdict=verdict)) == "suspicious"
 
 
 def test_spam_beats_bulk():

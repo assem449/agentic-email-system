@@ -81,7 +81,8 @@ CATEGORY_INFO = [
                   "review.",
      "“Following up on the thing we talked about.”"),
     ("spam", "Spam or phishing. Moved to Spam only when the sender also fails Gmail's "
-             "checks; otherwise kept for you with AI/Needs review.",
+             "checks; otherwise kept for you with AI/Needs review, so a real email "
+             "is never lost.",
      "“Your mailbox is full, verify your account now.”"),
 ]
 
@@ -98,7 +99,7 @@ STATUS_LABEL = {
     "calendar_pending_review_demo": "Awaiting approval (demo)",
     "calendar_unavailable": "Draft created (calendar not checked)",
     "blocked": "Blocked as spam",
-    "spam_held": "Needs review (possible spam, sender verified)",
+    "spam_held": "Needs review (possible spam)",
     "auth_failed": "Needs review (sender failed verification)",
     "faq_llm": "Draft created",
     "faq_cache_hit": "Draft created",
