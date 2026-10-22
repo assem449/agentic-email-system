@@ -16,10 +16,19 @@ from pathlib import Path
 # (DISTILBERT_MODEL_PATH=/data/distilbert_model) so it's downloaded once
 # and survives restarts/redeploys rather than re-fetched every boot.
 MODEL_PATH = os.environ.get("DISTILBERT_MODEL_PATH", "data/distilbert_model/final")
-# Fallback only: a model uploaded by scripts/upload_model_to_hf.py carries
-# its own label_map.json, which wins, so category names always match the
-# weights that were downloaded.
+# Fallback only. The label map that belongs to the model wins: inside the
+# model folder (a model uploaded by scripts/upload_model_to_hf.py), or in
+# the training --out folder two levels up (<out>/distilbert_model/final, as
+# research/distilbert_cv.py saves it locally).
 LABEL_MAP_PATH = "data/label_map.json"
+
+
+def label_map_path() -> Path:
+    model = Path(MODEL_PATH)
+    for candidate in (model / "label_map.json", model.parent.parent / "label_map.json"):
+        if candidate.exists():
+            return candidate
+    return Path(LABEL_MAP_PATH)
 
 # If set, and MODEL_PATH doesn't already have the weights, download them
 # from this Hugging Face Hub repo instead of expecting a local file --
@@ -69,11 +78,14 @@ def _load():
         _tokenizer = DistilBertTokenizerFast.from_pretrained(MODEL_PATH)
         _model = DistilBertForSequenceClassification.from_pretrained(MODEL_PATH)
         _model.eval()
-        bundled = Path(MODEL_PATH) / "label_map.json"
-        label_map_path = bundled if bundled.exists() else Path(LABEL_MAP_PATH)
         _label_map = {int(k): v for k, v in json.loads(
-            label_map_path.read_text()
+            label_map_path().read_text()
         ).items()}
+        if len(_label_map) != _model.config.num_labels:
+            raise RuntimeError(
+                f"{label_map_path()} has {len(_label_map)} categories but the model "
+                f"has {_model.config.num_labels} outputs: wrong label map for this model."
+            )
 
 def classify_email_distilbert(subject: str, body: str) -> str:
     _load()

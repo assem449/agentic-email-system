@@ -35,11 +35,12 @@ def main():
     import torch
     import app.distilbert_classifier as dc
 
-    dc._load()
-    bundled = Path(dc.MODEL_PATH) / "label_map.json"
     print(f"DISTILBERT_MODEL_PATH = {dc.MODEL_PATH}")
     print(f"DISTILBERT_MODEL_REPO = {dc.MODEL_REPO}")
-    print(f"label map             = {bundled if bundled.exists() else dc.LABEL_MAP_PATH + '  (fallback: NOT bundled with the model)'}")
+    used = dc.label_map_path()
+    print(f"label map             = {used}"
+          + ("  (fallback: NOT the model's own label map)" if str(used) == dc.LABEL_MAP_PATH else ""))
+    dc._load()
     print(f"model outputs         = {dc._model.config.num_labels}")
     print(f"category names        = {[dc._label_map[i] for i in sorted(dc._label_map)]}")
     if dc._model.config.num_labels != len(dc._label_map):
