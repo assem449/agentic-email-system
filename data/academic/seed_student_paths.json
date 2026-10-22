@@ -120,10 +120,13 @@
     "body": "Hi,\n\nYou asked about your midterm grade. I'm happy to go through it with you. When would be a good time to meet this week?\n\nMarco"
   },
   {
-    "expected": "spam, no Gmail verdict (seeded) -> moved to Spam",
+    "expected": "spam with dmarc=fail (case D) -> moved to Spam",
     "sender": "Northfield IT Helpdesk <it-support@northfie1d.edu>",
     "subject": "Action required: your mailbox is full",
-    "body": "Dear student,\n\nYour mailbox has exceeded its storage limit. To avoid losing new messages, verify your account within 24 hours:\n\nhttp://northfie1d-mail.verify-now.co/login\n\nIT Helpdesk"
+    "body": "Dear student,\n\nYour mailbox has exceeded its storage limit. To avoid losing new messages, verify your account within 24 hours:\n\nhttp://northfie1d-mail.verify-now.co/login\n\nIT Helpdesk",
+    "headers": {
+      "Authentication-Results": "mx.google.com; dkim=fail header.i=@northfie1d.edu; spf=fail smtp.mailfrom=northfie1d.edu; dmarc=fail (p=REJECT) header.from=northfie1d.edu"
+    }
   },
   {
     "expected": "spam with dmarc=pass (case E) -> NOT moved; no draft, AI/Needs review (if classified spam)",
