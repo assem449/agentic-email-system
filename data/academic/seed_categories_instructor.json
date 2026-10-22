@@ -1,0 +1,75 @@
+[
+  {
+    "expected": "announcement_promo -> no draft, AI/Announcement",
+    "sender": "Teaching Commons <teaching-commons@northfield.edu>",
+    "subject": "Workshop: designing exams that resist AI tools",
+    "body": "Dear colleagues,\n\nJoin the Teaching Commons on December 3 from 12 to 1:30 pm for a hands-on workshop on assessment design in the age of AI writing tools. Lunch provided. Register through the Teaching Commons website.\n\nTeaching Commons\nNorthfield University\n\nUnsubscribe from Teaching Commons announcements",
+    "headers": {
+      "List-Id": "<teaching-commons.northfield.edu>",
+      "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+    }
+  },
+  {
+    "expected": "informational -> no draft, AI/No reply needed",
+    "sender": "TA Priyanka Rao <p.rao@northfield.edu>",
+    "subject": "Assignment 3 marking done",
+    "body": "Hi Prof,\n\nI've finished marking Assignment 3 and uploaded the marks to eClass. The average was 78%. Most points were lost on question 4, the induction proof.\n\nPriyanka"
+  },
+  {
+    "expected": "admin_action -> no draft, AI/Action needed",
+    "sender": "Exam Services <exams@northfield.edu>",
+    "subject": "Action required: confirm final exam room needs by November 25",
+    "body": "Dear Instructor,\n\nPlease confirm the room size, number of invigilators and any special requirements for your December final exam in the Exam Services portal by November 25. Unconfirmed exams will be assigned default arrangements.\n\nExam Services"
+  },
+  {
+    "expected": "course_logistics, instructor -> FAQ hit (aid-sheet) -> LLM draft, AI/Draft ready",
+    "sender": "Chloe Martin <c.martin@my.northfield.edu>",
+    "subject": "Aid sheet for the discrete math final",
+    "body": "Hello Professor Haddad,\n\nAre we allowed to bring an aid sheet to the final exam? If so, can it be double-sided and typed?\n\nThank you,\nChloe"
+  },
+  {
+    "expected": "academic_question -> LLM draft, AI/Draft ready",
+    "sender": "Ryan O'Neill <r.oneill@my.northfield.edu>",
+    "subject": "Pigeonhole problem from tutorial",
+    "body": "Hi Professor,\n\nIn tutorial we proved that among any 5 points in a unit square, two are within sqrt(2)/2 of each other. I understand dividing the square into 4 boxes, but why is the distance sqrt(2)/2 and not 1/2?\n\nRyan"
+  },
+  {
+    "expected": "meeting_request -> draft + pending event",
+    "sender": "Lena Park <lena.park@my.northfield.edu>",
+    "subject": "Supervision meeting next week",
+    "body": "Hi Professor Haddad,\n\nCould we meet next week to go over my chapter 3 draft? Monday at 10 am or Tuesday at 3 pm would work best for me.\n\nThanks,\nLena"
+  },
+  {
+    "expected": "request_exception -> note to self in Drafts, AI/Needs review, no reply",
+    "sender": "Jamal Wright <j.wright@my.northfield.edu>",
+    "subject": "Regrade request: midterm question 3",
+    "body": "Dear Professor,\n\nI believe question 3 on my midterm was marked incorrectly. I used a proof by contrapositive instead of contradiction, but I think it's still valid. Could you please look at it again? I've attached a scan of my answer.\n\nJamal Wright"
+  },
+  {
+    "expected": "collaboration_opportunity -> LLM draft, AI/Draft ready",
+    "sender": "Prof. Hana Sato <h.sato@westbrook.edu>",
+    "subject": "Joint paper on peer assessment?",
+    "body": "Hi,\n\nI enjoyed your talk at the teaching conference. We have a similar peer-assessment dataset from our first-year math courses. Would you be interested in a joint analysis and paper next term?\n\nBest,\nHana Sato\nWestbrook University"
+  },
+  {
+    "expected": "wellbeing -> careful LLM draft, AI/Draft ready + AI/Needs review",
+    "sender": "Hannah Kim <h.kim@my.northfield.edu>",
+    "subject": "Why I've been absent",
+    "body": "Dear Professor,\n\nI wanted to explain why I've missed the last few lectures. I've been struggling with severe anxiety and some days I can't leave my room. I'm seeing a counsellor now, but I'm scared I'm too far behind to pass.\n\nHannah"
+  },
+  {
+    "expected": "ambiguous -> clarifying-question draft, AI/Draft ready + AI/Needs review",
+    "sender": "Department Office <cs-office@northfield.edu>",
+    "subject": "Re: your request",
+    "body": "Hello, we received your request from last week. Could you let us know whether you still need it, and if so, by when?\n\nDepartment Office"
+  },
+  {
+    "expected": "spam with dmarc=fail -> moved to Spam",
+    "sender": "Journal of Global Advanced Studies <editor@jgas-publishing.org>",
+    "subject": "Invitation: publish your research in 7 days",
+    "body": "Dear Esteemed Professor,\n\nWe invite you to submit your valuable research to our indexed journal. Fast peer review in 7 days, guaranteed acceptance for invited authors. Article processing charge: $349 only. Reply today to reserve your slot.",
+    "headers": {
+      "Authentication-Results": "mx.google.com; dkim=fail header.i=@jgas-publishing.org; spf=fail smtp.mailfrom=jgas-publishing.org; dmarc=fail (p=REJECT) header.from=jgas-publishing.org"
+    }
+  }
+]
