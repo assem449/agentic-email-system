@@ -53,7 +53,7 @@ def test_other_course_is_not_covered(stubs):
 
 def test_own_course_code_and_room_numbers_are_fine(stubs):
     connect("p0")
-    out = cl.course_logistics_handler(email(pid="p0", body="MATH 1300: late penalty? Is Room 3021 right?"))
+    out = cl.course_logistics_handler(email(pid="p0", body=f"{FAQ['course']}: late penalty? Is Room 3021 right?"))
     assert out["handler_used"] == "faq_llm"
 
 
