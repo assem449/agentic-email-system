@@ -143,8 +143,8 @@ body{
 /* Two columns side by side on a wide viewport (main content + the
    always-visible category sidebar), wrapping to a stacked single
    column on a narrow one — no media query needed, flex-wrap handles it. */
-.wrap{width:100%; max-width:900px; display:flex; gap:26px; align-items:flex-start; flex-wrap:wrap;}
-.main-col{flex:1 1 480px; min-width:320px; max-width:520px;}
+.wrap{width:100%; max-width:1240px; display:flex; gap:26px; align-items:flex-start; flex-wrap:wrap;}
+.main-col{flex:1 1 640px; min-width:320px; max-width:860px;}
 
 /* --- simulated inbox backdrop: a Gmail-inspired look, real data, not a
    real Gmail embed (Google blocks iframing gmail.com anyway) --- */
@@ -169,15 +169,24 @@ body{
 }
 .gmail-row:last-child{border-bottom:none;}
 .gmail-row:hover{background:#F8F9FA;}
-.gmail-chip{font-size:11.5px; font-weight:700; padding:3px 10px; border-radius:999px; width:78px; text-align:center; flex-shrink:0;}
-.gmail-subject{flex-grow:1; font-size:14px; color:#202124; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+/* Sized to the category name: the long ones (collaboration_opportunity)
+   were cut off at a fixed width. */
+.gmail-chip{font-size:11.5px; font-weight:700; padding:3px 10px; border-radius:999px; min-width:78px; text-align:center; flex-shrink:0; white-space:nowrap;}
+.gmail-subject{flex:1 1 auto; min-width:0; font-size:14px; color:#202124; overflow-wrap:anywhere;}
 .gmail-note{white-space:normal; font-size:12.5px; color:#6b6a66; margin-top:3px;}
 .role-choice{display:flex; gap:10px; margin:6px 0 18px;}
 .role-option{flex:1; padding:12px; border:1.5px solid #dad7cd; border-radius:10px; background:#fff; cursor:pointer; font-size:14px; font-family:inherit;}
 .role-option.selected{border-color:#202124; background:#f5f3ec; font-weight:600;}
 .submit:disabled{opacity:.4; cursor:not-allowed;}
-.gmail-status{font-size:12.5px; color:#80868b; flex-shrink:0;}
+.gmail-status{font-size:12.5px; color:#80868b; flex-shrink:0; white-space:nowrap;}
 .gmail-empty{padding:26px 22px; font-size:14px; color:#80868b; text-align:center;}
+/* Phone width: chip and status on the first line, the subject on its own
+   full-width line below, instead of squeezed between them. */
+@media (max-width:600px){
+  .gmail-row{flex-wrap:wrap; padding:12px 16px;}
+  .gmail-status{margin-left:auto;}
+  .gmail-subject{order:3; flex-basis:100%;}
+}
 
 /* --- the popup card, stacked below the inbox panel, not overlapping it --- */
 .card{
@@ -608,7 +617,7 @@ def _form_html(token: str, events) -> str:
         subject = html.escape(e["subject"] or "(no subject)")
         per_email_rows += f"""
         <div class="row" data-email-id="{eid}">
-          <div style="flex-grow:1; font-size:13px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+          <div style="flex-grow:1; min-width:0; font-size:13px; overflow-wrap:anywhere;">
             {subject} <span style="color:#a6a39a;">· {e['category'] or '...'}</span>
           </div>
           <button type="button" class="pill" onclick="markCorrect('{eid}', true, this)">Correct</button>
