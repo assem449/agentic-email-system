@@ -1,9 +1,9 @@
 {
-  "course": "MATH 1300",
+  "course": "EECS 1019",
   "course_name": "Discrete Mathematics",
   "term": "Fall 2026",
   "instructor": "Prof. Haddad",
-  "aliases": ["MATH 1300", "MATH1300", "discrete math", "discrete mathematics"],
+  "aliases": ["EECS 1019", "EECS1019", "discrete math", "discrete mathematics"],
   "entries": [
     {
       "id": "late-penalty",
@@ -73,7 +73,7 @@
     {
       "id": "prerequisites",
       "question": "What are the prerequisites for this course?",
-      "answer": "MATH 1100 or high-school Calculus and Advanced Functions (or equivalent). There is no corequisite."
+      "answer": "High-school Calculus and Advanced Functions (or equivalent). There is no corequisite."
     },
     {
       "id": "collaboration-policy",
