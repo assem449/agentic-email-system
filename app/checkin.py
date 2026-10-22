@@ -96,6 +96,7 @@ STATUS_LABEL = {
     "llm": "Draft created",
     "calendar_pending_review": "Awaiting approval",
     "calendar_pending_review_demo": "Awaiting approval (demo)",
+    "calendar_unavailable": "Draft created (calendar not checked)",
     "blocked": "Blocked as spam",
     "spam_held": "Needs review (possible spam, sender verified)",
     "auth_failed": "Needs review (sender failed verification)",
