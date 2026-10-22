@@ -1,0 +1,75 @@
+[
+  {
+    "expected": "announcement_promo -> no draft, AI/Announcement",
+    "sender": "Northfield Athletics <athletics@northfield.edu>",
+    "subject": "Intramural volleyball registration is open",
+    "body": "Hi Northfield students,\n\nWinter intramural volleyball registration is now open! Teams of 6–10 play Tuesday and Thursday evenings at the Riverside Gym starting January 13. Register your team on the Experience Northfield Portal by December 5. Free agents welcome.\n\nGo Northfield!\nNorthfield Athletics\n\nUnsubscribe | Email preferences",
+    "headers": {
+      "List-Id": "<athletics.northfield.edu>",
+      "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+    }
+  },
+  {
+    "expected": "informational -> no draft, AI/No reply needed",
+    "sender": "Prof. Victor Lang <v.lang@northfield.edu>",
+    "subject": "Re: missed lecture on Monday",
+    "body": "Thanks for letting me know. The recording and slides from Monday are on eClass under Week 8. Hope you're feeling better.\n\nVL"
+  },
+  {
+    "expected": "admin_action -> no draft, AI/Action needed",
+    "sender": "Student Financial Services <sfs@northfield.edu>",
+    "subject": "Action required: confirm your winter student aid enrolment",
+    "body": "Dear Student,\n\nTo release your winter student aid, you must confirm your enrolment in the Student Portal by November 28. If you do not confirm, your funding may be delayed until February.\n\nStudent Financial Services\nNorthfield University"
+  },
+  {
+    "expected": "course_logistics (student inbox) -> no draft, AI/Needs review",
+    "sender": "TA Priyanka Rao <p.rao@northfield.edu>",
+    "subject": "Tutorial section switch",
+    "body": "Hi,\n\nYou asked to move to the Thursday 4 pm tutorial. There's one spot left. Do you still want it? Please reply by tomorrow so I can update the list.\n\nPriyanka"
+  },
+  {
+    "expected": "academic_question -> LLM draft, AI/Draft ready",
+    "sender": "Isabel Cruz <isabelcruz.studies@gmail.com>",
+    "subject": "q about hypothesis testing",
+    "body": "hey, quick question before the quiz: if the p-value is 0.06 and alpha is 0.05, do we say we accept the null or that we fail to reject it? the TA said there's a difference but I don't get why"
+  },
+  {
+    "expected": "meeting_request -> draft accepting/proposing a time + pending event",
+    "sender": "Ahmed Saleh <a.saleh@my.northfield.edu>",
+    "subject": "project meeting this week?",
+    "body": "Hi! Can we meet to split up the final report? I'm free Thursday afternoon or Friday after 11. Library or Zoom, whatever works for you."
+  },
+  {
+    "expected": "request_exception -> note to self in Drafts, AI/Needs review, no reply",
+    "sender": "TA Marco Rossi <m.rossi@northfield.edu>",
+    "subject": "Your request for a quiz makeup",
+    "body": "Hi,\n\nYou asked to make up Quiz 6, which you missed for a family emergency. The professor can approve a makeup if you send documentation by Friday. Could you send it to me and I'll pass it on?\n\nMarco"
+  },
+  {
+    "expected": "collaboration_opportunity -> LLM draft, AI/Draft ready",
+    "sender": "Dr. Sarah Quinn <s.quinn@northfield.edu>",
+    "subject": "Summer undergraduate research award",
+    "body": "Dear student,\n\nProf. Moreau mentioned you're interested in data science. I'm looking for an undergraduate to work with me this summer on a project about how students use online quizzes, funded through the undergraduate research award. Would you like to meet to hear more?\n\nSarah Quinn"
+  },
+  {
+    "expected": "wellbeing -> careful LLM draft, AI/Draft ready + AI/Needs review",
+    "sender": "Nina Kowalski <nina.kowalski@my.northfield.edu>",
+    "subject": "can't focus",
+    "body": "I don't know who else to tell. my parents are getting divorced and I can't focus on anything. I've missed three labs and I keep crying in the library. sorry for dumping this on you"
+  },
+  {
+    "expected": "ambiguous -> clarifying-question draft, AI/Draft ready + AI/Needs review",
+    "sender": "Kai Nakamura <k.nakamura@my.northfield.edu>",
+    "subject": "Re: Re: friday",
+    "body": "ok so are we still doing it or should I tell the others it's off?\n\n> idk let me check"
+  },
+  {
+    "expected": "spam with dmarc=fail -> moved to Spam",
+    "sender": "Northfield Student Awards <awards@northfield-scholarships.net>",
+    "subject": "You have been selected for a $2,500 bursary",
+    "body": "Congratulations! Based on your academic record you have been selected for a $2,500 bursary. To receive the funds, log in with your Northfield email and password and confirm your banking details within 48 hours:\n\nhttp://northfield-scholarships.net/claim",
+    "headers": {
+      "Authentication-Results": "mx.google.com; dkim=fail header.i=@northfield-scholarships.net; spf=fail smtp.mailfrom=northfield-scholarships.net; dmarc=fail (p=REJECT) header.from=northfield-scholarships.net"
+    }
+  }
+]
