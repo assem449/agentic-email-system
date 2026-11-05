@@ -17,4 +17,5 @@ torch
 huggingface_hub
 datasets
 scikit-learn
+openpyxl
 numpy

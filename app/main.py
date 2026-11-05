@@ -11,6 +11,7 @@ from typing import Dict, Optional
 
 from app import db
 from app.checkin import router as checkin_router
+from app.results import router as results_router
 from app.config import ADMIN_TOKEN, POLL_INTERVAL_SECONDS
 from app.google_auth import account_chooser_url
 from app.graph import build_graph
@@ -23,6 +24,7 @@ from app.seeding import seed_scenarios
 app = FastAPI(title="Adaptive Email Router")
 app.include_router(oauth_router)
 app.include_router(checkin_router)
+app.include_router(results_router)
 graph = build_graph()
 
 

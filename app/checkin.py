@@ -126,6 +126,9 @@ def _gmail_link(email: str, gmail_id: str) -> str:
 class PerEmailFeedback(BaseModel):
     email_event_id: str
     correct: bool
+    # Set when the participant marks the email Wrong and picks what it
+    # should have been; None if they leave the dropdown empty.
+    correct_category: Optional[str] = None
 
 
 class CheckinSubmission(BaseModel):
@@ -175,6 +178,8 @@ body{
 .gmail-chip{font-size:11.5px; font-weight:700; padding:3px 10px; border-radius:999px; min-width:78px; text-align:center; flex-shrink:0; white-space:nowrap;}
 .gmail-subject{flex:1 1 auto; min-width:0; font-size:14px; color:#202124; overflow-wrap:anywhere;}
 .gmail-note{white-space:normal; font-size:12.5px; color:#6b6a66; margin-top:3px;}
+.fix-row{display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:0 0 12px; border-bottom:1px solid #F0EEE7; font-size:13px; color:#57544C;}
+.fix-row select{font-family:inherit; font-size:13px; padding:6px 10px; border:1px solid #E5E2D9; border-radius:8px; background:#fff; max-width:100%;}
 .role-choice{display:flex; gap:10px; margin:6px 0 18px;}
 .role-option{flex:1; padding:12px; border:1.5px solid #dad7cd; border-radius:10px; background:#fff; cursor:pointer; font-size:14px; font-family:inherit;}
 .role-option.selected{border-color:#202124; background:#f5f3ec; font-weight:600;}
@@ -612,6 +617,9 @@ def _form_html(token: str, events) -> str:
     if not events:
         return ""
 
+    category_options = '<option value="">Choose a category (optional)</option>' + "".join(
+        f'<option value="{c}">{c}</option>' for c in CATEGORY_STYLE
+    )
     per_email_rows = ""
     for e in events:
         eid = e["id"]
@@ -623,6 +631,10 @@ def _form_html(token: str, events) -> str:
           </div>
           <button type="button" class="pill" onclick="markCorrect('{eid}', true, this)">Correct</button>
           <button type="button" class="pill" onclick="markCorrect('{eid}', false, this)">Wrong</button>
+        </div>
+        <div class="fix-row" id="fix-{eid}" hidden>
+          <label for="fixsel-{eid}">What should it be?</label>
+          <select id="fixsel-{eid}" onchange="setFix('{eid}', this.value)">{category_options}</select>
         </div>
         """
 
@@ -653,6 +665,7 @@ def _form_html(token: str, events) -> str:
   </div>
 <script>
   const perEmail = {{}};
+  const fixes = {{}};
   let rating = null;
 
   function markCorrect(id, correct, btn) {{
@@ -660,6 +673,11 @@ def _form_html(token: str, events) -> str:
     const row = btn.closest('.row');
     row.querySelectorAll('.pill').forEach(b => b.classList.remove('on-yes', 'on-no'));
     btn.classList.add(correct ? 'on-yes' : 'on-no');
+    document.getElementById('fix-' + id).hidden = correct;
+  }}
+
+  function setFix(id, category) {{
+    fixes[id] = category || null;
   }}
 
   function setRating(n, el) {{
@@ -669,7 +687,9 @@ def _form_html(token: str, events) -> str:
   }}
 
   async function submitFeedback(token) {{
-    const per_email = Object.entries(perEmail).map(([email_event_id, correct]) => ({{email_event_id, correct}}));
+    const per_email = Object.entries(perEmail).map(([email_event_id, correct]) => ({{
+      email_event_id, correct, correct_category: correct ? null : (fixes[email_event_id] || null)
+    }}));
     const res = await fetch(`/checkin/${{token}}/submit`, {{
       method: 'POST',
       headers: {{'Content-Type': 'application/json'}},
@@ -771,6 +791,10 @@ def submit_checkin(token: str, submission: CheckinSubmission):
         # .dict() rather than .model_dump(): works on both pydantic v1 and
         # v2 (deprecated-but-functional shim on v2), avoids assuming
         # which major version ended up installed.
-        per_email=[pe.dict() for pe in submission.per_email],
+        per_email=[
+            {**pe.dict(), "correct_category": pe.correct_category
+             if not pe.correct and pe.correct_category in CATEGORY_STYLE else None}
+            for pe in submission.per_email
+        ],
     )
     return {"status": "saved", "day": day}

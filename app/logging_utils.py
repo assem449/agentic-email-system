@@ -39,6 +39,13 @@ def log_routing_decision(state: EmailState) -> EmailState:
             handler_used=state.get("handler_used") or "",
             # For a note, its summary: that is what the check-in page shows.
             response_preview=(state.get("note_summary") or state.get("response") or "")[:200],
+            input_tokens=state.get("input_tokens"),
+            output_tokens=state.get("output_tokens"),
+            latency_ms=state.get("latency_ms"),
+            body_chars=len(state.get("subject") or "") + len(state.get("body") or "")
+                       + len(state.get("quoted_text") or ""),
+            reply_needed=state.get("reply_needed"),
+            needs_review=state.get("needs_review"),
         )
 
     return state
