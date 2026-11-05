@@ -79,11 +79,21 @@ CREATE TABLE IF NOT EXISTS email_events (
     handler_used TEXT,
     response_preview TEXT,
     created_at TEXT NOT NULL,
+    -- Cost and outcome, for the results page. NULL on rows recorded before
+    -- these columns existed. body_chars is the length of the text an
+    -- all-LLM baseline would have sent (subject + body + quoted thread).
+    input_tokens INTEGER,
+    output_tokens INTEGER,
+    latency_ms REAL,
+    body_chars INTEGER,
+    reply_needed INTEGER,
+    needs_review INTEGER,
     FOREIGN KEY (participant_id) REFERENCES participants(id)
 );
 
 -- One row per participant per study-day they submitted feedback for.
--- per_email_json: [{"email_event_id": "...", "correct": true|false}, ...]
+-- per_email_json: [{"email_event_id": "...", "correct": true|false,
+--                   "correct_category": "..." or null}, ...]
 CREATE TABLE IF NOT EXISTS checkin_submissions (
     participant_id TEXT NOT NULL,
     day_number INTEGER NOT NULL,
@@ -112,6 +122,13 @@ def _migrate(conn: sqlite3.Connection) -> None:
         conn.execute("ALTER TABLE participants ADD COLUMN welcomed_at TEXT")
     if "role" not in cols:
         conn.execute("ALTER TABLE participants ADD COLUMN role TEXT")
+
+    event_cols = {row["name"] for row in conn.execute("PRAGMA table_info(email_events)")}
+    for name, kind in (("input_tokens", "INTEGER"), ("output_tokens", "INTEGER"),
+                       ("latency_ms", "REAL"), ("body_chars", "INTEGER"),
+                       ("reply_needed", "INTEGER"), ("needs_review", "INTEGER")):
+        if name not in event_cols:
+            conn.execute(f"ALTER TABLE email_events ADD COLUMN {name} {kind}")
 
     pending_cols = {row["name"] for row in conn.execute("PRAGMA table_info(pending_events)")}
     if "time_adjusted" not in pending_cols:
@@ -336,20 +353,64 @@ def record_email_event(
     category: str,
     handler_used: str,
     response_preview: str,
+    input_tokens: Optional[int] = None,
+    output_tokens: Optional[int] = None,
+    latency_ms: Optional[float] = None,
+    body_chars: Optional[int] = None,
+    reply_needed: Optional[bool] = None,
+    needs_review: Optional[bool] = None,
 ) -> None:
+    def flag(v):
+        return None if v is None else int(bool(v))
+
     with _conn() as conn:
         conn.execute(
             """
             INSERT INTO email_events
                 (id, participant_id, gmail_id, sender, subject, category,
-                 handler_used, response_preview, created_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 handler_used, response_preview, created_at, input_tokens,
+                 output_tokens, latency_ms, body_chars, reply_needed, needs_review)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 str(uuid.uuid4()), participant_id, gmail_id, sender, subject,
-                category, handler_used, response_preview, _now(),
+                category, handler_used, response_preview, _now(), input_tokens,
+                output_tokens, latency_ms, body_chars, flag(reply_needed),
+                flag(needs_review),
             ),
         )
+
+
+def list_email_events() -> list[sqlite3.Row]:
+    """Every processed email of every participant, oldest first, for the
+    results page and export."""
+    with _conn() as conn:
+        return conn.execute(
+            "SELECT * FROM email_events ORDER BY created_at ASC"
+        ).fetchall()
+
+
+def list_participants_for_export() -> list[dict]:
+    """Participants without their OAuth token or check-in link, plus how
+    many days they checked in."""
+    with _conn() as conn:
+        rows = conn.execute(
+            """
+            SELECT p.id, p.email, p.role, p.connected_at, p.active,
+                   COUNT(c.day_number) AS days_checked_in
+            FROM participants p
+            LEFT JOIN checkin_submissions c ON c.participant_id = p.id
+            GROUP BY p.id ORDER BY p.connected_at
+            """
+        ).fetchall()
+    return [dict(r) for r in rows]
+
+
+def study_day(participant_connected_at: str, timestamp: str) -> int:
+    """Study day (1-indexed, STUDY_TIMEZONE) of a timestamp for a
+    participant who connected at participant_connected_at."""
+    start = _parse_utc(participant_connected_at).astimezone(_STUDY_TZ).date()
+    return (_parse_utc(timestamp).astimezone(_STUDY_TZ).date() - start).days + 1
 
 
 def _parse_utc(timestamp: str) -> datetime:
