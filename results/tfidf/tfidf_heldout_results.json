@@ -4,53 +4,53 @@
     "cv_seed": 42,
     "bootstrap_seed": 20260824,
     "n_bootstrap": 10000,
-    "heldout_labels": "PRE-adjudication (not the paper's held-out ground truth)",
+    "heldout_labels": "adjudicated",
     "features": "TF-IDF word 1-2 grams, sublinear tf, fitted per fold",
     "hyperparameters": "C=1.0 for both, not tuned"
   },
   "tfidf_lr": {
     "n": 105,
-    "correct": 81,
-    "accuracy": 0.7714285714285715,
+    "correct": 85,
+    "accuracy": 0.8095238095238095,
     "accuracy_ci": [
-      0.6823796607286441,
-      0.841317161074784
+      0.7240221679553136,
+      0.8731759621714026
     ],
-    "macro_f1": 0.7789635052603568,
+    "macro_f1": 0.8138018494083152,
     "macro_f1_ci": [
-      0.6950107910885456,
-      0.84770117601077
+      0.7316216334290863,
+      0.8805377650425746
     ],
     "per_category": {
       "ack": {
-        "n": 15,
-        "precision": 0.7777777777777778,
-        "recall": 0.9333333333333333,
-        "f1": 0.8484848484848485
+        "n": 13,
+        "precision": 0.7222222222222222,
+        "recall": 1.0,
+        "f1": 0.8387096774193549
       },
       "meeting": {
-        "n": 15,
+        "n": 14,
         "precision": 0.8666666666666667,
-        "recall": 0.8666666666666667,
-        "f1": 0.8666666666666667
+        "recall": 0.9285714285714286,
+        "f1": 0.896551724137931
       },
       "faq": {
-        "n": 17,
+        "n": 14,
         "precision": 0.875,
-        "recall": 0.4117647058823529,
-        "f1": 0.56
-      },
-      "support": {
-        "n": 15,
-        "precision": 0.4827586206896552,
-        "recall": 0.9333333333333333,
+        "recall": 0.5,
         "f1": 0.6363636363636364
       },
+      "support": {
+        "n": 18,
+        "precision": 0.5862068965517241,
+        "recall": 0.9444444444444444,
+        "f1": 0.723404255319149
+      },
       "emotional": {
-        "n": 13,
+        "n": 14,
         "precision": 1.0,
-        "recall": 1.0,
-        "f1": 1.0
+        "recall": 0.9285714285714286,
+        "f1": 0.9629629629629629
       },
       "ambiguous": {
         "n": 18,
@@ -59,16 +59,16 @@
         "f1": 0.7586206896551724
       },
       "spam": {
-        "n": 12,
-        "precision": 0.8181818181818182,
-        "recall": 0.75,
-        "f1": 0.782608695652174
+        "n": 14,
+        "precision": 1.0,
+        "recall": 0.7857142857142857,
+        "f1": 0.88
       }
     },
     "latency": {
-      "median_ms": 0.4030579999607653,
-      "mean_ms": 0.43590854159769143,
-      "p95_ms": 0.6736409999916759,
+      "median_ms": 0.38921800000935036,
+      "mean_ms": 0.4053790969695248,
+      "p95_ms": 0.5338779999988219,
       "n_calls": 1815
     },
     "rows": [
@@ -349,17 +349,17 @@
       },
       {
         "id": "ho-sup-11",
-        "true_category": "faq",
+        "true_category": "support",
         "predicted_category": "support"
       },
       {
         "id": "ho-sup-12",
-        "true_category": "meeting",
+        "true_category": "ambiguous",
         "predicted_category": "support"
       },
       {
         "id": "ho-sup-13",
-        "true_category": "ambiguous",
+        "true_category": "support",
         "predicted_category": "support"
       },
       {
@@ -424,7 +424,7 @@
       },
       {
         "id": "ho-emo-11",
-        "true_category": "faq",
+        "true_category": "support",
         "predicted_category": "support"
       },
       {
@@ -434,7 +434,7 @@
       },
       {
         "id": "ho-emo-13",
-        "true_category": "ack",
+        "true_category": "emotional",
         "predicted_category": "ack"
       },
       {
@@ -559,22 +559,22 @@
       },
       {
         "id": "ho-spam-8",
-        "true_category": "spam",
+        "true_category": "ambiguous",
         "predicted_category": "meeting"
       },
       {
         "id": "ho-spam-9",
-        "true_category": "ack",
+        "true_category": "spam",
         "predicted_category": "spam"
       },
       {
         "id": "ho-spam-10",
-        "true_category": "faq",
+        "true_category": "spam",
         "predicted_category": "spam"
       },
       {
         "id": "ho-spam-11",
-        "true_category": "ambiguous",
+        "true_category": "spam",
         "predicted_category": "meeting"
       },
       {
@@ -601,65 +601,65 @@
   },
   "tfidf_svm": {
     "n": 105,
-    "correct": 88,
-    "accuracy": 0.8380952380952381,
+    "correct": 90,
+    "accuracy": 0.8571428571428571,
     "accuracy_ci": [
-      0.7559361291453497,
-      0.8963879822238328
+      0.7775987921491644,
+      0.9114759733816619
     ],
-    "macro_f1": 0.8408815304450977,
+    "macro_f1": 0.8595315794286874,
     "macro_f1_ci": [
-      0.7648537947616497,
-      0.9026013959207235
+      0.7837786448311393,
+      0.9187339284511611
     ],
     "per_category": {
       "ack": {
-        "n": 15,
-        "precision": 0.7368421052631579,
-        "recall": 0.9333333333333333,
-        "f1": 0.8235294117647058
+        "n": 13,
+        "precision": 0.6842105263157895,
+        "recall": 1.0,
+        "f1": 0.8125
       },
       "meeting": {
-        "n": 15,
-        "precision": 0.9333333333333333,
-        "recall": 0.9333333333333333,
-        "f1": 0.9333333333333333
+        "n": 14,
+        "precision": 0.8666666666666667,
+        "recall": 0.9285714285714286,
+        "f1": 0.896551724137931
       },
       "faq": {
-        "n": 17,
+        "n": 14,
         "precision": 0.9,
-        "recall": 0.5294117647058824,
-        "f1": 0.6666666666666666
+        "recall": 0.6428571428571429,
+        "f1": 0.75
       },
       "support": {
-        "n": 15,
-        "precision": 0.6666666666666666,
-        "recall": 0.9333333333333333,
-        "f1": 0.7777777777777778
+        "n": 18,
+        "precision": 0.7619047619047619,
+        "recall": 0.8888888888888888,
+        "f1": 0.8205128205128205
       },
       "emotional": {
-        "n": 13,
+        "n": 14,
         "precision": 1.0,
-        "recall": 1.0,
-        "f1": 1.0
+        "recall": 0.9285714285714286,
+        "f1": 0.9629629629629629
       },
       "ambiguous": {
         "n": 18,
-        "precision": 1.0,
-        "recall": 0.7222222222222222,
-        "f1": 0.8387096774193549
+        "precision": 0.9230769230769231,
+        "recall": 0.6666666666666666,
+        "f1": 0.7741935483870968
       },
       "spam": {
-        "n": 12,
-        "precision": 0.7857142857142857,
-        "recall": 0.9166666666666666,
-        "f1": 0.8461538461538461
+        "n": 14,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
       }
     },
     "latency": {
-      "median_ms": 0.38830899995900836,
-      "mean_ms": 0.4069655840225692,
-      "p95_ms": 0.5466119999937291,
+      "median_ms": 0.4467980000129046,
+      "mean_ms": 0.4704354308542052,
+      "p95_ms": 0.6665280000106577,
       "n_calls": 1815
     },
     "rows": [
@@ -940,17 +940,17 @@
       },
       {
         "id": "ho-sup-11",
-        "true_category": "faq",
+        "true_category": "support",
         "predicted_category": "support"
       },
       {
         "id": "ho-sup-12",
-        "true_category": "meeting",
+        "true_category": "ambiguous",
         "predicted_category": "meeting"
       },
       {
         "id": "ho-sup-13",
-        "true_category": "ambiguous",
+        "true_category": "support",
         "predicted_category": "ambiguous"
       },
       {
@@ -1015,7 +1015,7 @@
       },
       {
         "id": "ho-emo-11",
-        "true_category": "faq",
+        "true_category": "support",
         "predicted_category": "support"
       },
       {
@@ -1025,7 +1025,7 @@
       },
       {
         "id": "ho-emo-13",
-        "true_category": "ack",
+        "true_category": "emotional",
         "predicted_category": "ack"
       },
       {
@@ -1150,22 +1150,22 @@
       },
       {
         "id": "ho-spam-8",
-        "true_category": "spam",
+        "true_category": "ambiguous",
         "predicted_category": "meeting"
       },
       {
         "id": "ho-spam-9",
-        "true_category": "ack",
+        "true_category": "spam",
         "predicted_category": "spam"
       },
       {
         "id": "ho-spam-10",
-        "true_category": "faq",
+        "true_category": "spam",
         "predicted_category": "spam"
       },
       {
         "id": "ho-spam-11",
-        "true_category": "ambiguous",
+        "true_category": "spam",
         "predicted_category": "spam"
       },
       {

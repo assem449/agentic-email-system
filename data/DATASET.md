@@ -16,10 +16,10 @@ no real correspondence was collected or analysed.
 | Emails | 363 |
 | Fields | `id`, `subject`, `body`, `true_category` |
 | Categories | support 67, ack 52, ambiguous 52, faq 50, emotional 50, meeting 47, spam 45 |
-| Generator model | `TODO(author)`: exact model name and version, e.g. as shown in the API/UI |
-| Access route | `TODO(author)`: API or chat interface; date(s) of generation |
+| Generator model | Claude Sonnet 5 (Anthropic), per the author. `TODO(author)`: confirm this is the primary-corpus generator |
+| Access route / date | `TODO(author)`: claude.ai app or API; August 2026 |
 | Sampling settings | `TODO(author)`: temperature etc., or "interface defaults" |
-| Prompts | seven category-specific prompts, reproduced verbatim below |
+| Prompts | seven category-specific role-play prompts; not retained verbatim (see Generation prompts) |
 | Labels | single annotator (one author); generator's target category treated as a proposal only |
 | Deduplication | exact-duplicate bodies removed (`dedupe_eval_set.py`); `eval_set_deduped.json` is the output and is identical to `eval_set.json` |
 
@@ -33,12 +33,12 @@ generating prompt.
 | | |
 |---|---|
 | Emails | 105 (15 per prompt, 7 prompts) |
-| Generator model | `TODO(author)`: a **different** model from the primary corpus; exact name and version |
+| Generator model | `TODO(author)`: the paper says a **different** model from the primary corpus. Which one? |
 | Access route / date / settings | `TODO(author)` |
-| Prompts | seven reworded prompts with different senders, scenarios and registers, reproduced verbatim below |
+| Prompts | seven reworded prompts with different senders, scenarios and registers; not retained verbatim (see Generation prompts) |
 | Labels in this file | **pre-adjudication** labels from the first annotator |
 | Double annotation | second annotator blind to the original labels and the prompts; raw agreement 96/105 (91.4%), Cohen's κ = 0.900 (`score_agreement.py`) |
-| Adjudicated labels | 9 labels changed in adjudication. The paper's held-out figures use the adjudicated labels. `TODO(author)`: commit `adjudicated_ground_truth.csv` (columns `orig_id, original_label, adjudicated_label, changed`). Without it, held-out figures computed from this file will not match the paper. |
+| Adjudicated labels | `adjudicated_ground_truth.csv` (repo root): all 105 emails, columns `orig_id, original_label, adjudicated_label, changed`; 9 changed. These are the ground truth for every held-out figure in the paper. Pass it to `tfidf_baseline.py --adjudicated` / `rescore_heldout.py`. |
 
 Contamination checks against the primary corpus (exact normalised text
 overlap and id collisions) both return zero (`eval_heldout.py`).
@@ -50,67 +50,15 @@ with the system prompt in `app/handlers/llm.py`, `max_tokens=300`.
 
 ## Generation prompts
 
-`TODO(author)`: paste each prompt verbatim. Keep any typos; the point is
-exact reproducibility.
+Each corpus came from seven category-specific role-play prompts
+("Imagine you are…") giving the category, a sender persona and scenario,
+and asking for canonical phrasings, natural paraphrases and trap cases.
 
-### Primary corpus
+**The verbatim prompts were not retained.** The generated corpora, labels
+and adjudication record are released instead. Regeneration would not
+reproduce the corpora exactly anyway, because generation was sampled.
 
-#### ack
-```
-TODO(author)
-```
-#### meeting
-```
-TODO(author)
-```
-#### faq
-```
-TODO(author)
-```
-#### support
-```
-TODO(author)
-```
-#### emotional
-```
-TODO(author)
-```
-#### ambiguous
-```
-TODO(author)
-```
-#### spam
-```
-TODO(author)
-```
-
-### Held-out corpus
-
-#### ack
-```
-TODO(author)
-```
-#### meeting
-```
-TODO(author)
-```
-#### faq
-```
-TODO(author)
-```
-#### support
-```
-TODO(author)
-```
-#### emotional
-```
-TODO(author)
-```
-#### ambiguous
-```
-TODO(author)
-```
-#### spam
-```
-TODO(author)
-```
+`TODO(author)`: if the emails were generated in the claude.ai app, search
+the chat history for "Imagine you are" (August 2026). If the prompts turn
+up, paste them here verbatim and delete this note. Do not reconstruct them
+from memory and present them as the originals.

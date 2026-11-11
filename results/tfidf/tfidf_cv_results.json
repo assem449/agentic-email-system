@@ -4,7 +4,7 @@
     "cv_seed": 42,
     "bootstrap_seed": 20260824,
     "n_bootstrap": 10000,
-    "heldout_labels": "PRE-adjudication (not the paper's held-out ground truth)",
+    "heldout_labels": "adjudicated",
     "features": "TF-IDF word 1-2 grams, sublinear tf, fitted per fold",
     "hyperparameters": "C=1.0 for both, not tuned"
   },
@@ -74,7 +74,7 @@
     ],
     "fold_mean": 0.7907153729071538,
     "fold_std": 0.03696879812085125,
-    "mean_fit_seconds_per_fold": 0.7111130982000077
+    "mean_fit_seconds_per_fold": 0.5632254625999991
   },
   "tfidf_svm": {
     "n": 363,
@@ -142,6 +142,6 @@
     ],
     "fold_mean": 0.8457382039573819,
     "fold_std": 0.031955859063348746,
-    "mean_fit_seconds_per_fold": 0.02757583259998455
+    "mean_fit_seconds_per_fold": 0.02349032860000193
   }
 }
