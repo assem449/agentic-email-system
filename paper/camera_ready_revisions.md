@@ -19,7 +19,8 @@ python3 tfidf_baseline.py --adjudicated adjudicated_ground_truth.csv
 ```
 
 (After `eval_heldout.py`, also run `python3 compare_heldout.py` for the
-paired test.)
+paired test, and `python3 bootstrap_primary.py` for the primary-corpus
+intervals.)
 
 ```bash
 python3 app/distilbert_cv.py
@@ -48,7 +49,7 @@ python3 app/metrics.py
 - `distilbert_cv.py` and `train_final.py` regenerate the out-of-fold
   predictions and the deployed model. Neither is in the repo: `logs/` is
   gitignored and the model weights were never committed. `distilbert_cv.py`
-  uses seed 42 and should reproduce 336/363. If it doesn't exactly,
+  uses seed 42. On the author's laptop it gave 335/363 (v15: 336/363); the new run is the one reported. If it doesn't exactly,
   report what you get.
 - `latency_bench.py` times per-email classifier inference. Run it on the
   laptop the paper refers to ("roughly 64 seconds on a laptop CPU").
@@ -129,7 +130,7 @@ seed 20260824. Results are committed in `results/tfidf/`.
 | Rules v1 (frozen) | 39.67% (144/363) | — | — | 0.386 | 0.333–0.435 |
 | TF-IDF + LR | **79.06%** (287/363) | 74.6–82.9 | 79.07 ± 3.70 | **0.792** | 0.748–0.832 |
 | TF-IDF + linear SVM | **84.57%** (307/363) | 80.5–87.9 | 84.57 ± 3.20 | **0.842** | 0.803–0.877 |
-| DistilBERT v2 | 92.56% (336/363) | 89.4–94.8 | 92.57 ± 1.85 | 0.923 | 0.894–0.949 |
+| DistilBERT v2 (rerun) | 92.29% (335/363) | 89.1–94.6 | 92.29 ± 1.84 | 0.921 | [[ci]] |
 
 The SVM and DistilBERT accuracy intervals are disjoint, so on the primary
 corpus DistilBERT's lead over the strongest linear baseline holds up.
@@ -141,7 +142,7 @@ corpus DistilBERT's lead over the strongest linear baseline holds up.
 | Rules v1 (frozen) | 48.57% (51/105) | — | 0.422 | 0.331–0.500 | +8.90 |
 | TF-IDF + LR | 80.95% (85/105) | 72.4–87.3 | 0.814 | 0.732–0.881 | +1.89 |
 | **TF-IDF + linear SVM** | **85.71% (90/105)** | 77.8–91.2 | **0.860** | 0.784–0.919 | **+1.14** |
-| DistilBERT v2 (v15) | 84.76% (89/105) | 76.7–90.4 | 0.851 | 0.775–0.913 | −7.80 |
+| DistilBERT v2 (rerun, identical to v15) | 84.76% (89/105) | 76.7–90.4 | 0.851 | 0.775–0.913 | −7.53 |
 
 Validation: with `adjudicated_ground_truth.csv`, rules v1 reproduces v15's
 held-out row exactly (51/105, macro-F1 0.422, every per-category F1 in Table
@@ -150,10 +151,12 @@ II), so these are the paper's labels.
 **This changes the classifier story.** On the held-out corpus, which the
 paper treats as the stronger generalisation test, the linear SVM matches
 DistilBERT and slightly exceeds it (one email). Its accuracy doesn't drop
-from CV to held-out, while DistilBERT's drops 7.80 points. The intervals
+from CV to held-out, while DistilBERT's drops 7.53 points. The intervals
 overlap almost entirely, so the claim is "not distinguishable", not "the SVM
-is better". Run `compare_heldout.py` after `eval_heldout.py` to get the
-paired exact McNemar p-value, and report it.
+is better". The paired exact McNemar test (`compare_heldout.py`) confirms
+it: of the 15 held-out emails where the two disagree, DistilBERT gets 7
+right and the SVM 8, $p = 1.00$. Against logistic regression the split is
+11 to 7, $p = 0.48$.
 
 What still stands: both trained classifiers beat the rules by a wide margin
 on both corpora, and on the primary corpus DistilBERT leads the SVM with
@@ -166,7 +169,7 @@ paper currently claims. Text that will need updating:
 - **Abstract:** add one sentence, e.g. "A TF-IDF linear SVM reaches
   84.57\% in cross-validation and 85.71\% on the held-out corpus,
   statistically indistinguishable from DistilBERT there (McNemar
-  $p=$[[p]])."
+  $p=1.00$)."
 - **§V-E:** see the paragraph below.
 - **§VI:** a short paragraph saying that the router's savings don't
   require a fine-tuned transformer, and that DistilBERT's advantage is
@@ -198,9 +201,9 @@ classifiers are compared on identical out-of-fold predictions.
 The linear baselines close most of the gap between the rules and
 DistilBERT. TF-IDF with a linear SVM attains 84.57\% (95\% CI 80.5--87.9)
 and macro-F1 0.842 (0.803--0.877); logistic regression attains 79.06\% and
-0.792. DistilBERT's lead over the SVM, 7.99 points, is outside both
+0.792. DistilBERT's lead over the SVM, 7.72 points, is outside both
 intervals, so fine-tuning buys a real in-corpus improvement, but most of
-the distance from the rule set (44.9 of 52.9 points) is recovered by a
+the distance from the rule set (44.9 of 52.6 points) is recovered by a
 bag-of-words model that trains in under a second per fold and classifies an email in
 under a millisecond.
 ```
@@ -212,9 +215,10 @@ The linear baselines generalise differently. Refitted on all 363 primary
 emails, TF-IDF with a linear SVM attains 85.71\% (90/105, 95\% CI
 77.8--91.2) and macro-F1 0.860 (0.784--0.919) on the held-out corpus, and
 logistic regression 80.95\% and 0.814. Neither declines from its
-cross-validated figure, whereas DistilBERT declines by 7.80 points, so on
+cross-validated figure, whereas DistilBERT declines by 7.53 points, so on
 the held-out corpus the SVM and DistilBERT are not distinguishable (exact
-McNemar test on the 105 paired predictions, $p=$[[p]]). DistilBERT's lead
+McNemar test on the 105 paired predictions: 7 emails only DistilBERT
+classifies correctly, 8 only the SVM, $p=1.00$). DistilBERT's lead
 on the primary corpus therefore does not survive a change of generator:
 part of what fine-tuning learned in-corpus is the primary generator's
 style, which a bag-of-words model with no pretrained representation has
