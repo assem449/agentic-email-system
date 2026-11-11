@@ -1,0 +1,25 @@
+# Unpinned: the versions used for the paper's runs were not recorded.
+# Before release, pin these from the environment that produced the results
+# (pip freeze), so the reported numbers can be reproduced.
+
+# pipeline
+anthropic
+python-dotenv
+langgraph
+fastapi
+uvicorn
+pydantic
+chromadb
+python-dateutil
+google-api-python-client
+google-auth
+google-auth-oauthlib
+
+# classifiers and evaluation
+torch
+transformers
+datasets
+accelerate
+scikit-learn
+numpy
+openpyxl

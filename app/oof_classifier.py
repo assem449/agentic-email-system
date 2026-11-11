@@ -62,3 +62,16 @@ def classify_email_distilbert_oof(email_id: str, subject: str, body: str) -> str
             "make sure eval_set.json matches the file distilbert_cv.py was run on."
         )
     return _oof[email_id]["predicted_category"]
+
+def make_oof_classifier(path: str):
+    """Same lookup as classify_email_distilbert_oof, for any OOF predictions
+    file in the same format -- e.g. logs/tfidf_lr_oof_predictions.json from
+    tfidf_baseline.py, which uses the identical 5-fold split."""
+    preds = json.loads(Path(path).read_text())
+
+    def classify(email_id: str, subject: str, body: str) -> str:
+        if email_id not in preds:
+            raise KeyError(f"No OOF prediction for {email_id!r} in {path}")
+        return preds[email_id]["predicted_category"]
+
+    return classify

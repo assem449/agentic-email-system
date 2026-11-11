@@ -1,0 +1,33 @@
+{
+  "hardware": {
+    "platform": "Linux-6.18.44-fc-v378-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count": 4
+  },
+  "n_emails": 363,
+  "repeats": 3,
+  "rules": {
+    "median_ms": 0.11124499997094972,
+    "mean_ms": 0.12480710376440551,
+    "p95_ms": 0.29958099997884347,
+    "n_calls": 1089,
+    "load_ms": 0.9429840000052536,
+    "note": "rules v1 (frozen)"
+  },
+  "tfidf_lr": {
+    "median_ms": 0.41415200001893027,
+    "mean_ms": 0.4204315426988077,
+    "p95_ms": 0.5155270000045675,
+    "n_calls": 1089,
+    "load_ms": 1319.5747259999848,
+    "note": "tfidf_lr (fitted on all 363)"
+  },
+  "tfidf_svm": {
+    "median_ms": 0.38791200000787285,
+    "mean_ms": 0.3925552993559754,
+    "p95_ms": 0.46609999998281637,
+    "n_calls": 1089,
+    "load_ms": 32.50278199999457,
+    "note": "tfidf_svm (fitted on all 363)"
+  }
+}

@@ -9,7 +9,8 @@ class EmailState(TypedDict):
     handler_used: Optional[str]  # set by the handler node
     response: Optional[str]
     tokens_used: Optional[int]
-    latency_ms: Optional[float]
+    latency_ms: Optional[float]           # handler only
+    classify_latency_ms: Optional[float]  # classifier only; end-to-end = sum of both
     input_tokens: int
     output_tokens: int
     retrieval_distance: float

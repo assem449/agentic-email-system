@@ -17,7 +17,12 @@ ACTIVE_CLASSIFIER = classify_email_distilbert  # or: classify_email
 
 
 def classify_node(state: EmailState) -> EmailState:
+    # Timed separately from the handler: each handler resets latency_ms to
+    # its own duration, so without this the classifier's cost (DistilBERT
+    # inference in particular) never appears in any reported latency.
+    start = time.perf_counter()
     state["category"] = ACTIVE_CLASSIFIER(state["subject"], state["body"])
+    state["classify_latency_ms"] = (time.perf_counter() - start) * 1000
     return state
 
 

@@ -73,6 +73,8 @@ if __name__ == "__main__":
     with open("logs/eval_3baseline.json") as f:
         data = json.load(f)
     for label, key in (("Rules v1 (frozen)", "rules"),
+                       ("TF-IDF + LR (out-of-fold)", "tfidf_lr"),
+                       ("TF-IDF + SVM (out-of-fold)", "tfidf_svm"),
                        ("DistilBERT v2 (out-of-fold)", "distilbert"),
                        ("Random routing", "random")):
         if key in data:

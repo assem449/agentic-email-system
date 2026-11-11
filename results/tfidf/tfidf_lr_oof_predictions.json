@@ -1,0 +1,2180 @@
+{
+  "ack-gen-6": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 1
+  },
+  "ack-gen-10": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 1
+  },
+  "ack-gen-13": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 1
+  },
+  "ack-gen-16": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 1
+  },
+  "ack-gen-18": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 1
+  },
+  "ack-gen-23": {
+    "predicted_category": "ack",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 1
+  },
+  "ack-gen-26": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 1
+  },
+  "ack-gen-32": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 1
+  },
+  "ack-gen-40": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 1
+  },
+  "ack-gen-42": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 1
+  },
+  "ack-gen-48": {
+    "predicted_category": "spam",
+    "true_category": "ack",
+    "correct": false,
+    "fold": 1
+  },
+  "meet-gen-1": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 1
+  },
+  "meet-gen-2": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 1
+  },
+  "meet-gen-11": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 1
+  },
+  "meet-gen-17": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 1
+  },
+  "meet-gen-30": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 1
+  },
+  "meet-gen-31": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 1
+  },
+  "meet-gen-39": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 1
+  },
+  "meet-gen-40": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 1
+  },
+  "meet-gen-41": {
+    "predicted_category": "ack",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 1
+  },
+  "meet-gen-46": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 1
+  },
+  "faq-gen-13": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 1
+  },
+  "faq-gen-20": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 1
+  },
+  "faq-gen-23": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 1
+  },
+  "faq-gen-26": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 1
+  },
+  "faq-gen-29": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 1
+  },
+  "faq-gen-30": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 1
+  },
+  "faq-gen-33": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 1
+  },
+  "faq-gen-42": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 1
+  },
+  "faq-gen-45": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 1
+  },
+  "sup-gen-5": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 1
+  },
+  "sup-gen-8": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 1
+  },
+  "sup-gen-15": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 1
+  },
+  "sup-gen-23": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 1
+  },
+  "sup-gen-27": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 1
+  },
+  "sup-gen-36": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 1
+  },
+  "sup-gen-41": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 1
+  },
+  "sup-gen-48": {
+    "predicted_category": "support",
+    "true_category": "emotional",
+    "correct": false,
+    "fold": 1
+  },
+  "sup-gen-50": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 1
+  },
+  "emo-gen-4": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 1
+  },
+  "emo-gen-7": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 1
+  },
+  "emo-gen-12": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 1
+  },
+  "emo-gen-16": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 1
+  },
+  "emo-gen-17": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 1
+  },
+  "emo-gen-25": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 1
+  },
+  "emo-gen-26": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 1
+  },
+  "emo-gen-27": {
+    "predicted_category": "ambiguous",
+    "true_category": "emotional",
+    "correct": false,
+    "fold": 1
+  },
+  "emo-gen-28": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 1
+  },
+  "emo-gen-34": {
+    "predicted_category": "ambiguous",
+    "true_category": "emotional",
+    "correct": false,
+    "fold": 1
+  },
+  "emo-gen-41": {
+    "predicted_category": "ambiguous",
+    "true_category": "support",
+    "correct": false,
+    "fold": 1
+  },
+  "emo-gen-56": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 1
+  },
+  "emo-gen-62": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 1
+  },
+  "amb-gen-2": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 1
+  },
+  "amb-gen-6": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 1
+  },
+  "amb-gen-18": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 1
+  },
+  "amb-gen-23": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 1
+  },
+  "amb-gen-26": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 1
+  },
+  "amb-gen-32": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 1
+  },
+  "amb-gen-34": {
+    "predicted_category": "support",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 1
+  },
+  "amb-gen-36": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 1
+  },
+  "amb-gen-42": {
+    "predicted_category": "support",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 1
+  },
+  "amb-gen-44": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 1
+  },
+  "amb-gen-49": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 1
+  },
+  "spam-gen-5": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 1
+  },
+  "spam-gen-9": {
+    "predicted_category": "support",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 1
+  },
+  "spam-gen-15": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 1
+  },
+  "spam-gen-19": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 1
+  },
+  "spam-gen-26": {
+    "predicted_category": "meeting",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 1
+  },
+  "spam-gen-27": {
+    "predicted_category": "meeting",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 1
+  },
+  "spam-gen-28": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 1
+  },
+  "spam-gen-35": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 1
+  },
+  "spam-gen-37": {
+    "predicted_category": "support",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 1
+  },
+  "spam-gen-49": {
+    "predicted_category": "support",
+    "true_category": "faq",
+    "correct": false,
+    "fold": 1
+  },
+  "ack-gen-1": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 2
+  },
+  "ack-gen-4": {
+    "predicted_category": "ambiguous",
+    "true_category": "ack",
+    "correct": false,
+    "fold": 2
+  },
+  "ack-gen-8": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 2
+  },
+  "ack-gen-12": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 2
+  },
+  "ack-gen-15": {
+    "predicted_category": "ack",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 2
+  },
+  "ack-gen-25": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 2
+  },
+  "ack-gen-27": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 2
+  },
+  "ack-gen-31": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 2
+  },
+  "ack-gen-41": {
+    "predicted_category": "ambiguous",
+    "true_category": "ack",
+    "correct": false,
+    "fold": 2
+  },
+  "ack-gen-50": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 2
+  },
+  "meet-gen-3": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 2
+  },
+  "meet-gen-4": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 2
+  },
+  "meet-gen-8": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 2
+  },
+  "meet-gen-10": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 2
+  },
+  "meet-gen-15": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 2
+  },
+  "meet-gen-18": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 2
+  },
+  "meet-gen-26": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 2
+  },
+  "meet-gen-27": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 2
+  },
+  "meet-gen-38": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 2
+  },
+  "faq-gen-2": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 2
+  },
+  "faq-gen-6": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 2
+  },
+  "faq-gen-15": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 2
+  },
+  "faq-gen-16": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 2
+  },
+  "faq-gen-18": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 2
+  },
+  "faq-gen-19": {
+    "predicted_category": "support",
+    "true_category": "faq",
+    "correct": false,
+    "fold": 2
+  },
+  "faq-gen-21": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 2
+  },
+  "faq-gen-31": {
+    "predicted_category": "support",
+    "true_category": "faq",
+    "correct": false,
+    "fold": 2
+  },
+  "faq-gen-37": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 2
+  },
+  "faq-gen-39": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 2
+  },
+  "faq-gen-48": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "faq-gen-49": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "sup-gen-3": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "sup-gen-7": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "sup-gen-16": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "sup-gen-19": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "sup-gen-20": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "sup-gen-35": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "sup-gen-43": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "sup-gen-44": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 2
+  },
+  "sup-gen-46": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "emo-gen-3": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "emo-gen-5": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 2
+  },
+  "emo-gen-8": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 2
+  },
+  "emo-gen-9": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "emo-gen-11": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 2
+  },
+  "emo-gen-13": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 2
+  },
+  "emo-gen-32": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "emo-gen-37": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 2
+  },
+  "emo-gen-40": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 2
+  },
+  "emo-gen-48": {
+    "predicted_category": "support",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 2
+  },
+  "emo-gen-50": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 2
+  },
+  "emo-gen-57": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 2
+  },
+  "emo-gen-61": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 2
+  },
+  "emo-gen-63": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 2
+  },
+  "amb-gen-4": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "amb-gen-11": {
+    "predicted_category": "ack",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 2
+  },
+  "amb-gen-20": {
+    "predicted_category": "support",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 2
+  },
+  "amb-gen-21": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "amb-gen-28": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "amb-gen-29": {
+    "predicted_category": "spam",
+    "true_category": "ack",
+    "correct": false,
+    "fold": 2
+  },
+  "amb-gen-38": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "amb-gen-39": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "amb-gen-48": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "spam-gen-1": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 2
+  },
+  "spam-gen-4": {
+    "predicted_category": "emotional",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 2
+  },
+  "spam-gen-7": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 2
+  },
+  "spam-gen-8": {
+    "predicted_category": "support",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 2
+  },
+  "spam-gen-11": {
+    "predicted_category": "meeting",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 2
+  },
+  "spam-gen-13": {
+    "predicted_category": "support",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 2
+  },
+  "spam-gen-16": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 2
+  },
+  "spam-gen-30": {
+    "predicted_category": "support",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 2
+  },
+  "spam-gen-34": {
+    "predicted_category": "emotional",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 2
+  },
+  "spam-gen-47": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 2
+  },
+  "ack-gen-14": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 3
+  },
+  "ack-gen-20": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 3
+  },
+  "ack-gen-28": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 3
+  },
+  "ack-gen-30": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 3
+  },
+  "ack-gen-35": {
+    "predicted_category": "ambiguous",
+    "true_category": "ack",
+    "correct": false,
+    "fold": 3
+  },
+  "ack-gen-36": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 3
+  },
+  "ack-gen-38": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 3
+  },
+  "ack-gen-46": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 3
+  },
+  "ack-gen-49": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 3
+  },
+  "meet-gen-6": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 3
+  },
+  "meet-gen-13": {
+    "predicted_category": "support",
+    "true_category": "meeting",
+    "correct": false,
+    "fold": 3
+  },
+  "meet-gen-14": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 3
+  },
+  "meet-gen-22": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 3
+  },
+  "meet-gen-32": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 3
+  },
+  "meet-gen-33": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 3
+  },
+  "meet-gen-34": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 3
+  },
+  "meet-gen-35": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 3
+  },
+  "meet-gen-42": {
+    "predicted_category": "support",
+    "true_category": "faq",
+    "correct": false,
+    "fold": 3
+  },
+  "meet-gen-43": {
+    "predicted_category": "meeting",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 3
+  },
+  "meet-gen-44": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 3
+  },
+  "meet-gen-47": {
+    "predicted_category": "support",
+    "true_category": "meeting",
+    "correct": false,
+    "fold": 3
+  },
+  "faq-gen-8": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 3
+  },
+  "faq-gen-12": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 3
+  },
+  "faq-gen-17": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 3
+  },
+  "faq-gen-32": {
+    "predicted_category": "support",
+    "true_category": "faq",
+    "correct": false,
+    "fold": 3
+  },
+  "faq-gen-35": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 3
+  },
+  "faq-gen-38": {
+    "predicted_category": "support",
+    "true_category": "faq",
+    "correct": false,
+    "fold": 3
+  },
+  "sup-gen-10": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "sup-gen-11": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "sup-gen-12": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "sup-gen-13": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "sup-gen-18": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "sup-gen-22": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "sup-gen-29": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "sup-gen-30": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "sup-gen-31": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 3
+  },
+  "sup-gen-34": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "sup-gen-37": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "sup-gen-42": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "sup-gen-49": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "emo-gen-2": {
+    "predicted_category": "ambiguous",
+    "true_category": "emotional",
+    "correct": false,
+    "fold": 3
+  },
+  "emo-gen-6": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "emo-gen-14": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 3
+  },
+  "emo-gen-15": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 3
+  },
+  "emo-gen-19": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 3
+  },
+  "emo-gen-22": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 3
+  },
+  "emo-gen-29": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 3
+  },
+  "emo-gen-33": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 3
+  },
+  "emo-gen-42": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 3
+  },
+  "emo-gen-46": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 3
+  },
+  "emo-gen-47": {
+    "predicted_category": "emotional",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 3
+  },
+  "emo-gen-60": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 3
+  },
+  "amb-gen-3": {
+    "predicted_category": "emotional",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 3
+  },
+  "amb-gen-8": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 3
+  },
+  "amb-gen-12": {
+    "predicted_category": "ack",
+    "true_category": "faq",
+    "correct": false,
+    "fold": 3
+  },
+  "amb-gen-14": {
+    "predicted_category": "emotional",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 3
+  },
+  "amb-gen-15": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 3
+  },
+  "amb-gen-16": {
+    "predicted_category": "ack",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 3
+  },
+  "amb-gen-25": {
+    "predicted_category": "support",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 3
+  },
+  "amb-gen-27": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 3
+  },
+  "amb-gen-30": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 3
+  },
+  "amb-gen-46": {
+    "predicted_category": "support",
+    "true_category": "faq",
+    "correct": false,
+    "fold": 3
+  },
+  "amb-gen-47": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 3
+  },
+  "spam-gen-2": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 3
+  },
+  "spam-gen-6": {
+    "predicted_category": "support",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 3
+  },
+  "spam-gen-10": {
+    "predicted_category": "meeting",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 3
+  },
+  "spam-gen-14": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 3
+  },
+  "spam-gen-17": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 3
+  },
+  "spam-gen-24": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 3
+  },
+  "spam-gen-36": {
+    "predicted_category": "support",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 3
+  },
+  "spam-gen-42": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 3
+  },
+  "spam-gen-45": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 3
+  },
+  "spam-gen-48": {
+    "predicted_category": "support",
+    "true_category": "ack",
+    "correct": false,
+    "fold": 3
+  },
+  "ack-gen-2": {
+    "predicted_category": "support",
+    "true_category": "ack",
+    "correct": false,
+    "fold": 4
+  },
+  "ack-gen-7": {
+    "predicted_category": "ack",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 4
+  },
+  "ack-gen-11": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 4
+  },
+  "ack-gen-17": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 4
+  },
+  "ack-gen-19": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 4
+  },
+  "ack-gen-22": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 4
+  },
+  "ack-gen-29": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 4
+  },
+  "ack-gen-34": {
+    "predicted_category": "ack",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 4
+  },
+  "ack-gen-37": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 4
+  },
+  "ack-gen-43": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 4
+  },
+  "ack-gen-44": {
+    "predicted_category": "support",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 4
+  },
+  "ack-gen-45": {
+    "predicted_category": "support",
+    "true_category": "ack",
+    "correct": false,
+    "fold": 4
+  },
+  "meet-gen-5": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 4
+  },
+  "meet-gen-9": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 4
+  },
+  "meet-gen-12": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 4
+  },
+  "meet-gen-19": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 4
+  },
+  "meet-gen-24": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 4
+  },
+  "meet-gen-25": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 4
+  },
+  "meet-gen-29": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 4
+  },
+  "meet-gen-37": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 4
+  },
+  "meet-gen-45": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 4
+  },
+  "faq-gen-3": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 4
+  },
+  "faq-gen-4": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 4
+  },
+  "faq-gen-5": {
+    "predicted_category": "support",
+    "true_category": "faq",
+    "correct": false,
+    "fold": 4
+  },
+  "faq-gen-7": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 4
+  },
+  "faq-gen-9": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 4
+  },
+  "faq-gen-11": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 4
+  },
+  "faq-gen-22": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 4
+  },
+  "faq-gen-24": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 4
+  },
+  "faq-gen-25": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 4
+  },
+  "faq-gen-34": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 4
+  },
+  "faq-gen-46": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 4
+  },
+  "faq-gen-47": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 4
+  },
+  "faq-gen-50": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 4
+  },
+  "sup-gen-4": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 4
+  },
+  "sup-gen-14": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 4
+  },
+  "sup-gen-17": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 4
+  },
+  "sup-gen-21": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 4
+  },
+  "sup-gen-25": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 4
+  },
+  "sup-gen-28": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 4
+  },
+  "sup-gen-38": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 4
+  },
+  "sup-gen-39": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 4
+  },
+  "sup-gen-40": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 4
+  },
+  "emo-gen-21": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 4
+  },
+  "emo-gen-35": {
+    "predicted_category": "meeting",
+    "true_category": "support",
+    "correct": false,
+    "fold": 4
+  },
+  "emo-gen-38": {
+    "predicted_category": "faq",
+    "true_category": "support",
+    "correct": false,
+    "fold": 4
+  },
+  "emo-gen-39": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 4
+  },
+  "emo-gen-43": {
+    "predicted_category": "support",
+    "true_category": "emotional",
+    "correct": false,
+    "fold": 4
+  },
+  "emo-gen-51": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 4
+  },
+  "emo-gen-53": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 4
+  },
+  "emo-gen-54": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 4
+  },
+  "emo-gen-55": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 4
+  },
+  "emo-gen-59": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 4
+  },
+  "amb-gen-13": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 4
+  },
+  "amb-gen-17": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 4
+  },
+  "amb-gen-24": {
+    "predicted_category": "ack",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 4
+  },
+  "amb-gen-31": {
+    "predicted_category": "support",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 4
+  },
+  "amb-gen-35": {
+    "predicted_category": "faq",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 4
+  },
+  "amb-gen-37": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 4
+  },
+  "amb-gen-40": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 4
+  },
+  "amb-gen-41": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 4
+  },
+  "amb-gen-50": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 4
+  },
+  "spam-gen-3": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 4
+  },
+  "spam-gen-18": {
+    "predicted_category": "ack",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 4
+  },
+  "spam-gen-21": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 4
+  },
+  "spam-gen-22": {
+    "predicted_category": "ambiguous",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 4
+  },
+  "spam-gen-31": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 4
+  },
+  "spam-gen-39": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 4
+  },
+  "spam-gen-40": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 4
+  },
+  "spam-gen-41": {
+    "predicted_category": "support",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 4
+  },
+  "spam-gen-43": {
+    "predicted_category": "support",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 4
+  },
+  "spam-gen-50": {
+    "predicted_category": "support",
+    "true_category": "ack",
+    "correct": false,
+    "fold": 4
+  },
+  "ack-gen-3": {
+    "predicted_category": "support",
+    "true_category": "ack",
+    "correct": false,
+    "fold": 5
+  },
+  "ack-gen-5": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 5
+  },
+  "ack-gen-9": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 5
+  },
+  "ack-gen-21": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 5
+  },
+  "ack-gen-24": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 5
+  },
+  "ack-gen-33": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 5
+  },
+  "ack-gen-39": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 5
+  },
+  "ack-gen-47": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 5
+  },
+  "meet-gen-7": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 5
+  },
+  "meet-gen-16": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 5
+  },
+  "meet-gen-20": {
+    "predicted_category": "support",
+    "true_category": "meeting",
+    "correct": false,
+    "fold": 5
+  },
+  "meet-gen-21": {
+    "predicted_category": "ambiguous",
+    "true_category": "meeting",
+    "correct": false,
+    "fold": 5
+  },
+  "meet-gen-23": {
+    "predicted_category": "ambiguous",
+    "true_category": "meeting",
+    "correct": false,
+    "fold": 5
+  },
+  "meet-gen-28": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 5
+  },
+  "meet-gen-36": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 5
+  },
+  "meet-gen-48": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 5
+  },
+  "meet-gen-49": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 5
+  },
+  "meet-gen-50": {
+    "predicted_category": "meeting",
+    "true_category": "meeting",
+    "correct": true,
+    "fold": 5
+  },
+  "faq-gen-1": {
+    "predicted_category": "support",
+    "true_category": "faq",
+    "correct": false,
+    "fold": 5
+  },
+  "faq-gen-10": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 5
+  },
+  "faq-gen-14": {
+    "predicted_category": "support",
+    "true_category": "faq",
+    "correct": false,
+    "fold": 5
+  },
+  "faq-gen-27": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 5
+  },
+  "faq-gen-28": {
+    "predicted_category": "support",
+    "true_category": "faq",
+    "correct": false,
+    "fold": 5
+  },
+  "faq-gen-36": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 5
+  },
+  "faq-gen-40": {
+    "predicted_category": "support",
+    "true_category": "faq",
+    "correct": false,
+    "fold": 5
+  },
+  "faq-gen-41": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 5
+  },
+  "faq-gen-43": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 5
+  },
+  "faq-gen-44": {
+    "predicted_category": "faq",
+    "true_category": "faq",
+    "correct": true,
+    "fold": 5
+  },
+  "sup-gen-1": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 5
+  },
+  "sup-gen-2": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 5
+  },
+  "sup-gen-6": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 5
+  },
+  "sup-gen-9": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 5
+  },
+  "sup-gen-24": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 5
+  },
+  "sup-gen-26": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 5
+  },
+  "sup-gen-32": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 5
+  },
+  "sup-gen-33": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 5
+  },
+  "sup-gen-45": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 5
+  },
+  "sup-gen-47": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-1": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-10": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-18": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-20": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-23": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-24": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-30": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-31": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-36": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-44": {
+    "predicted_category": "support",
+    "true_category": "support",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-45": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-49": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-52": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 5
+  },
+  "emo-gen-58": {
+    "predicted_category": "emotional",
+    "true_category": "emotional",
+    "correct": true,
+    "fold": 5
+  },
+  "amb-gen-1": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "amb-gen-5": {
+    "predicted_category": "spam",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 5
+  },
+  "amb-gen-7": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 5
+  },
+  "amb-gen-9": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "amb-gen-10": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "amb-gen-19": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "amb-gen-22": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "amb-gen-33": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "amb-gen-43": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "amb-gen-45": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "spam-gen-12": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "spam-gen-20": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "spam-gen-23": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "spam-gen-25": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "spam-gen-29": {
+    "predicted_category": "support",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 5
+  },
+  "spam-gen-32": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "spam-gen-33": {
+    "predicted_category": "support",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 5
+  },
+  "spam-gen-38": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "spam-gen-44": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "spam-gen-46": {
+    "predicted_category": "ack",
+    "true_category": "ack",
+    "correct": true,
+    "fold": 5
+  }
+}

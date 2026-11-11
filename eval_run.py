@@ -8,18 +8,28 @@ Changes from the previous version:
   * input/output token split and response text are recorded per email
   * random baseline is seeded
   * latency is reported both with and without calendar-stubbed emails
+  * TF-IDF + logistic regression and TF-IDF + linear SVM baselines, routed
+    from out-of-fold predictions on the same 5-fold split as DistilBERT
+    (run tfidf_baseline.py first)
+  * end-to-end latency: classification time is now added to handler time.
+    For out-of-fold classifiers the routing decision is a lookup, so the
+    deployed model (see latency_bench.py) is run on the same email and
+    timed; its prediction is discarded. Inference cost does not depend on
+    the weights, so this is the latency the deployed system pays.
 """
 
 import json
 import random
+import time
 from pathlib import Path
 
 from app.classifier import classify_email
-from app.oof_classifier import classify_email_distilbert_oof
+from app.oof_classifier import classify_email_distilbert_oof, make_oof_classifier
 from app.handlers.llm import llm_handler
 from app.handlers.cache import clear_cache
 import app.graph as graph_module
 from app.graph import build_graph
+from latency_bench import timed_load, time_call
 
 # Claude Sonnet 4.6, USD per million tokens.
 PRICE_IN = 3.00
@@ -59,11 +69,11 @@ def _blank_state(item):
         "subject": item["subject"], "body": item["body"],
         "category": None, "handler_used": None, "response": None,
         "tokens_used": None, "input_tokens": None, "output_tokens": None,
-        "latency_ms": None,
+        "latency_ms": None, "classify_latency_ms": None,
     }
 
 
-def run_eval(classifier_fn, classifier_name, id_aware=False):
+def run_eval(classifier_fn, classifier_name, id_aware=False, timing_fn=None):
     """
     id_aware=False: classifier_fn(subject, body) -> category
         Rule-based classifier. Not trained on the data, so no leakage
@@ -72,18 +82,25 @@ def run_eval(classifier_fn, classifier_name, id_aware=False):
         own form of contamination. They are frozen here.
 
     id_aware=True: classifier_fn(email_id, subject, body) -> category
-        DistilBERT out-of-fold lookup. Each email is scored only by the
-        fold model that never saw it in training.
+        Out-of-fold lookup (DistilBERT or TF-IDF). Each email is scored
+        only by the fold model that never saw it in training.
+
+    timing_fn: optional deployed classifier fn(subject, body). When given,
+        it is run and timed on each email to supply classify_latency_ms
+        (needed for OOF lookups, whose own cost is ~0). Otherwise the
+        in-graph timing of classifier_fn is used.
     """
     # Critical: without this, run N+1 inherits run N's cache.
     clear_cache()
 
     def make_node(fn, item_id=None):
         def classify_node(state):
+            start = time.perf_counter()
             if id_aware:
                 state["category"] = fn(item_id, state["subject"], state["body"])
             else:
                 state["category"] = fn(state["subject"], state["body"])
+            state["classify_latency_ms"] = (time.perf_counter() - start) * 1000
             return state
         return classify_node
 
@@ -93,6 +110,10 @@ def run_eval(classifier_fn, classifier_name, id_aware=False):
         graph = build_graph()
 
         routed = graph.invoke(_blank_state(item))
+        if timing_fn is not None:
+            classify_ms = time_call(timing_fn, item["subject"], item["body"])
+        else:
+            classify_ms = routed.get("classify_latency_ms") or 0.0
         results.append({
             "id": item["id"],
             "true_category": item["true_category"],
@@ -104,6 +125,7 @@ def run_eval(classifier_fn, classifier_name, id_aware=False):
             "input_tokens": routed.get("input_tokens") or 0,
             "output_tokens": routed.get("output_tokens") or 0,
             "latency_ms": routed.get("latency_ms") or 0.0,
+            "classify_latency_ms": classify_ms,
             "retrieval_distance": routed.get("retrieval_distance"),
         })
 
@@ -166,6 +188,10 @@ def totals(rows, ids=None):
         "input": sum(r.get("input_tokens") or 0 for r in rs),
         "output": sum(r.get("output_tokens") or 0 for r in rs),
         "latency": sum(r.get("latency_ms") or 0 for r in rs),
+        "classify": sum(r.get("classify_latency_ms") or 0 for r in rs),
+        # Always-LLM has no classifier, so its end-to-end == handler latency.
+        "e2e": sum((r.get("latency_ms") or 0) + (r.get("classify_latency_ms") or 0)
+                   for r in rs),
     }
 
 
@@ -178,15 +204,40 @@ def report(label, routed, baseline, ids=None):
     print(f"  {label:<26} "
           f"tokens {1 - r['tokens']/b['tokens']:>7.2%}   "
           f"cost {1 - cost(r)/cost(b):>7.2%}   "
-          f"latency {1 - r['latency']/b['latency']:>7.2%}")
+          f"latency {1 - r['latency']/b['latency']:>7.2%}   "
+          f"end-to-end {1 - r['e2e']/b['e2e']:>7.2%}   "
+          f"classify {r['classify']/r['n']:>8.3f} ms/email")
 
 
 if __name__ == "__main__":
+    # Deployed models, loaded once; used only to time classification.
+    load_ms = {}
+    timers = {}
+    for name in ("tfidf_lr", "tfidf_svm", "distilbert"):
+        fn, note, ms = timed_load(name)
+        timers[name], load_ms[name] = fn, {"ms": ms, "note": note}
+        print(f"loaded {note} in {ms:,.0f} ms")
+
+    for name in ("tfidf_lr", "tfidf_svm"):
+        if not Path(f"logs/{name}_oof_predictions.json").exists():
+            raise SystemExit(f"missing logs/{name}_oof_predictions.json -- "
+                             "run tfidf_baseline.py first")
+
     rules_results = run_eval(classify_email, "Rules-based Classifier (v1)")
+    tfidf_lr_results = run_eval(
+        make_oof_classifier("logs/tfidf_lr_oof_predictions.json"),
+        "TF-IDF + logistic regression (5-fold CV, OOF)",
+        id_aware=True, timing_fn=timers["tfidf_lr"],
+    )
+    tfidf_svm_results = run_eval(
+        make_oof_classifier("logs/tfidf_svm_oof_predictions.json"),
+        "TF-IDF + linear SVM (5-fold CV, OOF)",
+        id_aware=True, timing_fn=timers["tfidf_svm"],
+    )
     distilbert_results = run_eval(
         classify_email_distilbert_oof,
         "DistilBERT Classifier (v2, 5-fold CV, OOF)",
-        id_aware=True,
+        id_aware=True, timing_fn=timers["distilbert"],
     )
     random_results = run_baseline_random()
 
@@ -200,6 +251,8 @@ if __name__ == "__main__":
     all_ids = {r["id"] for r in llm_results}
     nonspam_ids = {r["id"] for r in llm_results if r["true_category"] != "spam"}
     runs = (("Rules v1", rules_results),
+            ("TF-IDF + LR", tfidf_lr_results),
+            ("TF-IDF + SVM", tfidf_svm_results),
             ("DistilBERT v2", distilbert_results))
 
     print("\n=== Reduction vs. always-LLM (all emails) ===")
@@ -244,8 +297,16 @@ if __name__ == "__main__":
                 "calendar_stub_latency_ms": CALENDAR_STUB_LATENCY_MS,
                 "price_in_per_mtok": PRICE_IN,
                 "price_out_per_mtok": PRICE_OUT,
+                "classifier_load_ms": load_ms,
+                "latency_note": ("latency_ms is handler only; classify_latency_ms "
+                                 "is the deployed classifier timed on the same "
+                                 "email; end-to-end = sum. Calendar handler is a "
+                                 "fixed stub, so calendar-routed figures are a "
+                                 "lower bound. Gmail fetch/draft I/O excluded."),
             },
             "rules": rules_results,
+            "tfidf_lr": tfidf_lr_results,
+            "tfidf_svm": tfidf_svm_results,
             "distilbert": distilbert_results,
             "random": random_results,
             "llm_baseline": llm_results,
