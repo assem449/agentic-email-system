@@ -104,8 +104,24 @@ def test_excel_export_has_all_sheets_and_no_tokens(study):
     r = client.get("/admin/export.xlsx", headers=ADMIN)
     assert r.status_code == 200
     wb = load_workbook(io.BytesIO(r.content))
-    assert wb.sheetnames == ["Summary", "Emails", "By category", "Confusion", "Feedback", "Participants"]
+    assert wb.sheetnames == ["Summary", "Emails", "By category", "True labels", "Confusion", "Feedback", "Participants"]
     participants = [row for row in wb["Participants"].iter_rows(values_only=True)]
     assert participants[0] == ("Participant", "Email", "Role", "Connected (UTC)", "Active", "Days checked in")
     assert all("token" not in str(c).lower() for row in participants for c in row)
     assert any(row[0] == "res1" and row[5] == 1 for row in participants[1:])
+
+
+def test_true_label_accuracy():
+    db.upsert_participant("res2", "res2@example.com", "{}")
+    for cat, true in [("spam", "spam"), ("spam", "announcement_promo"),
+                      ("admin_action", "admin_action"), ("informational", None)]:
+        db.record_email_event(participant_id="res2", gmail_id="g", sender="x", subject=f"{cat}-{true}",
+                              category=cat, handler_used="no_reply", response_preview="",
+                              input_tokens=0, output_tokens=0, body_chars=10,
+                              expected_category=true, seed_id="s-x" if true else None)
+    data = results.build_results(participant="res2")
+    s = data["summary"]
+    assert s["with_true_label"] == 3 and s["model_correct"] == 2 and s["model_correct_pct"] == 66.7
+    truth = {c["category"]: c for c in data["by_true_category"]}
+    assert truth["announcement_promo"]["model_correct"] == 0
+    assert truth["announcement_promo"]["predicted_instead"] == {"spam": 1}

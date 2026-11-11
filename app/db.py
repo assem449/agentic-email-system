@@ -88,7 +88,25 @@ CREATE TABLE IF NOT EXISTS email_events (
     body_chars INTEGER,
     reply_needed INTEGER,
     needs_review INTEGER,
+    -- Study emails only (app/study_mail.py): the category the email was
+    -- written as, and its id in data/academic/study_schedule.json.
+    expected_category TEXT,
+    seed_id TEXT,
     FOREIGN KEY (participant_id) REFERENCES participants(id)
+);
+
+-- Which study day's emails have been inserted for each participant.
+-- `sent` counts inserted emails, so an interrupted day resumes where it
+-- stopped instead of inserting the first emails twice.
+CREATE TABLE IF NOT EXISTS study_seed_log (
+    participant_id TEXT NOT NULL,
+    day_number INTEGER NOT NULL,
+    planned INTEGER NOT NULL,
+    sent INTEGER NOT NULL DEFAULT 0,
+    started_at TEXT NOT NULL,
+    finished_at TEXT,
+    last_error TEXT,
+    PRIMARY KEY (participant_id, day_number)
 );
 
 -- One row per participant per study-day they submitted feedback for.
@@ -126,7 +144,8 @@ def _migrate(conn: sqlite3.Connection) -> None:
     event_cols = {row["name"] for row in conn.execute("PRAGMA table_info(email_events)")}
     for name, kind in (("input_tokens", "INTEGER"), ("output_tokens", "INTEGER"),
                        ("latency_ms", "REAL"), ("body_chars", "INTEGER"),
-                       ("reply_needed", "INTEGER"), ("needs_review", "INTEGER")):
+                       ("reply_needed", "INTEGER"), ("needs_review", "INTEGER"),
+                       ("expected_category", "TEXT"), ("seed_id", "TEXT")):
         if name not in event_cols:
             conn.execute(f"ALTER TABLE email_events ADD COLUMN {name} {kind}")
 
@@ -359,6 +378,8 @@ def record_email_event(
     body_chars: Optional[int] = None,
     reply_needed: Optional[bool] = None,
     needs_review: Optional[bool] = None,
+    expected_category: Optional[str] = None,
+    seed_id: Optional[str] = None,
 ) -> None:
     def flag(v):
         return None if v is None else int(bool(v))
@@ -369,14 +390,15 @@ def record_email_event(
             INSERT INTO email_events
                 (id, participant_id, gmail_id, sender, subject, category,
                  handler_used, response_preview, created_at, input_tokens,
-                 output_tokens, latency_ms, body_chars, reply_needed, needs_review)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 output_tokens, latency_ms, body_chars, reply_needed, needs_review,
+                 expected_category, seed_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 str(uuid.uuid4()), participant_id, gmail_id, sender, subject,
                 category, handler_used, response_preview, _now(), input_tokens,
                 output_tokens, latency_ms, body_chars, flag(reply_needed),
-                flag(needs_review),
+                flag(needs_review), expected_category, seed_id,
             ),
         )
 
@@ -562,3 +584,39 @@ def put_faq_reply(participant_id: str, course: str, term: str,
             "VALUES (?, ?, ?, ?, ?, ?, ?)",
             (participant_id, course, term, faq_version, entry_id, reply, _now()),
         )
+
+
+# --- daily study emails ------------------------------------------------------
+
+def get_seed_log(participant_id: str, day_number: int) -> Optional[sqlite3.Row]:
+    with _conn() as conn:
+        return conn.execute(
+            "SELECT * FROM study_seed_log WHERE participant_id = ? AND day_number = ?",
+            (participant_id, day_number),
+        ).fetchone()
+
+
+def start_seed_day(participant_id: str, day_number: int, planned: int) -> None:
+    with _conn() as conn:
+        conn.execute(
+            "INSERT OR IGNORE INTO study_seed_log (participant_id, day_number, planned, started_at) "
+            "VALUES (?, ?, ?, ?)",
+            (participant_id, day_number, planned, _now()),
+        )
+
+
+def update_seed_day(participant_id: str, day_number: int, sent: int,
+                    finished: bool, error: Optional[str] = None) -> None:
+    with _conn() as conn:
+        conn.execute(
+            "UPDATE study_seed_log SET sent = ?, finished_at = ?, last_error = ? "
+            "WHERE participant_id = ? AND day_number = ?",
+            (sent, _now() if finished else None, error, participant_id, day_number),
+        )
+
+
+def list_seed_log() -> list[sqlite3.Row]:
+    with _conn() as conn:
+        return conn.execute(
+            "SELECT * FROM study_seed_log ORDER BY participant_id, day_number"
+        ).fetchall()

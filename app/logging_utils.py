@@ -46,6 +46,8 @@ def log_routing_decision(state: EmailState) -> EmailState:
                        + len(state.get("quoted_text") or ""),
             reply_needed=state.get("reply_needed"),
             needs_review=state.get("needs_review"),
+            expected_category=state.get("expected_category"),
+            seed_id=state.get("seed_id"),
         )
 
     return state

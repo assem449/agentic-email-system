@@ -25,6 +25,8 @@ services:
         sync: false
       - key: STUDY_DB_PATH
         value: /data/study.db
+      - key: STUDY_AUTOSEED
+        value: "off"   # "on" sends the daily study emails (app/study_mail.py)
       - key: CLASSIFIER
         value: distilbert
       - key: DISTILBERT_MODEL_REPO
