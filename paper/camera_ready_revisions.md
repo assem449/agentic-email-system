@@ -73,8 +73,9 @@ with `git add -f`.
 
 **What we know:**
 - Primary corpus: Claude Sonnet 5, August 2026.
-- Held-out corpus: ChatGPT (OpenAI). Still needed: the exact model, from
-  ChatGPT's model picker, because "ChatGPT" alone is not a model.
+- Held-out corpus: GPT-4o (OpenAI), via the ChatGPT interface, August 2026.
+- Both were generated in the chat interfaces, not the APIs, so sampling
+  settings were the interface defaults.
 - The verbatim prompts were not kept. `data/DATASET.md` now gives
   **approximate reconstructions**, labelled as such throughout.
 
@@ -86,9 +87,10 @@ say so.
 
 ```latex
 \paragraph{Generation details.} The primary corpus was generated with
-Claude Sonnet~5 (Anthropic) in August 2026; the held-out corpus with
-ChatGPT ([[model]], OpenAI) in [[month]] 2026, so the two corpora differ
-in model and vendor as well as in prompts. Each corpus came from seven
+Claude Sonnet~5 (Anthropic) and the held-out corpus with GPT-4o (OpenAI),
+both in August 2026 through the vendors' chat interfaces at default
+settings, so the two corpora differ in model and vendor as well as in
+prompts. Each corpus came from seven
 category-specific role-play prompts (``Imagine you are\ldots'') that
 specified the category and a sender persona and requested canonical
 phrasings, natural paraphrases and a minority of trap cases. The verbatim
@@ -384,15 +386,10 @@ with the 0.1 ms stub.
 
 ---
 
-## Before release: personal details in the primary corpus
+## Personal details in the corpora: resolved
 
-Three primary-corpus emails address the recipient by the author's first
-name: `spam-gen-46`, `spam-gen-49` and `spam-gen-50`. Two more give a
-Toronto sign-in location and partial account numbers: `amb-gen-12` and
-`amb-gen-36`. They look generated, as trap cases built to resemble
-legitimate notifications. Confirm that none is a real email from your
-inbox, since the Acknowledgment says no real correspondence was used.
-
-If any is real, remove it and rerun everything, because the counts
-change. If all are synthetic, you can keep them as they are. Replacing the
-name would change the text, so the results would need rerunning too.
+Five primary-corpus emails (`spam-gen-46/49/50`, `amb-gen-12/36`) contain
+a first name, a city and partial account numbers. The author has confirmed
+that they are generated, not real emails, so they stay and nothing needs
+rerunning. `data/DATASET.md` states that all names and details are
+fictional.
