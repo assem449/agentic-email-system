@@ -128,8 +128,8 @@ seed 20260824. Results are committed in `results/tfidf/`.
 | System | Acc. (pooled OOF) | 95% CI | Fold mean ± sd | Macro-F1 | 95% CI |
 |---|---|---|---|---|---|
 | Rules v1 (frozen) | 39.67% (144/363) | — | — | 0.386 | 0.333–0.435 |
-| TF-IDF + LR | **79.06%** (287/363) | 74.6–82.9 | 79.07 ± 3.70 | **0.792** | 0.748–0.832 |
-| TF-IDF + linear SVM | **84.57%** (307/363) | 80.5–87.9 | 84.57 ± 3.20 | **0.842** | 0.803–0.877 |
+| TF-IDF + LR | **79.06%** (287/363) | 74.6–82.9 | 79.07 ± 3.70 | **0.792** | 0.747–0.832 |
+| TF-IDF + linear SVM | **84.57%** (307/363) | 80.5–87.9 | 84.57 ± 3.20 | **0.842** | 0.802–0.878 |
 | DistilBERT v2 (rerun) | 92.29% (335/363) | 89.1–94.6 | 92.29 ± 1.84 | 0.921 | [[ci]] |
 
 The SVM and DistilBERT accuracy intervals are disjoint, so on the primary
@@ -200,7 +200,7 @@ classifiers are compared on identical out-of-fold predictions.
 ```latex
 The linear baselines close most of the gap between the rules and
 DistilBERT. TF-IDF with a linear SVM attains 84.57\% (95\% CI 80.5--87.9)
-and macro-F1 0.842 (0.803--0.877); logistic regression attains 79.06\% and
+and macro-F1 0.842 (0.802--0.878); logistic regression attains 79.06\% and
 0.792. DistilBERT's lead over the SVM, 7.72 points, is outside both
 intervals, so fine-tuning buys a real in-corpus improvement, but most of
 the distance from the rule set (44.9 of 52.6 points) is recovered by a
