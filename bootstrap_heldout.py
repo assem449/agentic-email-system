@@ -76,9 +76,12 @@ def main():
     d = data["distilbert"]
     correct = sum(r["true_category"] == r["predicted_category"] for r in d)
     lo, hi = wilson(correct, len(d))
-    cv_lo, cv_hi = wilson(336, 363)
+    with open("logs/oof_predictions.json") as f:   # from app/distilbert_cv.py
+        oof = list(json.load(f).values())
+    cv_k, cv_n = sum(r["correct"] for r in oof), len(oof)
+    cv_lo, cv_hi = wilson(cv_k, cv_n)
     print(f"\n=== primary vs held-out ===")
-    print(f"  primary  336/363 = 0.9256   CI [{cv_lo:.4f}, {cv_hi:.4f}]")
+    print(f"  primary  {cv_k}/{cv_n} = {cv_k / cv_n:.4f}   CI [{cv_lo:.4f}, {cv_hi:.4f}]")
     print(f"  held-out {correct}/{len(d)} = {correct / len(d):.4f}   "
           f"CI [{lo:.4f}, {hi:.4f}]")
     print("  intervals overlap" if lo < cv_hi and cv_lo < hi

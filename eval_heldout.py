@@ -24,7 +24,7 @@ from transformers import (DistilBertForSequenceClassification,
                           DistilBertTokenizerFast)
 
 from app.classifier import classify_email          # frozen rules v1
-from app.metrics import report, CATEGORIES
+from app.metrics import report, macro, CATEGORIES
 
 MODEL_DIR = "models/distilbert_final"
 HELDOUT = "data/heldout_set.json"
@@ -50,6 +50,15 @@ def contamination_check(heldout, train):
     if id_clash:
         print(f"  !! duplicate ids: {id_clash[:10]}")
     return not (dupes or id_clash)
+
+
+def cv_figures(path="logs/oof_predictions.json"):
+    """Pooled out-of-fold accuracy and macro-F1 from distilbert_cv.py."""
+    if not Path(path).exists():
+        raise SystemExit(f"missing {path}: run app/distilbert_cv.py first")
+    rows = list(json.load(open(path)).values())
+    m = macro(rows)
+    return m["accuracy"], m["macro_f1"]
 
 
 def main():
@@ -101,7 +110,10 @@ def main():
     m_distil = report(distil_rows, "DistilBERT (trained on all 363) — held-out")
 
     # ---- the comparison that matters
-    CV_ACC, CV_MACRO_F1 = 0.9256, 0.923
+    # Read from this machine's distilbert_cv.py run rather than hard-coding
+    # the paper's figures: retraining is not bit-for-bit reproducible across
+    # machines and library versions, so the two can differ slightly.
+    CV_ACC, CV_MACRO_F1 = cv_figures()
     print("\n=== generalisation gap ===")
     print(f"  cross-validated accuracy (in-corpus) : {CV_ACC:.4f}")
     print(f"  held-out accuracy (fresh prompts)    : {m_distil['accuracy']:.4f}")
