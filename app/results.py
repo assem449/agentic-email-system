@@ -97,6 +97,7 @@ def build_results(participant: Optional[str] = None, day: Optional[int] = None) 
             "participant": e["participant_id"], "email": p["email"], "role": p["role"],
             "day": study_day, "received": e["created_at"], "sender": e["sender"],
             "subject": e["subject"], "category": e["category"], "handler": e["handler_used"],
+            "true_category": e["expected_category"],
             "verdict": {True: "correct", False: "wrong"}.get(fb.get("correct"), "not rated"),
             "should_be": fb.get("correct_category"),
             "draft": None if e["reply_needed"] is None else bool(e["reply_needed"]),
@@ -106,6 +107,7 @@ def build_results(participant: Optional[str] = None, day: Optional[int] = None) 
         })
     return {"rows": rows, "summary": summarise(rows, model),
             "confusion": confusion(rows), "by_category": by_category(rows),
+            "by_true_category": by_true_category(rows),
             "participants": list(people.values()),
             "baseline": model, "model": LLM_MODEL,
             "prices": {"input_per_m": PRICE_INPUT_PER_M, "output_per_m": PRICE_OUTPUT_PER_M}}
@@ -128,6 +130,10 @@ def summarise(rows: list, model: Optional[dict]) -> dict:
         "baseline_usd": None, "saved_usd": None, "saved_pct": None,
         "avg_latency_ms": round(sum(r["latency_ms"] or 0 for r in costed) / len(costed), 1) if costed else None,
     }
+    labelled = [r for r in rows if r["true_category"]]
+    s["with_true_label"] = len(labelled)
+    s["model_correct"] = sum(r["category"] == r["true_category"] for r in labelled)
+    s["model_correct_pct"] = round(100 * s["model_correct"] / len(labelled), 1) if labelled else None
     if model and costed:
         baseline = sum(r["baseline_usd"] for r in costed if r["baseline_usd"] is not None)
         s["baseline_usd"] = round(baseline, 4)
@@ -147,6 +153,25 @@ def by_category(rows: list) -> list:
     for c in out.values():
         c["correct_pct"] = round(100 * c["correct"] / c["rated"], 1) if c["rated"] else None
     return sorted(out.values(), key=lambda c: -c["emails"])
+
+
+def by_true_category(rows: list) -> list:
+    """Study emails per category they were written as: how many the
+    classifier got right (recall), and what it said instead."""
+    out = {}
+    for r in rows:
+        if not r["true_category"]:
+            continue
+        c = out.setdefault(r["true_category"], {"category": r["true_category"], "emails": 0,
+                                                "model_correct": 0, "predicted_instead": {}})
+        c["emails"] += 1
+        if r["category"] == r["true_category"]:
+            c["model_correct"] += 1
+        else:
+            c["predicted_instead"][r["category"]] = c["predicted_instead"].get(r["category"], 0) + 1
+    for c in out.values():
+        c["model_correct_pct"] = round(100 * c["model_correct"] / c["emails"], 1)
+    return sorted(out.values(), key=lambda c: c["category"])
 
 
 def confusion(rows: list) -> list:
@@ -205,6 +230,8 @@ def export_xlsx(x_admin_token: Optional[str] = Header(None)):
         ["Estimated saved (USD)", s["saved_usd"]],
         ["Estimated saved (%)", s["saved_pct"]],
         ["Average handler latency (ms)", s["avg_latency_ms"]],
+        ["Study emails with a true label", s["with_true_label"]],
+        ["Classifier correct vs. true label (%)", s["model_correct_pct"]],
         ["Model", data["model"]],
         ["Price input / output (USD per 1M tokens)", f"{PRICE_INPUT_PER_M} / {PRICE_OUTPUT_PER_M}"],
         ["Baseline: general-LLM emails used", b["emails"] if b else "not enough data yet"],
@@ -212,16 +239,20 @@ def export_xlsx(x_admin_token: Optional[str] = Header(None)):
         ["Baseline: average output tokens", round(b["output_tokens"], 1) if b else None],
     ], first=True)
     sheet("Emails", ["Participant", "Role", "Day", "Received (UTC)", "Sender", "Subject",
-                     "Category", "Handler", "Draft", "Needs review", "Participant verdict",
+                     "Category", "True category", "Handler", "Draft", "Needs review", "Participant verdict",
                      "Should be", "Input tokens", "Output tokens", "Latency (ms)",
                      "Cost (USD)", "All-LLM estimate (USD)"],
           [[r["participant"], r["role"], r["day"], r["received"], r["sender"], r["subject"],
-            r["category"], r["handler"], r["draft"], r["needs_review"], r["verdict"],
+            r["category"], r["true_category"], r["handler"], r["draft"], r["needs_review"], r["verdict"],
             r["should_be"], r["input_tokens"], r["output_tokens"], r["latency_ms"],
             r["cost_usd"], r["baseline_usd"]] for r in data["rows"]])
     sheet("By category", ["Category", "Emails", "Rated", "Correct", "Correct (%)"],
           [[c["category"], c["emails"], c["rated"], c["correct"], c["correct_pct"]]
            for c in data["by_category"]])
+    sheet("True labels", ["True category", "Study emails", "Classifier correct", "Correct (%)", "Predicted instead"],
+          [[c["category"], c["emails"], c["model_correct"], c["model_correct_pct"],
+            ", ".join(f"{k} {v}" for k, v in c["predicted_instead"].items())]
+           for c in data["by_true_category"]])
     sheet("Confusion", ["Predicted", "Participant says", "Count"],
           [[c["predicted"], c["participant_says"], c["count"]] for c in data["confusion"]])
     sheet("Feedback", ["Participant", "Day", "Overall rating (1-10)", "Notes", "Submitted (UTC)"],
@@ -294,6 +325,7 @@ td.subj{min-width:260px}
     <div class="panel"><h2>Correct by category</h2><div class="scroll"><table id="bycat"></table></div></div>
     <div class="panel"><h2>Predicted vs. what participants said</h2><div class="scroll"><table id="conf"></table></div></div>
   </div>
+  <div class="panel"><h2>Classifier vs. true label (study emails)</h2><div class="scroll"><table id="truth"></table></div></div>
   <div class="panel"><h2>Emails</h2><div class="scroll"><table id="rows"></table></div></div>
 </main>
 <script>
@@ -336,7 +368,8 @@ async function load() {
   const s = d.summary;
   const cards = [
     [s.emails, 'emails processed'],
-    [s.correct_pct === null ? '—' : s.correct_pct + '%', `rated correct (${s.correct} of ${s.rated} rated)`],
+    [s.model_correct_pct === null ? '—' : s.model_correct_pct + '%', `classifier correct vs. true label (${s.model_correct} of ${s.with_true_label})`],
+    [s.correct_pct === null ? '—' : s.correct_pct + '%', `rated correct by participants (${s.correct} of ${s.rated} rated)`],
     [s.llm_calls_avoided_pct === null ? '—' : s.llm_calls_avoided_pct + '%', `LLM calls avoided (${s.llm_calls_avoided} of ${s.with_cost_data})`],
     [usd(s.actual_usd), 'actual LLM cost'],
     [usd(s.baseline_usd), 'estimated all-LLM cost'],
@@ -354,14 +387,17 @@ async function load() {
 
   table($('bycat'), [['Category'], ['Emails', 'n'], ['Rated', 'n'], ['Correct %', 'n']],
     d.by_category.map(c => [c.category, c.emails, c.rated, fmt(c.correct_pct, 1)]));
+  table($('truth'), [['True category'], ['Study emails', 'n'], ['Classifier correct %', 'n'], ['Predicted instead']],
+    d.by_true_category.map(c => [c.category, c.emails, fmt(c.model_correct_pct, 1),
+      Object.entries(c.predicted_instead).map(([k, v]) => `${k} ${v}`).join(', ')]));
   table($('conf'), [['Predicted'], ['Participant says'], ['Emails', 'n']],
     d.confusion.map(c => [c.predicted, c.participant_says, c.count]));
-  const t = table($('rows'), [['Day', 'n'], ['Participant'], ['Subject', 'subj'], ['Sender'], ['Category'], ['Handler'],
+  const t = table($('rows'), [['Day', 'n'], ['Participant'], ['Subject', 'subj'], ['Sender'], ['Category'], ['True category'], ['Handler'],
       ['Verdict'], ['Should be'], ['Tokens in/out', 'n'], ['Cost', 'n'], ['All-LLM est.', 'n']],
-    d.rows.map(r => [r.day, r.email, r.subject || '(no subject)', r.sender, r.category, r.handler,
+    d.rows.map(r => [r.day, r.email, r.subject || '(no subject)', r.sender, r.category, r.true_category || '', r.handler,
       r.verdict, r.should_be || '', r.input_tokens === null ? '—' : `${r.input_tokens} / ${r.output_tokens}`,
       usd(r.cost_usd), usd(r.baseline_usd)]));
-  [...t.rows].slice(1).forEach(tr => { const c = tr.cells[6]; if (c) c.className = c.textContent === 'correct' ? 'v-correct' : c.textContent === 'wrong' ? 'v-wrong' : 'v-not'; });
+  [...t.rows].slice(1).forEach(tr => { const c = tr.cells[7]; if (c) c.className = c.textContent === 'correct' ? 'v-correct' : c.textContent === 'wrong' ? 'v-wrong' : 'v-not'; });
 }
 
 async function download() {

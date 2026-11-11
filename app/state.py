@@ -32,3 +32,5 @@ class EmailState(TypedDict):
     note_to_self: Optional[bool] # response is a note for the inbox owner, not a reply
     note_summary: Optional[str]  # the note's summary line, shown on the check-in page
     meeting_decision: Optional[str]  # accepted | busy | none | unavailable
+    expected_category: Optional[str]  # study emails: the category it was written as
+    seed_id: Optional[str]            # study emails: id in study_schedule.json

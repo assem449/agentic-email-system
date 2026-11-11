@@ -19,6 +19,7 @@ from app.handlers.calendar import create_approved_event
 from app.oauth_web import router as oauth_router
 from app import poller
 from app.poller import run_poller
+from app import study_mail
 from app.seeding import seed_scenarios
 
 app = FastAPI(title="Adaptive Email Router")
@@ -40,6 +41,9 @@ def _startup():
         target=run_poller, args=(POLL_INTERVAL_SECONDS,), daemon=True
     )
     _poller_thread.start()
+    # Daily study emails (app/study_mail.py); does nothing unless
+    # STUDY_AUTOSEED=on.
+    threading.Thread(target=study_mail.run_study_mail, daemon=True).start()
 
 
 _poller_thread: Optional[threading.Thread] = None
@@ -242,6 +246,19 @@ def seed(req: SeedRequest, x_admin_token: Optional[str] = Header(None)):
             )
         raise
     return {"inserted": len(ids), "gmail_message_ids": ids}
+
+
+@app.get("/admin/study-mail")
+def study_mail_status(x_admin_token: Optional[str] = Header(None)):
+    """Whether daily study emails are on, and what was sent per participant
+    and day (planned vs. sent, any error)."""
+    _require_admin(x_admin_token)
+    return {
+        "enabled": study_mail.enabled(),
+        "send_hour": study_mail.SEND_HOUR,
+        "scheduler": study_mail.STATUS,
+        "days": [dict(r) for r in db.list_seed_log()],
+    }
 
 
 @app.get("/admin/poller-status")

@@ -1,0 +1,1792 @@
+{
+  "description": "Daily study emails per inbox role (app/study_mail.py). Written for the study; not part of the classifier's training data. Each email's category is its true label.",
+  "days": {
+    "student": {
+      "1": [
+        {
+          "id": "s-announcement_promo-01",
+          "category": "announcement_promo",
+          "sender": "FES Student Life <fes-studentlife@northfield.edu>",
+          "subject": "This week at FES: trivia night, co-op drop-in and more",
+          "body": "Hi FES students,\n\nHere's what's on this week:\n\n• Tuesday 6 pm: Engineering Society trivia night, Riverside Hall atrium\n• Wednesday 12–2 pm: Co-op drop-in hours, Career Centre room 210\n• Friday: Last day to sign up for the winter ski trip\n\nGot an event? Send it to us through the event form.\n\nFES Student Life\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-informational-01",
+          "category": "informational",
+          "sender": "TA Marco Rossi <m.rossi@northfield.edu>",
+          "subject": "Lab 5 marks are posted",
+          "body": "Hi everyone,\n\nLab 5 marks and comments are now on eClass. The average was 84%. Nice work on the error analysis sections.\n\nMarco"
+        },
+        {
+          "id": "s-announcement_promo-02",
+          "category": "announcement_promo",
+          "sender": "Northfield Libraries <library-news@northfield.edu>",
+          "subject": "Extended library hours start Monday",
+          "body": "Exam season is coming! Starting Monday, the Main Library and Riverside Library will be open 24 hours, Sunday to Thursday, until the end of the exam period. Bring your student card after 10 pm.\n\nGood luck with your studying,\nNorthfield Libraries\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-admin_action-01",
+          "category": "admin_action",
+          "sender": "Office of the Registrar <registrar@northfield.edu>",
+          "subject": "Action required: confirm your winter course selections",
+          "body": "Dear Student,\n\nYour winter course selections are not yet confirmed. Please log in to the Student Portal and confirm them by the end of this week, or your reserved seats may be released.\n\nOffice of the Registrar"
+        },
+        {
+          "id": "s-course_logistics-01",
+          "category": "course_logistics",
+          "sender": "TA Priyanka Rao <p.rao@northfield.edu>",
+          "subject": "Group names for the poster session",
+          "body": "Hi,\n\nPlease send me your group members' names for the poster session by Wednesday.\n\nThanks,\nPriyanka"
+        },
+        {
+          "id": "s-announcement_promo-03",
+          "category": "announcement_promo",
+          "sender": "Orbis Tech Campus Team <campus@orbistech-careers.com>",
+          "subject": "Applications open: Summer 2027 Software Engineering Internship",
+          "body": "Hi there,\n\nOur Summer 2027 internship applications are now open! Spend 16 weeks building real products with our cloud and data teams. Paid, hybrid, with mentorship from senior engineers.\n\nApply by the end of the month on our careers page.\n\nOrbis Tech University Recruiting\n\nUnsubscribe from Orbis Tech campus emails.",
+          "headers": {
+            "List-Id": "<news.orbistech-careers.com>",
+            "List-Unsubscribe": "<mailto:unsubscribe@orbistech-careers.com>"
+          }
+        },
+        {
+          "id": "s-academic_question-01",
+          "category": "academic_question",
+          "sender": "Leo Martins <leo.martins@my.northfield.edu>",
+          "subject": "q2 probability",
+          "body": "for q2 did you condition on the first draw? I got 3/10 but the answer key says 1/3"
+        }
+      ],
+      "2": [
+        {
+          "id": "s-meeting_request-01",
+          "category": "meeting_request",
+          "sender": "Prof. Elena Moreau <e.moreau@northfield.edu>",
+          "subject": "Meeting about your thesis proposal",
+          "body": "Hi,\n\nCould we meet tomorrow at 2 pm for about 20 minutes to talk about your thesis proposal? My office is Riverside Hall 214.\n\nProf. Moreau"
+        },
+        {
+          "id": "s-informational-02",
+          "category": "informational",
+          "sender": "Prof. Elena Moreau <e.moreau@northfield.edu>",
+          "subject": "Re: question about the outline",
+          "body": "Thanks for catching that typo. You're right, the final project is worth 30%, not 35%. I've updated the outline on eClass.\n\nProf. Moreau"
+        },
+        {
+          "id": "s-announcement_promo-04",
+          "category": "announcement_promo",
+          "sender": "Northfield Athletics <athletics@northfield.edu>",
+          "subject": "Free fitness classes this week",
+          "body": "Try something new! This week all drop-in fitness classes at the Athletics Centre are free with your student card: yoga, spin, HIIT and Zumba. Check the schedule on the Athletics website.\n\nNorthfield Athletics\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-collaboration_opportunity-01",
+          "category": "collaboration_opportunity",
+          "sender": "FES Outreach <outreach@northfield.edu>",
+          "subject": "Mentor at our robotics workshops?",
+          "body": "Hi,\n\nWe run robotics workshops for high-school students on Saturday mornings and need student mentors next term. Would you be interested?\n\nFES Outreach"
+        },
+        {
+          "id": "s-announcement_promo-05",
+          "category": "announcement_promo",
+          "sender": "Campus Eats <offers@campuseats-app.com>",
+          "subject": "20% off your next 3 orders 🍕",
+          "body": "Hungry while studying? Use code STUDY20 for 20% off your next three orders from restaurants near Northfield campus. Valid until Sunday.\n\nCampus Eats\n\nYou're receiving this because you signed up with your Northfield email. Unsubscribe.",
+          "headers": {
+            "List-Id": "<news.campuseats-app.com>",
+            "List-Unsubscribe": "<mailto:unsubscribe@campuseats-app.com>"
+          }
+        },
+        {
+          "id": "s-request_exception-01",
+          "category": "request_exception",
+          "sender": "Leo Martins <leo.martins@my.northfield.edu>",
+          "subject": "can you ask about our lab?",
+          "body": "you're our group contact right? could you ask the TA if our lab can be accepted tomorrow? the lab computer crashed and we lost the data"
+        }
+      ],
+      "3": [
+        {
+          "id": "s-ambiguous-01",
+          "category": "ambiguous",
+          "sender": "Kai Nakamura <k.nakamura@my.northfield.edu>",
+          "subject": "Re: Re: friday",
+          "body": "ok so are we still doing it or should I tell the others it's off?\n\n> idk let me check"
+        },
+        {
+          "id": "s-spam-01",
+          "category": "spam",
+          "sender": "eClass Support <support@eclass-northfield.com>",
+          "subject": "Your eClass account will be locked",
+          "body": "Dear student,\n\nWe detected unusual activity on your eClass account. To keep access to your courses, confirm your login within 12 hours:\n\nhttp://eclass-northfield.com/confirm",
+          "headers": {
+            "Authentication-Results": "mx.google.com; dkim=fail header.i=@eclass-northfield.com; spf=fail smtp.mailfrom=eclass-northfield.com; dmarc=fail (p=QUARANTINE) header.from=eclass-northfield.com"
+          }
+        },
+        {
+          "id": "s-announcement_promo-06",
+          "category": "announcement_promo",
+          "sender": "Northfield Student Union <su-news@northfield.edu>",
+          "subject": "SU Weekly: elections, food bank hours and a free movie night",
+          "body": "Hey Northfield!\n\nNominations for the Student Union by-election close Friday. The campus food bank is now open Mondays and Thursdays 11–3. And Friday night we're screening a movie in the Student Centre theatre, free popcorn included.\n\nYour Student Union\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-admin_action-02",
+          "category": "admin_action",
+          "sender": "Student Financial Services <sfs@northfield.edu>",
+          "subject": "Reminder: winter tuition deposit due in 10 days",
+          "body": "Dear Student,\n\nThis is a reminder that your winter tuition deposit of $500 is due in 10 days. You can pay through the Student Portal or your bank. Late payments may result in a hold on your account.\n\nStudent Financial Services"
+        },
+        {
+          "id": "s-informational-03",
+          "category": "informational",
+          "sender": "Office of the Registrar <registrar@northfield.edu>",
+          "subject": "Your course enrolment for winter has been confirmed",
+          "body": "This message confirms your enrolment in your requested winter courses. You can view your timetable in the Student Portal. No further action is required.\n\nOffice of the Registrar"
+        },
+        {
+          "id": "s-wellbeing-01",
+          "category": "wellbeing",
+          "sender": "Nina Kowalski <nina.kowalski@my.northfield.edu>",
+          "subject": "sorry I've been quiet",
+          "body": "sorry I've been so quiet in the group chat. honestly I'm not doing well, I've been having panic attacks before classes and I can't sleep. I'll try to do my part but I wanted you to know"
+        },
+        {
+          "id": "s-announcement_promo-07",
+          "category": "announcement_promo",
+          "sender": "Career Centre <careers@northfield.edu>",
+          "subject": "Resume Review Week: drop in, no appointment needed",
+          "body": "Want a second pair of eyes on your resume? During Resume Review Week, career educators are available every day from 10 am to 4 pm in the Career Centre. No appointment needed; bring a printed copy.\n\nNorthfield Career Centre\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-course_logistics-02",
+          "category": "course_logistics",
+          "sender": "Kai Nakamura <k.nakamura@my.northfield.edu>",
+          "subject": "ID for the final?",
+          "body": "do we need our student card for the final or is any ID ok?"
+        },
+        {
+          "id": "s-announcement_promo-08",
+          "category": "announcement_promo",
+          "sender": "Nimbus Cloud Academy <academy@nimbuscloud.io>",
+          "subject": "Free cloud certification for students – limited spots",
+          "body": "Students get free access to Nimbus Cloud Academy's Foundations course and exam voucher this semester. Learn cloud basics in about 10 hours and earn a certificate for your resume.\n\nClaim your spot with your university email.\n\nNimbus Cloud Academy | Unsubscribe",
+          "headers": {
+            "List-Id": "<news.nimbuscloud.io>",
+            "List-Unsubscribe": "<mailto:unsubscribe@nimbuscloud.io>"
+          }
+        }
+      ],
+      "4": [
+        {
+          "id": "s-informational-04",
+          "category": "informational",
+          "sender": "Zara Ahmed <zara.ahmed@my.northfield.edu>",
+          "subject": "Re: notes",
+          "body": "got them, thank you so much!! they're way more organised than mine haha\n\n> Here are my notes from Tuesday."
+        },
+        {
+          "id": "s-announcement_promo-09",
+          "category": "announcement_promo",
+          "sender": "FES Dean's Office <fes-students@northfield.edu>",
+          "subject": "Congratulations to this year's FES award winners",
+          "body": "Dear FES students,\n\nPlease join us in congratulating this year's Faculty of Engineering & Science award winners, recognised for academic excellence, leadership and community service. The full list and photos from the ceremony are on the FES news page.\n\nFES Dean's Office\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-admin_action-03",
+          "category": "admin_action",
+          "sender": "Health & Safety Office <safety@northfield.edu>",
+          "subject": "Complete your lab safety training before your next lab",
+          "body": "Hello,\n\nOur records show you have not completed the online Lab Safety Training required for your chemistry lab. Please complete it on eClass before your next lab session; students without it cannot enter the lab.\n\nHealth & Safety Office"
+        },
+        {
+          "id": "s-academic_question-02",
+          "category": "academic_question",
+          "sender": "Nina Kowalski <nina.kowalski@my.northfield.edu>",
+          "subject": "chi-square degrees of freedom",
+          "body": "How do you get the degrees of freedom for a chi-square test on a 3x4 table? Is it 6 or 11?"
+        },
+        {
+          "id": "s-meeting_request-02",
+          "category": "meeting_request",
+          "sender": "Sofia Petrova <s.petrova@my.northfield.edu>",
+          "subject": "study session?",
+          "body": "Hi! Want to do a study session for the stats final? I'm free next Tuesday afternoon or Wednesday after 3."
+        }
+      ],
+      "5": [
+        {
+          "id": "s-announcement_promo-10",
+          "category": "announcement_promo",
+          "sender": "Hack the City <hello@hackthecity.dev>",
+          "subject": "Registration opens: Hack the City 2027",
+          "body": "Hackers, builders, designers!\n\nRegistration for Hack the City 2027 is open. 36 hours, $10,000 in prizes, mentors from local tech companies, and free food the whole weekend. Teams of 2–4, all skill levels welcome.\n\nSee you there,\nThe Hack the City team\n\nUnsubscribe",
+          "headers": {
+            "List-Id": "<news.hackthecity.dev>",
+            "List-Unsubscribe": "<mailto:unsubscribe@hackthecity.dev>"
+          }
+        },
+        {
+          "id": "s-informational-05",
+          "category": "informational",
+          "sender": "Student Financial Services <sfs@northfield.edu>",
+          "subject": "Your payment has been received",
+          "body": "We received your payment of $640.00 toward your winter residence fees. Your remaining balance is $0.00. Thank you.\n\nStudent Financial Services"
+        },
+        {
+          "id": "s-announcement_promo-11",
+          "category": "announcement_promo",
+          "sender": "Residence Life <residence@northfield.edu>",
+          "subject": "Holiday move-out information",
+          "body": "Hello residents,\n\nIf you are leaving for the winter break, please read the move-out checklist on the Residence Life website. Rooms must be left tidy, windows closed and the heating set to low. Front desks will have extended hours on the last day of exams.\n\nResidence Life\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-collaboration_opportunity-02",
+          "category": "collaboration_opportunity",
+          "sender": "Mei Tanaka <m.tanaka@my.northfield.edu>",
+          "subject": "case competition team?",
+          "body": "Would you like to join my team for the business case competition next month? We need someone good with data and charts."
+        },
+        {
+          "id": "s-announcement_promo-12",
+          "category": "announcement_promo",
+          "sender": "Northfield Bookstore <bookstore@northfield.edu>",
+          "subject": "Hoodie sale: 30% off this weekend",
+          "body": "Stay warm! All Northfield hoodies and sweatpants are 30% off this Saturday and Sunday, in store and online. Plus free shipping on orders over $50.\n\nNorthfield Bookstore\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-course_logistics-03",
+          "category": "course_logistics",
+          "sender": "Prof. Victor Lang <v.lang@northfield.edu>",
+          "subject": "Presentation day",
+          "body": "Hello,\n\nWhich day do you prefer for your final presentation, Monday or Wednesday? Please let me know by Friday.\n\nV. Lang"
+        },
+        {
+          "id": "s-announcement_promo-13",
+          "category": "announcement_promo",
+          "sender": "Brightline Bank <students@brightlinebank.com>",
+          "subject": "Open a student account and get $100",
+          "body": "Start the semester with $100. Open a Brightline Student Chequing account, set up a direct deposit, and we'll add a $100 bonus. No monthly fees while you're a student.\n\nBrightline Bank\n\nThis is a promotional email. Unsubscribe.",
+          "headers": {
+            "List-Id": "<news.brightlinebank.com>",
+            "List-Unsubscribe": "<mailto:unsubscribe@brightlinebank.com>"
+          }
+        },
+        {
+          "id": "s-informational-06",
+          "category": "informational",
+          "sender": "Leo Martins <leo.martins@my.northfield.edu>",
+          "subject": "lost my voice",
+          "body": "fyi I lost my voice so I'll just listen in on tonight's call, you guys do the talking"
+        }
+      ],
+      "6": [
+        {
+          "id": "s-admin_action-04",
+          "category": "admin_action",
+          "sender": "FES Dean's Office <fes-students@northfield.edu>",
+          "subject": "Please complete your course evaluations",
+          "body": "Dear students,\n\nCourse evaluations are now open for all fall courses. Your feedback helps improve teaching at FES. Please complete them in eClass before the last day of classes.\n\nFES Dean's Office",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-announcement_promo-14",
+          "category": "announcement_promo",
+          "sender": "Graduate Studies Office <gradstudies@northfield.edu>",
+          "subject": "Thinking about grad school? Info session next week",
+          "body": "Curious about a master's or PhD at Northfield? Join our information session next Wednesday at 5 pm in Riverside Hall 120 or online. We'll cover programs, funding and how to apply.\n\nGraduate Studies Office\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-request_exception-02",
+          "category": "request_exception",
+          "sender": "TA Marco Rossi <m.rossi@northfield.edu>",
+          "subject": "Your request for a quiz makeup",
+          "body": "Hi,\n\nYou asked to make up Quiz 5, which you missed for a family emergency. The professor can approve a makeup if you send documentation by Friday. Could you send it to me?\n\nMarco"
+        },
+        {
+          "id": "s-ambiguous-02",
+          "category": "ambiguous",
+          "sender": "Leo Martins <leo.martins@my.northfield.edu>",
+          "subject": "that thing",
+          "body": "did you end up doing that thing we talked about? let me know before the weekend"
+        },
+        {
+          "id": "s-spam-02",
+          "category": "spam",
+          "sender": "Student Bursary Office <awards@northfield-bursaries.net>",
+          "subject": "You've been selected for a $2,000 bursary",
+          "body": "Congratulations! You've been selected for a $2,000 bursary. To receive it, sign in with your Northfield email and password and confirm your banking details within 48 hours:\n\nhttp://northfield-bursaries.net/claim",
+          "headers": {
+            "Authentication-Results": "mx.google.com; dkim=fail header.i=@northfield-bursaries.net; spf=fail smtp.mailfrom=northfield-bursaries.net; dmarc=fail (p=QUARANTINE) header.from=northfield-bursaries.net"
+          }
+        },
+        {
+          "id": "s-announcement_promo-15",
+          "category": "announcement_promo",
+          "sender": "Northfield Wellness Centre <wellness@northfield.edu>",
+          "subject": "Exam stress? Free workshops and therapy dogs",
+          "body": "Exams are stressful, and you don't have to go through them alone. This week: a free stress-management workshop on Tuesday, mindfulness sessions every morning, and therapy dogs in the Main Library on Thursday afternoon.\n\nNorthfield Wellness Centre\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-informational-07",
+          "category": "informational",
+          "sender": "Prof. Elena Moreau <e.moreau@northfield.edu>",
+          "subject": "No lecture on Monday",
+          "body": "Hi all, there's no lecture next Monday because of the holiday. We'll continue with chapter 7 on Wednesday.\n\nProf. Moreau"
+        },
+        {
+          "id": "s-academic_question-03",
+          "category": "academic_question",
+          "sender": "Prof. Victor Lang <v.lang@northfield.edu>",
+          "subject": "Your p-value interpretation",
+          "body": "Hello,\n\nIn your project draft you call a p-value of 0.049 strong evidence. How would you justify that with a sample of 18? I'd like your thinking before our next meeting.\n\nV. Lang"
+        },
+        {
+          "id": "s-meeting_request-03",
+          "category": "meeting_request",
+          "sender": "TA Marco Rossi <m.rossi@northfield.edu>",
+          "subject": "Go over your midterm?",
+          "body": "Hi,\n\nYou asked about your midterm grade. I'm happy to go through it with you. When would be a good time this week?\n\nMarco"
+        },
+        {
+          "id": "s-announcement_promo-16",
+          "category": "announcement_promo",
+          "sender": "LearnPath <news@learnpath-mail.com>",
+          "subject": "Your weekly study picks: statistics, Python and more",
+          "body": "Hi learner,\n\nHere are this week's recommended courses: Statistics Refresher (4 h), Python for Data Analysis (6 h), and Writing Clear Lab Reports (2 h). All free with your student plan.\n\nKeep learning,\nLearnPath\n\nUnsubscribe from weekly picks.",
+          "headers": {
+            "List-Id": "<news.learnpath-mail.com>",
+            "List-Unsubscribe": "<mailto:unsubscribe@learnpath-mail.com>"
+          }
+        }
+      ],
+      "7": [
+        {
+          "id": "s-course_logistics-04",
+          "category": "course_logistics",
+          "sender": "Zara Ahmed <zara.ahmed@my.northfield.edu>",
+          "subject": "A3 due date??",
+          "body": "is assignment 3 due this friday or next monday? the outline and eclass say different things and I'm so confused"
+        },
+        {
+          "id": "s-announcement_promo-17",
+          "category": "announcement_promo",
+          "sender": "Computer Science Students' Association <cssa@clubs.northfield.edu>",
+          "subject": "CSSA game night + mock technical interviews",
+          "body": "Hey CS folks!\n\nGame night is back this Friday at 7 pm in Riverside Hall 220, with pizza. Next Tuesday we're also running mock technical interviews with alumni from Orbis Tech and Nimbus Cloud. Sign-up link in our Discord.\n\nCSSA Executive Team\n\nUnsubscribe",
+          "headers": {
+            "List-Id": "<news.clubs.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@clubs.northfield.edu>"
+          }
+        },
+        {
+          "id": "s-admin_action-05",
+          "category": "admin_action",
+          "sender": "Residence Life <residence@northfield.edu>",
+          "subject": "Action needed: winter break residence form",
+          "body": "Hello resident,\n\nPlease tell us whether you will stay in residence over the winter break by completing the Break Stay form in the housing portal by Friday. If you don't submit it, we'll assume you're leaving.\n\nResidence Life"
+        },
+        {
+          "id": "s-informational-08",
+          "category": "informational",
+          "sender": "Library Services <library@northfield.edu>",
+          "subject": "Your hold is ready for pickup",
+          "body": "The item you requested, 'Introduction to Probability', is ready for pickup at the Main Library circulation desk. It will be held for 7 days.\n\nNorthfield Libraries"
+        },
+        {
+          "id": "s-announcement_promo-18",
+          "category": "announcement_promo",
+          "sender": "Northfield International <international@northfield.edu>",
+          "subject": "Winter break travel reminders for international students",
+          "body": "If you are travelling outside the country over the break, make sure your study permit and travel documents are valid for your return. Drop-in advising is available Monday to Thursday this week.\n\nNorthfield International\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-announcement_promo-19",
+          "category": "announcement_promo",
+          "sender": "Experience Northfield <experience@northfield.edu>",
+          "subject": "New volunteer opportunities on the Experience Northfield Portal",
+          "body": "Looking to give back? Ten new volunteer roles were posted this week, including campus tour guides, peer tutors and the winter food drive. Volunteering counts towards your co-curricular record.\n\nExperience Northfield\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        }
+      ],
+      "8": [
+        {
+          "id": "s-collaboration_opportunity-03",
+          "category": "collaboration_opportunity",
+          "sender": "Prof. Elena Moreau <e.moreau@northfield.edu>",
+          "subject": "Peer tutoring next term",
+          "body": "Hi,\n\nWould you like to help run the peer tutoring sessions for first-year students next term? It's paid, about 5 hours a week.\n\nElena"
+        },
+        {
+          "id": "s-wellbeing-02",
+          "category": "wellbeing",
+          "sender": "Residence Don Amira <amira.don@northfield.edu>",
+          "subject": "Checking on you",
+          "body": "Hi,\n\nYour floor don here. Your roommate mentioned you haven't been eating much and seem really down lately. I'd like to check in. Could you stop by my room tonight?\n\nAmira"
+        },
+        {
+          "id": "s-announcement_promo-20",
+          "category": "announcement_promo",
+          "sender": "Northfield Transit Pass <transitpass@northfield.edu>",
+          "subject": "Winter term transit pass now available",
+          "body": "Your winter term transit pass is now available in the Northfield mobile app. Load it before January 5 to ride without interruption.\n\nNorthfield Parking & Transportation\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-informational-09",
+          "category": "informational",
+          "sender": "Mei Tanaka <m.tanaka@my.northfield.edu>",
+          "subject": "Re: poster",
+          "body": "printed the poster at the library, it looks great! I'll bring it on Friday"
+        },
+        {
+          "id": "s-admin_action-06",
+          "category": "admin_action",
+          "sender": "Library Services <library@northfield.edu>",
+          "subject": "Overdue item: please return or renew",
+          "body": "The following item is overdue: 'Linear Algebra and Its Applications'. Please return or renew it within 3 days to avoid a fine.\n\nNorthfield Libraries"
+        },
+        {
+          "id": "s-announcement_promo-21",
+          "category": "announcement_promo",
+          "sender": "TechGear Store <deals@techgear-shop.com>",
+          "subject": "Student deals: laptops up to $300 off",
+          "body": "Back-to-school savings are here. Verify your student status and save up to $300 on laptops, plus 15% off headphones and accessories. This week only.\n\nTechGear\n\nUnsubscribe | Privacy",
+          "headers": {
+            "List-Id": "<news.techgear-shop.com>",
+            "List-Unsubscribe": "<mailto:unsubscribe@techgear-shop.com>"
+          }
+        },
+        {
+          "id": "s-course_logistics-05",
+          "category": "course_logistics",
+          "sender": "TA Marco Rossi <m.rossi@northfield.edu>",
+          "subject": "Quiz 3 file format",
+          "body": "Hi,\n\nYour Quiz 3 was submitted as a Word file, but we can only grade PDFs. Could you send me a PDF version?\n\nMarco"
+        }
+      ],
+      "9": [
+        {
+          "id": "s-announcement_promo-22",
+          "category": "announcement_promo",
+          "sender": "FES Co-op Office <fes-coop@northfield.edu>",
+          "subject": "Co-op job board update: 42 new postings",
+          "body": "Hello co-op students,\n\n42 new winter and summer postings were added this week, including roles in software, data analytics and environmental engineering. Log in to the co-op portal to apply; most postings close within two weeks.\n\nFES Co-op Office\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-academic_question-04",
+          "category": "academic_question",
+          "sender": "Ben Carter <b.carter@my.northfield.edu>",
+          "subject": "big omega",
+          "body": "is n log n in Big-Omega of n? I always forget which direction omega goes"
+        },
+        {
+          "id": "s-meeting_request-04",
+          "category": "meeting_request",
+          "sender": "Ahmed Saleh <a.saleh@my.northfield.edu>",
+          "subject": "Re: project meeting",
+          "body": "Can we move our project meeting from Thursday at 4 to Friday at 11? Sorry, something came up.\n\n> Thursday at 4 works for me"
+        },
+        {
+          "id": "s-informational-10",
+          "category": "informational",
+          "sender": "FES Co-op Office <fes-coop@northfield.edu>",
+          "subject": "Interview scheduled",
+          "body": "Your co-op interview with the City Planning Department is scheduled for Thursday at 10 am. Details are in the co-op portal.\n\nFES Co-op Office"
+        },
+        {
+          "id": "s-announcement_promo-23",
+          "category": "announcement_promo",
+          "sender": "Northfield Arts Collective <arts@clubs.northfield.edu>",
+          "subject": "Open mic night this Thursday",
+          "body": "Sing, play, read poetry or just come and listen! Open mic night is this Thursday at 7 pm in the Student Centre café. Sign-ups at the door.\n\nNorthfield Arts Collective\n\nUnsubscribe",
+          "headers": {
+            "List-Id": "<news.clubs.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@clubs.northfield.edu>"
+          }
+        }
+      ],
+      "10": [
+        {
+          "id": "s-request_exception-03",
+          "category": "request_exception",
+          "sender": "Prof. Victor Lang <v.lang@northfield.edu>",
+          "subject": "Re: late submission",
+          "body": "Hello,\n\nYour assignment was submitted a day late. I can consider waiving the penalty if you tell me what happened. Please reply with a short explanation.\n\nV. Lang"
+        },
+        {
+          "id": "s-ambiguous-03",
+          "category": "ambiguous",
+          "sender": "Zara Ahmed <zara.ahmed@my.northfield.edu>",
+          "subject": "Re: Re: Re: the form",
+          "body": "ok but which one did you mean, the blue one or the other one?\n\n> the form from before"
+        },
+        {
+          "id": "s-spam-03",
+          "category": "spam",
+          "sender": "Campus Ambassadors <join@brandreps-network.biz>",
+          "subject": "Become a paid campus ambassador",
+          "body": "Hey! Earn commission promoting brands on campus. Just buy the $50 starter kit and start earning this week. Reply YES to get the payment link.",
+          "headers": {
+            "Authentication-Results": "mx.google.com; dkim=fail header.i=@brandreps-network.biz; spf=fail smtp.mailfrom=brandreps-network.biz; dmarc=fail (p=QUARANTINE) header.from=brandreps-network.biz"
+          }
+        },
+        {
+          "id": "s-announcement_promo-24",
+          "category": "announcement_promo",
+          "sender": "Northfield IT Services <it-news@northfield.edu>",
+          "subject": "Planned maintenance: eClass unavailable Sunday morning",
+          "body": "eClass will be unavailable this Sunday from 2 am to 6 am for scheduled maintenance. Please plan any submissions around this window.\n\nNorthfield IT Services\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-admin_action-07",
+          "category": "admin_action",
+          "sender": "Office of the Registrar <registrar@northfield.edu>",
+          "subject": "Update your emergency contact information",
+          "body": "Dear Student,\n\nPlease review and update your emergency contact information in the Student Portal before the start of the winter term. This is required for all students living in residence.\n\nOffice of the Registrar"
+        },
+        {
+          "id": "s-informational-11",
+          "category": "informational",
+          "sender": "TA Priyanka Rao <p.rao@northfield.edu>",
+          "subject": "Re: lab handout formula",
+          "body": "You're welcome! The corrected lab handout is posted now too.\n\nPriyanka\n\n> Thanks for clarifying the formula in part 2."
+        },
+        {
+          "id": "s-announcement_promo-25",
+          "category": "announcement_promo",
+          "sender": "Aurora AI Institute <events@aurora-ai.org>",
+          "subject": "Free public lecture: Can AI be fair?",
+          "body": "Join the Aurora AI Institute for a free public lecture on fairness in machine learning, followed by a Q&A and reception. Next Thursday at 6:30 pm, downtown campus. Registration required.\n\nAurora AI Institute\n\nUnsubscribe from event announcements.",
+          "headers": {
+            "List-Id": "<news.aurora-ai.org>",
+            "List-Unsubscribe": "<mailto:unsubscribe@aurora-ai.org>"
+          }
+        },
+        {
+          "id": "s-course_logistics-06",
+          "category": "course_logistics",
+          "sender": "Course Coordinator <stats-coord@northfield.edu>",
+          "subject": "Sign up for a lab practical time",
+          "body": "Dear students,\n\nPlease sign up for one of the lab practical times (Tuesday 10 am, Wednesday 2 pm or Thursday 4 pm) on eClass by Friday.\n\nCourse Coordinator"
+        },
+        {
+          "id": "s-announcement_promo-26",
+          "category": "announcement_promo",
+          "sender": "Sustainability Office <green@northfield.edu>",
+          "subject": "Bring your own mug week ☕",
+          "body": "This week, bring your own mug to any campus café and get 25 cents off your drink. Small change, big impact!\n\nNorthfield Sustainability Office\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        }
+      ],
+      "11": [
+        {
+          "id": "s-collaboration_opportunity-04",
+          "category": "collaboration_opportunity",
+          "sender": "Ahmed Saleh <a.saleh@my.northfield.edu>",
+          "subject": "study group for the final?",
+          "body": "want to start a study group for the stats final? thinking 3-4 people, twice a week"
+        },
+        {
+          "id": "s-announcement_promo-27",
+          "category": "announcement_promo",
+          "sender": "Northfield Alumni Association <alumni@northfield.edu>",
+          "subject": "Meet alumni mentors at the networking evening",
+          "body": "Students are invited to our Alumni Networking Evening next Tuesday from 6 to 8 pm. Meet over 40 alumni working in tech, finance, health and government. Business casual; light refreshments.\n\nNorthfield Alumni Association\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-informational-12",
+          "category": "informational",
+          "sender": "Kai Nakamura <k.nakamura@my.northfield.edu>",
+          "subject": "uploaded the dataset",
+          "body": "I uploaded the cleaned dataset to our shared folder, the file is called survey_clean_v2. no need to reply, just so you know it's there"
+        },
+        {
+          "id": "s-announcement_promo-28",
+          "category": "announcement_promo",
+          "sender": "StudyFlow <hello@studyflow-app.com>",
+          "subject": "Your free trial ends in 3 days",
+          "body": "Hi! Your StudyFlow Premium trial ends in 3 days. Keep unlimited flashcards, AI quizzes and focus timers for $4.99/month, or 40% off the yearly plan this week.\n\nThe StudyFlow team\n\nManage email preferences",
+          "headers": {
+            "List-Id": "<news.studyflow-app.com>",
+            "List-Unsubscribe": "<mailto:unsubscribe@studyflow-app.com>"
+          }
+        },
+        {
+          "id": "s-admin_action-08",
+          "category": "admin_action",
+          "sender": "FES Co-op Office <fes-coop@northfield.edu>",
+          "subject": "Submit your work term report by Friday",
+          "body": "Hello,\n\nYour work term report for your fall co-op placement is due this Friday at 11:59 pm. Upload it through the co-op portal. Late reports may delay your co-op credit.\n\nFES Co-op Office"
+        },
+        {
+          "id": "s-academic_question-05",
+          "category": "academic_question",
+          "sender": "Isabel Cruz <isabelcruz.studies@gmail.com>",
+          "subject": "negative coefficient?",
+          "body": "how can a regression coefficient be negative when the correlation is positive? is that even possible?"
+        },
+        {
+          "id": "s-meeting_request-05",
+          "category": "meeting_request",
+          "sender": "Academic Advising <advising@northfield.edu>",
+          "subject": "Your program planning appointment",
+          "body": "Dear student,\n\nPlease book a 30-minute program planning appointment with your academic advisor. Your advisor is available next Monday morning. Reply with a time that works for you.\n\nAcademic Advising"
+        },
+        {
+          "id": "s-announcement_promo-29",
+          "category": "announcement_promo",
+          "sender": "FES Student Life <fes-studentlife@northfield.edu>",
+          "subject": "Last week of classes: what's happening at FES",
+          "body": "Hi FES students,\n\nYou made it to the last week of classes! Free coffee in the Riverside Hall lobby every morning, a study-space map for exam season, and the Engineering Society's end-of-term social on Friday.\n\nFES Student Life\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        }
+      ],
+      "12": [
+        {
+          "id": "s-informational-13",
+          "category": "informational",
+          "sender": "Scholarships & Awards <awards@northfield.edu>",
+          "subject": "Award payment processed",
+          "body": "Your in-course award of $1,000 has been applied to your student account. You can see it on your next statement.\n\nScholarships & Awards"
+        },
+        {
+          "id": "s-announcement_promo-30",
+          "category": "announcement_promo",
+          "sender": "Northfield Recreation <rec@northfield.edu>",
+          "subject": "Intramural registration closes Friday",
+          "body": "Last call! Winter intramural registration for basketball, volleyball, soccer and badminton closes this Friday at noon. Free agents welcome.\n\nNorthfield Recreation\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-course_logistics-07",
+          "category": "course_logistics",
+          "sender": "Nina Kowalski <nina.kowalski@my.northfield.edu>",
+          "subject": "lab report cover page?",
+          "body": "Do you know if the lab report needs a cover page? And is it due at the start of the lab or at midnight?"
+        },
+        {
+          "id": "s-announcement_promo-31",
+          "category": "announcement_promo",
+          "sender": "Career Centre <careers@northfield.edu>",
+          "subject": "Job Shadow Program: apply by next Friday",
+          "body": "Spend a day with a professional in your field of interest. The Job Shadow Program matches students with alumni hosts during reading week. Applications close next Friday.\n\nNorthfield Career Centre\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-wellbeing-03",
+          "category": "wellbeing",
+          "sender": "Ben Carter <b.carter@my.northfield.edu>",
+          "subject": "rough week",
+          "body": "had a really rough week. my grandpa passed away and I'm flying home tomorrow. I feel like I'm falling apart and don't know how I'll catch up"
+        },
+        {
+          "id": "s-informational-14",
+          "category": "informational",
+          "sender": "Prof. Elena Moreau <e.moreau@northfield.edu>",
+          "subject": "Today's recording",
+          "body": "Hi everyone, today's recording is up. The audio cut out for about 5 minutes near the end; the slides cover that part.\n\nProf. Moreau"
+        }
+      ],
+      "13": [
+        {
+          "id": "s-admin_action-09",
+          "category": "admin_action",
+          "sender": "Student Accessibility Services <accessibility@northfield.edu>",
+          "subject": "Book your exam accommodations",
+          "body": "Hello,\n\nIf you have exam accommodations, you must book each final exam through the accommodations portal at least 10 days before the exam. Bookings close soon.\n\nStudent Accessibility Services"
+        },
+        {
+          "id": "s-announcement_promo-32",
+          "category": "announcement_promo",
+          "sender": "Northfield Mental Health Peer Support <peersupport@northfield.edu>",
+          "subject": "Peer support drop-ins this week",
+          "body": "Need to talk? Trained student volunteers are available for confidential peer support drop-ins Monday to Thursday, 12–4 pm, in the Wellness Centre lounge. No appointment needed.\n\nPeer Support Team\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-request_exception-04",
+          "category": "request_exception",
+          "sender": "TA Priyanka Rao <p.rao@northfield.edu>",
+          "subject": "Your presentation slot request",
+          "body": "Hi,\n\nYour request to move your presentation to the Friday slot needs the professor's approval. Could you send me the reason so I can pass it on?\n\nPriyanka"
+        },
+        {
+          "id": "s-ambiguous-04",
+          "category": "ambiguous",
+          "sender": "Grace Liu <grace.liu@my.northfield.edu>",
+          "subject": "quick question",
+          "body": "random question but would you be okay with doing it the other way this time? no pressure"
+        },
+        {
+          "id": "s-spam-04",
+          "category": "spam",
+          "sender": "Campus Perks <rewards@campusperks-mail.com>",
+          "subject": "Congratulations! You won a $500 gift card",
+          "body": "Your student email was selected in this month's draw. Claim your $500 gift card now by confirming your details and paying the $4.99 processing fee at campusperks-mail.com/claim. Offer ends tonight!",
+          "headers": {
+            "Authentication-Results": "mx.google.com; dkim=pass header.i=@campusperks-mail.com; spf=pass smtp.mailfrom=campusperks-mail.com; dmarc=pass (p=QUARANTINE) header.from=campusperks-mail.com"
+          }
+        },
+        {
+          "id": "s-announcement_promo-33",
+          "category": "announcement_promo",
+          "sender": "CodeSprint <team@codesprint.events>",
+          "subject": "CodeSprint spring edition: early-bird tickets",
+          "body": "CodeSprint is back for a spring edition! Early-bird student tickets are $5 until the end of the month and include meals, swag and access to all workshops.\n\nThe CodeSprint team\n\nUnsubscribe",
+          "headers": {
+            "List-Id": "<news.codesprint.events>",
+            "List-Unsubscribe": "<mailto:unsubscribe@codesprint.events>"
+          }
+        },
+        {
+          "id": "s-collaboration_opportunity-05",
+          "category": "collaboration_opportunity",
+          "sender": "Solar Racing Team <solar@clubs.northfield.edu>",
+          "subject": "Join our software subteam?",
+          "body": "Hi! Thanks for coming to our info session. We'd love to have you on the software subteam working on the car's telemetry dashboard. Interested?\n\nNorthfield Solar Racing"
+        },
+        {
+          "id": "s-announcement_promo-34",
+          "category": "announcement_promo",
+          "sender": "Northfield Bookstore <bookstore@northfield.edu>",
+          "subject": "Sell back your textbooks for cash",
+          "body": "Done with your fall textbooks? Bring them to the Bookstore during exam weeks and get up to 50% back in cash, depending on next term's demand.\n\nNorthfield Bookstore\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-informational-15",
+          "category": "informational",
+          "sender": "Ben Carter <b.carter@my.northfield.edu>",
+          "subject": "Re: Re: group report",
+          "body": "sounds good, I'll take the discussion section then. talk tomorrow\n\n> I can do methods and results"
+        },
+        {
+          "id": "s-academic_question-06",
+          "category": "academic_question",
+          "sender": "Kai Nakamura <k.nakamura@my.northfield.edu>",
+          "subject": "recursion tree",
+          "body": "how do you get from T(n) = 2T(n/2) + n to n log n with the recursion tree? I get lost counting the levels"
+        }
+      ],
+      "14": [
+        {
+          "id": "s-meeting_request-06",
+          "category": "meeting_request",
+          "sender": "Grace Liu <grace.liu@my.northfield.edu>",
+          "subject": "practice presentation",
+          "body": "Could we meet on Zoom tomorrow at 7 pm to practise the presentation once? Should take about 30 minutes."
+        },
+        {
+          "id": "s-announcement_promo-35",
+          "category": "announcement_promo",
+          "sender": "Women in Engineering <wie@clubs.northfield.edu>",
+          "subject": "Panel: first jobs after graduation",
+          "body": "Join Women in Engineering for a panel with recent grads about their first year in industry, followed by networking. Wednesday at 5:30 pm, Riverside Hall 110. Everyone welcome.\n\nWIE Northfield\n\nUnsubscribe",
+          "headers": {
+            "List-Id": "<news.clubs.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@clubs.northfield.edu>"
+          }
+        },
+        {
+          "id": "s-course_logistics-08",
+          "category": "course_logistics",
+          "sender": "Zara Ahmed <zara.ahmed@my.northfield.edu>",
+          "subject": "tutorial this week",
+          "body": "is the tutorial this week in person or online? someone said it moved"
+        },
+        {
+          "id": "s-admin_action-10",
+          "category": "admin_action",
+          "sender": "Northfield IT Services <it-help@northfield.edu>",
+          "subject": "Set up two-step verification for your account",
+          "body": "Hello,\n\nAll student accounts must have two-step verification turned on by the end of the month. Sign in to your Northfield account settings to set it up; it takes about two minutes.\n\nNorthfield IT Services"
+        },
+        {
+          "id": "s-announcement_promo-36",
+          "category": "announcement_promo",
+          "sender": "Northfield Research Office <ugresearch@northfield.edu>",
+          "subject": "Undergraduate Research Day: call for posters",
+          "body": "Have you done research this year? Present it at Undergraduate Research Day! Poster abstracts are due in three weeks. Prizes for the best posters in each faculty.\n\nUndergraduate Research Office\n\nYou're receiving this email because you're a registered Northfield student. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "s-informational-16",
+          "category": "informational",
+          "sender": "Residence Life <residence@northfield.edu>",
+          "subject": "Maintenance request completed",
+          "body": "Your maintenance request for your room's heater has been completed. If the problem continues, please submit a new request.\n\nResidence Life"
+        },
+        {
+          "id": "s-announcement_promo-37",
+          "category": "announcement_promo",
+          "sender": "Pixel Streaming <billing@pixelstream-tv.com>",
+          "subject": "Student plan: 50% off for 12 months",
+          "body": "Watch more, pay less. Verify your student email and get Pixel Streaming Premium for half price for a whole year. Cancel anytime.\n\nPixel Streaming\n\nUnsubscribe from offers.",
+          "headers": {
+            "List-Id": "<news.pixelstream-tv.com>",
+            "List-Unsubscribe": "<mailto:unsubscribe@pixelstream-tv.com>"
+          }
+        }
+      ]
+    },
+    "instructor": {
+      "1": [
+        {
+          "id": "i-announcement_promo-01",
+          "category": "announcement_promo",
+          "sender": "Teaching Commons <teaching-commons@northfield.edu>",
+          "subject": "Workshop: active learning in large classes",
+          "body": "Dear colleagues,\n\nJoin us next Wednesday from 12 to 1:30 pm for a hands-on workshop on active learning techniques for classes over 100 students. Lunch provided. Register on the Teaching Commons website.\n\nTeaching Commons\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-informational-01",
+          "category": "informational",
+          "sender": "TA Priyanka Rao <p.rao@northfield.edu>",
+          "subject": "Assignment 3 marking done",
+          "body": "Hi Prof,\n\nI've finished marking Assignment 3 and uploaded the marks to eClass. Average was 76%. Most students lost marks on the induction question.\n\nPriyanka"
+        },
+        {
+          "id": "i-course_logistics-01",
+          "category": "course_logistics",
+          "sender": "Owen Brady <o.brady@my.northfield.edu>",
+          "subject": "Deduction for late work",
+          "body": "Hi Professor,\n\nIf I hand in a discrete math assignment two days late, what's the deduction?\n\nOwen"
+        },
+        {
+          "id": "i-admin_action-01",
+          "category": "admin_action",
+          "sender": "Exam Services <exams@northfield.edu>",
+          "subject": "Action required: submit your final exam by December 1",
+          "body": "Dear Instructor,\n\nPlease upload your final exam paper and any accommodation versions to the Exam Services portal by December 1. Late submissions cannot be guaranteed printing.\n\nExam Services"
+        },
+        {
+          "id": "i-announcement_promo-02",
+          "category": "announcement_promo",
+          "sender": "Faculty Association <faculty-assoc@northfield.edu>",
+          "subject": "Faculty Association newsletter – November",
+          "body": "In this issue: bargaining update, new parental leave guidelines, a profile of this year's teaching award winners, and the date of our general meeting.\n\nNorthfield Faculty Association\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-academic_question-01",
+          "category": "academic_question",
+          "sender": "Grace Liu <grace.liu@my.northfield.edu>",
+          "subject": "Induction base case",
+          "body": "Hi Prof,\n\nIn Tuesday's proof that 2^n > n^2, why did we start the induction at n = 5? I tried smaller values and some fail, but how did you know to pick 5?\n\nGrace"
+        },
+        {
+          "id": "i-meeting_request-01",
+          "category": "meeting_request",
+          "sender": "Lena Park <lena.park@my.northfield.edu>",
+          "subject": "Supervision meeting",
+          "body": "Hi Professor,\n\nCould we meet next week to go over my chapter 3 draft? Monday at 10 am or Tuesday at 3 pm would work for me.\n\nLena"
+        }
+      ],
+      "2": [
+        {
+          "id": "i-request_exception-01",
+          "category": "request_exception",
+          "sender": "Fatima Noor <f.noor@my.northfield.edu>",
+          "subject": "Extension request – Assignment 4",
+          "body": "Dear Professor,\n\nI was in hospital over the weekend and couldn't finish Assignment 4. Would it be possible to have an extension until Wednesday? I have a note from the emergency room.\n\nThank you,\nFatima"
+        },
+        {
+          "id": "i-announcement_promo-03",
+          "category": "announcement_promo",
+          "sender": "Research Office <research-news@northfield.edu>",
+          "subject": "Funding digest: new opportunities this month",
+          "body": "This month's funding opportunities:\n\n• Early Career Researcher Award – internal deadline in 4 weeks\n• Teaching Innovation Grants – up to $10,000\n• Industry Partnership Seed Fund – rolling\n\nDetails on the Research Office website.\n\nNorthfield Research Office\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-informational-02",
+          "category": "informational",
+          "sender": "Owen Brady <o.brady@my.northfield.edu>",
+          "subject": "Proposal is up",
+          "body": "Hi Professor,\n\nOur team's proposal is on eClass now. We went with the transit ridership data in the end.\n\nOwen"
+        },
+        {
+          "id": "i-collaboration_opportunity-01",
+          "category": "collaboration_opportunity",
+          "sender": "Prof. Hana Sato <h.sato@westbrook.edu>",
+          "subject": "Joint paper on peer assessment?",
+          "body": "Hi,\n\nWe have a peer-assessment dataset from our first-year math courses that looks similar to yours. Would you be interested in a joint analysis and paper next term?\n\nHana Sato\nWestbrook University"
+        },
+        {
+          "id": "i-course_logistics-02",
+          "category": "course_logistics",
+          "sender": "Chloe Martin <c.martin@my.northfield.edu>",
+          "subject": "Aid sheet for the final",
+          "body": "Hello Professor,\n\nAre we allowed an aid sheet for the discrete math final? If so, can it be double-sided?\n\nThank you,\nChloe"
+        },
+        {
+          "id": "i-announcement_promo-04",
+          "category": "announcement_promo",
+          "sender": "LearnPath Training <events@learnpath-mail.com>",
+          "subject": "Instructor webinar: getting more out of your course dashboard",
+          "body": "Join our free instructor webinar to learn how to track student progress, set up auto-graded labs and save time with templates. Next Thursday at noon. Reserve your spot today.\n\nLearnPath\n\nUnsubscribe from training emails.",
+          "headers": {
+            "List-Id": "<news.learnpath-mail.com>",
+            "List-Unsubscribe": "<mailto:unsubscribe@learnpath-mail.com>"
+          }
+        }
+      ],
+      "3": [
+        {
+          "id": "i-admin_action-02",
+          "category": "admin_action",
+          "sender": "Office of the Registrar <registrar@northfield.edu>",
+          "subject": "Final grades due within 5 days of your exam",
+          "body": "Dear Instructor,\n\nA reminder that final grades must be submitted in the grade portal within 5 business days of your final exam. Please contact us if you expect a delay.\n\nOffice of the Registrar"
+        },
+        {
+          "id": "i-informational-03",
+          "category": "informational",
+          "sender": "Parking Services <parking@northfield.edu>",
+          "subject": "Parking permit renewed",
+          "body": "Your faculty parking permit for Lot C has been renewed until August 31. The new permit is linked to your staff card.\n\nNorthfield Parking Services"
+        },
+        {
+          "id": "i-announcement_promo-05",
+          "category": "announcement_promo",
+          "sender": "FES Faculty Mailing List <fes-faculty-list@northfield.edu>",
+          "subject": "Department seminar: Friday at 3 pm",
+          "body": "Dear colleagues,\n\nThis Friday's department seminar is by Dr. Hana Sato (Westbrook University): 'Peer feedback at scale: what students actually read'. Riverside Hall 120 at 3 pm, coffee before.\n\nSeminar Committee\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-wellbeing-01",
+          "category": "wellbeing",
+          "sender": "Hannah Kim <h.kim@my.northfield.edu>",
+          "subject": "Why I've been absent",
+          "body": "Dear Professor,\n\nI wanted to explain why I've missed several lectures. I've been struggling with severe anxiety and some days I can't leave my room. I'm seeing a counsellor now, but I'm scared I'm too far behind to pass.\n\nHannah"
+        },
+        {
+          "id": "i-ambiguous-01",
+          "category": "ambiguous",
+          "sender": "Department Office <cs-office@northfield.edu>",
+          "subject": "Re: your request",
+          "body": "Hello, we received your request from last week. Could you let us know whether you still need it, and by when?\n\nDepartment Office"
+        },
+        {
+          "id": "i-spam-01",
+          "category": "spam",
+          "sender": "Northfield Library Alerts <library-alerts@northfield-lib.co>",
+          "subject": "Your library account will be deactivated",
+          "body": "Faculty account notice: your library borrowing privileges will be deactivated today because of an expired verification. Restore access by signing in with your staff credentials here:\n\nhttp://northfield-lib.co/restore\n\nLibrary Systems",
+          "headers": {
+            "Authentication-Results": "mx.google.com; dkim=fail header.i=@northfield-lib.co; spf=fail smtp.mailfrom=northfield-lib.co; dmarc=fail (p=QUARANTINE) header.from=northfield-lib.co"
+          }
+        },
+        {
+          "id": "i-academic_question-02",
+          "category": "academic_question",
+          "sender": "Ryan O'Neill <r.oneill@my.northfield.edu>",
+          "subject": "Pigeonhole problem",
+          "body": "Hi Professor, in tutorial we showed that among any 5 points in a unit square, two are within sqrt(2)/2. Why sqrt(2)/2 and not 1/2?\n\nRyan"
+        },
+        {
+          "id": "i-meeting_request-02",
+          "category": "meeting_request",
+          "sender": "Tomás Reyes <t.reyes@my.northfield.edu>",
+          "subject": "Before the reference letter",
+          "body": "Hello Professor,\n\nBefore you write my reference letter, could we meet for 10 minutes tomorrow at 3 pm so I can tell you about the program?\n\nTomás"
+        },
+        {
+          "id": "i-request_exception-02",
+          "category": "request_exception",
+          "sender": "Jamal Wright <j.wright@my.northfield.edu>",
+          "subject": "Regrade request: midterm Q3",
+          "body": "Dear Professor,\n\nI believe Q3 on my midterm was marked incorrectly. I proved it by contrapositive instead of contradiction, but I think it's still valid. Could you take another look?\n\nJamal"
+        }
+      ],
+      "4": [
+        {
+          "id": "i-announcement_promo-06",
+          "category": "announcement_promo",
+          "sender": "Northfield IT Services <it-news@northfield.edu>",
+          "subject": "eClass upgrade over the break",
+          "body": "eClass will be upgraded over the winter break. Course shells for winter will be available from January 2. Please export any grade books you need before December 20.\n\nNorthfield IT Services\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-course_logistics-03",
+          "category": "course_logistics",
+          "sender": "Hannah Kim <h.kim@my.northfield.edu>",
+          "subject": "Midterm coverage",
+          "body": "Dear Professor, which chapters will the discrete math midterm cover?\n\nHannah"
+        },
+        {
+          "id": "i-informational-04",
+          "category": "informational",
+          "sender": "Fatima Noor <f.noor@my.northfield.edu>",
+          "subject": "Leaving early on Thursday",
+          "body": "Dear Professor,\n\nI'll need to leave Thursday's class about 20 minutes early for a job interview. I'll watch the end of the recording.\n\nFatima"
+        },
+        {
+          "id": "i-announcement_promo-07",
+          "category": "announcement_promo",
+          "sender": "Journal of Learning Analytics Review <alerts@jlar-review.org>",
+          "subject": "New issue now online",
+          "body": "The latest issue is now available, featuring articles on dashboard design, early-warning systems and student self-regulation.\n\nRead online. You're receiving this alert because you subscribed. Unsubscribe.",
+          "headers": {
+            "List-Id": "<news.jlar-review.org>",
+            "List-Unsubscribe": "<mailto:unsubscribe@jlar-review.org>"
+          }
+        },
+        {
+          "id": "i-admin_action-03",
+          "category": "admin_action",
+          "sender": "Faculty Office <faculty-office@northfield.edu>",
+          "subject": "Please complete the workload survey",
+          "body": "Dear colleagues,\n\nPlease complete the annual faculty workload survey by the end of next week. It takes about 15 minutes and helps us plan teaching assignments.\n\nFaculty Office",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        }
+      ],
+      "5": [
+        {
+          "id": "i-announcement_promo-08",
+          "category": "announcement_promo",
+          "sender": "Library Services <library-news@northfield.edu>",
+          "subject": "New: course reserves request form",
+          "body": "Instructors can now request course reserves for the winter term through the new online form. Requests submitted before December 15 will be ready for the first day of classes.\n\nNorthfield Libraries\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-informational-05",
+          "category": "informational",
+          "sender": "TA Marco Rossi <m.rossi@northfield.edu>",
+          "subject": "Tutorial attendance this week",
+          "body": "FYI, 31 of 38 students came to tutorial this week. Most questions were about the pigeonhole problems.\n\nMarco"
+        },
+        {
+          "id": "i-course_logistics-04",
+          "category": "course_logistics",
+          "sender": "Jamal Wright <j.wright@my.northfield.edu>",
+          "subject": "Office hours",
+          "body": "Hi Prof, when and where are your office hours for discrete math this term?"
+        },
+        {
+          "id": "i-collaboration_opportunity-02",
+          "category": "collaboration_opportunity",
+          "sender": "Owen Brady <o.brady@my.northfield.edu>",
+          "subject": "Honours project on course chatbots",
+          "body": "Hi Professor,\n\nI'm planning an honours project on evaluating chatbots that answer course questions. Would you be willing to be my supervisor?\n\nOwen"
+        },
+        {
+          "id": "i-academic_question-03",
+          "category": "academic_question",
+          "sender": "Owen Brady <o.brady@my.northfield.edu>",
+          "subject": "Well-ordering and induction",
+          "body": "Hello Professor, the textbook says the well-ordering principle and induction are equivalent. How does one imply the other?\n\nOwen"
+        },
+        {
+          "id": "i-meeting_request-03",
+          "category": "meeting_request",
+          "sender": "TA Marco Rossi <m.rossi@northfield.edu>",
+          "subject": "Marking meeting before the final",
+          "body": "Hi Prof, could we meet for 30 minutes before the final to agree on the marking scheme? Priyanka and I are free Thursday afternoon.\n\nMarco"
+        },
+        {
+          "id": "i-request_exception-03",
+          "category": "request_exception",
+          "sender": "Mei Tanaka <m.tanaka@my.northfield.edu>",
+          "subject": "Writing the final remotely",
+          "body": "Hello Professor, I'll be on a co-op term in another city in December. Would it be possible to write the discrete math final online with a proctor?\n\nMei"
+        },
+        {
+          "id": "i-announcement_promo-09",
+          "category": "announcement_promo",
+          "sender": "Northfield HR <hr-news@northfield.edu>",
+          "subject": "Benefits open enrolment closes Friday",
+          "body": "Benefits open enrolment for next year closes this Friday. If you don't make changes, your current selections will continue. Review options on the HR portal.\n\nNorthfield Human Resources\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        }
+      ],
+      "6": [
+        {
+          "id": "i-informational-06",
+          "category": "informational",
+          "sender": "Exam Services <exams@northfield.edu>",
+          "subject": "Your exam room assignment",
+          "body": "Your final exam has been assigned to the Exam Centre, Room 100. Exam papers must be delivered to Exam Services three days before the exam.\n\nExam Services"
+        },
+        {
+          "id": "i-admin_action-04",
+          "category": "admin_action",
+          "sender": "Department Office <cs-office@northfield.edu>",
+          "subject": "Upload your winter syllabi",
+          "body": "Hello,\n\nPlease upload your winter course syllabi to the department repository by January 5 so they can be checked against the new accessibility guidelines.\n\nDepartment Office"
+        },
+        {
+          "id": "i-announcement_promo-10",
+          "category": "announcement_promo",
+          "sender": "Aurora AI Institute <events@aurora-ai.org>",
+          "subject": "Call for participation: AI in education symposium",
+          "body": "The Aurora AI Institute invites researchers and educators to its spring symposium on AI in education. Submit a 300-word abstract by the end of next month. Travel support available for early-career researchers.\n\nAurora AI Institute\n\nUnsubscribe",
+          "headers": {
+            "List-Id": "<news.aurora-ai.org>",
+            "List-Unsubscribe": "<mailto:unsubscribe@aurora-ai.org>"
+          }
+        },
+        {
+          "id": "i-course_logistics-05",
+          "category": "course_logistics",
+          "sender": "Isabel Cruz <isabelcruz.studies@gmail.com>",
+          "subject": "Textbook edition",
+          "body": "Hello, is the 7th edition of the discrete math textbook okay, or do we need the 8th? The older one is much cheaper."
+        },
+        {
+          "id": "i-announcement_promo-11",
+          "category": "announcement_promo",
+          "sender": "Teaching Commons <teaching-commons@northfield.edu>",
+          "subject": "Teaching award nominations are open",
+          "body": "Nominations for this year's teaching awards are open until the end of January. Students and colleagues can nominate; nomination packages need two letters of support.\n\nTeaching Commons\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-informational-07",
+          "category": "informational",
+          "sender": "Tomás Reyes <t.reyes@my.northfield.edu>",
+          "subject": "Graph colouring lecture",
+          "body": "Hello Professor,\n\nThe graph colouring lecture was my favourite of the term. The map example finally made it click. Have a good break!\n\nTomás"
+        },
+        {
+          "id": "i-announcement_promo-12",
+          "category": "announcement_promo",
+          "sender": "Graduate Program Office <cs-grad@northfield.edu>",
+          "subject": "Graduate recruitment open house",
+          "body": "Our graduate recruitment open house is next Saturday. Faculty are welcome to drop by the poster session from 1 to 3 pm and meet prospective students.\n\nGraduate Program Office\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-academic_question-04",
+          "category": "academic_question",
+          "sender": "Lena Park <lena.park@my.northfield.edu>",
+          "subject": "Missing survey responses",
+          "body": "Hi Professor,\n\nAbout 12% of the responses are missing on the motivation scale. Should I use multiple imputation, or is a complete-case analysis acceptable here?\n\nLena"
+        },
+        {
+          "id": "i-meeting_request-04",
+          "category": "meeting_request",
+          "sender": "Prof. Michael Grant <m.grant@northfield.edu>",
+          "subject": "Lunch next week?",
+          "body": "Lunch next Tuesday at 12:30 to catch up on the curriculum review?\n\nMichael"
+        },
+        {
+          "id": "i-request_exception-04",
+          "category": "request_exception",
+          "sender": "Daniel Osei <danielosei.nf@gmail.com>",
+          "subject": "Power outage last night",
+          "body": "Hello Professor, there was a power outage in my building last night and I couldn't submit Assignment 5. Could I submit it today without the late penalty?\n\nDaniel"
+        }
+      ],
+      "7": [
+        {
+          "id": "i-admin_action-05",
+          "category": "admin_action",
+          "sender": "Faculty Office <faculty-office@northfield.edu>",
+          "subject": "Annual conflict of interest declaration",
+          "body": "Hello,\n\nAll faculty must complete the annual conflict of interest declaration in the HR portal by the end of the month.\n\nFaculty Office"
+        },
+        {
+          "id": "i-course_logistics-06",
+          "category": "course_logistics",
+          "sender": "Noah Fischer <n.fischer@my.northfield.edu>",
+          "subject": "How do regrades work?",
+          "body": "Hello Professor, how do I request a regrade for discrete math? Is there a form or do I email you?"
+        },
+        {
+          "id": "i-announcement_promo-13",
+          "category": "announcement_promo",
+          "sender": "Orbis Tech University Relations <unirelations@orbistech-careers.com>",
+          "subject": "Partner with us on capstone projects",
+          "body": "Orbis Tech is looking for university partners for next year's capstone projects in data and cloud engineering. Our team will be on campus next month; reply to set up a conversation.\n\nOrbis Tech University Relations\n\nUnsubscribe",
+          "headers": {
+            "List-Id": "<news.orbistech-careers.com>",
+            "List-Unsubscribe": "<mailto:unsubscribe@orbistech-careers.com>"
+          }
+        },
+        {
+          "id": "i-informational-08",
+          "category": "informational",
+          "sender": "Room Booking <rooms@northfield.edu>",
+          "subject": "Lecture room capacity increased",
+          "body": "The capacity of your winter lecture room has been increased to 180 seats following your enrolment change.\n\nRoom Booking Office"
+        },
+        {
+          "id": "i-announcement_promo-14",
+          "category": "announcement_promo",
+          "sender": "Northfield Communications <news@northfield.edu>",
+          "subject": "Northfield This Week",
+          "body": "In this week's issue: a new research building opens on Riverside campus, Northfield researchers win national grants, and campus holiday events.\n\nNorthfield Communications\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-collaboration_opportunity-03",
+          "category": "collaboration_opportunity",
+          "sender": "Prof. Michael Grant <m.grant@northfield.edu>",
+          "subject": "Guest lecture swap?",
+          "body": "Hi,\n\nWould you give a guest lecture on discrete probability in my stats course next term? In return I could do one on survey design in yours.\n\nMichael"
+        }
+      ],
+      "8": [
+        {
+          "id": "i-wellbeing-02",
+          "category": "wellbeing",
+          "sender": "TA Marco Rossi <m.rossi@northfield.edu>",
+          "subject": "Worried about a student",
+          "body": "Hi,\n\nA student broke down in tutorial today and said she hasn't slept in days and feels like giving up on everything. I gave her the counselling centre information, but I'm worried. What should I do?\n\nMarco"
+        },
+        {
+          "id": "i-ambiguous-02",
+          "category": "ambiguous",
+          "sender": "Ava Thompson <a.thompson@my.northfield.edu>",
+          "subject": "Re: my question",
+          "body": "Hi Professor, did you see what I sent? I'm still not sure what to do."
+        },
+        {
+          "id": "i-spam-02",
+          "category": "spam",
+          "sender": "Parking Services <parking@northfield-permits.com>",
+          "subject": "Parking permit suspended – unpaid fine",
+          "body": "Your faculty parking permit has been suspended due to an unpaid violation of $65. Pay within 24 hours to avoid towing:\n\nhttp://northfield-permits.com/pay-now",
+          "headers": {
+            "Authentication-Results": "mx.google.com; dkim=fail header.i=@northfield-permits.com; spf=fail smtp.mailfrom=northfield-permits.com; dmarc=fail (p=QUARANTINE) header.from=northfield-permits.com"
+          }
+        },
+        {
+          "id": "i-informational-09",
+          "category": "informational",
+          "sender": "Lena Park <lena.park@my.northfield.edu>",
+          "subject": "Re: chapter 2 comments",
+          "body": "Thank you for the comments, Professor. I'll revise the methods section and send it back next week.\n\nLena\n\n> The chapter is a good start but the sampling section needs more detail."
+        },
+        {
+          "id": "i-announcement_promo-15",
+          "category": "announcement_promo",
+          "sender": "Exam Services <exams@northfield.edu>",
+          "subject": "Final exam schedule is now published",
+          "body": "The final exam schedule for the fall term has been published on the Exam Services website. Please check your course's date, time and room.\n\nExam Services\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-course_logistics-07",
+          "category": "course_logistics",
+          "sender": "TA Marco Rossi <m.rossi@northfield.edu>",
+          "subject": "Review session room",
+          "body": "Hi,\n\nWhich room should I book for the final review session? Riverside Hall 210 is taken on Thursday. Do you want me to find another room or move the session to Friday?\n\nMarco"
+        },
+        {
+          "id": "i-admin_action-06",
+          "category": "admin_action",
+          "sender": "Department Office <cs-office@northfield.edu>",
+          "subject": "Submit your textbook orders for winter",
+          "body": "Hello,\n\nPlease submit your textbook and course pack orders for winter courses through the Bookstore portal by Friday so they arrive before classes start.\n\nDepartment Office"
+        }
+      ],
+      "9": [
+        {
+          "id": "i-academic_question-05",
+          "category": "academic_question",
+          "sender": "Mei Tanaka <m.tanaka@my.northfield.edu>",
+          "subject": "Solving a recurrence",
+          "body": "Hi again,\n\nFor a_n = 3a_(n-1) - 2a_(n-2) I found the roots 1 and 2, but my constants don't fit a_0 = 2 and a_1 = 3. What am I doing wrong?\n\nMei"
+        },
+        {
+          "id": "i-meeting_request-05",
+          "category": "meeting_request",
+          "sender": "Chloe Martin <c.martin@my.northfield.edu>",
+          "subject": "Move our check-in?",
+          "body": "Dear Professor, could we move Thursday's check-in from 2 pm to 4 pm? I have a lab that runs late.\n\nChloe"
+        },
+        {
+          "id": "i-request_exception-05",
+          "category": "request_exception",
+          "sender": "Student Accessibility Services <accessibility@northfield.edu>",
+          "subject": "Quiz time adjustment needed",
+          "body": "Dear instructor,\n\nA student registered with us needs 50% additional time on online quizzes. Could you confirm that the quiz settings in your course can be adjusted for this student?\n\nStudent Accessibility Services"
+        },
+        {
+          "id": "i-announcement_promo-16",
+          "category": "announcement_promo",
+          "sender": "Sustainability Office <green@northfield.edu>",
+          "subject": "Green office certification: join this year",
+          "body": "Make your office or lab greener! Our Green Office program gives you a simple checklist and recognition for your team. Sign-ups are open all term.\n\nNorthfield Sustainability Office\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-informational-10",
+          "category": "informational",
+          "sender": "Department Office <cs-office@northfield.edu>",
+          "subject": "Your monitors were delivered",
+          "body": "The two monitors you ordered for the lab were delivered to Riverside Hall 214 this morning.\n\nDepartment Office"
+        }
+      ],
+      "10": [
+        {
+          "id": "i-announcement_promo-17",
+          "category": "announcement_promo",
+          "sender": "Academic Conference Services <info@edtech-summit.org>",
+          "subject": "Early-bird registration: EdTech Summit 2027",
+          "body": "Early-bird registration for EdTech Summit 2027 is open until the end of the month. Three days of talks on learning technology, assessment and AI in the classroom.\n\nEdTech Summit\n\nUnsubscribe",
+          "headers": {
+            "List-Id": "<news.edtech-summit.org>",
+            "List-Unsubscribe": "<mailto:unsubscribe@edtech-summit.org>"
+          }
+        },
+        {
+          "id": "i-course_logistics-08",
+          "category": "course_logistics",
+          "sender": "Ava Thompson <a.thompson@my.northfield.edu>",
+          "subject": "Working alone on the project",
+          "body": "Hi Professor, is it okay to do the discrete math project by myself instead of in a group?"
+        },
+        {
+          "id": "i-announcement_promo-18",
+          "category": "announcement_promo",
+          "sender": "FES Dean's Office <fes-dean@northfield.edu>",
+          "subject": "Dean's holiday reception",
+          "body": "Dear colleagues,\n\nYou are warmly invited to the Dean's holiday reception on the last Friday of classes, 4–6 pm, in the Riverside Hall atrium. Families welcome.\n\nFES Dean's Office\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-admin_action-07",
+          "category": "admin_action",
+          "sender": "Health & Safety Office <safety@northfield.edu>",
+          "subject": "Complete the annual lab supervisor training",
+          "body": "Hello,\n\nAs a lab supervisor, you need to complete the annual safety refresher training on eClass by the end of the month.\n\nHealth & Safety Office"
+        },
+        {
+          "id": "i-informational-11",
+          "category": "informational",
+          "sender": "Dr. Sarah Quinn <s.quinn@northfield.edu>",
+          "subject": "Webinar recording uploaded",
+          "body": "Hi! The recording of our joint webinar is now in the shared drive, along with the attendee questions. Nothing needed from you.\n\nSarah"
+        },
+        {
+          "id": "i-announcement_promo-19",
+          "category": "announcement_promo",
+          "sender": "Northfield Wellness <staff-wellness@northfield.edu>",
+          "subject": "Staff wellness: free flu shot clinic",
+          "body": "Free flu shots for faculty and staff are available at the campus health clinic next Monday and Tuesday, 9 am to 3 pm. No appointment needed.\n\nStaff Wellness\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-academic_question-06",
+          "category": "academic_question",
+          "sender": "Tomás Reyes <t.reyes@my.northfield.edu>",
+          "subject": "Vacuous truth",
+          "body": "Hello Professor, why is 'if 1 = 2 then pigs fly' considered true? It feels wrong that a false premise makes the whole statement true."
+        },
+        {
+          "id": "i-meeting_request-06",
+          "category": "meeting_request",
+          "sender": "Department Chair <cs-chair@northfield.edu>",
+          "subject": "Annual review meeting",
+          "body": "Hello, please let me know when you'd be available for a 30-minute annual review meeting in the next two weeks.\n\nDepartment Chair"
+        },
+        {
+          "id": "i-request_exception-06",
+          "category": "request_exception",
+          "sender": "Chloe Martin <c.martin@my.northfield.edu>",
+          "subject": "Dropping my Lab 3 grade?",
+          "body": "Dear Professor, could my Lab 3 grade be dropped? I was sick that week but couldn't get a doctor's note in time.\n\nChloe"
+        }
+      ],
+      "11": [
+        {
+          "id": "i-collaboration_opportunity-04",
+          "category": "collaboration_opportunity",
+          "sender": "Program Chairs <chairs@nedw-workshop.org>",
+          "subject": "Program committee invitation",
+          "body": "Dear Professor,\n\nWe would be delighted if you joined the program committee of the Northern Educational Data Workshop. The role involves reviewing about four short papers in March.\n\nProgram Chairs"
+        },
+        {
+          "id": "i-course_logistics-09",
+          "category": "course_logistics",
+          "sender": "Daniel Osei <danielosei.nf@gmail.com>",
+          "subject": "Question about STAT 2200",
+          "body": "Hello Professor, I'm also in your colleague's STAT 2200 section. Do you know if the STAT 2200 midterm allows a calculator?"
+        },
+        {
+          "id": "i-informational-12",
+          "category": "informational",
+          "sender": "Grace Liu <grace.liu@my.northfield.edu>",
+          "subject": "Internship news",
+          "body": "Dear Professor,\n\nI got the summer internship at the city planning department! The interview had a probability puzzle and your course really helped. Just wanted to share.\n\nGrace"
+        },
+        {
+          "id": "i-announcement_promo-20",
+          "category": "announcement_promo",
+          "sender": "Research Ethics Board <reb@northfield.edu>",
+          "subject": "REB submission deadlines for winter",
+          "body": "The Research Ethics Board meets monthly over the winter term. Full-board submissions are due three weeks before each meeting; dates are on the REB website.\n\nResearch Ethics Board\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-admin_action-08",
+          "category": "admin_action",
+          "sender": "Northfield IT Services <it-help@northfield.edu>",
+          "subject": "Action required: renew your course shell request",
+          "body": "Hello,\n\nTo have your winter course shells created on eClass, confirm your teaching assignments in the IT request form by December 10.\n\nNorthfield IT Services"
+        },
+        {
+          "id": "i-announcement_promo-21",
+          "category": "announcement_promo",
+          "sender": "Nimbus Cloud for Education <edu@nimbuscloud.io>",
+          "subject": "Free cloud credits for your course",
+          "body": "Teaching data science or cloud computing next term? Apply for free Nimbus Cloud credits for your students. Applications are reviewed within one week.\n\nNimbus Cloud for Education\n\nUnsubscribe",
+          "headers": {
+            "List-Id": "<news.nimbuscloud.io>",
+            "List-Unsubscribe": "<mailto:unsubscribe@nimbuscloud.io>"
+          }
+        },
+        {
+          "id": "i-informational-13",
+          "category": "informational",
+          "sender": "Teaching Awards Committee <teaching-awards@northfield.edu>",
+          "subject": "Dossier received",
+          "body": "Your teaching dossier has been received by the awards committee. Results will be announced in March.\n\nTeaching Awards Committee"
+        },
+        {
+          "id": "i-course_logistics-10",
+          "category": "course_logistics",
+          "sender": "Ryan O'Neill <r.oneill@my.northfield.edu>",
+          "subject": "Late assignment question",
+          "body": "Hi Prof, how much do we lose if a discrete math assignment is handed in a day late?"
+        }
+      ],
+      "12": [
+        {
+          "id": "i-announcement_promo-22",
+          "category": "announcement_promo",
+          "sender": "Faculty Development <facdev@northfield.edu>",
+          "subject": "Writing retreat for faculty – spaces available",
+          "body": "Our two-day faculty writing retreat in January still has spaces. Quiet rooms, coffee and accountability partners for that paper you've been meaning to finish.\n\nFaculty Development\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-academic_question-07",
+          "category": "academic_question",
+          "sender": "TA Priyanka Rao <p.rao@northfield.edu>",
+          "subject": "Single vertex a tree?",
+          "body": "Hi Prof,\n\nA student asked whether a graph with one vertex and no edges counts as a tree. I want to give the right answer in tutorial.\n\nPriyanka"
+        },
+        {
+          "id": "i-meeting_request-07",
+          "category": "meeting_request",
+          "sender": "Jamal Wright <j.wright@my.northfield.edu>",
+          "subject": "Talk about my quiz marks",
+          "body": "Hi Professor, my quiz marks have been dropping. Could I see you on Monday after the lecture to talk about how to study for the final?"
+        },
+        {
+          "id": "i-request_exception-07",
+          "category": "request_exception",
+          "sender": "TA Priyanka Rao <p.rao@northfield.edu>",
+          "subject": "Quiz in a different tutorial?",
+          "body": "Hi Prof, a student wants to write Friday's quiz in my Thursday tutorial instead because of a work shift. Is that allowed?\n\nPriyanka"
+        },
+        {
+          "id": "i-announcement_promo-23",
+          "category": "announcement_promo",
+          "sender": "FES Faculty Mailing List <fes-faculty-list@northfield.edu>",
+          "subject": "Reminder: department meeting next week",
+          "body": "Dear colleagues,\n\nA reminder that our department meeting is next Tuesday at 10 am. The agenda will be circulated on Friday.\n\nDepartment Office\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-wellbeing-03",
+          "category": "wellbeing",
+          "sender": "Ben Carter <b.carter@my.northfield.edu>",
+          "subject": "Family situation",
+          "body": "Hello Professor, my father is very ill and I've been travelling back and forth to the hospital. I'm finding it really hard to keep up and I'm sorry my work has been late."
+        }
+      ],
+      "13": [
+        {
+          "id": "i-ambiguous-03",
+          "category": "ambiguous",
+          "sender": "Prof. Michael Grant <m.grant@northfield.edu>",
+          "subject": "Thursday",
+          "body": "Can you check the thing for Thursday when you get a chance? Thanks."
+        },
+        {
+          "id": "i-spam-03",
+          "category": "spam",
+          "sender": "CiteBoost Pro <growth@citeboost-pro.com>",
+          "subject": "Triple your citations in 3 months",
+          "body": "Dear Researcher,\n\nOur network of partner journals can increase your citation count by 300% within 3 months. Packages from $499. Reply to receive our price list.",
+          "headers": {
+            "Authentication-Results": "mx.google.com; dkim=pass header.i=@citeboost-pro.com; spf=pass smtp.mailfrom=citeboost-pro.com; dmarc=pass (p=QUARANTINE) header.from=citeboost-pro.com"
+          }
+        },
+        {
+          "id": "i-informational-14",
+          "category": "informational",
+          "sender": "TA Priyanka Rao <p.rao@northfield.edu>",
+          "subject": "Tutorial 8 solutions posted",
+          "body": "Hi Prof, I've posted the tutorial 8 solutions on eClass and announced them to the class.\n\nPriyanka"
+        },
+        {
+          "id": "i-admin_action-09",
+          "category": "admin_action",
+          "sender": "Graduate Program Office <cs-grad@northfield.edu>",
+          "subject": "Progress reports due for your graduate students",
+          "body": "Dear Supervisor,\n\nAnnual progress reports for your graduate students are due by the end of the month. Please complete the supervisor section in the graduate portal.\n\nGraduate Program Office"
+        },
+        {
+          "id": "i-announcement_promo-24",
+          "category": "announcement_promo",
+          "sender": "Teaching Commons <teaching-commons@northfield.edu>",
+          "subject": "Generative AI and assessment: new guide",
+          "body": "We've published a short guide on designing assessments in the age of generative AI, with example syllabus statements. Available on the Teaching Commons website.\n\nTeaching Commons\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-course_logistics-11",
+          "category": "course_logistics",
+          "sender": "Fatima Noor <f.noor@my.northfield.edu>",
+          "subject": "Notes on the final exam?",
+          "body": "Dear Professor, can we bring any notes to the discrete math final exam?\n\nFatima"
+        },
+        {
+          "id": "i-collaboration_opportunity-05",
+          "category": "collaboration_opportunity",
+          "sender": "Math Society <mathsoc@clubs.northfield.edu>",
+          "subject": "Judge for our high-school contest?",
+          "body": "Dear Professor, the Math Society runs a contest for local high-school students in March. Would you be a judge for the final round?"
+        },
+        {
+          "id": "i-informational-15",
+          "category": "informational",
+          "sender": "Noah Fischer <n.fischer@my.northfield.edu>",
+          "subject": "Peer evaluations finished",
+          "body": "Hi Professor, just letting you know our group has finished the peer evaluations on eClass."
+        },
+        {
+          "id": "i-announcement_promo-25",
+          "category": "announcement_promo",
+          "sender": "Northfield Libraries <library-news@northfield.edu>",
+          "subject": "Open access publishing fund reopens",
+          "body": "The open access publishing fund is accepting applications again. It covers up to $2,000 in article processing charges for Northfield authors.\n\nNorthfield Libraries\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-academic_question-08",
+          "category": "academic_question",
+          "sender": "Hannah Kim <h.kim@my.northfield.edu>",
+          "subject": "Stars and bars",
+          "body": "Dear Professor, when counting solutions with stars and bars, why is it C(n+k-1, k-1) and not C(n+k, k)?\n\nHannah"
+        }
+      ],
+      "14": [
+        {
+          "id": "i-meeting_request-08",
+          "category": "meeting_request",
+          "sender": "Prof. Hana Sato <h.sato@westbrook.edu>",
+          "subject": "In town next week",
+          "body": "Hi, I'll be visiting Northfield next Wednesday. Could we meet in the afternoon to look at the two datasets together?\n\nHana"
+        },
+        {
+          "id": "i-request_exception-08",
+          "category": "request_exception",
+          "sender": "Nina Kowalski <nina.kowalski@my.northfield.edu>",
+          "subject": "Debate tournament on midterm day",
+          "body": "Dear Professor,\n\nI'm representing Northfield at a national debate tournament on the day of the midterm. Could I write it the day before instead?\n\nNina"
+        },
+        {
+          "id": "i-announcement_promo-26",
+          "category": "announcement_promo",
+          "sender": "Campus Events <events@northfield.edu>",
+          "subject": "Holiday concert tickets now available",
+          "body": "The Northfield Choir and Orchestra holiday concert is on Friday, December 11. Faculty and staff tickets are half price.\n\nCampus Events\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        },
+        {
+          "id": "i-admin_action-10",
+          "category": "admin_action",
+          "sender": "Faculty Office <faculty-office@northfield.edu>",
+          "subject": "Update your faculty profile",
+          "body": "Hello,\n\nPlease review and update your faculty web profile (research interests, recent publications, office hours) before the new term. The update form is on the faculty intranet.\n\nFaculty Office"
+        },
+        {
+          "id": "i-course_logistics-12",
+          "category": "course_logistics",
+          "sender": "Ahmed Saleh <a.saleh@my.northfield.edu>",
+          "subject": "Where are office hours?",
+          "body": "Hello, where do you hold office hours? I'd like to come by this week with a question."
+        },
+        {
+          "id": "i-informational-16",
+          "category": "informational",
+          "sender": "Facilities <facilities@northfield.edu>",
+          "subject": "Third-floor printer repaired",
+          "body": "The printer on the third floor of Riverside Hall has been repaired and is working again.\n\nFacilities"
+        },
+        {
+          "id": "i-announcement_promo-27",
+          "category": "announcement_promo",
+          "sender": "Research Office <research-news@northfield.edu>",
+          "subject": "Grant writing clinic next month",
+          "body": "Planning a major grant application? Book a one-on-one session with our grant development officers during next month's clinic.\n\nNorthfield Research Office\n\nYou're receiving this because you're a member of Northfield faculty and staff. Unsubscribe | Email preferences",
+          "headers": {
+            "List-Id": "<news.northfield.edu>",
+            "List-Unsubscribe": "<mailto:unsubscribe@northfield.edu>"
+          }
+        }
+      ]
+    }
+  }
+}

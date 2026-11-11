@@ -154,6 +154,10 @@ def fetch_unread_emails(service, max_results=10, processed_label_id=None):
             "raw_body": raw_body,
             "bulk_reason": bulk_reason(label_ids, headers) or body_bulk_reason(raw_body),
             "auth_verdict": auth_verdict(msg["payload"]),
+            # Set only on study emails (app/study_mail.py): the category the
+            # email was written as, for measuring accuracy against it.
+            "expected_category": headers.get("x-study-expected"),
+            "seed_id": headers.get("x-study-seed-id"),
         })
 
     return emails
