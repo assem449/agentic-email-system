@@ -59,17 +59,11 @@ python3 app/metrics.py
 
 ## 1. Generator models and prompts
 
-**Repo:** `data/DATASET.md` is the dataset card. The generator model names,
-dates, settings and the 14 prompts are `TODO(author)` because they are
-not recorded anywhere in the repository. Fill them in from the chat or API
-history of the account that generated the emails. If a prompt really can't
-be recovered, say so in the paper rather than reconstructing it.
-
-**Also commit `adjudicated_ground_truth.csv`.** `data/heldout_set.json`
-holds the **pre-adjudication** labels: its counts are ack 15 / support 15,
-while Table II has 13 / 18. So none of the paper's held-out figures can be
-reproduced from the repo as it stands. `*.csv` is gitignored, so add it
-with `git add -f`.
+**Repo:** `data/DATASET.md` is the dataset card. It records both
+generators, the dates and settings, the adjudicated labels, and
+approximate prompt reconstructions labelled as such. The adjudicated
+labels are committed as `adjudicated_ground_truth.csv` and validated
+against v15 (see §2).
 
 **What we know:**
 - Primary corpus: Claude Sonnet 5, August 2026.
