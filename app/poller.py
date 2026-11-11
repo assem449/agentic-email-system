@@ -30,6 +30,13 @@ def process_email(service, email: dict):
 
     print(f"[{category}] {email['subject'][:40]} -> {result['handler_used']}")
 
+    if result.get("confirmation_token"):
+        # Shown to the operator only. Nothing is on the calendar until this
+        # token is confirmed: POST /pending/<token>/confirm (or GET /pending
+        # to list everything awaiting a decision).
+        print(f"  -> meeting proposal staged, awaiting confirmation: "
+              f"token {result['confirmation_token']}")
+
     if category == "spam":
         move_to_spam(service, gmail_id)
         print(f"  -> moved to spam")

@@ -14,3 +14,4 @@ class EmailState(TypedDict):
     input_tokens: int
     output_tokens: int
     retrieval_distance: float
+    confirmation_token: Optional[str]  # calendar only; operator-held, never in the draft

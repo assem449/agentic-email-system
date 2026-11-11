@@ -23,3 +23,7 @@ accelerate
 scikit-learn
 numpy
 openpyxl
+
+# tests
+pytest
+httpx

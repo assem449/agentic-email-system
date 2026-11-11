@@ -285,18 +285,46 @@ To make the held-out set and IAA more visible:
 
 ---
 
-## Required fix: the paper describes a calendar approval flow the code doesn't have
+## Calendar confirmation: now implemented to match §III-B, §III-C and §IV-A
 
-| Paper says | Code (`main`) does |
-|---|---|
-| Abstract: "Neither side-effecting path acts without human approval" | — |
-| §III-B: the calendar handler "performs no write: it stages a pending record" | `app/handlers/calendar.py` calls `service.events().insert(...)` immediately |
-| §III-C: a confirmation token and an idempotent endpoint | `app/main.py` has only `/route-email` and `/health` |
-| §IV-A: "the Calendar API is called only from the confirmation endpoint" | Not true of the committed code |
+Before this change, `calendar_handler` inserted events immediately and
+there was no confirmation endpoint. The code now matches the paper:
 
-No reported number depends on this, because the handler is stubbed in
-evaluation. But anyone who opens the released repo will find the
-threat-model argument unimplemented. Either implement staging plus
-`/confirm/{token}` before release, or revise those four passages to
-describe the current behaviour. Email replies are correctly staged as
-Gmail drafts (`app/poller.py`).
+- **Staging only:** `app/handlers/calendar.py` parses a time and stages a
+  pending record in `app/pending.py` (SQLite, shared by the poller and the
+  API), keyed by a random confirmation token. It never calls the Calendar
+  API.
+- **One write path:** `POST /pending/{token}/confirm` (`app/main.py`) is
+  the only route to `insert_event`, the system's only calendar write.
+  `GET /pending` lists proposals and `POST /pending/{token}/cancel`
+  discards one.
+- **Idempotent:** confirmation takes SQLite's write lock, so repeated and
+  concurrent confirmations serialise. The event id is derived from the
+  token, so a retry after a crash gets Google's 409 and reuses the existing
+  event instead of booking twice.
+- **Token kept out of the draft:** the draft is a reply to the sender,
+  whom §III-C treats as a possible adversary. If you sent it with the token
+  inside, the sender could confirm the meeting. The poller prints the
+  token for the operator. The draft proposes the time and claims nothing is
+  booked. If no time is found, it asks the sender for times, and the record
+  is flagged `time_source = fallback`.
+- **Tests:** `tests/test_calendar_confirmation.py` (`python3 -m pytest
+  tests/`) checks that staging makes no API call, that the token is absent
+  from the draft, single-insert under sequential, concurrent and
+  crash-retry confirmation, the cancel/confirm rules, and the HTTP flow.
+
+No reported number changes, because evaluation still replaces the handler
+with the 0.1 ms stub.
+
+**Paper wording to check:**
+
+- §III-B, "returns a draft stating the extracted time for confirmation":
+  this matches. You could add "…to the sender; the confirmation token is
+  held by the operator and never appears in the draft".
+- §III-C, "pending records keyed by a confirmation token … the endpoint is
+  idempotent": matches.
+- §IV-A: "the Calendar API is called only from the confirmation endpoint"
+  is now true.
+- Optional: one sentence noting that the confirmation endpoints are
+  operator-only and bound to localhost, and that there is no
+  authentication beyond the token.
