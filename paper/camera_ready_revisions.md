@@ -130,7 +130,7 @@ seed 20260824. Results are committed in `results/tfidf/`.
 | Rules v1 (frozen) | 39.67% (144/363) | — | — | 0.386 | 0.333–0.435 |
 | TF-IDF + LR | **79.06%** (287/363) | 74.6–82.9 | 79.07 ± 3.70 | **0.792** | 0.747–0.832 |
 | TF-IDF + linear SVM | **84.57%** (307/363) | 80.5–87.9 | 84.57 ± 3.20 | **0.842** | 0.802–0.878 |
-| DistilBERT v2 (rerun) | 92.29% (335/363) | 89.1–94.6 | 92.29 ± 1.84 | 0.921 | [[ci]] |
+| DistilBERT v2 (rerun) | 92.29% (335/363) | 89.1–94.6 | 92.29 ± 1.84 | 0.921 | 0.891–0.947 |
 
 The SVM and DistilBERT accuracy intervals are disjoint, so on the primary
 corpus DistilBERT's lead over the strongest linear baseline holds up.
@@ -249,20 +249,21 @@ out-of-fold dictionary lookup, so its inference cost appeared nowhere.
 - Model load time is reported once, separately.
 - `latency_bench.py` gives per-email inference latency without the API.
 
-**Measured here** (a 4-vCPU cloud Xeon at 2.3 GHz, not your laptop; rerun
-for the paper):
+**Measured on the author's laptop** (Apple silicon, macOS 26.1, 8 cores,
+CPU only, PyTorch using 4 threads, Python 3.9). These are the numbers to
+report:
 
-| Classifier | Load | Median / email | p95 |
-|---|---|---|---|
-| Rules v1 | <1 ms | 0.11 ms | 0.30 ms |
-| TF-IDF + LR | — | 0.41 ms | 0.52 ms |
-| TF-IDF + SVM | — | 0.39 ms | 0.47 ms |
-| DistilBERT | [[ms]] | [[ms]] | [[ms]] |
+| Classifier | Load | Median / email | Mean | p95 |
+|---|---|---|---|---|
+| Rules v1 | 0.8 ms | 0.18 ms | 0.19 ms | 0.43 ms |
+| TF-IDF + LR | — | 0.36 ms | 0.38 ms | 0.40 ms |
+| TF-IDF + SVM | — | 0.28 ms | 0.28 ms | 0.31 ms |
+| DistilBERT | 1,964 ms | **14.05 ms** | 15.06 ms | 20.21 ms |
 
-For scale: the always-LLM baseline averages about 1 s of API time per
-email. DistilBERT on CPU at 128 tokens is typically tens of milliseconds,
-so the end-to-end reduction should be a few points below 36.51%, not
-qualitatively different. Report the measured numbers whatever they are.
+The TF-IDF "load" times in `latency_bench.py` (1.5 s and 36 ms) include
+fitting the model on 363 emails, which a deployment would do once
+offline. Don't report them as start-up cost. DistilBERT's 1,964 ms is a
+genuine load from disk.
 
 **§V-D, replace the last two sentences** ("The calendar handler is
 stubbed…") with:
@@ -270,10 +271,10 @@ stubbed…") with:
 ```latex
 Latency in Table~I is end-to-end within the pipeline: classifier inference
 plus handler time, excluding Gmail fetch and draft I/O, which is identical
-across systems. DistilBERT inference adds a median [[m]]~ms per email on
-[[CPU]] ([[p95]]~ms at the 95th percentile; model load, [[load]]~ms, is
-paid once at start-up), against [[t]]~ms for the TF-IDF baselines and
-[[r]]~ms for the rules; including it lowers DistilBERT's latency reduction
+across systems. DistilBERT inference adds a median 14.1~ms per email on
+a laptop CPU (Apple silicon, 4 PyTorch threads; 20.2~ms at the 95th
+percentile; model load, 2.0~s, is paid once at start-up), against 0.3~ms
+for the TF-IDF baselines and 0.2~ms for the rules; including it lowers DistilBERT's latency reduction
 from 36.51\% (handler only) to [[e2e]]\%. Calendar latency is a lower
 bound: during evaluation the calendar handler is replaced by a fixed
 0.1~ms stub, so neither date extraction nor the Calendar API round trip is
