@@ -132,5 +132,8 @@ if __name__ == "__main__":
         data = json.load(f)
     baseline = data["llm_baseline"]
     for label, key in (("Rules v1 (frozen)", "rules"),
+                       ("TF-IDF + LR (out-of-fold)", "tfidf_lr"),
+                       ("TF-IDF + SVM (out-of-fold)", "tfidf_svm"),
                        ("DistilBERT v2 (out-of-fold)", "distilbert")):
-        report(data[key], baseline, label)
+        if key in data:
+            report(data[key], baseline, label)
