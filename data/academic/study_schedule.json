@@ -941,7 +941,7 @@
           "category": "course_logistics",
           "sender": "Owen Brady <o.brady@my.northfield.edu>",
           "subject": "Deduction for late work",
-          "body": "Hi Professor Haddad,\n\nIf I hand in a discrete math assignment two days late, what's the deduction?\n\nOwen"
+          "body": "Hi Professor,\n\nIf I hand in a discrete math assignment two days late, what's the deduction?\n\nOwen"
         },
         {
           "id": "i-admin_action-01",
@@ -973,7 +973,7 @@
           "category": "meeting_request",
           "sender": "Lena Park <lena.park@my.northfield.edu>",
           "subject": "Supervision meeting",
-          "body": "Hi Professor Haddad,\n\nCould we meet next week to go over my chapter 3 draft? Monday at 10 am or Tuesday at 3 pm would work for me.\n\nLena"
+          "body": "Hi Professor,\n\nCould we meet next week to go over my chapter 3 draft? Monday at 10 am or Tuesday at 3 pm would work for me.\n\nLena"
         }
       ],
       "2": [
@@ -982,7 +982,7 @@
           "category": "request_exception",
           "sender": "Fatima Noor <f.noor@my.northfield.edu>",
           "subject": "Extension request – Assignment 4",
-          "body": "Dear Professor Haddad,\n\nI was in hospital over the weekend and couldn't finish Assignment 4. Would it be possible to have an extension until Wednesday? I have a note from the emergency room.\n\nThank you,\nFatima"
+          "body": "Dear Professor,\n\nI was in hospital over the weekend and couldn't finish Assignment 4. Would it be possible to have an extension until Wednesday? I have a note from the emergency room.\n\nThank you,\nFatima"
         },
         {
           "id": "i-announcement_promo-03",
@@ -1124,7 +1124,7 @@
           "category": "informational",
           "sender": "Fatima Noor <f.noor@my.northfield.edu>",
           "subject": "Leaving early on Thursday",
-          "body": "Dear Professor Haddad,\n\nI'll need to leave Thursday's class about 20 minutes early for a job interview. I'll watch the end of the recording.\n\nFatima"
+          "body": "Dear Professor,\n\nI'll need to leave Thursday's class about 20 minutes early for a job interview. I'll watch the end of the recording.\n\nFatima"
         },
         {
           "id": "i-announcement_promo-07",
@@ -1282,7 +1282,7 @@
           "category": "academic_question",
           "sender": "Lena Park <lena.park@my.northfield.edu>",
           "subject": "Missing survey responses",
-          "body": "Hi Professor Haddad,\n\nAbout 12% of the responses are missing on the motivation scale. Should I use multiple imputation, or is a complete-case analysis acceptable here?\n\nLena"
+          "body": "Hi Professor,\n\nAbout 12% of the responses are missing on the motivation scale. Should I use multiple imputation, or is a complete-case analysis acceptable here?\n\nLena"
         },
         {
           "id": "i-meeting_request-04",
@@ -1547,7 +1547,7 @@
           "category": "informational",
           "sender": "Grace Liu <grace.liu@my.northfield.edu>",
           "subject": "Internship news",
-          "body": "Dear Professor Haddad,\n\nI got the summer internship at the city planning department! The interview had a probability puzzle and your course really helped. Just wanted to share.\n\nGrace"
+          "body": "Dear Professor,\n\nI got the summer internship at the city planning department! The interview had a probability puzzle and your course really helped. Just wanted to share.\n\nGrace"
         },
         {
           "id": "i-announcement_promo-20",
@@ -1693,7 +1693,7 @@
           "category": "course_logistics",
           "sender": "Fatima Noor <f.noor@my.northfield.edu>",
           "subject": "Notes on the final exam?",
-          "body": "Dear Professor Haddad, can we bring any notes to the discrete math final exam?\n\nFatima"
+          "body": "Dear Professor, can we bring any notes to the discrete math final exam?\n\nFatima"
         },
         {
           "id": "i-collaboration_opportunity-05",
