@@ -16,9 +16,9 @@ no real correspondence was collected or analysed.
 | Emails | 363 |
 | Fields | `id`, `subject`, `body`, `true_category` |
 | Categories | support 67, ack 52, ambiguous 52, faq 50, emotional 50, meeting 47, spam 45 |
-| Generator model | Claude Sonnet 5 (Anthropic), per the author. `TODO(author)`: confirm this is the primary-corpus generator |
-| Access route / date | `TODO(author)`: claude.ai app or API; August 2026 |
-| Sampling settings | `TODO(author)`: temperature etc., or "interface defaults" |
+| Generator model | Claude Sonnet 5 (Anthropic) |
+| Access route / date | August 2026; `TODO(author)`: claude.ai app or API |
+| Sampling settings | `TODO(author)`: interface defaults if generated in the app |
 | Prompts | seven category-specific role-play prompts; not retained verbatim (see Generation prompts) |
 | Labels | single annotator (one author); generator's target category treated as a proposal only |
 | Deduplication | exact-duplicate bodies removed (`dedupe_eval_set.py`); `eval_set_deduped.json` is the output and is identical to `eval_set.json` |
@@ -33,8 +33,8 @@ generating prompt.
 | | |
 |---|---|
 | Emails | 105 (15 per prompt, 7 prompts) |
-| Generator model | `TODO(author)`: the paper says a **different** model from the primary corpus. Which one? |
-| Access route / date / settings | `TODO(author)` |
+| Generator model | ChatGPT (OpenAI), a different model and vendor from the primary corpus. `TODO(author)`: the exact model shown in the ChatGPT model picker (the "ChatGPT" product serves several models) |
+| Access route / date / settings | ChatGPT app; `TODO(author)`: month (the emails reference dates in September 2026); interface defaults |
 | Prompts | seven reworded prompts with different senders, scenarios and registers; not retained verbatim (see Generation prompts) |
 | Labels in this file | **pre-adjudication** labels from the first annotator |
 | Double annotation | second annotator blind to the original labels and the prompts; raw agreement 96/105 (91.4%), Cohen's κ = 0.900 (`score_agreement.py`) |
@@ -48,17 +48,80 @@ overlap and id collisions) both return zero (`eval_heldout.py`).
 LLM-routed emails are answered by `claude-sonnet-4-6` (`app/config.py`)
 with the system prompt in `app/handlers/llm.py`, `max_tokens=300`.
 
-## Generation prompts
+## Generation prompts (approximate reconstructions)
 
-Each corpus came from seven category-specific role-play prompts
-("Imagine you are…") giving the category, a sender persona and scenario,
-and asking for canonical phrasings, natural paraphrases and trap cases.
+> **These are not the original prompts.** The verbatim prompts were not
+> retained. The text below was written after the fact, from the author's
+> recollection of their form (role-play prompts beginning "Imagine you
+> are…") and from the properties of the generated corpora: email counts,
+> length, register, the share of trap cases, and the kinds of trap that
+> occur. Running them will not reproduce the released corpora. They are
+> given so readers can see what was asked for. The released corpora,
+> labels and adjudication record are the reproducible artefact.
+>
+> In both corpora the category a prompt asked for was treated only as a
+> proposal. Every email was then labelled by hand (Section V-B of the
+> paper), which is why some emails carry a label that differs from their
+> prompt.
 
-**The verbatim prompts were not retained.** The generated corpora, labels
-and adjudication record are released instead. Regeneration would not
-reproduce the corpora exactly anyway, because generation was sampled.
+### Primary corpus: Claude Sonnet 5, 7 prompts × ~50 emails
 
-`TODO(author)`: if the emails were generated in the claude.ai app, search
-the chat history for "Imagine you are" (August 2026). If the prompts turn
-up, paste them here verbatim and delete this note. Do not reconstruct them
-from memory and present them as the originals.
+All seven prompts shared this frame. Only the persona and category
+paragraph changed.
+
+```
+Imagine you are {persona}. Write 50 realistic emails that would land in a
+professional inbox, each belonging to the category described below. Vary
+the senders, names, tone, length and level of formality the way real email
+varies: some should be canonical, textbook examples of the category; most
+should be natural paraphrases a real person would write; and about one in
+ten should be deliberately tricky cases whose wording points at this
+category but whose actual intent belongs to a different one. Give every
+email a subject line. Return a JSON list of objects with fields "id",
+"subject" and "body".
+
+Category: {category description}
+```
+
+| Prompt | Persona / category description (approximate) |
+|---|---|
+| ack | …someone replying briefly to colleagues and vendors. **Acknowledgments:** short replies that thank, confirm or acknowledge and ask for nothing further, from one word ("Confirmed.") to a sentence or two. Tricky cases: a thank-you that ends with a real request. |
+| meeting | …a busy professional coordinating with colleagues and clients. **Meeting requests:** asking to meet, call, sync, reschedule or find a time, with or without specific days and times. Tricky cases: emails that mention a meeting but are thanks or questions about it. |
+| faq | …a prospective or current customer of a software product. **Product questions** answerable from documentation: pricing and plans, trials, refunds, limits, integrations, where to find docs. Tricky cases: questions that are really reports of something broken. |
+| support | …a customer whose software has stopped working properly. **Support requests:** concrete problems such as login failures, crashes, sync errors, billing glitches or greyed-out buttons, described with symptoms and what has already been tried. Tricky cases: the same problems written by someone at the end of their patience. |
+| emotional | …a customer who has had a bad experience. **Emotionally charged messages:** frustration, anger, disappointment or distress, from mildly let down to furious, often with a backstory. Tricky cases: calm, routine requests on the same topics (returns, warranty claims). |
+| ambiguous | …a colleague writing quick, context-light notes. **Ambiguous messages:** vague, underspecified or multi-purpose emails whose intent isn't clear from the text ("got a sec this week?", "thoughts?"). Tricky cases: automated notifications and confirmations that look vague but have a clear function. |
+| spam | …a scammer, phisher or bulk marketer. **Spam and phishing:** prize and inheritance scams, fake invoices, account-suspension and security-alert phishing, romance scams, with the typical urgency, formatting and errors. Tricky cases: *legitimate* security notifications, payout notices and password-change confirmations that resemble phishing. |
+
+### Held-out corpus: ChatGPT, 7 prompts × 15 emails
+
+The prompts were reworded on purpose, with different senders, scenarios
+and register, so that the held-out set tests robustness to how the emails
+were generated.
+
+```
+Imagine you are {persona} at a company that uses a B2B software platform.
+Write 15 emails in the category described below. Use a clear, professional
+tone and keep most emails short. Use senders, situations and wording that
+differ from typical textbook examples. Include two or three borderline
+emails whose surface wording suggests this category but whose real
+purpose belongs to another one. Give every email a subject line. Return a
+JSON list of objects with fields "id", "subject" and "body".
+
+Category: {category description}
+```
+
+| Prompt | Persona / category description (approximate) |
+|---|---|
+| ack | …an operations or finance contact. **Acknowledgments:** confirming receipt, approval or completion, with nothing further needed. Borderline: thanks followed by a question or a meeting request. |
+| meeting | …a project lead. **Scheduling:** proposing, moving or confirming meeting times, often with specific dates and time zones. Borderline: deadline confirmations, or support problems mentioned alongside a meeting. |
+| faq | …someone evaluating or administering the platform. **Questions about the product:** features by tier, data retention, integrations, security and compliance. Borderline: questions that are really problem reports, or requests for advice the documentation cannot answer. |
+| support | …a platform user. **Technical problems:** login failures, broken exports, stale data, slow reports, error messages. Borderline: support topics phrased as how-to questions or as requests for a call. |
+| emotional | …a customer whose problem has dragged on. **Emotional messages:** frustration, anger, apology for an earlier tone, or strong gratitude, written at length. Borderline: an angry message that contains a simple question, or effusive thanks. |
+| ambiguous | …a colleague following up. **Unclear intent:** follow-ups, forwarded threads and multi-part notes without a single clear request. |
+| spam | …a marketer or scammer. **Unsolicited and malicious email:** SEO and lead-generation pitches, fake account-deletion notices, event-invitation spam, invoice and security-alert phishing. Borderline: genuine-looking security alerts and invoice reminders. |
+
+`TODO(author)`: check each row against your memory and correct anything
+that's wrong. If the original prompts turn up (in the claude.ai and
+ChatGPT chat history, August 2026), replace this section with them
+verbatim.
