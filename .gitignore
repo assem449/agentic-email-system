@@ -42,3 +42,4 @@ data/distilbert_model/
 *.csv
 *.xlsx
 
+paper/
