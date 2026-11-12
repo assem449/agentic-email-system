@@ -130,7 +130,7 @@ seed 20260824. Results are committed in `results/tfidf/`.
 | Rules v1 (frozen) | 39.67% (144/363) | — | — | 0.386 | 0.333–0.435 |
 | TF-IDF + LR | **79.06%** (287/363) | 74.6–82.9 | 79.07 ± 3.70 | **0.792** | 0.747–0.832 |
 | TF-IDF + linear SVM | **84.57%** (307/363) | 80.5–87.9 | 84.57 ± 3.20 | **0.842** | 0.802–0.878 |
-| DistilBERT v2 (rerun) | 92.29% (335/363) | 89.1–94.6 | 92.29 ± 1.84 | 0.921 | [[ci]] |
+| DistilBERT v2 (rerun) | 92.29% (335/363) | 89.1–94.6 | 92.29 ± 1.84 | 0.921 | 0.891–0.947 |
 
 The SVM and DistilBERT accuracy intervals are disjoint, so on the primary
 corpus DistilBERT's lead over the strongest linear baseline holds up.
@@ -177,12 +177,33 @@ paper currently claims. Text that will need updating:
 - **Conclusion:** the first sentence presents DistilBERT as the result. Add
   the SVM next to it.
 
-**Table I: add two rows** (fill token/cost/latency from `eval_run.py`):
+**Table I: full replacement** (every row from the rerun, so the table is
+internally consistent; latency is now end-to-end):
 
 ```latex
-TF-IDF + LR (OOF)    & 79.06\% & 0.792 & [[tok]] & [[cost]] & [[lat]] \\
-TF-IDF + SVM (OOF)   & 84.57\% & 0.842 & [[tok]] & [[cost]] & [[lat]] \\
+System                & Acc.    & Macro-F1 & Tok. red. & Cost red. & Lat. red. \\
+Always-LLM (baseline) & ---     & ---      & 0\%       & 0\%       & 0\%       \\
+Random routing        & 11.85\% & 0.116    & ---       & ---       & ---       \\
+Rules v1 (frozen)     & 39.67\% & 0.386    & 29.28\%   & 28.98\%   & 29.23\%   \\
+TF-IDF + LR (OOF)     & 79.06\% & 0.792    & 34.17\%   & 33.57\%   & 33.28\%   \\
+TF-IDF + SVM (OOF)    & 84.57\% & 0.842    & 41.49\%   & 40.71\%   & 41.08\%   \\
+DistilBERT v2 (OOF)   & 92.29\% & 0.921    & 39.47\%   & 38.53\%   & 36.72\%   \\
 ```
+
+Caption: "…Latency is end-to-end: classifier inference plus handler time,
+measured in the pipeline. It includes calendar-routed emails, whose
+handler is a fixed stub during evaluation (see §V-D)." Confirm the
+random-routing macro-F1 (0.116) against `app/metrics.py`.
+
+**Read this before writing the text.** The SVM's *measured* savings are
+higher than DistilBERT's (cost 40.71% vs 38.53%), although its accuracy
+is 7.7 points lower. That isn't a contradiction. It is the paper's own
+§VI-B mechanism: the SVM sends more email to zero-token handlers
+(template 57 vs 53, calendar 54 vs 51), and measured savings count a
+misroute the same as a correct route. The `cost_attribution.py` output
+(step 12) shows how much of each system's savings is attributable to
+correct routing. Write the cost comparison from the attributable
+figures, not the measured ones.
 
 **§IV-B, one sentence after the DistilBERT description:**
 
@@ -249,20 +270,21 @@ out-of-fold dictionary lookup, so its inference cost appeared nowhere.
 - Model load time is reported once, separately.
 - `latency_bench.py` gives per-email inference latency without the API.
 
-**Measured here** (a 4-vCPU cloud Xeon at 2.3 GHz, not your laptop; rerun
-for the paper):
+**Measured on the author's laptop** (Apple silicon, macOS 26.1, 8 cores,
+CPU only, PyTorch using 4 threads, Python 3.9). These are the numbers to
+report:
 
-| Classifier | Load | Median / email | p95 |
-|---|---|---|---|
-| Rules v1 | <1 ms | 0.11 ms | 0.30 ms |
-| TF-IDF + LR | — | 0.41 ms | 0.52 ms |
-| TF-IDF + SVM | — | 0.39 ms | 0.47 ms |
-| DistilBERT | [[ms]] | [[ms]] | [[ms]] |
+| Classifier | Load | Median / email | Mean | p95 |
+|---|---|---|---|---|
+| Rules v1 | 0.8 ms | 0.18 ms | 0.19 ms | 0.43 ms |
+| TF-IDF + LR | — | 0.36 ms | 0.38 ms | 0.40 ms |
+| TF-IDF + SVM | — | 0.28 ms | 0.28 ms | 0.31 ms |
+| DistilBERT | 1,964 ms | **14.05 ms** | 15.06 ms | 20.21 ms |
 
-For scale: the always-LLM baseline averages about 1 s of API time per
-email. DistilBERT on CPU at 128 tokens is typically tens of milliseconds,
-so the end-to-end reduction should be a few points below 36.51%, not
-qualitatively different. Report the measured numbers whatever they are.
+The TF-IDF "load" times in `latency_bench.py` (1.5 s and 36 ms) include
+fitting the model on 363 emails, which a deployment would do once
+offline. Don't report them as start-up cost. DistilBERT's 1,964 ms is a
+genuine load from disk.
 
 **§V-D, replace the last two sentences** ("The calendar handler is
 stubbed…") with:
@@ -270,17 +292,32 @@ stubbed…") with:
 ```latex
 Latency in Table~I is end-to-end within the pipeline: classifier inference
 plus handler time, excluding Gmail fetch and draft I/O, which is identical
-across systems. DistilBERT inference adds a median [[m]]~ms per email on
-[[CPU]] ([[p95]]~ms at the 95th percentile; model load, [[load]]~ms, is
-paid once at start-up), against [[t]]~ms for the TF-IDF baselines and
-[[r]]~ms for the rules; including it lowers DistilBERT's latency reduction
-from 36.51\% (handler only) to [[e2e]]\%. Calendar latency is a lower
+across systems. Benchmarked back to back on a laptop CPU (Apple silicon,
+4 PyTorch threads), DistilBERT inference takes a median 14.1~ms per email
+(20.2~ms at the 95th percentile; model load, 2.0~s, is paid once at
+start-up), against 0.3~ms for the TF-IDF baselines and 0.2~ms for the
+rules. Inside the pipeline, where each classification follows a
+multi-second wait on the LLM API and runs on an idle CPU, it averages
+40.8~ms (2.1--2.8~ms for TF-IDF, 0.5~ms for the rules); Table~I uses
+these in-pipeline figures. Even so, inference is about 1.3\% of the
+baseline's 3.2~s mean per-email latency, and including it lowers
+DistilBERT's latency reduction from 38.00\% (handler only) to 36.72\%. Calendar latency is a lower
 bound: during evaluation the calendar handler is replaced by a fixed
 0.1~ms stub, so neither date extraction nor the Calendar API round trip is
 measured, and the live handler's date extraction is itself a naive fuzzy
 parse of the message body rather than a validated parser. Excluding the
-[[n]] calendar-routed emails, the end-to-end reduction is [[x]]\%.
+51 emails DistilBERT routes to the calendar, its end-to-end reduction
+is 27.49\% (32.00\% for the SVM, 19.54\% for the rules).
 ```
+
+**§V-D, first sentences: update the numbers.** Against an always-LLM
+baseline of 81,769 tokens (44,489 input, 37,280 output) costing \$0.6927,
+the routed pipeline under DistilBERT v2 consumes 49,492 tokens at
+\$0.4257: a 39.47\% reduction in tokens and 38.53\% in cost. Recompute
+the "routed output share rises from 45.5\% to 46.6\%" sentence from
+`logs/eval_3baseline.json`; the baseline share is now 45.6\%. The
+per-million-emails figure becomes "\$1,910 per million emails reduced to
+\$1,170" (\$0.6927 / 363 and \$0.4257 / 363, × 10⁶).
 
 If Table I's latency column changes to end-to-end, update the abstract,
 §VI-A ("latency by 36.51%") and the caption ("Latency includes
