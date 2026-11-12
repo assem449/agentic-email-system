@@ -203,7 +203,8 @@ def _extract_body(payload) -> str:
 
 
 def create_draft_reply(service, email: dict, reply_text: str):
-    """Create a draft in the original thread, addressed like a real reply."""
+    """Create a draft in the original thread, addressed like a real reply.
+    Returns the Gmail draft resource ({"id": ..., "message": {...}})."""
     subject = email["subject"] or ""
     if not re.match(r"(?i)^re:", subject.strip()):
         subject = f"Re: {subject}"

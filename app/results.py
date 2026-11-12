@@ -98,6 +98,7 @@ def build_results(participant: Optional[str] = None, day: Optional[int] = None) 
             "day": study_day, "received": e["created_at"], "sender": e["sender"],
             "subject": e["subject"], "category": e["category"], "handler": e["handler_used"],
             "true_category": e["expected_category"],
+            "draft_status": e["draft_status"], "draft_change_pct": e["draft_change_pct"],
             "verdict": {True: "correct", False: "wrong"}.get(fb.get("correct"), "not rated"),
             "should_be": fb.get("correct_category"),
             "draft": None if e["reply_needed"] is None else bool(e["reply_needed"]),
@@ -105,7 +106,13 @@ def build_results(participant: Optional[str] = None, day: Optional[int] = None) 
             "input_tokens": e["input_tokens"], "output_tokens": e["output_tokens"],
             "latency_ms": e["latency_ms"], "cost_usd": actual, "baseline_usd": baseline,
         })
-    return {"rows": rows, "summary": summarise(rows, model),
+    minutes = [s["review_minutes"] for s in db.list_all_checkin_submissions()
+               if s["review_minutes"] is not None
+               and (not participant or s["participant_id"] == participant)
+               and (not day or s["day_number"] == day)]
+    summary = summarise(rows, model)
+    summary.update(review_summary(rows, minutes))
+    return {"rows": rows, "summary": summary,
             "confusion": confusion(rows), "by_category": by_category(rows),
             "by_true_category": by_true_category(rows),
             "participants": list(people.values()),
@@ -153,6 +160,28 @@ def by_category(rows: list) -> list:
     for c in out.values():
         c["correct_pct"] = round(100 * c["correct"] / c["rated"], 1) if c["rated"] else None
     return sorted(out.values(), key=lambda c: -c["emails"])
+
+
+def review_summary(rows: list, minutes: list) -> dict:
+    """What participants did with reply drafts, and the minutes they
+    reported per day."""
+    drafts = [r for r in rows if r["draft_status"]]
+    counts = {s: sum(r["draft_status"] == s for r in drafts)
+              for s in ("unchanged", "edited", "sent", "deleted")}
+    changed = sorted(r["draft_change_pct"] for r in drafts
+                     if r["draft_status"] in ("edited", "sent") and r["draft_change_pct"] is not None)
+    median = None
+    if changed:
+        mid = len(changed) // 2
+        median = changed[mid] if len(changed) % 2 else round((changed[mid - 1] + changed[mid]) / 2, 1)
+    return {
+        "drafts": len(drafts),
+        "drafts_by_status": counts,
+        "drafts_used_unchanged_pct": round(100 * counts["unchanged"] / len(drafts), 1) if drafts else None,
+        "median_change_pct": median,
+        "review_minutes_days": len(minutes),
+        "avg_review_minutes": round(sum(minutes) / len(minutes), 1) if minutes else None,
+    }
 
 
 def by_true_category(rows: list) -> list:
@@ -232,6 +261,12 @@ def export_xlsx(x_admin_token: Optional[str] = Header(None)):
         ["Average handler latency (ms)", s["avg_latency_ms"]],
         ["Study emails with a true label", s["with_true_label"]],
         ["Classifier correct vs. true label (%)", s["model_correct_pct"]],
+        ["Reply drafts", s["drafts"]],
+        ["Drafts unchanged / edited / sent / deleted",
+         " / ".join(str(s["drafts_by_status"][k]) for k in ("unchanged", "edited", "sent", "deleted"))],
+        ["Median words changed in edited or sent drafts (%)", s["median_change_pct"]],
+        ["Average reported review minutes per day", s["avg_review_minutes"]],
+        ["Days with reported review minutes", s["review_minutes_days"]],
         ["Model", data["model"]],
         ["Price input / output (USD per 1M tokens)", f"{PRICE_INPUT_PER_M} / {PRICE_OUTPUT_PER_M}"],
         ["Baseline: general-LLM emails used", b["emails"] if b else "not enough data yet"],
@@ -240,10 +275,12 @@ def export_xlsx(x_admin_token: Optional[str] = Header(None)):
     ], first=True)
     sheet("Emails", ["Participant", "Role", "Day", "Received (UTC)", "Sender", "Subject",
                      "Category", "True category", "Handler", "Draft", "Needs review", "Participant verdict",
+                     "Draft outcome", "Words changed (%)",
                      "Should be", "Input tokens", "Output tokens", "Latency (ms)",
                      "Cost (USD)", "All-LLM estimate (USD)"],
           [[r["participant"], r["role"], r["day"], r["received"], r["sender"], r["subject"],
             r["category"], r["true_category"], r["handler"], r["draft"], r["needs_review"], r["verdict"],
+            r["draft_status"], r["draft_change_pct"],
             r["should_be"], r["input_tokens"], r["output_tokens"], r["latency_ms"],
             r["cost_usd"], r["baseline_usd"]] for r in data["rows"]])
     sheet("By category", ["Category", "Emails", "Rated", "Correct", "Correct (%)"],
@@ -255,8 +292,8 @@ def export_xlsx(x_admin_token: Optional[str] = Header(None)):
            for c in data["by_true_category"]])
     sheet("Confusion", ["Predicted", "Participant says", "Count"],
           [[c["predicted"], c["participant_says"], c["count"]] for c in data["confusion"]])
-    sheet("Feedback", ["Participant", "Day", "Overall rating (1-10)", "Notes", "Submitted (UTC)"],
-          [[f["participant_id"], f["day_number"], f["overall_rating"], f["notes"], f["submitted_at"]]
+    sheet("Feedback", ["Participant", "Day", "Overall rating (1-10)", "Review minutes", "Notes", "Submitted (UTC)"],
+          [[f["participant_id"], f["day_number"], f["overall_rating"], f["review_minutes"], f["notes"], f["submitted_at"]]
            for f in db.list_all_checkin_submissions()])
     sheet("Participants", ["Participant", "Email", "Role", "Connected (UTC)", "Active", "Days checked in"],
           [[p["id"], p["email"], p["role"], p["connected_at"], bool(p["active"]), p["days_checked_in"]]
@@ -371,6 +408,10 @@ async function load() {
     [s.model_correct_pct === null ? '—' : s.model_correct_pct + '%', `classifier correct vs. true label (${s.model_correct} of ${s.with_true_label})`],
     [s.correct_pct === null ? '—' : s.correct_pct + '%', `rated correct by participants (${s.correct} of ${s.rated} rated)`],
     [s.llm_calls_avoided_pct === null ? '—' : s.llm_calls_avoided_pct + '%', `LLM calls avoided (${s.llm_calls_avoided} of ${s.with_cost_data})`],
+    [s.drafts_used_unchanged_pct === null ? '—' : s.drafts_used_unchanged_pct + '%',
+      `drafts left unchanged (${s.drafts_by_status.unchanged} of ${s.drafts}; edited ${s.drafts_by_status.edited}, sent ${s.drafts_by_status.sent}, deleted ${s.drafts_by_status.deleted})`],
+    [s.median_change_pct === null ? '—' : s.median_change_pct + '%', 'median words changed when edited'],
+    [s.avg_review_minutes === null ? '—' : s.avg_review_minutes + ' min', `reported review time per day (${s.review_minutes_days} days)`],
     [usd(s.actual_usd), 'actual LLM cost'],
     [usd(s.baseline_usd), 'estimated all-LLM cost'],
     [s.saved_usd === null ? '—' : usd(s.saved_usd) + (s.saved_pct === null ? '' : ` (${s.saved_pct}%)`), 'estimated saved'],
@@ -393,9 +434,10 @@ async function load() {
   table($('conf'), [['Predicted'], ['Participant says'], ['Emails', 'n']],
     d.confusion.map(c => [c.predicted, c.participant_says, c.count]));
   const t = table($('rows'), [['Day', 'n'], ['Participant'], ['Subject', 'subj'], ['Sender'], ['Category'], ['True category'], ['Handler'],
-      ['Verdict'], ['Should be'], ['Tokens in/out', 'n'], ['Cost', 'n'], ['All-LLM est.', 'n']],
+      ['Verdict'], ['Should be'], ['Draft'], ['Changed %', 'n'], ['Tokens in/out', 'n'], ['Cost', 'n'], ['All-LLM est.', 'n']],
     d.rows.map(r => [r.day, r.email, r.subject || '(no subject)', r.sender, r.category, r.true_category || '', r.handler,
-      r.verdict, r.should_be || '', r.input_tokens === null ? '—' : `${r.input_tokens} / ${r.output_tokens}`,
+      r.verdict, r.should_be || '', r.draft_status || '', r.draft_change_pct === null ? '' : r.draft_change_pct,
+      r.input_tokens === null ? '—' : `${r.input_tokens} / ${r.output_tokens}`,
       usd(r.cost_usd), usd(r.baseline_usd)]));
   [...t.rows].slice(1).forEach(tr => { const c = tr.cells[7]; if (c) c.className = c.textContent === 'correct' ? 'v-correct' : c.textContent === 'wrong' ? 'v-wrong' : 'v-not'; });
 }

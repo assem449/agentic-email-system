@@ -92,7 +92,12 @@ def process_email(service, labels: dict, email: dict, participant_id: str,
         # The draft reply is still created immediately — a Gmail draft is
         # already a human-in-the-loop step, since nothing sends until the
         # participant (or a study reviewer) opens and sends it themselves.
-        create_draft_reply(service, email, result["response"])
+        created = create_draft_reply(service, email, result["response"])
+        # Kept so app/draft_tracker.py can later see whether the participant
+        # left the draft as it was, edited, sent or deleted it.
+        db.set_event_draft(participant_id, gmail_id, created.get("id"),
+                           (created.get("message") or {}).get("threadId") or email.get("thread_id"),
+                           result["response"])
     add_labels(service, gmail_id, [labels[n] for n in names])
 
 
