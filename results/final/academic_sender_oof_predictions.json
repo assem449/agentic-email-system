@@ -1,0 +1,2882 @@
+{
+  "aca-announcement_promo-05": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-announcement_promo-10": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-announcement_promo-19": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-announcement_promo-21": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-announcement_promo-23": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-announcement_promo-26": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-announcement_promo-29": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-announcement_promo-37": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-informational-01": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-informational-04": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-informational-17": {
+    "predicted_category": "meeting_request",
+    "true_category": "informational",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-informational-25": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-informational-27": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-informational-29": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-informational-34": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-informational-39": {
+    "predicted_category": "ambiguous",
+    "true_category": "informational",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-admin_action-01": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-admin_action-06": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-admin_action-09": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-admin_action-18": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-admin_action-21": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-admin_action-27": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-admin_action-32": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-admin_action-34": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-course_logistics-05": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-course_logistics-18": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-course_logistics-20": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-course_logistics-21": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-course_logistics-26": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-course_logistics-29": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-course_logistics-33": {
+    "predicted_category": "request_exception",
+    "true_category": "course_logistics",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-course_logistics-40": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-academic_question-03": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-academic_question-15": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-academic_question-18": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-academic_question-21": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-academic_question-22": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-academic_question-37": {
+    "predicted_category": "course_logistics",
+    "true_category": "academic_question",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-academic_question-38": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-academic_question-40": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-meeting_request-13": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-meeting_request-15": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-meeting_request-18": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-meeting_request-24": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-meeting_request-28": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-meeting_request-34": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-meeting_request-38": {
+    "predicted_category": "course_logistics",
+    "true_category": "meeting_request",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-meeting_request-40": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-request_exception-08": {
+    "predicted_category": "course_logistics",
+    "true_category": "request_exception",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-request_exception-09": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-request_exception-29": {
+    "predicted_category": "course_logistics",
+    "true_category": "request_exception",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-request_exception-30": {
+    "predicted_category": "course_logistics",
+    "true_category": "request_exception",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-request_exception-31": {
+    "predicted_category": "course_logistics",
+    "true_category": "request_exception",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-request_exception-33": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-request_exception-38": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-collaboration_opportunity-01": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-collaboration_opportunity-07": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-collaboration_opportunity-18": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-collaboration_opportunity-23": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-collaboration_opportunity-24": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-collaboration_opportunity-27": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-collaboration_opportunity-31": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-collaboration_opportunity-37": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-wellbeing-03": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-wellbeing-07": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-wellbeing-12": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-wellbeing-20": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-wellbeing-24": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-wellbeing-25": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-wellbeing-32": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-ambiguous-11": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-ambiguous-15": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-ambiguous-16": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-ambiguous-20": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-ambiguous-21": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-ambiguous-22": {
+    "predicted_category": "informational",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-ambiguous-26": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-ambiguous-38": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-spam-01": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-spam-03": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-spam-13": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-spam-21": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-spam-22": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-spam-23": {
+    "predicted_category": "ambiguous",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-spam-28": {
+    "predicted_category": "announcement_promo",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-spam-36": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-spam-38": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-trap-03": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-border-02": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-border-05": {
+    "predicted_category": "request_exception",
+    "true_category": "course_logistics",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-border-08": {
+    "predicted_category": "meeting_request",
+    "true_category": "request_exception",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-border-09": {
+    "predicted_category": "request_exception",
+    "true_category": "course_logistics",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-border-12": {
+    "predicted_category": "course_logistics",
+    "true_category": "request_exception",
+    "correct": false,
+    "fold": 1
+  },
+  "aca-border-14": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-border-19": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-sender-05": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 1
+  },
+  "aca-announcement_promo-03": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-announcement_promo-06": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-announcement_promo-12": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-announcement_promo-13": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-announcement_promo-16": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-announcement_promo-22": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-announcement_promo-33": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-announcement_promo-38": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-informational-03": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-informational-08": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-informational-13": {
+    "predicted_category": "admin_action",
+    "true_category": "informational",
+    "correct": false,
+    "fold": 2
+  },
+  "aca-informational-15": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-informational-23": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-informational-28": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-informational-31": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-informational-37": {
+    "predicted_category": "admin_action",
+    "true_category": "informational",
+    "correct": false,
+    "fold": 2
+  },
+  "aca-informational-40": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-admin_action-07": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-admin_action-11": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-admin_action-17": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-admin_action-25": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-admin_action-28": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-admin_action-31": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-admin_action-35": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-course_logistics-03": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-course_logistics-06": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-course_logistics-08": {
+    "predicted_category": "request_exception",
+    "true_category": "course_logistics",
+    "correct": false,
+    "fold": 2
+  },
+  "aca-course_logistics-09": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-course_logistics-12": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-course_logistics-16": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-course_logistics-17": {
+    "predicted_category": "admin_action",
+    "true_category": "course_logistics",
+    "correct": false,
+    "fold": 2
+  },
+  "aca-course_logistics-22": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-course_logistics-36": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-course_logistics-39": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-academic_question-01": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-academic_question-02": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-academic_question-04": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-academic_question-14": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-academic_question-23": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-academic_question-32": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-academic_question-35": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-meeting_request-05": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-meeting_request-07": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-meeting_request-08": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-meeting_request-09": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-meeting_request-12": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-meeting_request-27": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-meeting_request-30": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-meeting_request-37": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-request_exception-06": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-request_exception-11": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-request_exception-13": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-request_exception-14": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-request_exception-22": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-request_exception-23": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-request_exception-32": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-request_exception-37": {
+    "predicted_category": "course_logistics",
+    "true_category": "request_exception",
+    "correct": false,
+    "fold": 2
+  },
+  "aca-request_exception-40": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-collaboration_opportunity-03": {
+    "predicted_category": "course_logistics",
+    "true_category": "collaboration_opportunity",
+    "correct": false,
+    "fold": 2
+  },
+  "aca-collaboration_opportunity-04": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-collaboration_opportunity-06": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-collaboration_opportunity-15": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-collaboration_opportunity-19": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-collaboration_opportunity-20": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-collaboration_opportunity-26": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-collaboration_opportunity-29": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-wellbeing-02": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-wellbeing-06": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-wellbeing-16": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-wellbeing-17": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-wellbeing-21": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-wellbeing-22": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-wellbeing-23": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-wellbeing-29": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-ambiguous-04": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-ambiguous-05": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-ambiguous-10": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-ambiguous-13": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-ambiguous-19": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-ambiguous-23": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-ambiguous-25": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-ambiguous-27": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-spam-10": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-spam-11": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-spam-12": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-spam-15": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-spam-17": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-spam-27": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-spam-30": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-spam-37": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-trap-04": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-border-10": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-border-11": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-sender-02": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-sender-03": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-sender-10": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 2
+  },
+  "aca-announcement_promo-01": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-announcement_promo-02": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-announcement_promo-17": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-announcement_promo-25": {
+    "predicted_category": "informational",
+    "true_category": "announcement_promo",
+    "correct": false,
+    "fold": 3
+  },
+  "aca-announcement_promo-31": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-announcement_promo-34": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-announcement_promo-35": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-announcement_promo-36": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-informational-09": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-informational-12": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-informational-14": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-informational-16": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-informational-19": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-informational-33": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-informational-35": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-informational-38": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-admin_action-04": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-admin_action-10": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-admin_action-15": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-admin_action-23": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-admin_action-24": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-admin_action-37": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-admin_action-39": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-admin_action-40": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-course_logistics-02": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-course_logistics-15": {
+    "predicted_category": "request_exception",
+    "true_category": "course_logistics",
+    "correct": false,
+    "fold": 3
+  },
+  "aca-course_logistics-19": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-course_logistics-23": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-course_logistics-24": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-course_logistics-30": {
+    "predicted_category": "academic_question",
+    "true_category": "course_logistics",
+    "correct": false,
+    "fold": 3
+  },
+  "aca-course_logistics-32": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-course_logistics-35": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-academic_question-08": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-academic_question-11": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-academic_question-12": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-academic_question-17": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-academic_question-19": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-academic_question-26": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-academic_question-27": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "academic_question",
+    "correct": false,
+    "fold": 3
+  },
+  "aca-academic_question-30": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-academic_question-33": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-meeting_request-04": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-meeting_request-14": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-meeting_request-19": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-meeting_request-21": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-meeting_request-23": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-meeting_request-32": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-meeting_request-35": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-meeting_request-36": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-request_exception-01": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-request_exception-05": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-request_exception-10": {
+    "predicted_category": "admin_action",
+    "true_category": "request_exception",
+    "correct": false,
+    "fold": 3
+  },
+  "aca-request_exception-16": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-request_exception-18": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-request_exception-21": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-request_exception-28": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-request_exception-35": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-request_exception-36": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-collaboration_opportunity-05": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-collaboration_opportunity-08": {
+    "predicted_category": "course_logistics",
+    "true_category": "collaboration_opportunity",
+    "correct": false,
+    "fold": 3
+  },
+  "aca-collaboration_opportunity-16": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-collaboration_opportunity-17": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-collaboration_opportunity-22": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-collaboration_opportunity-25": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-collaboration_opportunity-33": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-wellbeing-11": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-wellbeing-14": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-wellbeing-15": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-wellbeing-26": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-wellbeing-33": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-wellbeing-34": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-wellbeing-36": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-wellbeing-40": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-ambiguous-02": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-ambiguous-08": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-ambiguous-17": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-ambiguous-18": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-ambiguous-28": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-ambiguous-29": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-ambiguous-35": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-ambiguous-36": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-spam-07": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-spam-16": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-spam-19": {
+    "predicted_category": "announcement_promo",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 3
+  },
+  "aca-spam-26": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-spam-29": {
+    "predicted_category": "announcement_promo",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 3
+  },
+  "aca-spam-31": {
+    "predicted_category": "announcement_promo",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 3
+  },
+  "aca-spam-39": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-trap-01": {
+    "predicted_category": "informational",
+    "true_category": "course_logistics",
+    "correct": false,
+    "fold": 3
+  },
+  "aca-trap-05": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-trap-06": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-border-03": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-border-04": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-border-20": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-sender-07": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-sender-09": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 3
+  },
+  "aca-announcement_promo-04": {
+    "predicted_category": "spam",
+    "true_category": "announcement_promo",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-announcement_promo-08": {
+    "predicted_category": "spam",
+    "true_category": "announcement_promo",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-announcement_promo-11": {
+    "predicted_category": "informational",
+    "true_category": "announcement_promo",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-announcement_promo-14": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-announcement_promo-18": {
+    "predicted_category": "spam",
+    "true_category": "announcement_promo",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-announcement_promo-24": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-announcement_promo-27": {
+    "predicted_category": "informational",
+    "true_category": "announcement_promo",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-announcement_promo-39": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-informational-06": {
+    "predicted_category": "spam",
+    "true_category": "informational",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-informational-07": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-informational-10": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-informational-18": {
+    "predicted_category": "spam",
+    "true_category": "informational",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-informational-20": {
+    "predicted_category": "ambiguous",
+    "true_category": "informational",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-informational-26": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-informational-30": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-informational-32": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-admin_action-03": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-admin_action-13": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-admin_action-14": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-admin_action-16": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-admin_action-22": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-admin_action-26": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-admin_action-29": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-admin_action-36": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-admin_action-38": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-course_logistics-01": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-course_logistics-10": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-course_logistics-11": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-course_logistics-25": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-course_logistics-27": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-course_logistics-28": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-course_logistics-38": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-academic_question-05": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-academic_question-06": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-academic_question-09": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-academic_question-13": {
+    "predicted_category": "course_logistics",
+    "true_category": "academic_question",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-academic_question-24": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-academic_question-25": {
+    "predicted_category": "course_logistics",
+    "true_category": "academic_question",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-academic_question-34": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-academic_question-36": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-meeting_request-01": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-meeting_request-11": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-meeting_request-16": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-meeting_request-17": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-meeting_request-25": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-meeting_request-26": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-meeting_request-29": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-request_exception-04": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-request_exception-07": {
+    "predicted_category": "admin_action",
+    "true_category": "request_exception",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-request_exception-17": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-request_exception-19": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-request_exception-25": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-request_exception-26": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-request_exception-34": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-collaboration_opportunity-02": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-collaboration_opportunity-09": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-collaboration_opportunity-10": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-collaboration_opportunity-11": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-collaboration_opportunity-12": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-collaboration_opportunity-28": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-collaboration_opportunity-30": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-collaboration_opportunity-36": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-collaboration_opportunity-39": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-wellbeing-01": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-wellbeing-08": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-wellbeing-19": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-wellbeing-27": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-wellbeing-30": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-wellbeing-35": {
+    "predicted_category": "ambiguous",
+    "true_category": "wellbeing",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-wellbeing-38": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-wellbeing-39": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-ambiguous-03": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-ambiguous-07": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-ambiguous-14": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-ambiguous-24": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-ambiguous-32": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-ambiguous-34": {
+    "predicted_category": "meeting_request",
+    "true_category": "ambiguous",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-ambiguous-37": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-ambiguous-40": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-spam-14": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-spam-18": {
+    "predicted_category": "meeting_request",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-spam-24": {
+    "predicted_category": "announcement_promo",
+    "true_category": "spam",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-spam-25": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-spam-32": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-spam-33": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-spam-34": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-spam-35": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-trap-02": {
+    "predicted_category": "informational",
+    "true_category": "course_logistics",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-trap-07": {
+    "predicted_category": "meeting_request",
+    "true_category": "request_exception",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-trap-09": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-trap-10": {
+    "predicted_category": "course_logistics",
+    "true_category": "request_exception",
+    "correct": false,
+    "fold": 4
+  },
+  "aca-border-06": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-border-15": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-sender-01": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-sender-04": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-sender-08": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 4
+  },
+  "aca-announcement_promo-07": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-announcement_promo-09": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-announcement_promo-15": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-announcement_promo-20": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-announcement_promo-28": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-announcement_promo-30": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-announcement_promo-32": {
+    "predicted_category": "informational",
+    "true_category": "announcement_promo",
+    "correct": false,
+    "fold": 5
+  },
+  "aca-announcement_promo-40": {
+    "predicted_category": "announcement_promo",
+    "true_category": "announcement_promo",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-informational-02": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-informational-05": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-informational-11": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-informational-21": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-informational-22": {
+    "predicted_category": "request_exception",
+    "true_category": "informational",
+    "correct": false,
+    "fold": 5
+  },
+  "aca-informational-24": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-informational-36": {
+    "predicted_category": "informational",
+    "true_category": "informational",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-admin_action-02": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-admin_action-05": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-admin_action-08": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-admin_action-12": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-admin_action-19": {
+    "predicted_category": "spam",
+    "true_category": "admin_action",
+    "correct": false,
+    "fold": 5
+  },
+  "aca-admin_action-20": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-admin_action-30": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-admin_action-33": {
+    "predicted_category": "admin_action",
+    "true_category": "admin_action",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-course_logistics-04": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-course_logistics-07": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "course_logistics",
+    "correct": false,
+    "fold": 5
+  },
+  "aca-course_logistics-13": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-course_logistics-14": {
+    "predicted_category": "request_exception",
+    "true_category": "course_logistics",
+    "correct": false,
+    "fold": 5
+  },
+  "aca-course_logistics-31": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-course_logistics-34": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-course_logistics-37": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-academic_question-07": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-academic_question-10": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-academic_question-16": {
+    "predicted_category": "course_logistics",
+    "true_category": "academic_question",
+    "correct": false,
+    "fold": 5
+  },
+  "aca-academic_question-20": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-academic_question-28": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-academic_question-29": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-academic_question-31": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-academic_question-39": {
+    "predicted_category": "academic_question",
+    "true_category": "academic_question",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-meeting_request-02": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-meeting_request-03": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-meeting_request-06": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-meeting_request-10": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-meeting_request-20": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-meeting_request-22": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-meeting_request-31": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-meeting_request-33": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-meeting_request-39": {
+    "predicted_category": "meeting_request",
+    "true_category": "meeting_request",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-request_exception-02": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-request_exception-03": {
+    "predicted_category": "admin_action",
+    "true_category": "request_exception",
+    "correct": false,
+    "fold": 5
+  },
+  "aca-request_exception-12": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-request_exception-15": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-request_exception-20": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-request_exception-24": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-request_exception-27": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-request_exception-39": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-collaboration_opportunity-13": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-collaboration_opportunity-14": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-collaboration_opportunity-21": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-collaboration_opportunity-32": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-collaboration_opportunity-34": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-collaboration_opportunity-35": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-collaboration_opportunity-38": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-collaboration_opportunity-40": {
+    "predicted_category": "collaboration_opportunity",
+    "true_category": "collaboration_opportunity",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-wellbeing-04": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-wellbeing-05": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-wellbeing-09": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-wellbeing-10": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-wellbeing-13": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-wellbeing-18": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-wellbeing-28": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-wellbeing-31": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-wellbeing-37": {
+    "predicted_category": "wellbeing",
+    "true_category": "wellbeing",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-ambiguous-01": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-ambiguous-06": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-ambiguous-09": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-ambiguous-12": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-ambiguous-30": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-ambiguous-31": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-ambiguous-33": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-ambiguous-39": {
+    "predicted_category": "ambiguous",
+    "true_category": "ambiguous",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-spam-02": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-spam-04": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-spam-05": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-spam-06": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-spam-08": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-spam-09": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-spam-20": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-spam-40": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-trap-08": {
+    "predicted_category": "academic_question",
+    "true_category": "informational",
+    "correct": false,
+    "fold": 5
+  },
+  "aca-border-01": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-border-07": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-border-13": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-border-16": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-border-17": {
+    "predicted_category": "course_logistics",
+    "true_category": "course_logistics",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-border-18": {
+    "predicted_category": "request_exception",
+    "true_category": "request_exception",
+    "correct": true,
+    "fold": 5
+  },
+  "aca-sender-06": {
+    "predicted_category": "spam",
+    "true_category": "spam",
+    "correct": true,
+    "fold": 5
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "hardware": {
+    "platform": "macOS-26.1-arm64-arm-64bit",
+    "processor": "arm",
+    "cpu_count": 8,
+    "torch_threads": 4,
+    "cuda": false
+  },
+  "n_emails": 363,
+  "repeats": 3,
+  "rules": {
+    "median_ms": 0.17666700000007474,
+    "mean_ms": 0.18696345546373114,
+    "p95_ms": 0.43329200000008505,
+    "n_calls": 1089,
+    "load_ms": 0.8281249999999574,
+    "note": "rules v1 (frozen)"
+  },
+  "tfidf_lr": {
+    "median_ms": 0.35662499999977726,
+    "mean_ms": 0.3745842102846679,
+    "p95_ms": 0.39562499999989953,
+    "n_calls": 1089,
+    "load_ms": 1507.1402090000001,
+    "note": "tfidf_lr (fitted on all 363)"
+  },
+  "tfidf_svm": {
+    "median_ms": 0.2788749999997897,
+    "mean_ms": 0.28190537741047283,
+    "p95_ms": 0.31245899999987614,
+    "n_calls": 1089,
+    "load_ms": 35.53529100000041,
+    "note": "tfidf_svm (fitted on all 363)"
+  },
+  "distilbert": {
+    "median_ms": 14.05304200000046,
+    "mean_ms": 15.057478123966897,
+    "p95_ms": 20.210374999997782,
+    "n_calls": 1089,
+    "load_ms": 1964.4470829999996,
+    "note": "distilbert (models/distilbert_final)"
+  }
+}

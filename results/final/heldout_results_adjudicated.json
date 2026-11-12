@@ -1,0 +1,1379 @@
+{
+  "n_labels_changed": 9,
+  "rules": [
+    {
+      "id": "ho-ack-1",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-2",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-3",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-4",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-5",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-6",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-7",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-8",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-9",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-10",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-11",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-12",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-13",
+      "true_category": "faq",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-ack-14",
+      "true_category": "meeting",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-ack-15",
+      "true_category": "support",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-meeting-1",
+      "true_category": "meeting",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-meeting-2",
+      "true_category": "meeting",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-meeting-3",
+      "true_category": "meeting",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-meeting-4",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-5",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-6",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-7",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-8",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-9",
+      "true_category": "meeting",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-meeting-10",
+      "true_category": "meeting",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-meeting-11",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-12",
+      "true_category": "meeting",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-meeting-13",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-14",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-15",
+      "true_category": "support",
+      "predicted_category": "meeting",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-1",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-2",
+      "true_category": "faq",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-3",
+      "true_category": "faq",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-4",
+      "true_category": "faq",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-5",
+      "true_category": "faq",
+      "predicted_category": "meeting",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-6",
+      "true_category": "faq",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-7",
+      "true_category": "faq",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-8",
+      "true_category": "faq",
+      "predicted_category": "meeting",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-9",
+      "true_category": "faq",
+      "predicted_category": "meeting",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-10",
+      "true_category": "faq",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-11",
+      "true_category": "faq",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-12",
+      "true_category": "faq",
+      "predicted_category": "meeting",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-13",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-14",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-15",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-1",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-2",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-3",
+      "true_category": "support",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-sup-4",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-5",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-6",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-7",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-8",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-9",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-10",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-11",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-12",
+      "true_category": "ambiguous",
+      "predicted_category": "meeting",
+      "correct": false
+    },
+    {
+      "id": "ho-sup-13",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-14",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-15",
+      "true_category": "support",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-1",
+      "true_category": "emotional",
+      "predicted_category": "faq",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-2",
+      "true_category": "emotional",
+      "predicted_category": "faq",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-3",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-4",
+      "true_category": "emotional",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-5",
+      "true_category": "emotional",
+      "predicted_category": "support",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-6",
+      "true_category": "emotional",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-7",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-8",
+      "true_category": "emotional",
+      "predicted_category": "support",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-9",
+      "true_category": "emotional",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-10",
+      "true_category": "emotional",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-11",
+      "true_category": "support",
+      "predicted_category": "emotional",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-12",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-13",
+      "true_category": "emotional",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-14",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-15",
+      "true_category": "emotional",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-amb-1",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-2",
+      "true_category": "ambiguous",
+      "predicted_category": "support",
+      "correct": false
+    },
+    {
+      "id": "ho-amb-3",
+      "true_category": "ambiguous",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-amb-4",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-5",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-6",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-7",
+      "true_category": "ambiguous",
+      "predicted_category": "support",
+      "correct": false
+    },
+    {
+      "id": "ho-amb-8",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-9",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-10",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-11",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-12",
+      "true_category": "ambiguous",
+      "predicted_category": "support",
+      "correct": false
+    },
+    {
+      "id": "ho-amb-13",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-14",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-15",
+      "true_category": "ambiguous",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-1",
+      "true_category": "spam",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-2",
+      "true_category": "spam",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-3",
+      "true_category": "spam",
+      "predicted_category": "meeting",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-4",
+      "true_category": "spam",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-5",
+      "true_category": "spam",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-6",
+      "true_category": "spam",
+      "predicted_category": "support",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-7",
+      "true_category": "spam",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-8",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-spam-9",
+      "true_category": "spam",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-10",
+      "true_category": "spam",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-11",
+      "true_category": "spam",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-12",
+      "true_category": "spam",
+      "predicted_category": "meeting",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-13",
+      "true_category": "spam",
+      "predicted_category": "meeting",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-14",
+      "true_category": "spam",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-15",
+      "true_category": "spam",
+      "predicted_category": "ambiguous",
+      "correct": false
+    }
+  ],
+  "distilbert": [
+    {
+      "id": "ho-ack-1",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-2",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-3",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-4",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-5",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-6",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-7",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-8",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-9",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-10",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-11",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-12",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-13",
+      "true_category": "faq",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-ack-14",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-ack-15",
+      "true_category": "support",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-meeting-1",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-2",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-3",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-4",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-5",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-6",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-7",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-8",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-9",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-10",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-11",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-12",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-13",
+      "true_category": "ack",
+      "predicted_category": "ack",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-14",
+      "true_category": "meeting",
+      "predicted_category": "meeting",
+      "correct": true
+    },
+    {
+      "id": "ho-meeting-15",
+      "true_category": "support",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-1",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-2",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-3",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-4",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-5",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-6",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-7",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-8",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-9",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-10",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-11",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-12",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-13",
+      "true_category": "faq",
+      "predicted_category": "faq",
+      "correct": true
+    },
+    {
+      "id": "ho-faq-14",
+      "true_category": "support",
+      "predicted_category": "faq",
+      "correct": false
+    },
+    {
+      "id": "ho-faq-15",
+      "true_category": "ambiguous",
+      "predicted_category": "faq",
+      "correct": false
+    },
+    {
+      "id": "ho-sup-1",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-2",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-3",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-4",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-5",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-6",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-7",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-8",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-9",
+      "true_category": "support",
+      "predicted_category": "meeting",
+      "correct": false
+    },
+    {
+      "id": "ho-sup-10",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-11",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-12",
+      "true_category": "ambiguous",
+      "predicted_category": "meeting",
+      "correct": false
+    },
+    {
+      "id": "ho-sup-13",
+      "true_category": "support",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-sup-14",
+      "true_category": "support",
+      "predicted_category": "support",
+      "correct": true
+    },
+    {
+      "id": "ho-sup-15",
+      "true_category": "support",
+      "predicted_category": "meeting",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-1",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-2",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-3",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-4",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-5",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-6",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-7",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-8",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-9",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-10",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-11",
+      "true_category": "support",
+      "predicted_category": "emotional",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-12",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-13",
+      "true_category": "emotional",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-emo-14",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-emo-15",
+      "true_category": "emotional",
+      "predicted_category": "emotional",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-1",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-2",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-3",
+      "true_category": "ambiguous",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-amb-4",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-5",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-6",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-7",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-8",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-9",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-10",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-11",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-12",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-13",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-14",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-amb-15",
+      "true_category": "ambiguous",
+      "predicted_category": "ambiguous",
+      "correct": true
+    },
+    {
+      "id": "ho-spam-1",
+      "true_category": "spam",
+      "predicted_category": "spam",
+      "correct": true
+    },
+    {
+      "id": "ho-spam-2",
+      "true_category": "spam",
+      "predicted_category": "spam",
+      "correct": true
+    },
+    {
+      "id": "ho-spam-3",
+      "true_category": "spam",
+      "predicted_category": "spam",
+      "correct": true
+    },
+    {
+      "id": "ho-spam-4",
+      "true_category": "spam",
+      "predicted_category": "spam",
+      "correct": true
+    },
+    {
+      "id": "ho-spam-5",
+      "true_category": "spam",
+      "predicted_category": "spam",
+      "correct": true
+    },
+    {
+      "id": "ho-spam-6",
+      "true_category": "spam",
+      "predicted_category": "spam",
+      "correct": true
+    },
+    {
+      "id": "ho-spam-7",
+      "true_category": "spam",
+      "predicted_category": "spam",
+      "correct": true
+    },
+    {
+      "id": "ho-spam-8",
+      "true_category": "ambiguous",
+      "predicted_category": "spam",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-9",
+      "true_category": "spam",
+      "predicted_category": "spam",
+      "correct": true
+    },
+    {
+      "id": "ho-spam-10",
+      "true_category": "spam",
+      "predicted_category": "ack",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-11",
+      "true_category": "spam",
+      "predicted_category": "ambiguous",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-12",
+      "true_category": "spam",
+      "predicted_category": "spam",
+      "correct": true
+    },
+    {
+      "id": "ho-spam-13",
+      "true_category": "spam",
+      "predicted_category": "faq",
+      "correct": false
+    },
+    {
+      "id": "ho-spam-14",
+      "true_category": "spam",
+      "predicted_category": "spam",
+      "correct": true
+    },
+    {
+      "id": "ho-spam-15",
+      "true_category": "spam",
+      "predicted_category": "spam",
+      "correct": true
+    }
+  ],
+  "macro_rules": {
+    "accuracy": 0.4857142857142857,
+    "accuracy_ci": [
+      0.3923202449996005,
+      0.5801167643791663
+    ],
+    "macro_f1": 0.4216729374624112,
+    "macro_f1_ci": [
+      0.3311825887144054,
+      0.5002342346902322
+    ],
+    "per_category": {
+      "ack": {
+        "n": 13,
+        "precision": 0.5416666666666666,
+        "recall": 1.0,
+        "f1": 0.7027027027027027
+      },
+      "meeting": {
+        "n": 14,
+        "precision": 0.4375,
+        "recall": 0.5,
+        "f1": 0.4666666666666667
+      },
+      "faq": {
+        "n": 14,
+        "precision": 0.5,
+        "recall": 0.14285714285714285,
+        "f1": 0.2222222222222222
+      },
+      "support": {
+        "n": 18,
+        "precision": 0.6842105263157895,
+        "recall": 0.7222222222222222,
+        "f1": 0.7027027027027027
+      },
+      "emotional": {
+        "n": 14,
+        "precision": 0.8,
+        "recall": 0.2857142857142857,
+        "f1": 0.42105263157894735
+      },
+      "ambiguous": {
+        "n": 18,
+        "precision": 0.32432432432432434,
+        "recall": 0.6666666666666666,
+        "f1": 0.43636363636363634
+      },
+      "spam": {
+        "n": 14,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    }
+  },
+  "macro_distilbert": {
+    "accuracy": 0.8476190476190476,
+    "accuracy_ci": [
+      0.7667252612512719,
+      0.9039741771987324
+    ],
+    "macro_f1": 0.8509352740562022,
+    "macro_f1_ci": [
+      0.7748423184315612,
+      0.9124738928275555
+    ],
+    "per_category": {
+      "ack": {
+        "n": 13,
+        "precision": 0.8125,
+        "recall": 1.0,
+        "f1": 0.896551724137931
+      },
+      "meeting": {
+        "n": 14,
+        "precision": 0.8235294117647058,
+        "recall": 1.0,
+        "f1": 0.9032258064516129
+      },
+      "faq": {
+        "n": 14,
+        "precision": 0.8125,
+        "recall": 0.9285714285714286,
+        "f1": 0.8666666666666667
+      },
+      "support": {
+        "n": 18,
+        "precision": 1.0,
+        "recall": 0.6111111111111112,
+        "f1": 0.7586206896551724
+      },
+      "emotional": {
+        "n": 14,
+        "precision": 0.9285714285714286,
+        "recall": 0.9285714285714286,
+        "f1": 0.9285714285714286
+      },
+      "ambiguous": {
+        "n": 18,
+        "precision": 0.7368421052631579,
+        "recall": 0.7777777777777778,
+        "f1": 0.7567567567567568
+      },
+      "spam": {
+        "n": 14,
+        "precision": 0.9166666666666666,
+        "recall": 0.7857142857142857,
+        "f1": 0.8461538461538461
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "fold_accuracies": [
+    0.8877551020408163,
+    0.8762886597938144,
+    0.8350515463917526,
+    0.865979381443299,
+    0.7731958762886598
+  ],
+  "mean_accuracy": 0.8476541131916685,
+  "std_accuracy": 0.04115020232012248,
+  "pooled_oof_accuracy": 0.8477366255144033,
+  "macro_f1": 0.8513115398011599,
+  "per_category": {
+    "academic_question": {
+      "precision": 0.9230769230769231,
+      "recall": 0.8780487804878049,
+      "f1": 0.9,
+      "support": 41
+    },
+    "admin_action": {
+      "precision": 0.8163265306122449,
+      "recall": 0.9090909090909091,
+      "f1": 0.8602150537634408,
+      "support": 44
+    },
+    "ambiguous": {
+      "precision": 0.875,
+      "recall": 0.875,
+      "f1": 0.875,
+      "support": 40
+    },
+    "announcement_promo": {
+      "precision": 0.7857142857142857,
+      "recall": 0.7857142857142857,
+      "f1": 0.7857142857142857,
+      "support": 42
+    },
+    "collaboration_opportunity": {
+      "precision": 0.9722222222222222,
+      "recall": 0.8536585365853658,
+      "f1": 0.9090909090909091,
+      "support": 41
+    },
+    "course_logistics": {
+      "precision": 0.7959183673469388,
+      "recall": 0.7222222222222222,
+      "f1": 0.7572815533980582,
+      "support": 54
+    },
+    "informational": {
+      "precision": 0.8157894736842105,
+      "recall": 0.7380952380952381,
+      "f1": 0.775,
+      "support": 42
+    },
+    "meeting_request": {
+      "precision": 0.8913043478260869,
+      "recall": 0.9761904761904762,
+      "f1": 0.9318181818181818,
+      "support": 42
+    },
+    "request_exception": {
+      "precision": 0.746031746031746,
+      "recall": 0.8703703703703703,
+      "f1": 0.8034188034188035,
+      "support": 54
+    },
+    "spam": {
+      "precision": 0.8292682926829268,
+      "recall": 0.7555555555555555,
+      "f1": 0.7906976744186047,
+      "support": 45
+    },
+    "wellbeing": {
+      "precision": 0.9534883720930233,
+      "recall": 1.0,
+      "f1": 0.9761904761904763,
+      "support": 41
+    }
+  },
+  "accuracy_by_role": {
+    "instructor": {
+      "accuracy": 0.8421052631578947,
+      "n": 247
+    },
+    "student": {
+      "accuracy": 0.8535564853556485,
+      "n": 239
+    }
+  },
+  "dataset": "data/academic/dataset.json",
+  "with_sender": false,
+  "n_folds": 5,
+  "seed": 42
+}
