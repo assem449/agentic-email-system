@@ -20,6 +20,7 @@ from app.oauth_web import router as oauth_router
 from app import poller
 from app.poller import run_poller
 from app import study_mail
+from app import draft_tracker
 from app.seeding import seed_scenarios
 
 app = FastAPI(title="Adaptive Email Router")
@@ -44,6 +45,8 @@ def _startup():
     # Daily study emails (app/study_mail.py); does nothing unless
     # STUDY_AUTOSEED=on.
     threading.Thread(target=study_mail.run_study_mail, daemon=True).start()
+    # Hourly check of what participants did with reply drafts.
+    threading.Thread(target=draft_tracker.run_draft_tracker, daemon=True).start()
 
 
 _poller_thread: Optional[threading.Thread] = None

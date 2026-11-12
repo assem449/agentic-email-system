@@ -133,6 +133,9 @@ class PerEmailFeedback(BaseModel):
 
 class CheckinSubmission(BaseModel):
     overall_rating: Optional[int] = None
+    # "About how many minutes did you spend reviewing or editing today's
+    # drafts?" Optional; values outside 0-600 are dropped.
+    review_minutes: Optional[int] = None
     notes: str = ""
     per_email: List[PerEmailFeedback] = []
 
@@ -657,6 +660,11 @@ def _form_html(token: str, events) -> str:
       </div>
     </div>
     <div>
+      <label for="review-minutes" class="section-label" style="display:block;">About how many minutes did you spend reviewing or editing today's drafts? (optional)</label>
+      <input id="review-minutes" type="number" min="0" max="600" inputmode="numeric" placeholder="e.g. 5"
+             style="font:inherit; padding:9px 12px; border:1px solid #E5E2D9; border-radius:10px; width:140px;">
+    </div>
+    <div>
       <label for="notes" class="section-label" style="display:block;">Anything else you noticed? (optional)</label>
       <textarea id="notes" placeholder="e.g. the meeting time it proposed was off by an hour"></textarea>
     </div>
@@ -693,7 +701,8 @@ def _form_html(token: str, events) -> str:
     const res = await fetch(`/checkin/${{token}}/submit`, {{
       method: 'POST',
       headers: {{'Content-Type': 'application/json'}},
-      body: JSON.stringify({{overall_rating: rating, notes: document.getElementById('notes').value, per_email}})
+      body: JSON.stringify({{overall_rating: rating, notes: document.getElementById('notes').value, per_email,
+        review_minutes: document.getElementById('review-minutes').value === '' ? null : parseInt(document.getElementById('review-minutes').value, 10)}})
     }});
     const el = document.getElementById('result');
     el.textContent = res.ok ? 'Thanks! See you tomorrow.' : 'Something went wrong, please try again.';
@@ -787,6 +796,8 @@ def submit_checkin(token: str, submission: CheckinSubmission):
         participant_id=participant["id"],
         day_number=day,
         overall_rating=submission.overall_rating,
+        review_minutes=submission.review_minutes
+        if submission.review_minutes is not None and 0 <= submission.review_minutes <= 600 else None,
         notes=submission.notes,
         # .dict() rather than .model_dump(): works on both pydantic v1 and
         # v2 (deprecated-but-functional shim on v2), avoids assuming

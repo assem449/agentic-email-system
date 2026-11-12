@@ -92,6 +92,15 @@ CREATE TABLE IF NOT EXISTS email_events (
     -- written as, and its id in data/academic/study_schedule.json.
     expected_category TEXT,
     seed_id TEXT,
+    -- Reply drafts (app/draft_tracker.py): the Gmail draft, its original
+    -- text, and what the participant did with it: unchanged, edited, sent
+    -- or deleted, with the share of words changed (0-100).
+    draft_id TEXT,
+    thread_id TEXT,
+    draft_text TEXT,
+    draft_status TEXT,
+    draft_change_pct REAL,
+    draft_checked_at TEXT,
     FOREIGN KEY (participant_id) REFERENCES participants(id)
 );
 
@@ -117,6 +126,7 @@ CREATE TABLE IF NOT EXISTS checkin_submissions (
     day_number INTEGER NOT NULL,
     overall_rating INTEGER,
     notes TEXT,
+    review_minutes INTEGER,
     per_email_json TEXT,
     submitted_at TEXT NOT NULL,
     PRIMARY KEY (participant_id, day_number),
@@ -145,9 +155,16 @@ def _migrate(conn: sqlite3.Connection) -> None:
     for name, kind in (("input_tokens", "INTEGER"), ("output_tokens", "INTEGER"),
                        ("latency_ms", "REAL"), ("body_chars", "INTEGER"),
                        ("reply_needed", "INTEGER"), ("needs_review", "INTEGER"),
-                       ("expected_category", "TEXT"), ("seed_id", "TEXT")):
+                       ("expected_category", "TEXT"), ("seed_id", "TEXT"),
+                       ("draft_id", "TEXT"), ("thread_id", "TEXT"), ("draft_text", "TEXT"),
+                       ("draft_status", "TEXT"), ("draft_change_pct", "REAL"),
+                       ("draft_checked_at", "TEXT")):
         if name not in event_cols:
             conn.execute(f"ALTER TABLE email_events ADD COLUMN {name} {kind}")
+
+    checkin_cols = {row["name"] for row in conn.execute("PRAGMA table_info(checkin_submissions)")}
+    if "review_minutes" not in checkin_cols:
+        conn.execute("ALTER TABLE checkin_submissions ADD COLUMN review_minutes INTEGER")
 
     pending_cols = {row["name"] for row in conn.execute("PRAGMA table_info(pending_events)")}
     if "time_adjusted" not in pending_cols:
@@ -481,6 +498,7 @@ def save_checkin_submission(
     overall_rating: Optional[int],
     notes: str,
     per_email: list,
+    review_minutes: Optional[int] = None,
 ) -> None:
     """per_email: [{"email_event_id": ..., "correct": bool}, ...].
     Re-submitting the same day overwrites the earlier submission."""
@@ -488,15 +506,18 @@ def save_checkin_submission(
         conn.execute(
             """
             INSERT INTO checkin_submissions
-                (participant_id, day_number, overall_rating, notes, per_email_json, submitted_at)
-            VALUES (?, ?, ?, ?, ?, ?)
+                (participant_id, day_number, overall_rating, notes, per_email_json,
+                 submitted_at, review_minutes)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(participant_id, day_number) DO UPDATE SET
                 overall_rating = excluded.overall_rating,
+                review_minutes = excluded.review_minutes,
                 notes = excluded.notes,
                 per_email_json = excluded.per_email_json,
                 submitted_at = excluded.submitted_at
             """,
-            (participant_id, day_number, overall_rating, notes, json.dumps(per_email), _now()),
+            (participant_id, day_number, overall_rating, notes, json.dumps(per_email), _now(),
+             review_minutes),
         )
 
 
@@ -514,7 +535,7 @@ def list_all_checkin_submissions() -> list[sqlite3.Row]:
     with _conn() as conn:
         return conn.execute(
             """
-            SELECT c.participant_id, p.email, c.day_number, c.overall_rating,
+            SELECT c.participant_id, p.email, c.day_number, c.overall_rating, c.review_minutes,
                    c.notes, c.per_email_json, c.submitted_at
             FROM checkin_submissions c
             JOIN participants p ON p.id = c.participant_id
@@ -620,3 +641,37 @@ def list_seed_log() -> list[sqlite3.Row]:
         return conn.execute(
             "SELECT * FROM study_seed_log ORDER BY participant_id, day_number"
         ).fetchall()
+
+
+# --- reply draft tracking ----------------------------------------------------
+
+def set_event_draft(participant_id: str, gmail_id: str, draft_id: str,
+                    thread_id: Optional[str], draft_text: str) -> None:
+    """Attach the Gmail draft created for an email to its email_events row."""
+    with _conn() as conn:
+        conn.execute(
+            "UPDATE email_events SET draft_id = ?, thread_id = ?, draft_text = ?, "
+            "draft_status = 'unchanged', draft_change_pct = 0 "
+            "WHERE participant_id = ? AND gmail_id = ?",
+            (draft_id, thread_id, draft_text, participant_id, gmail_id),
+        )
+
+
+def list_drafts_to_track(participant_id: str, since: str) -> list[sqlite3.Row]:
+    """Drafts created at or after `since` (UTC timestamp) that are not yet
+    known to be sent or deleted."""
+    with _conn() as conn:
+        return conn.execute(
+            "SELECT * FROM email_events WHERE participant_id = ? AND draft_id IS NOT NULL "
+            "AND created_at >= ? AND draft_status IN ('unchanged', 'edited')",
+            (participant_id, since),
+        ).fetchall()
+
+
+def update_draft_status(event_id: str, status: str, change_pct: Optional[float]) -> None:
+    with _conn() as conn:
+        conn.execute(
+            "UPDATE email_events SET draft_status = ?, draft_change_pct = ?, draft_checked_at = ? "
+            "WHERE id = ?",
+            (status, change_pct, _now(), event_id),
+        )
