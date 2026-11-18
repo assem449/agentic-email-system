@@ -292,8 +292,14 @@ def export_xlsx(x_admin_token: Optional[str] = Header(None)):
            for c in data["by_true_category"]])
     sheet("Confusion", ["Predicted", "Participant says", "Count"],
           [[c["predicted"], c["participant_says"], c["count"]] for c in data["confusion"]])
-    sheet("Feedback", ["Participant", "Day", "Overall rating (1-10)", "Review minutes", "Notes", "Submitted (UTC)"],
-          [[f["participant_id"], f["day_number"], f["overall_rating"], f["review_minutes"], f["notes"], f["submitted_at"]]
+    started = {p["id"]: p["connected_at"] for p in data["participants"]}
+    sheet("Feedback", ["Participant", "Day", "Overall rating (1-10)", "Review minutes", "Notes",
+                       "Submitted (UTC)", "Days late"],
+          [[f["participant_id"], f["day_number"], f["overall_rating"], f["review_minutes"], f["notes"],
+            f["submitted_at"],
+            # 0 = given on the study day itself; 2 = two days later, from memory
+            db.study_day(started[f["participant_id"]], f["submitted_at"]) - f["day_number"]
+            if f["participant_id"] in started else None]
            for f in db.list_all_checkin_submissions()])
     sheet("Participants", ["Participant", "Email", "Role", "Connected (UTC)", "Active", "Days checked in"],
           [[p["id"], p["email"], p["role"], p["connected_at"], bool(p["active"]), p["days_checked_in"]]
