@@ -478,6 +478,48 @@ def day_number_for(participant_id: str) -> Optional[int]:
     connected_date = _parse_utc(p["connected_at"]).astimezone(_STUDY_TZ).date()
     return (_today_study_tz() - connected_date).days + 1
 
+def list_events_for_day(participant_id: str, day_number: int) -> list[sqlite3.Row]:
+    """The participant's processed emails from one study day
+    (day 1 = the day they connected)."""
+    p = get_participant(participant_id, include_inactive=True)
+    if p is None:
+        return []
+    with _conn() as conn:
+        rows = conn.execute(
+            "SELECT * FROM email_events WHERE participant_id = ? ORDER BY created_at ASC",
+            (participant_id,),
+        ).fetchall()
+    return [r for r in rows if study_day(p["connected_at"], r["created_at"]) == day_number]
+
+def checkin_days(participant_id: str) -> list[dict]:
+    """One entry per study day so far: "done" (feedback saved), "today",
+    "missed" (an earlier day that had emails but no feedback) or "empty"
+    (an earlier day without emails)."""
+    p = get_participant(participant_id, include_inactive=True)
+    if p is None:
+        return []
+    today = day_number_for(participant_id)
+    with _conn() as conn:
+        created = conn.execute(
+            "SELECT created_at FROM email_events WHERE participant_id = ?", (participant_id,)
+        ).fetchall()
+        done = {r["day_number"] for r in conn.execute(
+            "SELECT day_number FROM checkin_submissions WHERE participant_id = ?", (participant_id,)
+        )}
+    with_email = {study_day(p["connected_at"], r["created_at"]) for r in created}
+    days = []
+    for d in range(1, today + 1):
+        if d in done:
+            status = "done"
+        elif d == today:
+            status = "today"
+        elif d in with_email:
+            status = "missed"
+        else:
+            status = "empty"
+        days.append({"day": d, "status": status})
+    return days
+
 
 def list_events_for_today(participant_id: str) -> list[sqlite3.Row]:
     today = _today_study_tz()

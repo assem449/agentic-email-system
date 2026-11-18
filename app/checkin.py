@@ -244,7 +244,13 @@ button.submit{background:#2F6FED; color:#fff; border:none; border-radius:11px; p
               font-size:15px; font-weight:600; cursor:pointer; transition:background .2s ease; width:100%;}
 button.submit:hover{background:#2558BE;}
 a{color:#2F6FED; text-decoration:none;}
-.done{background:#FAF9F6; border-radius:16px; padding:22px; margin-top:16px; text-align:center;}
+.day-strip{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-top:14px;}
+.day-chip{font-size:12.5px; line-height:1.5; padding:4px 10px; border-radius:999px; border:1px solid #E5E2D9; color:#57544C; text-decoration:none; background:#fff;}
+.day-chip.done{color:#2E7D46; border-color:#BFE0C9; background:#EEF8F1;}
+.day-chip.missed{color:#A6432E; border-color:#F0C9BF; background:#FBEEEA; font-weight:600;}
+.day-chip.empty{color:#B5B2A9;}
+.day-chip.current{outline:2px solid #202124; outline-offset:1px;}
+.days-note{font-size:13px; color:#A6432E; margin-top:8px;}
 .done .big{font-size:24px; margin-bottom:7px;}
 .result{font-size:14px; margin-top:10px; text-align:center; min-height:16px;}
 
@@ -284,28 +290,34 @@ a{color:#2F6FED; text-decoration:none;}
 
 
 @router.get("/checkin/{token}", response_class=HTMLResponse)
-def checkin_page(token: str):
+def checkin_page(token: str, day: Optional[int] = None):
     participant = db.get_participant_by_checkin_token(token, include_inactive=True)
     if participant is None:
         raise HTTPException(404, "This check-in link isn't recognized. It may have been disconnected.")
 
-    day = db.day_number_for(participant["id"])
-    events = db.list_events_for_today(participant["id"])
+    # ?day=N shows an earlier study day so missed feedback can be added;
+    # anything outside 1..today falls back to today.
+    today = db.day_number_for(participant["id"])
+    if day is None or not 1 <= day <= today:
+        day = today
+    events = db.list_events_for_day(participant["id"], day)
     already = db.get_checkin_submission(participant["id"], day)
     # Also whenever the role is missing: it can't be skipped, and
     # course_logistics can't draft until it is known.
-    show_welcome = (day == 1 and not participant["welcomed_at"]) or not participant["role"]
+    show_welcome = (today == 1 and not participant["welcomed_at"]) or not participant["role"]
 
     if already:
+        next_step = (f"Come back tomorrow for Day {day + 1}." if day == today
+                     else f'<a href="/checkin/{token}">Back to today</a>')
         body_html = f"""
         <div class="done">
           <div class="big">🎉</div>
           <div style="font-size:14.5px;">Thanks, you already checked in for Day {day}.</div>
-          <div style="font-size:12.5px; color:#a6a39a; margin-top:4px;">Come back tomorrow for Day {day + 1}.</div>
+          <div style="font-size:12.5px; color:#a6a39a; margin-top:4px;">{next_step}</div>
         </div>
         """
     else:
-        body_html = _form_html(token, events)
+        body_html = _form_html(token, events, day, today)
 
     n = len(events)
     return HTMLResponse(f"""
@@ -328,7 +340,8 @@ def checkin_page(token: str):
           <button type="button" class="link-btn" onclick="openOverlay('welcome-overlay')">About this study</button>
           <button type="button" class="link-btn" onclick="openOverlay('instructions-overlay')">Instructions</button>
         </div>
-        <div class="lead">You received <strong>{n}</strong> email{'s' if n != 1 else ''} today. Here's a peek above, check your real Drafts and Calendar too, then let us know how it went.</div>
+        <div class="lead">You received <strong>{n}</strong> email{'s' if n != 1 else ''} {'today' if day == today else f'on Day {day}'}. Here's a peek above, check your real Drafts and Calendar too, then let us know how it went.</div>
+        {_days_html(token, db.checkin_days(participant["id"]), day)}
         {_reconnect_html(participant)}
         {_pending_events_html(token, participant["id"])}
         {body_html}
@@ -616,7 +629,26 @@ def _gmail_row_html(e, email: str) -> str:
     """
 
 
-def _form_html(token: str, events) -> str:
+def _days_html(token: str, days: list, current: int) -> str:
+    """A chip per study day so far (done / missed / today), linking to
+    that day's check-in, plus a note when feedback is missing."""
+    if len(days) <= 1:
+        return ""
+    marks = {"done": " ✓", "missed": " !", "today": "", "empty": ""}
+    chips = "".join(
+        f'<a class="day-chip {d["status"]}{" current" if d["day"] == current else ""}" '
+        f'href="/checkin/{token}?day={d["day"]}">Day {d["day"]}{marks[d["status"]]}</a>'
+        for d in days
+    )
+    missed = [d["day"] for d in days if d["status"] == "missed"]
+    note = ""
+    if missed:
+        note = (f'<div class="days-note">{len(missed)} earlier day{"s" if len(missed) != 1 else ""} '
+                f'without feedback. Click a day marked ! to add it.</div>')
+    return f'<div class="day-strip">{chips}</div>{note}'
+
+
+def _form_html(token: str, events, day: int, today: int) -> str:
     if not events:
         return ""
 
@@ -668,7 +700,7 @@ def _form_html(token: str, events) -> str:
       <label for="notes" class="section-label" style="display:block;">Anything else you noticed? (optional)</label>
       <textarea id="notes" placeholder="e.g. the meeting time it proposed was off by an hour"></textarea>
     </div>
-    <button class="submit" onclick="submitFeedback('{token}')">Submit today's feedback</button>
+      <button class="submit" onclick="submitFeedback('{token}')">{"Submit today's feedback" if day == today else f"Submit feedback for Day {day}"}</button>
     <div id="result" class="result"></div>
   </div>
 <script>
@@ -698,15 +730,16 @@ def _form_html(token: str, events) -> str:
     const per_email = Object.entries(perEmail).map(([email_event_id, correct]) => ({{
       email_event_id, correct, correct_category: correct ? null : (fixes[email_event_id] || null)
     }}));
-    const res = await fetch(`/checkin/${{token}}/submit`, {{
+    const res = await fetch(`/checkin/${{token}}/submit?day={day}`, {{
       method: 'POST',
       headers: {{'Content-Type': 'application/json'}},
       body: JSON.stringify({{overall_rating: rating, notes: document.getElementById('notes').value, per_email,
         review_minutes: document.getElementById('review-minutes').value === '' ? null : parseInt(document.getElementById('review-minutes').value, 10)}})
     }});
     const el = document.getElementById('result');
-    el.textContent = res.ok ? 'Thanks! See you tomorrow.' : 'Something went wrong, please try again.';
-    el.style.color = res.ok ? '#2E7D46' : '#A6432E';
+    el.textContent = res.ok ? 'Thanks! Your feedback is saved.' : 'Something went wrong, please try again.';
+      el.style.color = res.ok ? '#2E7D46' : '#A6432E';
+      if (res.ok) setTimeout(() => location.reload(), 1200);
   }}
 </script>
 """
@@ -786,12 +819,19 @@ def mark_welcome_seen(token: str):
 
 
 @router.post("/checkin/{token}/submit")
-def submit_checkin(token: str, submission: CheckinSubmission):
+def submit_checkin(token: str, submission: CheckinSubmission, day: Optional[int] = None):
     participant = db.get_participant_by_checkin_token(token, include_inactive=True)
     if participant is None:
         raise HTTPException(404, "Check-in link not recognized")
 
-    day = db.day_number_for(participant["id"])
+    # ?day=N saves feedback for an earlier study day; without it, today.
+    today = db.day_number_for(participant["id"])
+    if day is None:
+        day = today
+    if not 1 <= day <= today:
+        raise HTTPException(400, f"Day {day} isn't available; choose a day from 1 to {today}.")
+    # Only that day's emails can be rated on that day's form.
+    day_event_ids = {e["id"] for e in db.list_events_for_day(participant["id"], day)}
     db.save_checkin_submission(
         participant_id=participant["id"],
         day_number=day,
@@ -805,7 +845,8 @@ def submit_checkin(token: str, submission: CheckinSubmission):
         per_email=[
             {**pe.dict(), "correct_category": pe.correct_category
              if not pe.correct and pe.correct_category in CATEGORY_STYLE else None}
-            for pe in submission.per_email
+                        for pe in submission.per_email
+            if pe.email_event_id in day_event_ids
         ],
     )
     return {"status": "saved", "day": day}
