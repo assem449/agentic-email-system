@@ -244,6 +244,7 @@ button.submit{background:#2F6FED; color:#fff; border:none; border-radius:11px; p
               font-size:15px; font-weight:600; cursor:pointer; transition:background .2s ease; width:100%;}
 button.submit:hover{background:#2558BE;}
 a{color:#2F6FED; text-decoration:none;}
+.done{background:#FAF9F6; border-radius:16px; padding:22px; margin-top:16px; text-align:center;}
 .day-strip{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-top:14px;}
 .day-chip{font-size:12.5px; line-height:1.5; padding:4px 10px; border-radius:999px; border:1px solid #E5E2D9; color:#57544C; text-decoration:none; background:#fff;}
 .day-chip.done{color:#2E7D46; border-color:#BFE0C9; background:#EEF8F1;}
